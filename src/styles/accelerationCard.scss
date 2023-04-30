@@ -1,0 +1,76 @@
+.accCard{
+    width: 80%;
+    height: 12vw;
+    background-image: url('../assets//images/info-bg.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 4vw auto 0;
+    position: relative;
+    font-family: 'Helvetica';
+    color: white;
+
+
+    .leftDiv{
+        img{
+            width: 10vw;
+            position: absolute;
+    top: 1vw;
+    left: -1vw;
+        }
+        .info{
+            top: 3vw;
+    position: absolute;
+    left: 11vw;
+    font-size: 3vw;
+            
+        }
+    }
+    .rightDiv{
+        position: absolute;
+    right: 0;
+     img{
+        width: 12vw;
+     }
+    }
+
+    .tabButton{
+        background-color: transparent;
+        // width: 22vw;
+        // height: 10vw;
+        border: none;
+        bottom: -13vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+        img{
+            width: 15vw;
+        }
+    }
+
+    .tabButtonOn{
+        width: 25vw;
+        height: 11vw;
+        background-image: url('../assets/images/tab-selected.gif');
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+
+    }
+    .tabButtonOff{
+        width: 25vw;
+        height: 11vw;
+        background-image: url('../assets/images/tab-unselected.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        
+    }
+    
+    .eligibility-text{
+        font-family: 'HiJack';
+        color: yellow;
+        position: absolute;
+        bottom: -16vw;
+        left: 9vw;
+        font-size: 3vw;    }
+}

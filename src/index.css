@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face{
+  font-family: "HiJack";
+  src: local('HiJack'),url('./assets/fonts/HiJack.ttf') format('truetype')
+}
+
+@font-face{
+  font-family: "Helvetica";
+  src: local('Helvetica'),url('./assets/fonts/Helvetica-Bold-Font.ttf') format('truetype')
+}

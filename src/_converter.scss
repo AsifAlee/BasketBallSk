@@ -1,0 +1,4 @@
+$standardWidth: 750;
+@function calcView($pixels) {
+  @return (($pixels/$standardWidth) * 100) + vw;
+}

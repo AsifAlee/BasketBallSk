@@ -1,0 +1,600 @@
+@import "../converter";
+
+.gifting-leaderboard{
+    margin-top: 8vw;
+
+
+
+    .event-gifts{
+        width: 95%;
+        background-image: url('../assets/images/event-gift-bg.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: calcView(400);
+        position: relative;
+        margin: 0 auto;
+
+        .title{
+            width: 50%;
+            left: 24vw;
+            top: -5.1vw;
+            position: absolute;
+        }
+
+
+    }
+    .gifts{
+        background-image: url('../assets/images/event-gift-display.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 29vw;
+        width: 100%;
+        position: relative;
+        // top: -30vw;
+        margin-top: -30vw;
+        img{
+            position: absolute;
+            top: calcView(28);
+            right: 0;
+            width: 18vw;
+        }
+    }
+
+    .tabs{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5vw;
+        padding-left: 4vw;
+        padding-right: 4vw;
+
+        img{
+            width: 23vw;
+        }
+
+        .tabOn{
+            width: 28vw;
+            height: 10vw;
+            background-image: url('../assets/images/tab-selected.gif');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+            background-color: transparent;
+            border: none;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .tabOff{
+            width: 28vw;
+            height: 10vw;
+            background-image: url('../assets/images/tab-unselected.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+            background-color: transparent;
+            border: none;
+
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .sliderBtn{
+        width: 25vw;
+        height: 9vw;
+        background-image: url('../assets/images/slide-button.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-color: transparent;
+        border: none;
+        font-family: 'HiJack';
+    
+        font-weight: bold;
+        img{
+            width: 23vw;
+        }
+    }
+    .userPot{
+        width: 95%;
+        height: 59vw;
+        background-image: url('../assets/images/gifting-beans-pot.gif');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin: 2vw auto 0;
+        position: relative;
+
+        .pot-tabs{
+            width: 45vw;
+            height: 8vw;
+       
+            margin:  0 auto;
+        }
+    
+
+        .beansCount{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 35vw;
+            top: 12vw;
+            font-size: 4vw;
+        
+            span{
+                font-family: 'HiJack';
+                color: black;
+            }
+            img{
+                width:6vw;
+            }
+        }
+
+        .potInfo{
+            width: 100%;
+            height: 8vw;
+            background-image: url('../assets/images/beans-pot-info.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 85%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: -4vw;
+            position: absolute;
+            font-family: 'Helvetica';
+            font-size: calcView(22);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+    }
+    .userLeaderBoardTabs{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10vw;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        .tabButton{
+            background-color: transparent;
+            width: 22vw;
+            height: 10vw;
+            border: none;
+
+            img{
+                width: 22vw;
+            }
+        }
+
+        .tabButtonOn{
+            width: 28vw;
+            height: 10vw;
+            background-image: url('../assets/images/tab-selected.gif');
+            background-size: 100%;
+            background-repeat: no-repeat;
+
+        }
+        .tabButtonOff{
+            width: 28vw;
+            height: 10vw;
+            background-image: url('../assets/images/tab-unselected.png');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            
+        }
+
+    }
+
+    .userDailyLeaderBoard{
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin: 1.33333vw auto 0;
+        position: relative;
+        width: 100%;
+        height: 180.66667vw;
+        background-image: url('../assets/images//leaderboard-bg-2.png');
+        
+        .leaderBoardTitle {
+            display: flex;
+            justify-content: center;
+            .title {
+              width: 50%;
+            }
+          }
+        .dailyTabBtns{
+            width: 45vw;
+            height: 8vw;
+            // background-image: url('../assets/images/slide-button-bg-today-yesterday.png');
+            // background-repeat: no-repeat;
+            // background-size: 100%;
+            margin: 0.4vw auto 0;
+            display: flex;
+        }
+
+      
+
+    }
+    .userOverallLeaderBoard{
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin: 1.33333vw auto 0;
+        position: relative;
+        width: 100%;
+        height: 180.66667vw;
+        background-image: url('../assets/images//leaderboard-bg-2.png');
+
+        .leaderBoardTitle {
+            display: flex;
+            justify-content: center;
+            .title {
+              width: 50%;
+            }
+          }
+          .topRank{
+            margin-top: 26vw;
+          }
+
+    }
+
+    //talent section
+     
+    .talentSection{
+        .talentPot{
+            width: 95%;
+            height: 59vw;
+            background-image: url('../assets/images/gifting-beans-pot.gif');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            margin: 2vw auto 0;
+            position: relative;
+        }
+
+        .beansCount{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 35vw;
+            top: 12vw;
+            font-size: 4vw;
+        
+            span{
+                font-family: 'HiJack';
+                color: black;
+            }
+            img{
+                width:6vw;
+            }
+        }
+        .potInfo{
+            width: 100%;
+            height: 8vw;
+            background-image: url('../assets/images/beans-pot-info.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 85%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: -4vw;
+            position: absolute;
+            font-family: 'Helvetica';
+            font-size: calcView(22);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+
+
+        .userLeaderBoardTabs{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10vw;
+            padding-left: 4vw;
+            padding-right: 4vw;
+            .tabButton{
+                background-color: transparent;
+                width: 22vw;
+                height: 10vw;
+                border: none;
+    
+                img{
+                    width: 22vw;
+                }
+            }
+    
+            .tabButtonOn{
+                width: 28vw;
+                height: 10vw;
+                background-image: url('../assets/images/tab-selected.gif');
+                background-size: 100%;
+                background-repeat: no-repeat;
+    
+            }
+            .tabButtonOff{
+                width: 28vw;
+                height: 10vw;
+                background-image: url('../assets/images/tab-unselected.png');
+                background-size: 100%;
+                background-repeat: no-repeat;
+                
+            }
+    
+        }
+
+        .talentDailyLeaderBoard{
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin: 1.33333vw auto 0;
+            position: relative;
+            width: 100%;
+            height: 180.66667vw;
+            background-image: url('../assets/images//leaderboard-bg-2.png');
+            
+            .leaderBoardTitle {
+                display: flex;
+                justify-content: center;
+                .title {
+                  width: 50%;
+                }
+              }
+            .dailyTabBtns{
+                width: 45vw;
+                height: 8vw;
+                // background-image: url('../assets/images/slide-button-bg-today-yesterday.png');
+                // background-repeat: no-repeat;
+                // background-size: 100%;
+                margin: 0.4vw auto 0;
+                display: flex;
+            }
+        }
+
+        .talentOverallLeaderBoard{
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin: 1.33333vw auto 0;
+            position: relative;
+            width: 100%;
+            height: 180.66667vw;
+            background-image: url('../assets/images//leaderboard-bg-2.png');
+    
+            .leaderBoardTitle {
+                display: flex;
+                justify-content: center;
+                .title {
+                  width: 50%;
+                }
+              }
+              .topRank{
+                margin-top: 26vw;
+              }
+        }
+        
+    }
+
+
+    // common styles
+    .topRank{
+        display: flex;
+        justify-content: center;
+        gap: calcView(10);
+        margin-top: calcView(180);
+        font-family: 'Helvetica';
+    
+        .topper {
+          width: calcView(200);
+          // border: 1px solid red;
+          .topper-images {
+            position: relative;
+            height: calcView(140);
+            left: calcView(12);
+            .rank {
+              top: calcView(-70);
+              left: calcView(-6);
+              width: 100%;
+              position: absolute;
+              z-index: 1;
+            }
+            .user {
+              top: 0;
+              left: 0;
+              width: 69%;
+              position: absolute;
+            }
+          }
+          .name{
+              width: 80%;
+              height: calcView(30);
+              background-color: #0c2974;
+              border-radius: calcView(15);
+              font-size: calcView(20);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: calcView(5)  auto calcView(5);
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+          }
+          .est-rewards{
+              font-size: calcView(14);
+              display: flex;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              .bean{
+               width:calcView(25)
+              }
+              span{
+    
+                color: #b8ccdd;
+              }
+          }
+          .score{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              img{
+                  width: calcView(40);
+      
+              }
+              span{
+                  font-size: calcView(18);
+              }
+          }
+        }
+        .topper:nth-child(1){
+          margin-top: calcView(-100);
+          position: relative;
+          left: calcView(23);
+          width: calcView(220);
+        
+        }
+        .topper:nth-child(1) .name{
+          margin-top: calcView(30);
+        }
+        .topper:nth-child(3) .name{
+          margin-top: calcView(15);
+          // margin-right: 4vw;
+        }
+        .topper:nth-child(2){
+          order: -1;
+          position: relative;
+          top: calcView(-40);
+        }
+        .topper:nth-child(2) .topper-images .rank{
+          left: calcView(-55);
+        }
+        .topper:nth-child(2) .topper-images {
+          left: 3.66667vw;
+        }
+    
+        .topper:nth-child(3) .topper-images {
+          left:3.66667vw;
+        }
+        .topper:nth-child(2) .topper-images .user{
+          width: 65%;
+          
+        }
+        .topper:nth-child(1) .topper-images{
+          left: calcView(20);
+    
+          
+        }
+        .topper:nth-child(3){
+          position: relative;
+          left: calcView(33);
+          top: calcView(-40);
+          margin-right: 4vw;
+    
+        }
+       
+      }
+      .restWinners{
+        height: calcView(450);
+        overflow-y: auto;
+        font-family: 'Helvetica';
+        
+        .fieldGoalLederBoarItem{
+            background-image: url('../assets/images/leaderboard-list-bg.png');
+            width: 90%;
+            height: calcView(70);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            margin: calcView(15) auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-position: center;
+            .leftDiv{
+              display: flex;
+              align-items: center;
+              gap: calcView(15);
+              margin-left: calcView(10);
+              font-size: calcView(14);
+              .rankIndex{
+                font-weight: 500;
+              }
+              span.name{
+                width: calcView(150);
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                
+              }
+              .restUser{
+                width: calcView(60);
+              }
+              .levelIcon{
+                width: calcView(35);
+              }
+            }
+            .middle-div{
+                font-size: calcView(12);
+                display: flex;
+                align-items: center;
+                font-family: unset;
+                .title{
+                    // font-size: calcView(22);
+                }
+                img{
+                    width: 4vw;
+                }
+            }
+            .rightDiv{
+              display: flex;
+              align-items: center;
+              gap: calcView(10);
+              margin-right: calcView(20);
+              font-size: calcView(14);
+      
+              .basket{
+                width: calcView(35);
+              }
+              span{
+                font-weight: 400;
+              }
+      
+            }
+          }
+    
+      }
+
+      .seeMore{
+        width: 17vw;
+        height: 7vw;
+        background-image: url('../assets/images/see-more.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+
+        position: absolute;
+        bottom: 7vw;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: transparent;
+        border: none;
+      }
+      .seeLess{
+        width: 17vw;
+        height: 7vw;
+        background-image: url('../assets/images/see-less.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        bottom: 7vw;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: transparent;
+        border: none;
+      }
+}

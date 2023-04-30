@@ -1,0 +1,216 @@
+@import "../converter";
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5vw;
+
+  .content {
+    width: 80%;
+    min-height: 106vw;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    .title {
+      width: 80%;
+    height: 11vw;
+    object-fit: contain;
+    }
+  }
+  .closeBtn {
+    background-image: url("../assets/images/close-button.png");
+    width: 12vw;
+    height: 12vw;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+  }
+
+  .guidePopUp {
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin: 1vw 4vw 0 4vw;
+      .howToPlay {
+        background-image: url("../assets/images/left-button.png");
+        width: 30vw;
+        height: 7vw;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        font-family: "HiJack";
+        background-color: transparent;
+        border: none;
+        font-size: calcView(22);
+      }
+      .rewardInfo {
+        background-image: url("../assets/images/right-button.png");
+        width: 30vw;
+        height: 7vw;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        font-family: "HiJack";
+        background-color: transparent;
+        border: none;
+        font-size: calcView(22);
+      }
+      .unactive {
+        opacity: 0.5;
+      }
+    }
+    .guideContent {
+      // max-height: 62.33vw;
+      // border: 1px solid red;
+      height: 76vw;
+      width: 90%;
+      margin: 2vw auto 0;
+      overflow-y: auto;
+      font-family: "Helvetica";
+      font-size: calcView(18);
+      background-image: url("../assets/images/guide-reward-info-diplay-bg.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      padding: 2vw;
+      .tab1-content {
+        li {
+          margin-bottom: 3vw;
+        }
+
+        .accTable {
+          table,
+          tr,
+          th,
+          td {
+            border: 1px solid;
+            border-collapse: collapse;
+            padding: 1vw;
+          }
+
+          .table {
+            width: 90%;
+            margin: 0 auto;
+          }
+          td {
+            text-align: center;
+          }
+        }
+      }
+
+      .tab2-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+
+  .accPopUp {
+    .search {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-top: 2vw;
+      input {
+        height: 9vw;
+        border-radius: 5vw;
+        font-family: "Helvetica";
+        width: 68%;
+        color: black;
+
+        padding: 3vw 0 3vw 2vw;
+      }
+      .icon {
+        width: 10vw;
+        height: 10vw;
+        background-image: url("../assets/images/search-button.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 8vw;
+      }
+    }
+  }
+
+  .rewardHistoryPopUp {
+    margin-top: 2vw;
+    .rewardsTitle{
+    font-size: 3vw;
+    margin-bottom: 2vw;
+      .time{
+        position: relative;
+        left: 11vw;
+       
+      }
+      .type{
+        position: relative;
+        left: 17vw;
+      }
+      .rewards{
+        position: relative;
+        right: -28vw;
+      }
+    }
+    .historyItem {
+      width: 84%;
+      height: 13vw;
+      margin: 0 auto;
+      background-color: #0a2a77;
+      border-radius: 12vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Helvetica';
+      padding: 0 1vw 0 1vw;
+
+      .time {
+        // border: 1px solid;
+        flex: 0 1 20%;
+        text-align: center;
+        .date {
+          font-size: 2.5vw;
+        }
+        .hours {
+          font-size: 2vw;
+        }
+      }
+      .rewardType {
+        flex: 0 1 30%;
+        text-align: center;
+        img {
+          width: 11vw;
+        }
+      }
+      .rewards {
+        flex: 0 1 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 10vw;
+          height: 10vw;
+          border: 1px solid #1052ba;
+          border-radius: 1vw;
+        }
+        .text {
+          font-size: 2vw;
+          margin-left: 1vw;
+        }
+      }
+    }
+  }
+}
