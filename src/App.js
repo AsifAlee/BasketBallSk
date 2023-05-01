@@ -13,6 +13,7 @@ function App() {
   const [showRewardHistory, setShowRewardHistory] = useState(0);
   const [showGuide, setShowGuide] = useState(0);
   const [showAccPopUp, setShowAccPopUp] = useState(0);
+  const [userInfo, setUserInfo] = useState({});
 
   const [tabs, setTabs] = useState({
     fieldGoal: true,
@@ -34,6 +35,8 @@ function App() {
     setSelectedLanguage(index)
   }
 
+
+
   const toggleTabs = (event) => {
     switch (event.target.name) {
       case "fieldGoal":
@@ -46,6 +49,8 @@ function App() {
         setTabs({ fieldGoal: false, growthAcc: false, giftLeaderBoard: true });
     }
   };
+
+
   return (
     <AppContext.Provider value={{
       toggleGuide: toggleGuide,

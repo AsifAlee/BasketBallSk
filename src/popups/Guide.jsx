@@ -5,6 +5,9 @@ import guidBg from "../assets/images/guide-bg.png";
 import titleBanner from "../assets/images/Guide-banner.png";
 import Accordion from "../components/Accordion";
 import beanBag from "../assets/images/beanbag.png";
+import waterSplash from "../assets/images/WaterSplashFrame.png";
+import ragingBul from "../assets/images/ragingBull.png";
+import royalCar from "../assets/images/royal.png";
 import { AppContext } from "../App";
 const Guide = (props) => {
   const { selectedLanguage } = props;
@@ -314,6 +317,7 @@ const Guide = (props) => {
                 <Accordion
                   title="Daily Leaderboard"
                   toggleUserTalent={toggleUserTalent}
+                  hasTabs={1}
                 >
                   {userTalent.user ? (
                     <div className="userContent">
@@ -352,6 +356,11 @@ const Guide = (props) => {
                     </div>
                   ) : (
                     <div className="talentContent">
+                      <div className="rewardImages">
+                        <img src={waterSplash} alt="" /> +
+                        <img src={royalCar} />
+                      </div>
+                      <p>Water Splash + Royal Carriage</p>
                       <table>
                         <tr>
                           <td className="colored">
@@ -392,6 +401,7 @@ const Guide = (props) => {
                 <Accordion
                   title="OverAll Leaderboard"
                   toggleUserTalent={toggleUserTalent}
+                  hasTabs={1}
                 >
                   {userTalent.user ? (
                     <div className="userContent">
@@ -479,7 +489,78 @@ const Guide = (props) => {
                 <Accordion
                   title="FieldGoal Milestone  Leaderboard"
                   toggleUserTalent={toggleUserTalent}
-                ></Accordion>
+                  hasTabs={0}
+                >
+                  <div className="fieldGoalContent">
+                    <div className="beanBag">
+                      <img src={ragingBul} />
+                    </div>
+                    <p>Raging Bull Profile Frame</p>
+                    <ul className="bullets">
+                      <li>
+                        Each successful attempt will be counted towards these
+                        milestones
+                      </li>
+                      <li>
+                        User's failed attempts will not be counted towards these
+                        milestones (11% possibility of NO REWARD)
+                      </li>
+                      <li>
+                        Users will get extra rewards for reaching the milestones
+                      </li>
+                      <li>
+                        These successful attempts will be ranked on leaderboard
+                        which will be placed below the game. In case of same
+                        successful attempts, priority will be given to user who
+                        did the successful attempts in less time from the day of
+                        event start. Furthermore, if situation arise that the
+                        scores are still level, user XP level should be taken
+                        into consideration.
+                      </li>
+                    </ul>
+
+                    <table>
+                      <thead>
+                        <th>Milestone No</th>
+                        <th>Rewards</th>
+                      </thead>
+                      <tr>
+                        <td>100</td>
+                        <td className="colored">
+                          3 days Raging Bull Profile Frame. (ID: )
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>200</td>
+                        <td className="colored">
+                          3 days Spaceship Entrance (ID: )
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>500</td>
+                        <td>
+                          1,40,44,945(rounded off) 5 days Brave Heart Profile
+                          Frame (ID: )
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>1000</td>
+                        <td>
+                          7 days New Audio Theme (NOTE to designer need it by
+                          ___ add date)
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>2000</td>
+                        <td>7 days HERO Entrance (ID: )</td>
+                      </tr>
+                    </table>
+                  </div>
+                </Accordion>
               </div>
             )}
           </div>

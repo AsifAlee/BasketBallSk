@@ -5,7 +5,7 @@ import rewardsSliderBg from "../assets/images/rewards-slide-bg.png";
 import { ButtonSlider } from "./ButtonSlider";
 
 function Accordion(props) {
-  const { toggleUserTalent } = props;
+  const { toggleUserTalent, hasTabs } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   function handleToggle() {
@@ -24,13 +24,16 @@ function Accordion(props) {
       </div>
       {isOpen && (
         <div className="accordion-body">
-          <div>
-            <ButtonSlider
-              onToggle={handleSliderToggle}
-              bg={rewardsSliderBg}
-              texts={["User", "Talent"]}
-            />
-          </div>
+          {hasTabs ? (
+            <div>
+              <ButtonSlider
+                onToggle={handleSliderToggle}
+                bg={rewardsSliderBg}
+                texts={["User", "Talent"]}
+              />
+            </div>
+          ) : null}
+
           {props.children}
         </div>
       )}

@@ -110,6 +110,10 @@
         text-align: center;
         margin-top: 2vw;
       }
+      .bullets{
+        line-height: 3vw;
+     
+      }
       table {
         border: 1px solid;
         width: 100%;
@@ -128,6 +132,71 @@
           color: #fcf907;
         }
       }
+      .lastTable{
+        border-collapse: collapse;
+        tr,td,th{
+          border: 1px solid;
+          border-radius: 3vw;
+        
+        }
+        th{
+          padding: 1vw;
+        }
+      }
+      .rewardImages{
+        display: flex;
+    flex-direction: revert;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    margin-top: 1vw;
+        img{
+          width: 20vw;
+        }
+      }
+    }
+
+    .fieldGoalContent{
+      .beanBag {
+        display: flex;
+        justify-content: center;
+        margin: 1vw;
+        img {
+          width: 22vw;
+        }
+      }
+      p {
+        font-family: "Helvetica";
+        text-align: center;
+        margin-top: 2vw;
+      }
+      .bullets{
+        line-height: 3vw;
+        margin-top: 2vw;
+      }
+      table {
+        border: 1px solid;
+        width: 100%;
+        // border-radius: 3vw;
+        text-align: center;
+        margin-top:3vw;
+        border-collapse: collapse;
+
+        td,th {
+          border: 1px solid;
+          padding: 2vw;
+          border-radius: 2vw;
+        }
+        td.last{
+          border-bottom: none;
+        }
+        td.colored{
+          color: #fcf907;
+        }
+      }
+      
+    }
+
     }
   }
-}
+

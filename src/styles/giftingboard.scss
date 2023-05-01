@@ -2,10 +2,7 @@
 
 .gifting-leaderboard{
     margin-top: 8vw;
-
-
-
-    .event-gifts{
+   .event-gifts{
         width: 95%;
         background-image: url('../assets/images/event-gift-bg.png');
         background-size: 100%;
@@ -38,6 +35,34 @@
             right: 0;
             width: 18vw;
         }
+    }
+    .beansNote{
+      width: 95%;
+      height: 30vw;
+      background-image: url('../assets/images/info-glow-gif.gif');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin: 7vw auto 0;
+      .note{
+        text-decoration: underline;
+        font-size: 4vw;
+      }
+      .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // border: 1px solid;
+        position: relative;
+        top: 5vw;
+        font-size: 3vw;
+      
+
+        ul{
+          padding-left: 7vw;
+          line-height: 5vw;
+        }
+      }
     }
 
     .tabs{

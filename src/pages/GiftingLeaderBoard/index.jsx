@@ -30,6 +30,7 @@ const GiftingLeaderBoards = () => {
           <img src={giftBasketBall} />
         </div>
       </div>
+
       <div className="tabs">
         <div
           className={tabs.user ? "tabOn" : "tabOff"}

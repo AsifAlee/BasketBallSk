@@ -21,6 +21,17 @@ export const UserSection = () => {
   return (
     <div>
       <Pot />
+      <div className="beansNote">
+        <div className="content">
+          <p className="note">Note</p>
+          <ul>
+            <li>
+              initally 100 beans recieved will be considered as 1 ENERGY POINT.
+            </li>
+            <li>The conversion will change based on your acceleration rate</li>
+          </ul>
+        </div>
+      </div>
       <div className="userLeaderBoardTabs">
         <TabButton handleClick={toggleTabs} text="daily" isActive={tabs.daily}>
           <img src={dailyButtton} />
