@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./fieldGoal.scss";
 import beansBanner from "../../assets/images/beans-pot-banner.png";
 import bean from "../../assets/images/bean.png";
+import { AppContext } from "../../App";
 const BeansPot = () => {
+  const { userInfo } = useContext(AppContext);
   return (
     <div className="beans-pot">
       <img src={beansBanner} className="title" />
@@ -13,7 +15,7 @@ const BeansPot = () => {
         </p>
         <div className="beans-number">
           <img src={bean} className="bean" />
-          <span>34000</span>
+          <span>{userInfo.milestoneBeansPot}</span>
         </div>
       </div>
     </div>

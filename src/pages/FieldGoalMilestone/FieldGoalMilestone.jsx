@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import BeansPot from "./BeansPot";
 import Leaderboard from "./Leaderboard";
 import ProgressBar from "./ProgressBar";
@@ -8,23 +8,31 @@ import progressImg from "../../assets/images/progress-bar.png";
 import currentPos from "../../assets/images/current-position.gif";
 
 import "./fieldGoal.scss";
+import { AppContext } from "../../App";
+import PopUp from "../../components/PopUp";
 export const FieldGoalMilestone = () => {
+  const { userInfo, toggleProgressPopUp, progressPopUp } =
+    useContext(AppContext);
   return (
     <div>
       <div className="successfull-attempts">
-        <p>MY SUCCESSFULL ATTEMPTS:0000</p>
+        <p>MY SUCCESSFULL ATTEMPTS:{userInfo.mySuccessfullAttempt}</p>
         <img src={ibBtn} className="ibBtn" />
-        <img src={iaBtn} className="iaBtn" />
+        <img src={iaBtn} className="iaBtn" onClick={toggleProgressPopUp} />
         <div className="progressBar">
-          <img src={currentPos} className="currPosition" />
+          <div className="">
+            <img src={currentPos} className="currPosition" />
 
-          <img src={progressImg} />
+            <img src={progressImg} />
+          </div>
         </div>
+
         <div className="progressLabel"></div>
       </div>
       <BeansPot />
       <Leaderboard />
       <div className="footer"></div>
+      {progressPopUp && <PopUp>My popup</PopUp>}
     </div>
   );
 };

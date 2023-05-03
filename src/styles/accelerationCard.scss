@@ -12,10 +12,12 @@
 
     .leftDiv{
         img{
-            width: 10vw;
+            width: 9vw;
+            height: 9vw;
             position: absolute;
     top: 1vw;
     left: -1vw;
+    border-radius: 100%;
         }
         .info{
             top: 3vw;

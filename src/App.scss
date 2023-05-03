@@ -9,14 +9,14 @@
   // z-index: -1;
 
   .appHeader {
-    background-image: url("./assets//images/header.png");
+    background-image: url("./assets//images/basketball-header-bg2.png");
     background-size: 100%;
     width: 100%;
     min-height: calcView(1100);
     background-repeat: no-repeat;
     position: relative;
 
-    .infoAndRewards{
+    .infoAndRewards {
       display: flex;
       justify-content: space-between;
       padding: 0 2vw 0 2vw;
@@ -24,29 +24,27 @@
       position: absolute;
       top: 103vw;
 
-      .rewardBtn{
+      .rewardBtn {
         width: 12vw;
         height: 12vw;
-        background-image: url('./assets/images/reward-history-button.gif');
+        background-image: url("./assets/images/reward-history-button.gif");
         background-repeat: no-repeat;
         background-size: 100% 100%;
-    border-radius: 100%;
-    background-color: transparent;
-    border: none;
-
+        border-radius: 100%;
+        background-color: transparent;
+        border: none;
       }
 
-      .guideBtn{
+      .guideBtn {
         width: 12vw;
         height: 12vw;
-        background-image: url('./assets/images/guide-button.gif');
+        background-image: url("./assets/images/guide-button.gif");
         background-repeat: no-repeat;
         background-size: 100% 100%;
-    border-radius: 100%;
-    background-color: transparent;
-    border: none;
+        border-radius: 100%;
+        background-color: transparent;
+        border: none;
       }
-
     }
     .gameBtns {
       position: absolute;
@@ -54,19 +52,18 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-    
 
       .throws-left {
         width: 41vw;
         height: 9vw;
         background-image: url("./assets/images/throws-left.png");
-        background-size: 100% ;
+        background-size: 100%;
         background-repeat: no-repeat;
         background-color: transparent;
         color: white;
         border: none;
-        font-family: 'Helvetica';
-        font-size: 2.5vw;
+        font-family: "Helvetica";
+        font-size: 3vw;
       }
 
       .chances {
@@ -81,14 +78,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: 'Helvetica';
+        font-family: "Helvetica";
         font-size: 2.5vw;
         padding-bottom: 2vw;
         padding-top: 1vw;
-        span{
-         margin-top: 1vw;
+        span {
+          margin-top: 1vw;
         }
-        .inputField{
+        .inputField {
           width: 16vw;
           background-color: #4d92d8;
           border-radius: calcView(20);
@@ -98,92 +95,121 @@
           font-size: 1.9vw;
           margin-top: 1vw;
           padding-left: 1vw;
-         
         }
-        
-  
       }
     }
-    .throw-btn{
+    .throw-btn {
       width: calcView(130);
       height: calcView(130);
-      background-image: url('./assets//images//throw-button.png');
+      background-image: url("./assets//images//throw-button.png");
       border-radius: 100%;
       background-repeat: no-repeat;
       background-size: contain;
-      bottom:calcView(30);
+      bottom: calcView(30);
       left: calcView(310);
       border: none;
       background-color: transparent;
       position: absolute;
     }
+
+    .hand {
+      background-image: url("./assets/images/handIcon.gif");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 12vw;
+      height: 12vw;
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      bottom: 4vw;
+      left: 52vw;
+    }
+    .throw {
+      width: 23vw;
+      height: 8vw;
+      background-image: url("./assets/images/throw.gif");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      bottom: 22vw;
+      left: 43vw;
+    }
+
+    .jumping-character{
+      width: 20vw;
+      position: absolute;
+      bottom: 31vw;
+      left: 39vw;
+    }
+    .playing-character{
+      position: absolute;
+      width: 100%;
+    }
   }
 
-  .main-tabs{
-
+  .main-tabs {
     display: flex;
     justify-content: space-around;
 
-    .tab-btn-field-goal{
+    .tab-btn-field-goal {
       width: calcView(240);
       height: calcView(120);
-      background-image: url('./assets/images/field-selected.png');
+      background-image: url("./assets/images/field-selected.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-color: transparent;
       border: none;
     }
-    .tab-btn-growth-acc{
+    .tab-btn-growth-acc {
       width: calcView(240);
       height: calcView(120);
-      background-image: url('./assets/images/growth-selected.png');
+      background-image: url("./assets/images/growth-selected.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-color: transparent;
       border: none;
     }
-    .tab-btn-gift-leaderbrd{
+    .tab-btn-gift-leaderbrd {
       width: calcView(240);
       height: calcView(120);
-      background-image: url('./assets/images/gifting-selected.png');
+      background-image: url("./assets/images/gifting-selected.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-color: transparent;
       border: none;
     }
-
 
     // off tabs
-    .tab-btn-field-goal-off{
+    .tab-btn-field-goal-off {
       width: calcView(240);
       height: calcView(120);
-      background-image: url('./assets/images/field-unselected.png');
+      background-image: url("./assets/images/field-unselected.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-color: transparent;
       border: none;
     }
-    .tab-btn-growth-acc-off{
+    .tab-btn-growth-acc-off {
       width: calcView(240);
       height: calcView(120);
-      background-image: url('./assets/images/growth-unselected.png');
+      background-image: url("./assets/images/growth-unselected.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-color: transparent;
       border: none;
     }
-    .tab-btn-gift-leaderbrd-off{
+    .tab-btn-gift-leaderbrd-off {
       width: calcView(240);
       height: calcView(120);
-      background-image: url('./assets/images/gifting-unsleceted.png');
+      background-image: url("./assets/images/gifting-unsleceted.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-color: transparent;
       border: none;
     }
   }
-
-
 }
 
 * {

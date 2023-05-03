@@ -4,7 +4,10 @@ import { TaskComponent } from "../../components/TaskComponent";
 import img1 from "../../assets/images/info-display.png";
 import { SendAccelerationCard } from "../../popups/SendAccelerationCard";
 import { AppContext } from "../../App";
+
 export const GrowAcceleration = () => {
+  const { userInfo } = useContext(AppContext);
+
   const { showAccPopUp, toogleAccPopUp } = useContext(AppContext);
   return (
     <div>
@@ -19,8 +22,9 @@ export const GrowAcceleration = () => {
           </p>
         </div>
         <div className="task-container">
-          <TaskComponent />
-          <TaskComponent />
+          {userInfo.dailyTaskList.map((taskItem, index) => (
+            <TaskComponent taskItem={taskItem} key={index} />
+          ))}
         </div>
       </div>
       <div className="acc-bottom-title"></div>
@@ -33,8 +37,12 @@ export const GrowAcceleration = () => {
       <div className="total">
         <img className="total-tokens" src={img1} />
         <img className="total-acc" src={img1} />
-        <span className="total-acc-text">My acceleration rate:00</span>
-        <span className="total-token-text">Total tokens collected:00</span>
+        <span className="total-acc-text">
+          My acceleration rate:{userInfo.myAccRate}
+        </span>
+        <span className="total-token-text">
+          Total tokens collected:{userInfo.tokens}
+        </span>
       </div>
       <div className="floating-footer"></div>
       {showAccPopUp ? <SendAccelerationCard /> : ""}

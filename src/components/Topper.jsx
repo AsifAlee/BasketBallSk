@@ -7,6 +7,8 @@ import bean from "../assets/images/bean.png";
 import unknown from "../assets/images/unknown-user.png";
 import ball from "../assets/images/score-icon.png";
 const Topper = (props) => {
+  
+  const { user, estRewards, showEst } = props;
   return (
     <div className="topper">
       <div className="topper-images">
@@ -15,18 +17,23 @@ const Topper = (props) => {
           // src={rank2}
           className="rank"
         />
-        <img src={unknown} className="user" />
+        <img src={user.avatar ? user.avatar : unknown} className="user" />
       </div>
 
-      <div className="name">{props.name}</div>
-      <div className="est-rewards">
-        <span>Est.rewards:</span>
-        <img src={bean} className="bean" />
-        <span>500000</span>
-      </div>
+      <div className="name">{user.nickname}</div>
+      {showEst ? (
+        <div className="est-rewards">
+          <span>Est.rewards:</span>
+          <img src={bean} className="bean" />
+          <span>{estRewards}</span>
+        </div>
+      ) : (
+        ""
+      )}
+
       <div className="score">
         <img src={ball} />
-        <span>12354</span>
+        <span>{user.count}</span>
       </div>
     </div>
   );

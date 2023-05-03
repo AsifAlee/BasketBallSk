@@ -23,13 +23,15 @@ const Leaderboard = () => {
       </div>
       <div className="topRank">
         {toppersData.map((name, index) => (
-          <Topper name={name} index={index + 1} />
+          // <Topper name={name} index={index + 1} />
+          <p>Topper</p>
         ))}
       </div>
 
       <div className="restWinners">
         {leaderBoardList.map((item) => (
-          <FieldLeaderBoardItem />
+          // <FieldLeaderBoardItem />
+          <p>Field Leader board item</p>
         ))}
       </div>
     </div>

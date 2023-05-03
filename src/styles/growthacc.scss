@@ -74,13 +74,15 @@
           width: calcView(180);
           height: calcView(80);
           background-image: url("../assets/images/token-display.png");
-          background-size: contain;
+          background-size: 100% 100%;
           background-repeat: no-repeat;
           display: flex;
           justify-content: center;
           align-items: center;
           gap: calcView(5);
           font-size: 2vw;
+          flex: 0 1 25%;
+
       
           span {
             font-size: calcView(20);
@@ -93,10 +95,20 @@
 
         .taskText{
           font-size: 2.5vw;
+          flex: 0 1 50%;
         }
       
         .isCompleted {
           width: calcView(50);
+          flex: 0 1 25%;
+          text-align: center;
+
+          .circle{
+            width: 11vw;
+          }
+          .tick{
+            width: 8vw;
+          }
         }
     }
   }

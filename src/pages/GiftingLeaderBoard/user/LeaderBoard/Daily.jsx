@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../../../styles/giftingboard.scss";
 import leaderBordTitle from "../../../../assets/images/leaderboard.png";
 import { SliderButton } from "../../../../components/SliderButton";
@@ -8,7 +8,10 @@ import bg from "../../../../assets/images/slide-button-bg-today-yesterday.png";
 import Topper from "../../../../components/Topper";
 import { FieldLeaderBoardItem } from "../../../../components/FieldLeaderBoardItem";
 import { ButtonSlider } from "../../../../components/ButtonSlider";
+import { AppContext } from "../../../../App";
+import { userDailyPot } from "../../../../beansPot";
 export const Daily = () => {
+  const { userInfo } = useContext(AppContext);
   const [dailyTabs, setDailyTabs] = useState({
     today: true,
     yesterday: false,
@@ -30,6 +33,22 @@ export const Daily = () => {
   const toggleTabs = () => {
     setDailyTabs({ today: !dailyTabs.today, yesterday: !dailyTabs.yesterday });
   };
+
+  const calculateEstRewards = (index, isPrev) => {
+    let totalBeansPot = isPrev
+      ? userInfo.userDailyBeansPotPrev
+      : userInfo.userDailyBeansPot;
+    console.log("total beans pot:", totalBeansPot);
+
+    const percent = userDailyPot.find((item) => item.rank === index)?.percent;
+   const  result = totalBeansPot ? (percent / 100) * totalBeansPot : 0;
+
+    return result;
+  };
+
+  const { rankings } = useContext(AppContext);
+  const { userDailyToday, userDailyYest } = rankings;
+  console.log("rankings in user daily", rankings);
 
   return (
     <div className="userDailyLeaderBoard">
@@ -63,13 +82,25 @@ export const Daily = () => {
       {dailyTabs.today && (
         <div className="dailyTodayLeaderBrd">
           <div className="topRank">
-            {toppersData.map((name, index) => (
-              <Topper name={name} index={index + 1} />
+            {userDailyToday.slice(0, 3).map((user, index) => (
+              <Topper
+                user={user}
+                index={index + 1}
+                key={index}
+                estRewards={calculateEstRewards(index + 1)}
+                showEst={index <= 4 ? true : false}
+              />
             ))}
           </div>
           <div className="restWinners">
-            {leaderBoardList.map((item) => (
-              <FieldLeaderBoardItem showEst={true} />
+            {userDailyToday.slice(3).map((item, index) => (
+              <FieldLeaderBoardItem
+                user={item}
+                key={index}
+                index={index + 1}
+                estRewards={calculateEstRewards(index + 1)}
+                showEst={index <= 4 ? true : false}
+              />
             ))}
           </div>
         </div>
@@ -78,13 +109,25 @@ export const Daily = () => {
       {dailyTabs.yesterday && (
         <div className="dailyTodayLeaderBrd">
           <div className="topRank">
-            {toppersData.map((name, index) => (
-              <Topper name={name} index={index + 1} />
+            {userDailyYest.slice(0, 3).map((user, index) => (
+              <Topper
+                user={user}
+                index={index + 1}
+                key={index}
+                estRewards={calculateEstRewards(index + 1, true)}
+                showEst={index <= 4 ? true : false}
+              />
             ))}
           </div>
           <div className="restWinners">
-            {leaderBoardList.map((item) => (
-              <FieldLeaderBoardItem showEst={true} />
+            {userDailyYest.slice(3).map((item, index) => (
+              <FieldLeaderBoardItem
+                user={item}
+                key={index}
+                index={index + 1}
+                estRewards={calculateEstRewards(index + 1, true)}
+                showEst={index <= 4 ? true : false}
+              />
             ))}
           </div>
         </div>

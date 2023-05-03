@@ -4,8 +4,20 @@ import titleBanner from "../assets/images/Send-Acceleration-card.png";
 import bg from "../assets/images/task-game-bg2.png";
 import { AppContext } from "../App";
 import { AccelerationCard } from "../components/AccelerationCard";
+import { testUserId } from "../api";
 export const SendAccelerationCard = () => {
   const { toogleAccPopUp } = useContext(AppContext);
+  const [foundUser, setFoundUser] = useState({});
+  const searchUser = () => {
+    fetch(
+      `http://test.streamkar.tv/meShow/entrance?parameter=%7B%22FuncTag%22:10002008,%22fuzzyString%22:%${testUserId}22502184262%22,pageCount:10,%22pageNum%22:%221%22%7D`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("user to find is:", res);
+        setFoundUser(res.roomList[0]);
+      });
+  };
   return (
     <PopUp
       title={titleBanner}
@@ -16,9 +28,10 @@ export const SendAccelerationCard = () => {
       <div className="accPopUp">
         <div className="search">
           <input placeholder="TYPE TALENT ID HERE" type="number" />
-          <button className="icon" />
+          <button className="icon" onClick={searchUser} />
         </div>
-        <AccelerationCard />
+
+        <AccelerationCard user={foundUser} />
       </div>
     </PopUp>
   );

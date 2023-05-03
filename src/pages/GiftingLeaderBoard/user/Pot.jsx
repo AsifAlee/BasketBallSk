@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../../styles/giftingboard.scss";
 import { SliderButton } from "../../../components/SliderButton";
 import overall from "../../../assets/images/Overall.png";
@@ -6,7 +6,9 @@ import daily from "../../../assets/images/Daily.png";
 import bg from "../../../assets/images/slide-button-bg-daily-overall.png";
 import bean from "../../../assets/images/bean.png";
 import { ButtonSlider } from "../../../components/ButtonSlider";
+import { AppContext } from "../../../App";
 export const Pot = () => {
+  const { userInfo } = useContext(AppContext);
   const [tabs, setTabs] = useState({
     daily: true,
     overall: false,
@@ -45,12 +47,12 @@ export const Pot = () => {
       {tabs.daily ? (
         <div className="beansCount">
           <img src={bean} />
-          <span>750000</span>
+          <span>{userInfo.userDailyBeansPot}</span>
         </div>
       ) : (
         <div className="beansCount">
           <img src={bean} />
-          <span>850000</span>
+          <span>{userInfo.userDailyBeansPotPrev}</span>
         </div>
       )}
 

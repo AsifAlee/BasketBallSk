@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../../../styles/giftingboard.scss";
 import leaderBordTitle from "../../../../assets/images/leaderboard.png";
 import Topper from "../../../../components/Topper";
 import { FieldLeaderBoardItem } from "../../../../components/FieldLeaderBoardItem";
+import { AppContext } from "../../../../App";
+import { userOverallPot } from "../../../../beansPot";
 
 export const Overall = () => {
+  const { rankings, userInfo } = useContext(AppContext);
+
+  // const calculateEstRewards = (index) => {
+  //   const percent = userOverallPot.find(item => item.rank === index);
+  //   return (percent/100)* userInfo.
+
+  // }
+
   const leaderBoardList = [
     "asif ali khan asif ali",
     "atif",
@@ -18,6 +28,7 @@ export const Overall = () => {
   ];
   const toppersData = ["NickName", "Nickname2", "nickName3"];
   const [isSeeMore, setIsSeeMore] = useState(0);
+
   return (
     <div className="userOverallLeaderBoard">
       <div className="leaderBoardTitle">
@@ -26,13 +37,18 @@ export const Overall = () => {
 
       <div>
         <div className="topRank">
-          {toppersData.map((name, index) => (
-            <Topper name={name} index={index + 1} />
+          {rankings.userOverall.slice(0, 3).map((user, index) => (
+            <Topper user={user} index={index + 1} key={index} />
           ))}
         </div>
         <div className="restWinners">
-          {leaderBoardList.map((item) => (
-            <FieldLeaderBoardItem showEst={true} />
+          {rankings.userOverall.slice(3).map((item, index) => (
+            <FieldLeaderBoardItem
+              showEst={true}
+              user={item}
+              key={index}
+              index={index + 1}
+            />
           ))}
         </div>
       </div>

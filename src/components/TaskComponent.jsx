@@ -3,20 +3,22 @@ import React from "react";
 import token from "../assets/images/token.png";
 import circle from "../assets/images/no-tick-mark.png";
 
-export const TaskComponent = () => {
+export const TaskComponent = (props) => {
+  const { taskItem } = props;
   return (
     <div className="task">
       <div className="taskText">
         <span className="index">1.</span>
-        <span>Win 2X PK Daily</span>
+        <span>{taskItem.detail}</span>
       </div>
 
       <div className="token-display">
-        <span>500</span>
+        <span>{taskItem.tokens}</span>
         <img src={token} />
       </div>
-
-      <img src={circle} className="isCompleted" />
+      <div className="isCompleted">
+        <img src={circle} className="circle" />
+      </div>
     </div>
   );
 };
