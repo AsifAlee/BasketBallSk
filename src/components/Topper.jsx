@@ -6,9 +6,9 @@ import rank3 from "../assets/images/bronze.png";
 import bean from "../assets/images/bean.png";
 import unknown from "../assets/images/unknown-user.png";
 import ball from "../assets/images/score-icon.png";
+import enerygyIcon from "../assets/images/energy-icon.png";
 const Topper = (props) => {
-  
-  const { user, estRewards, showEst } = props;
+  const { user, estRewards, showEst, isTalent, isToday } = props;
   return (
     <div className="topper">
       <div className="topper-images">
@@ -23,16 +23,19 @@ const Topper = (props) => {
       <div className="name">{user.nickname}</div>
       {showEst ? (
         <div className="est-rewards">
-          <span>Est.rewards:</span>
+          <span>
+            {isToday
+              ? `Est.rewards:${estRewards}`
+              : `Rewards Sent${estRewards}`}
+          </span>
           <img src={bean} className="bean" />
-          <span>{estRewards}</span>
         </div>
       ) : (
         ""
       )}
 
       <div className="score">
-        <img src={ball} />
+        <img src={isTalent ? enerygyIcon : ball} />
         <span>{user.count}</span>
       </div>
     </div>

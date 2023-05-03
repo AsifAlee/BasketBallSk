@@ -38,16 +38,23 @@ export const Overall = () => {
       <div>
         <div className="topRank">
           {rankings.userOverall.slice(0, 3).map((user, index) => (
-            <Topper user={user} index={index + 1} key={index} />
+            <Topper
+              user={user}
+              index={index + 1}
+              key={index}
+              isToday={true}
+              showEst={true}
+            />
           ))}
         </div>
         <div className="restWinners">
-          {rankings.userOverall.slice(3).map((item, index) => (
+          {rankings.userOverall.map((item, index) => (
             <FieldLeaderBoardItem
               showEst={true}
               user={item}
               key={index}
               index={index + 1}
+              isToday={true}
             />
           ))}
         </div>

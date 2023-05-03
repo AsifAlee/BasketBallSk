@@ -73,16 +73,18 @@ export const Daily = () => {
                 index={index + 1}
                 key={index}
                 showEst={false}
+                isTalent={true}
               />
             ))}
           </div>
           <div className="restWinners">
-            {talentDailyToday.slice(3).map((item, index) => (
+            {talentDailyToday.map((item, index) => (
               <FieldLeaderBoardItem
                 showEst={false}
                 user={item}
                 key={index}
                 index={index + 1}
+                isTalent={true}
               />
             ))}
           </div>
@@ -98,16 +100,18 @@ export const Daily = () => {
                 index={index + 1}
                 key={index}
                 showEst={false}
+                isTalent={true}
               />
             ))}
           </div>
           <div className="restWinners">
-            {talentDailyYest.slice(3).map((item, index) => (
+            {talentDailyYest.map((item, index) => (
               <FieldLeaderBoardItem
                 showEst={false}
                 user={item}
                 key={index}
                 index={index + 1}
+                isTalent={true}
               />
             ))}
           </div>

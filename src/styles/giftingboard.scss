@@ -547,16 +547,17 @@
               gap: calcView(15);
               margin-left: calcView(10);
               font-size: calcView(14);
-              flex: 0 1 40%;
+              flex: 0 1 50%;
               .rankIndex{
                 font-weight: 500;
               }
               span.name{
-                width: calcView(150);
+                width: 10vw;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
-                
+                height: 6vw;
+                line-height: 6vw;
               }
               .restUser{
                 width: calcView(60);
@@ -570,7 +571,7 @@
                 font-size: calcView(12);
                 display: flex;
                 align-items: center;
-              flex: 0 1 40%;
+              flex: 0 1 30%;
 
                 .title{
                     // font-size: calcView(22);
@@ -582,7 +583,7 @@
             .rightDiv{
               display: flex;
               align-items: center;
-              gap: calcView(10);
+              // gap: calcView(10);
               margin-right: calcView(20);
               font-size: calcView(14);
               flex: 0 1 20%;
@@ -592,6 +593,7 @@
               }
               span{
                 font-weight: 400;
+                font-size: 2vw;
               }
       
             }

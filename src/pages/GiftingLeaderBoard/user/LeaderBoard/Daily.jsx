@@ -88,18 +88,20 @@ export const Daily = () => {
                 index={index + 1}
                 key={index}
                 estRewards={calculateEstRewards(index + 1)}
-                showEst={index <= 4 ? true : false}
+                showEst={true}
+                isToday={true}
               />
             ))}
           </div>
           <div className="restWinners">
-            {userDailyToday.slice(3).map((item, index) => (
+            {userDailyToday.map((item, index) => (
               <FieldLeaderBoardItem
                 user={item}
                 key={index}
                 index={index + 1}
                 estRewards={calculateEstRewards(index + 1)}
                 showEst={index <= 4 ? true : false}
+                isToday={true}
               />
             ))}
           </div>
@@ -115,18 +117,20 @@ export const Daily = () => {
                 index={index + 1}
                 key={index}
                 estRewards={calculateEstRewards(index + 1, true)}
-                showEst={index <= 4 ? true : false}
+                showEst={true}
+                isToday={false}
               />
             ))}
           </div>
           <div className="restWinners">
-            {userDailyYest.slice(3).map((item, index) => (
+            {userDailyYest.map((item, index) => (
               <FieldLeaderBoardItem
                 user={item}
                 key={index}
                 index={index + 1}
                 estRewards={calculateEstRewards(index + 1, true)}
                 showEst={index <= 4 ? true : false}
+                isToday={false}
               />
             ))}
           </div>

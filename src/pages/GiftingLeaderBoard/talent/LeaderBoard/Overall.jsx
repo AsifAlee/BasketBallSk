@@ -23,7 +23,10 @@ export const Overall = () => {
     const percent = talentOverAllPot.find(
       (item) => item.rank === index
     )?.percent;
-    return (percent / 100) * userInfo.talentOverallBeansPot;
+    const result = userInfo.talentOverallBeansPot
+      ? (percent / 100) * userInfo.talentOverallBeansPot
+      : 0;
+    return result;
   };
   const toppersData = ["NickName", "Nickname2", "nickName3"];
   const [isSeeMore, setIsSeeMore] = useState(0);
@@ -42,17 +45,21 @@ export const Overall = () => {
               key={index}
               estRewards={calculateEstRewards(index + 1)}
               showEst={index <= 4 ? true : false}
+              isTalent={true}
+              isToday={true}
             />
           ))}
         </div>
         <div className="restWinners">
-          {rankings.talentOverall.slice(3).map((item, index) => (
+          {rankings.talentOverall.map((item, index) => (
             <FieldLeaderBoardItem
               showEst={index <= 4 ? true : false}
               user={item}
               key={index}
               index={index + 1}
               estRewards={calculateEstRewards(index + 1)}
+              isTalent={true}
+              isToday={true}
             />
           ))}
         </div>
