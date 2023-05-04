@@ -8,13 +8,34 @@ import LanguageDropdown from "./pages/LangaugeSelector";
 import { RewardHistory } from "./popups/RewardHistory";
 import { baseUrl, testToken, testUserId } from "./api";
 import jumpingCharcter from "./assets/images/jumping-character.png";
-import basket1 from "./assets/images/basket01.gif";
-export const AppContext = createContext();
+import noReward from "./assets/images/no-reward.gif";
+import reward1 from "./assets/images/basket01.gif";
+import reward2 from "./assets/images/basket02.gif";
 
+import reward3 from "./assets/images/basket03.gif";
+import reward4 from "./assets/images/basket04.gif";
+import reward5 from "./assets/images/basket05.gif";
+import reward6 from "./assets/images/basket06.gif";
+import GamePopUp from "./popups/GamePopUp";
+
+export const AppContext = createContext();
 function App() {
+  const allRewards = [
+    noReward,
+    reward1,
+    reward2,
+    reward3,
+    reward4,
+    reward5,
+    reward6,
+  ];
+  const [rewardWon, setRewardWon] = useState(null);
+  const [beansWon, setBeansWon] = useState(0);
   const [selectedLanguage, setSelectedLanguage] = useState(0);
   const [showRewardHistory, setShowRewardHistory] = useState(0);
+  const [rewardHistory, setRewardHistory] = useState([]);
   const [showGuide, setShowGuide] = useState(0);
+  const [showGamePopUp, setShowGamePopUp] = useState(0);
   const [showAccPopUp, setShowAccPopUp] = useState(0);
   const [inputValue, setInputValue] = useState(1);
   const [progressPopUp, setProgressPopUp] = useState(0);
@@ -49,6 +70,9 @@ function App() {
   const toggleGuide = () => {
     setShowGuide(0);
   };
+  const toggleGamePopUp = () => {
+    setShowGamePopUp(0);
+  };
 
   const toogleAccPopUp = () => {
     setShowAccPopUp((prevState) => !prevState);
@@ -79,6 +103,19 @@ function App() {
 
   const calculateEstRewards = (percent, totalBeans) => {
     return (percent / 100) * totalBeans;
+  };
+  function getRewardHistory() {
+    fetch(
+      `${baseUrl}/basketball/getRewardRecord?userId=${testUserId}&pageNum=1&pageSize=20`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("reward history:", res);
+        setRewardHistory(res.data.list);
+      })
+      .catch((error) => {
+        console.log("api error:", error);
+      });
   }
   //Ranking functions
   function getUserOverall() {
@@ -105,7 +142,8 @@ function App() {
 
   function getUserDailyYest() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex - 1
+      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${
+        userInfo.dayIndex - 1
       }&type=2&sort=1&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
@@ -139,7 +177,8 @@ function App() {
 
   function getTalentDailyYest() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=2&dayIndex=${userInfo.dayIndex - 1
+      `${baseUrl}/basketball/getRankInfo?userType=2&dayIndex=${
+        userInfo.dayIndex - 1
       }&type=2&sort=1&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
@@ -178,10 +217,12 @@ function App() {
           dayIndex: res.data.day,
         });
       })
-      .catch((error) => { });
+      .catch((error) => {});
   };
 
   const playGame = () => {
+    setRewardWon(null);
+    console.log("game played");
     setIsPlaying(1);
     fetch(`${baseUrl}/basketball/playShootGame/`, {
       method: "POST",
@@ -189,13 +230,26 @@ function App() {
       headers: {
         checkTag: "",
         userId: testUserId,
-        token: "A198AA5AE66DEC4A5790A3C88C38242D76",
+        token: testToken,
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        console.log(console.log("game response:", res));
+        if (res.errorCode === 0) {
+          setRewardWon(res.data.firstLevel);
+          setBeansWon(res.data.totalBeans);
+          setTimeout(() => {
+            setIsPlaying(0);
+
+            setShowGamePopUp(true);
+            getInfo();
+          }, 1800);
+        } else {
+          setIsPlaying(0);
+          // setRewardWon(0);
+        }
       });
 
     setTimeout(() => {
@@ -228,6 +282,7 @@ function App() {
 
   useEffect(() => {
     getInfo();
+    getRewardHistory();
   }, []);
   useEffect(() => {
     if (userInfo.dayIndex) {
@@ -251,7 +306,9 @@ function App() {
         progressPopUp: progressPopUp,
         toggleProgressPopUp: toggleProgressPopUp,
         rankings: rankings,
-        calculateEstRewards: calculateEstRewards
+        calculateEstRewards: calculateEstRewards,
+        toggleGamePopUp: toggleGamePopUp,
+        rewardHistory: rewardHistory,
       }}
     >
       <div className="App">
@@ -290,7 +347,12 @@ function App() {
               />
             </div>
           </div>
-          <button className="throw-btn" onClick={playGame}></button>
+
+          <button
+            className={`throw-btn ${isPlaying ? "blackNwhite" : ""}`}
+            disabled={isPlaying ? true : false}
+            onClick={playGame}
+          ></button>
           <button className="hand"></button>
           <button className="throw"></button>
 
@@ -299,10 +361,14 @@ function App() {
           ) : (
             <img src={jumpingCharcter} className="jumping-character" />
           )} */}
-          <img src={basket1} className="playing-character" />
-          <img src={jumpingCharcter} className="jumping-character" />
+          {/* <img src={basket1} className="playing-character" /> */}
+          {!isPlaying && (
+            <img src={jumpingCharcter} className="jumping-character" />
+          )}
 
-
+          {isPlaying && (
+            <img src={allRewards[rewardWon]} className="playing-character" />
+          )}
         </div>
 
         <div className="main-tabs">
@@ -336,6 +402,34 @@ function App() {
 
         {showGuide ? <Guide selectedLanguage={selectedLanguage} /> : ""}
         {showRewardHistory ? <RewardHistory /> : ""}
+        {showGamePopUp ? (
+          <GamePopUp
+            textTitle={beansWon > 0 ? "HURRAH!" : "OOPS"}
+            content={
+              rewardWon
+                ? "That was a perfect throw and you have won"
+                : "Uh-Oh!The throw was unsuccessfull.Please try again."
+            }
+            beans={beansWon}
+            throwsLeft={userInfo.throwsLeft > 0 ? true : false}
+          />
+        ) : (
+          ""
+        )}
+        {/* {showGamePopUp && throwsLeft <= 0 ? (
+          <GamePopUp
+            textTitle={"OOPS"}
+            content={
+              rewardWon
+                ? "That was a perfect throw and you have won"
+                : "Uh-Oh!The throw was unsuccessfull.Please try again."
+            }
+            beans={beansWon}
+            throwsLeft={userInfo.throwsLeft > 0 ? true : false}
+          />
+        ) : (
+          ""
+        )} */}
       </div>
     </AppContext.Provider>
   );

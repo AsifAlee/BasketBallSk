@@ -111,6 +111,9 @@
       background-color: transparent;
       position: absolute;
     }
+    .blackNwhite{
+      filter: grayscale(100%);
+    }
 
     .hand {
       background-image: url("./assets/images/handIcon.gif");

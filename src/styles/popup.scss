@@ -164,53 +164,97 @@
         right: -28vw;
       }
     }
-    .historyItem {
-      width: 84%;
-      height: 13vw;
-      margin: 0 auto;
-      background-color: #0a2a77;
-      border-radius: 12vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Helvetica';
-      padding: 0 1vw 0 1vw;
-
-      .time {
-        // border: 1px solid;
-        flex: 0 1 20%;
-        text-align: center;
-        .date {
-          font-size: 2.5vw;
-        }
-        .hours {
-          font-size: 2vw;
-        }
-      }
-      .rewardType {
-        flex: 0 1 30%;
-        text-align: center;
-        img {
-          width: 11vw;
-        }
-      }
-      .rewards {
-        flex: 0 1 50%;
+    .rewardWrapper{
+      height: 44vw;
+      overflow-y: auto;
+      .historyItem {
+        width: 84%;
+        height: 13vw;
+        margin: 1vw auto 0; 
+        background-color: #0a2a77;
+        border-radius: 12vw;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-
-        img {
-          width: 10vw;
-          height: 10vw;
-          border: 1px solid #1052ba;
-          border-radius: 1vw;
+        font-family: 'Helvetica';
+        padding: 0 1vw 0 1vw;
+  
+        .time {
+          // border: 1px solid;
+          flex: 0 1 20%;
+          text-align: center;
+          .date {
+            font-size: 2.5vw;
+          }
+          .hours {
+            font-size: 2vw;
+          }
         }
-        .text {
-          font-size: 2vw;
-          margin-left: 1vw;
+        .rewardType {
+          flex: 0 1 30%;
+          text-align: center;
+          img {
+            width: 11vw;
+          }
+        }
+        .rewards {
+          flex: 0 1 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+  
+          img {
+            width: 10vw;
+            height: 10vw;
+            border: 1px solid #1052ba;
+            border-radius: 1vw;
+          }
+          .text {
+            font-size: 2vw;
+            margin-left: 1vw;
+          }
         }
       }
     }
+    
+  }
+  .game{
+position: relative;
+    .textTitle{
+      text-align: center;
+      font-family: 'HiJack';
+      position: relative;
+      top: 3vw;
+      font-size: 5vw;
+    }
+    .game-content{
+      font-size: 3.5vw;
+    width: 49vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 15vw;
+    left: 15vw;
+
+      p{
+        text-align: center;
+      }
+      .gameBeansBag{
+        width: 22vw;
+      }
+      .beansWon{
+        color: yellow;
+        margin-top: 2vw;
+      }
+      .no-rewards{
+        p{
+          color: yellow;
+        }
+      }
+
+    }
+
+   
   }
 }

@@ -8,6 +8,7 @@ import { RewardHistoryItem } from "../components/RewardHistoryItem";
 
 export const RewardHistory = () => {
   const { toggleRewardsHistory } = useContext(AppContext);
+  const { rewardHistory } = useContext(AppContext);
 
   return (
     <PopUp
@@ -22,8 +23,10 @@ export const RewardHistory = () => {
           <span className="type">Reward Type</span>
           <span className="rewards">Rewards</span>
         </div>
-        <div>
-          <RewardHistoryItem />
+        <div className="rewardWrapper">
+          {rewardHistory.map((rewardItem, index) => (
+            <RewardHistoryItem key={index} rewardItem={rewardItem} />
+          ))}
         </div>
       </div>
     </PopUp>
