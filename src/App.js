@@ -64,6 +64,7 @@ function App() {
     talentOverall: [],
     talentDailyToday: [],
     talentDailyYest: [],
+    milestoneRanking:[]
   });
 
   const [tabs, setTabs] = useState({
@@ -201,6 +202,18 @@ function App() {
       });
   }
 
+  function getMilestoneData() {
+    fetch(
+      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${
+        userInfo.dayIndex 
+      }&type=1&sort=1&pageNum=1&pageSize=20`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        setRankings((prev) => ({ ...prev, milestoneRanking: res.data.list }));
+      });
+  }
+
   const getInfo = (userId) => {
     fetch(`${baseUrl}/basketball/getUserEventInfo?userId=${testUserId}`, {
       headers: {
@@ -219,6 +232,7 @@ function App() {
           mySuccessfullAttempt: res.data.attempts,
           milestoneBeansPot: res.data.milestoneRewardBeansPot,
           talentOverallBeansPot: res.data.talentOverallBeansPot,
+          userOverallBeansPot:res.data.totalUserBeanPotInfo,
           userDailyBeansPot: res.data.dayBeanPotInfoList.find(
             (item) => item.day === res.data.day
           ).dayBeanPot,
@@ -306,6 +320,7 @@ function App() {
       getTalentOverall();
       getTalentDailyToday();
       getTalentDailyYest();
+      getMilestoneData();
     }
   }, [userInfo.dayIndex]);
 

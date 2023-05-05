@@ -133,7 +133,9 @@
 
   .topRank{
     display: flex;
-    justify-content: center;
+    // justify-content: center;
+    left: 5vw;
+    position: relative;
     gap: calcView(10);
     margin-top: calcView(180);
     font-family: 'Helvetica';
@@ -157,6 +159,7 @@
           left: 0;
           width: 69%;
           position: absolute;
+          border-radius: 100%;
         }
       }
       .name{
