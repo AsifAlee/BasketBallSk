@@ -39,6 +39,10 @@ function App() {
   const [showAccPopUp, setShowAccPopUp] = useState(0);
   const [inputValue, setInputValue] = useState(1);
   const [progressPopUp, setProgressPopUp] = useState(0);
+  const [showAccInfoPopUp,setShowAccInfoPopUp] = useState(false);
+  const [showSuccessAttemptPopUp,setShowSucessAttemptPopUp] = useState(false);
+  const [milestonePopUp,setMilestonePopUp] = useState(false);
+
   const [isPlaying, setIsPlaying] = useState(0);
   const [userInfo, setUserInfo] = useState({
     dailyTaskList: [],
@@ -87,6 +91,16 @@ function App() {
   const changeLanguage = (index) => {
     setSelectedLanguage(index);
   };
+
+  const toggleAccInfoPopUp = () =>{
+  setShowAccInfoPopUp(prevState => !prevState)
+  }
+  const toggleSuccessAttemptPopUp = () => {
+    setShowSucessAttemptPopUp(prevState => !prevState);
+  }
+  const toggleMilestonePopUp = () => {
+    setMilestonePopUp(prev => !prev);
+  }
 
   const toggleTabs = (event) => {
     switch (event.target.name) {
@@ -309,6 +323,15 @@ function App() {
         calculateEstRewards: calculateEstRewards,
         toggleGamePopUp: toggleGamePopUp,
         rewardHistory: rewardHistory,
+        toggleAccInfoPopUp:toggleAccInfoPopUp,
+        showAccInfoPopUp:showAccInfoPopUp,
+        selectedLanguage:selectedLanguage,
+        toggleSuccessAttemptPopUp:toggleSuccessAttemptPopUp,
+        showSuccessAttemptPopUp:showSuccessAttemptPopUp,
+        milestonePopUp:milestonePopUp,
+        toggleMilestonePopUp:toggleMilestonePopUp
+
+        
       }}
     >
       <div className="App">

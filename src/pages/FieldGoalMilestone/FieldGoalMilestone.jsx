@@ -10,15 +10,28 @@ import currentPos from "../../assets/images/current-position.gif";
 import "./fieldGoal.scss";
 import { AppContext } from "../../App";
 import PopUp from "../../components/PopUp";
+import SuccessAttemptPopUp from "../../popups/SuccessAttemptPopUp";
+import MilestonePopUp from "../../popups/MilestonePopUp";
 export const FieldGoalMilestone = () => {
-  const { userInfo, toggleProgressPopUp, progressPopUp } =
-    useContext(AppContext);
+  const {
+    userInfo,
+    toggleProgressPopUp,
+    progressPopUp,
+    toggleSuccessAttemptPopUp,
+    showSuccessAttemptPopUp,
+    milestonePopUp,
+    toggleMilestonePopUp,
+  } = useContext(AppContext);
   return (
     <div>
       <div className="successfull-attempts">
         <p>MY SUCCESSFULL ATTEMPTS:{userInfo.mySuccessfullAttempt}</p>
-        <img src={ibBtn} className="ibBtn" />
-        <img src={iaBtn} className="iaBtn" onClick={toggleProgressPopUp} />
+        <img
+          src={ibBtn}
+          className="ibBtn"
+          onClick={toggleSuccessAttemptPopUp}
+        />
+        <img src={iaBtn} className="iaBtn" onClick={toggleMilestonePopUp} />
         <div className="progressBar">
           <div className="">
             <img src={currentPos} className="currPosition" />
@@ -33,6 +46,10 @@ export const FieldGoalMilestone = () => {
       <Leaderboard />
       <div className="footer"></div>
       {progressPopUp && <PopUp>My popup</PopUp>}
+      {showSuccessAttemptPopUp && <SuccessAttemptPopUp />}
+      {
+        milestonePopUp && <MilestonePopUp />
+      }
     </div>
   );
 };

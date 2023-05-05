@@ -4,11 +4,17 @@ import { TaskComponent } from "../../components/TaskComponent";
 import img1 from "../../assets/images/info-display.png";
 import { SendAccelerationCard } from "../../popups/SendAccelerationCard";
 import { AppContext } from "../../App";
+import AccInfoPopUp from "../../popups/AccInfoPopUp";
+import iBtn from "../../assets/images/i-buttons-b.png";
 
 export const GrowAcceleration = () => {
-  const { userInfo } = useContext(AppContext);
-
-  const { showAccPopUp, toogleAccPopUp } = useContext(AppContext);
+  const {
+    userInfo,
+    showAccPopUp,
+    toogleAccPopUp,
+    toggleAccInfoPopUp,
+    showAccInfoPopUp,
+  } = useContext(AppContext);
   return (
     <div>
       <div className="growthacc-container">
@@ -31,7 +37,9 @@ export const GrowAcceleration = () => {
 
       <div className="accProgressBarWrap">
         <div className="indicator"></div>
-        <div className="accProgressBar"></div>
+        <div className="accProgressBar">
+          <img src={iBtn} className="info-btn" onClick={toggleAccInfoPopUp} />
+        </div>
       </div>
 
       <div className="total">
@@ -46,6 +54,7 @@ export const GrowAcceleration = () => {
       </div>
       <div className="floating-footer"></div>
       {showAccPopUp ? <SendAccelerationCard /> : ""}
+      {showAccInfoPopUp ? <AccInfoPopUp /> : ""}
     </div>
   );
 };

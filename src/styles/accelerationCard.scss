@@ -8,7 +8,7 @@
     position: relative;
     font-family: 'Helvetica';
     color: white;
-
+  
 
     .leftDiv{
         img{
@@ -24,6 +24,15 @@
     position: absolute;
     left: 11vw;
     font-size: 3vw;
+    width: 50%;
+    .name{
+        width: 60%;
+        // height: 3vw;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        // border: 1px solid red;
+    }
             
         }
     }
@@ -35,44 +44,5 @@
      }
     }
 
-    .tabButton{
-        background-color: transparent;
-        // width: 22vw;
-        // height: 10vw;
-        border: none;
-        bottom: -13vw;
-    left: 0;
-    right: 0;
-    margin: auto;
-    position: absolute;
-        img{
-            width: 15vw;
-        }
-    }
-
-    .tabButtonOn{
-        width: 25vw;
-        height: 11vw;
-        background-image: url('../assets/images/tab-selected.gif');
-        background-size: 100%;
-        background-repeat: no-repeat;
-
-
-    }
-    .tabButtonOff{
-        width: 25vw;
-        height: 11vw;
-        background-image: url('../assets/images/tab-unselected.png');
-        background-size: 100%;
-        background-repeat: no-repeat;
-        
-    }
-    
-    .eligibility-text{
-        font-family: 'HiJack';
-        color: yellow;
-        position: absolute;
-        bottom: -16vw;
-        left: 9vw;
-        font-size: 3vw;    }
+ 
 }

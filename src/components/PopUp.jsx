@@ -16,8 +16,8 @@ const PopUp = (props) => {
         className="content"
         style={{
           backgroundImage: `url(${bg})`,
-          minHeight: `${isAccPopUp ? "50vw" : isRewards ? "58vw" : ""}`,
-          width: `${isAccPopUp ? "70%" : isRewards ? "80vw" : ""}`,
+          minHeight: `${isAccPopUp ? "70vw" : isRewards ? "58vw" : ""}`,
+          width: `${isAccPopUp ? "85%" : isRewards ? "80vw" : ""}`,
         }}
       >
         <div

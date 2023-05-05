@@ -25,8 +25,8 @@
 
     .title {
       width: 80%;
-    height: 11vw;
-    object-fit: contain;
+      height: 11vw;
+      object-fit: contain;
     }
   }
   .closeBtn {
@@ -117,6 +117,9 @@
   }
 
   .accPopUp {
+    display: flex;
+    flex-direction: column;
+    // gap: 4vw;
     .search {
       position: relative;
       display: flex;
@@ -128,6 +131,7 @@
         font-family: "Helvetica";
         width: 68%;
         color: black;
+        font-size: 3vw;
 
         padding: 3vw 0 3vw 2vw;
       }
@@ -143,42 +147,133 @@
         right: 8vw;
       }
     }
+
+    .tabButton {
+      background-color: transparent;
+      border: none;
+      margin: auto;
+      img {
+        width: 15vw;
+      }
+    }
+
+    .tabButtonOn {
+      width: 25vw;
+      height: 11vw;
+      background-image: url("../assets/images/tab-selected.gif");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .tabButtonOff {
+      width: 25vw;
+      height: 11vw;
+      background-image: url("../assets/images/tab-unselected.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .eligibility-text {
+      font-family: "HiJack";
+      color: yellow;
+      text-align: center;
+      margin-top: 2vw;
+
+      font-size: 3vw;
+    }
+    .blackNWhite {
+      filter: grayscale(100%);
+    }
+
+    .foundUsers {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .radio-container {
+      display: flex;
+      flex-direction: column;
+      height: 33vw;
+      // border: 1px solid red;J
+      overflow-y: auto;
+      // align-items: center;
+      justify-content: center;
+      width: 73vw;
+      margin: 0 auto;
+
+      .single-radio {
+        display: flex;
+        align-items: center;
+        width: 95%;
+        margin: 0 auto;
+      }
+      .circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        border: 1px solid;
+        display: inline-block;
+        margin-top: 5vw;
+      }
+
+      .bgWhite {
+        background-color: white;
+      }
+      .bgBlack {
+        background-color: black;
+      }
+    }
+  }
+
+  .accInfoPopUp {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .accInfoContent {
+      position: absolute;
+      top: 17vw;
+      width: 79%;
+      text-align: center;
+      margin: 0 3vw;
+      // border: 1px solid red;
+      left: 6vw;
+    }
   }
 
   .rewardHistoryPopUp {
     margin-top: 2vw;
-    .rewardsTitle{
-    font-size: 3vw;
-    margin-bottom: 2vw;
-      .time{
+    .rewardsTitle {
+      font-size: 3vw;
+      margin-bottom: 2vw;
+      .time {
         position: relative;
         left: 11vw;
-       
       }
-      .type{
+      .type {
         position: relative;
         left: 17vw;
       }
-      .rewards{
+      .rewards {
         position: relative;
         right: -28vw;
       }
     }
-    .rewardWrapper{
+    .rewardWrapper {
       height: 44vw;
       overflow-y: auto;
       .historyItem {
         width: 84%;
         height: 13vw;
-        margin: 1vw auto 0; 
+        margin: 1vw auto 0;
         background-color: #0a2a77;
         border-radius: 12vw;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-family: 'Helvetica';
+        font-family: "Helvetica";
         padding: 0 1vw 0 1vw;
-  
+
         .time {
           // border: 1px solid;
           flex: 0 1 20%;
@@ -202,7 +297,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-  
+
           img {
             width: 10vw;
             height: 10vw;
@@ -216,45 +311,106 @@
         }
       }
     }
-    
   }
-  .game{
-position: relative;
-    .textTitle{
+  .game {
+    position: relative;
+    .textTitle {
       text-align: center;
-      font-family: 'HiJack';
+      font-family: "HiJack";
       position: relative;
       top: 3vw;
       font-size: 5vw;
     }
-    .game-content{
+    .game-content {
       font-size: 3.5vw;
-    width: 49vw;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    top: 15vw;
-    left: 15vw;
+      width: 49vw;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      top: 15vw;
+      left: 15vw;
 
-      p{
+      p {
         text-align: center;
       }
-      .gameBeansBag{
+      .gameBeansBag {
         width: 22vw;
       }
-      .beansWon{
+      .beansWon {
         color: yellow;
         margin-top: 2vw;
       }
-      .no-rewards{
-        p{
+      .no-rewards {
+        p {
           color: yellow;
         }
       }
-
     }
-
-   
   }
+
+  .successfull-attempts-popup {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .succesfull-attempt-content {
+      position: absolute;
+      top: 13vw;
+      width: 80%;
+      left: 9vw;
+      font-size: 4vw;
+
+      .yellow-text {
+        color: yellow;
+      }
+    }
+  }
+  .milestone{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    
+
+    .milestone-content{
+      font-size: 3vw;
+      .milestone-title{
+        width: 80%;
+        height: 9vw;
+        border-radius: 20vw;
+        background-color: #0c307a;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 3vw;
+        span{
+          color: #546693;
+
+        }
+     
+      }
+     table{
+      border: 1px solid ;
+      width: 80%;
+      border-radius: 6vw;
+      margin: 3vw auto 0;
+      border-spacing: 0;
+    border-collapse: separate;
+      .color-yellow{
+        color: yellow;
+      }
+      td {
+        border-bottom: 1px solid;
+        padding: 3vw;
+      }
+    
+     }
+     table tr:last-child td{
+      border-bottom: none;
+    }
+    
+    }
+  } 
 }

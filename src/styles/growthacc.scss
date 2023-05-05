@@ -182,6 +182,13 @@ margin-top: -12vw;
     position: relative;
     margin: 0 auto;
 
+    .info-btn{
+      width: 13vw;
+      position: absolute;
+      left: -1vw;
+      top: 0vw;
+    }
+
   }
   .indicator{
     width: calcView(80);
