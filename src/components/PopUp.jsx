@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import "../styles/popup.scss";
 const PopUp = (props) => {
-  const { children, bg, title, popUpHandler, isAccPopUp, isRewards } = props;
+  const { children, bg, title, popUpHandler, isAccPopUp, isRewards, isGame } =
+    props;
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -16,8 +17,10 @@ const PopUp = (props) => {
         className="content"
         style={{
           backgroundImage: `url(${bg})`,
-          minHeight: `${isAccPopUp ? "70vw" : isRewards ? "58vw" : ""}`,
-          width: `${isAccPopUp ? "85%" : isRewards ? "80vw" : ""}`,
+          minHeight: `${
+            isAccPopUp ? "70vw" : isRewards ? "58vw" : isGame ? "65vw" : ""
+          }`,
+          width: `${isAccPopUp ? "85%" : isRewards ? "80%" : ""}`,
         }}
       >
         <div
@@ -28,7 +31,11 @@ const PopUp = (props) => {
             justifyContent: "center",
           }}
         >
-          <img src={title} className="title" />
+          <img
+            src={title}
+            className="title"
+            style={{ visibility: title ? "visible" : "hidden" }}
+          />
         </div>
         {children}
       </div>

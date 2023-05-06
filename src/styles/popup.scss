@@ -262,8 +262,10 @@
     .rewardWrapper {
       height: 44vw;
       overflow-y: auto;
+      width: 82%;
+      margin: 0 auto;
       .historyItem {
-        width: 84%;
+        width: 90%;
         height: 13vw;
         margin: 1vw auto 0;
         background-color: #0a2a77;
@@ -329,7 +331,7 @@
       flex-direction: column;
       align-items: center;
       top: 15vw;
-      left: 15vw;
+      left: 18vw;
 
       p {
         text-align: center;

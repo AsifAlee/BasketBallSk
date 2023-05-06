@@ -37,11 +37,11 @@ function App() {
   const [showGuide, setShowGuide] = useState(0);
   const [showGamePopUp, setShowGamePopUp] = useState(0);
   const [showAccPopUp, setShowAccPopUp] = useState(0);
-  const [inputValue, setInputValue] = useState(1);
+  const [inputValue, setInputValue] = useState("1");
   const [progressPopUp, setProgressPopUp] = useState(0);
-  const [showAccInfoPopUp,setShowAccInfoPopUp] = useState(false);
-  const [showSuccessAttemptPopUp,setShowSucessAttemptPopUp] = useState(false);
-  const [milestonePopUp,setMilestonePopUp] = useState(false);
+  const [showAccInfoPopUp, setShowAccInfoPopUp] = useState(false);
+  const [showSuccessAttemptPopUp, setShowSucessAttemptPopUp] = useState(false);
+  const [milestonePopUp, setMilestonePopUp] = useState(false);
 
   const [isPlaying, setIsPlaying] = useState(0);
   const [userInfo, setUserInfo] = useState({
@@ -64,7 +64,7 @@ function App() {
     talentOverall: [],
     talentDailyToday: [],
     talentDailyYest: [],
-    milestoneRanking:[]
+    milestoneRanking: [],
   });
 
   const [tabs, setTabs] = useState({
@@ -93,15 +93,15 @@ function App() {
     setSelectedLanguage(index);
   };
 
-  const toggleAccInfoPopUp = () =>{
-  setShowAccInfoPopUp(prevState => !prevState)
-  }
+  const toggleAccInfoPopUp = () => {
+    setShowAccInfoPopUp((prevState) => !prevState);
+  };
   const toggleSuccessAttemptPopUp = () => {
-    setShowSucessAttemptPopUp(prevState => !prevState);
-  }
+    setShowSucessAttemptPopUp((prevState) => !prevState);
+  };
   const toggleMilestonePopUp = () => {
-    setMilestonePopUp(prev => !prev);
-  }
+    setMilestonePopUp((prev) => !prev);
+  };
 
   const toggleTabs = (event) => {
     switch (event.target.name) {
@@ -204,9 +204,7 @@ function App() {
 
   function getMilestoneData() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${
-        userInfo.dayIndex 
-      }&type=1&sort=1&pageNum=1&pageSize=20`
+      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex}&type=1&sort=1&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -229,10 +227,11 @@ function App() {
           ...userInfo,
           dailyTaskList: res.data.dailyTaskInfoList,
           throwsLeft: res.data.chance,
+
           mySuccessfullAttempt: res.data.attempts,
           milestoneBeansPot: res.data.milestoneRewardBeansPot,
           talentOverallBeansPot: res.data.talentOverallBeansPot,
-          userOverallBeansPot:res.data.totalUserBeanPotInfo,
+          userOverallBeansPot: res.data.totalUserBeanPotInfo,
           userDailyBeansPot: res.data.dayBeanPotInfoList.find(
             (item) => item.day === res.data.day
           ).dayBeanPot,
@@ -250,11 +249,13 @@ function App() {
 
   const playGame = () => {
     setRewardWon(null);
-    console.log("game played");
     setIsPlaying(1);
     fetch(`${baseUrl}/basketball/playShootGame/`, {
       method: "POST",
-      body: JSON.stringify({ userId: testUserId, playCount: 1 }),
+      body: JSON.stringify({
+        userId: testUserId,
+        playCount: parseInt(inputValue),
+      }),
       headers: {
         checkTag: "",
         userId: testUserId,
@@ -264,7 +265,6 @@ function App() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(console.log("game response:", res));
         if (res.errorCode === 0) {
           setRewardWon(res.data.firstLevel);
           setBeansWon(res.data.totalBeans);
@@ -276,7 +276,7 @@ function App() {
           }, 1800);
         } else {
           setIsPlaying(0);
-          // setRewardWon(0);
+          setShowGamePopUp(true);
         }
       });
 
@@ -285,28 +285,27 @@ function App() {
     }, 4000);
   };
 
-  const handleChange = (event) => {
-    console.log("handle change:", event.key);
+  // const handleChange = (event) => {
+  //   console.log("handle change:", event.target.value);
 
+  //   setInputValue(event.target.value);
+  // };
+
+  // const handleKeyDown = (event) => {
+  //   if (event.key == ".") {
+  //     setInputValue((prevState) => prevState.slice(0, -1));
+  //   }
+
+  // };
+
+  function handleChange(event) {
     const inputValue = event.target.value;
-    if (
-      inputValue === "" ||
-      (Number.isInteger(+inputValue) && +inputValue >= 1 && +inputValue <= 99)
-    ) {
-      setInputValue(inputValue);
-    } else if (+inputValue > 99) {
-      setInputValue(99);
-    }
-  };
+    const inputRegex = /^[0-9]{0,2}$/;
 
-  const handleKeyDown = (event) => {
-    console.log("on key down :", event.key);
-    if (event.key === ".") {
-      // setInputValue(prevState => prevState.slice(0, -1))
-      inputValue.slice(0, -1);
+    if (inputRegex.test(inputValue)) {
+      setInputValue(inputValue);
     }
-    event.preventDefault();
-  };
+  }
 
   useEffect(() => {
     getInfo();
@@ -338,15 +337,13 @@ function App() {
         calculateEstRewards: calculateEstRewards,
         toggleGamePopUp: toggleGamePopUp,
         rewardHistory: rewardHistory,
-        toggleAccInfoPopUp:toggleAccInfoPopUp,
-        showAccInfoPopUp:showAccInfoPopUp,
-        selectedLanguage:selectedLanguage,
-        toggleSuccessAttemptPopUp:toggleSuccessAttemptPopUp,
-        showSuccessAttemptPopUp:showSuccessAttemptPopUp,
-        milestonePopUp:milestonePopUp,
-        toggleMilestonePopUp:toggleMilestonePopUp
-
-        
+        toggleAccInfoPopUp: toggleAccInfoPopUp,
+        showAccInfoPopUp: showAccInfoPopUp,
+        selectedLanguage: selectedLanguage,
+        toggleSuccessAttemptPopUp: toggleSuccessAttemptPopUp,
+        showSuccessAttemptPopUp: showSuccessAttemptPopUp,
+        milestonePopUp: milestonePopUp,
+        toggleMilestonePopUp: toggleMilestonePopUp,
       }}
     >
       <div className="App">
@@ -371,23 +368,30 @@ function App() {
             </button>
             <div className="chances">
               <span>Chances:</span>
-              <input
+              {/* <input
                 placeholder="TYPE HERE"
                 className="inputField"
                 type="number"
                 defaultValue={1}
                 onChange={handleChange}
-                min="1"
-                max="99"
+                min={1}
+                max={99}
                 value={inputValue}
                 onKeyDown={handleKeyDown}
                 step="1"
+              /> */}
+              <input
+                type="text"
+                value={inputValue}
+                onChange={handleChange}
+                placeholder="Enter a number between 0 and 99"
+                className="inputField"
               />
             </div>
           </div>
 
           <button
-            className={isPlaying ? 'thrown':'throw-btn'}
+            className={isPlaying ? "thrown" : "throw-btn"}
             disabled={isPlaying ? true : false}
             onClick={playGame}
           ></button>
@@ -446,6 +450,8 @@ function App() {
             content={
               rewardWon
                 ? "That was a perfect throw and you have won"
+                : userInfo.throwsLeft <= 0
+                ? "To earn a throwing chance spend 25k beans worth event gifts and start playing. We're waiting to see you play. Come soon!"
                 : "Uh-Oh!The throw was unsuccessfull.Please try again."
             }
             beans={beansWon}

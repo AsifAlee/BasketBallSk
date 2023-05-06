@@ -6,14 +6,15 @@ import { useContext } from "react";
 import { AppContext } from "../App";
 function GamePopUp(props) {
   const { toggleGamePopUp } = useContext(AppContext);
-  const { textTitle, content, beans,throwsLeft } = props;
+  const { textTitle, content, beans, throwsLeft } = props;
 
   return (
     <PopUp
       bg={bg}
       popUpHandler={toggleGamePopUp}
-      isRewards={true}
+      // isRewards={true}
       textTitle={textTitle}
+      isGame={true}
     >
       <div className="game">
         <p className="textTitle">{textTitle}</p>
