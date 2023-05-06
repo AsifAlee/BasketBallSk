@@ -409,10 +409,11 @@
     // common styles
     .topRank{
         display: flex;
-        justify-content: center;
+        // justify-content: center;
         gap: calcView(10);
         margin-top: calcView(180);
         font-family: 'Helvetica';
+        margin-left: 4vw;
     
         .topper {
           width: calcView(200);
@@ -436,19 +437,26 @@
               border-radius: 100%;
             }
           }
-          .name{
-              width: 80%;
-              height: calcView(30);
-              background-color: #0c2974;
-              border-radius: calcView(15);
-              font-size: calcView(20);
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin: calcView(5)  auto calcView(5);
+          .name {
+            width: 80%;
+            height: 5vw;
+            background-color: #0c2974;
+            border-radius: 2vw;
+            font-size: 2.66667vw;
+            justify-content: center;
+            margin: 0.66667vw auto 0.66667vw;
+    
+            text-align: center;
+    
+            p {
+              width: 75%;
+              height: 100%;
+              line-height: 5vw;
               text-overflow: ellipsis;
-              white-space: nowrap;
               overflow: hidden;
+              white-space: nowrap;
+              margin: 0 auto;
+            }
           }
           .est-rewards{
               font-size: calcView(14);
@@ -475,6 +483,8 @@
               }
               span{
                   font-size: calcView(18);
+                  margin-top: 1vw;
+                  margin-left: 1vw;
               }
           }
         }
@@ -526,8 +536,8 @@
        
       }
       .restWinners{
-        height: calcView(450);
-        overflow-y: auto;
+        height: 80.66667vw;
+        // overflow:hidden;
         font-family: 'Helvetica';
         
         .fieldGoalLederBoarItem{
@@ -630,4 +640,9 @@
         background-color: transparent;
         border: none;
       }
+.noData{
+  text-align: center;
+  margin-top: 32vw;
+  font-family: 'HiJack';
+}
 }

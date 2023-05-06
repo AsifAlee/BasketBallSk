@@ -16,6 +16,9 @@ export const Daily = () => {
     today: true,
     yesterday: false,
   });
+  const { rankings } = useContext(AppContext);
+  const { userDailyToday, userDailyYest } = rankings;
+  // const [overflow, setOverflow] = useState("hidden");
 
   const leaderBoardList = [
     "asif ali khan asif ali",
@@ -29,7 +32,8 @@ export const Daily = () => {
     "fdfdf",
   ];
   const toppersData = ["NickName", "Nickname2", "nickName3"];
-  const [isSeeMore, setIsSeeMore] = useState(0);
+  const [isSeeMore, setIsSeeMore] = useState(1);
+
   const toggleTabs = () => {
     setDailyTabs({ today: !dailyTabs.today, yesterday: !dailyTabs.yesterday });
   };
@@ -38,24 +42,22 @@ export const Daily = () => {
     let totalBeansPot = isPrev
       ? userInfo.userDailyBeansPotPrev
       : userInfo.userDailyBeansPot;
-    console.log("total beans pot:", totalBeansPot);
 
     const percent = userDailyPot.find((item) => item.rank === index)?.percent;
-   const  result = totalBeansPot ? (percent / 100) * totalBeansPot : 0;
+    const result = totalBeansPot ? (percent / 100) * totalBeansPot : 0;
 
-    return result;
+    return result.toFixed(2);
   };
-
-  const { rankings } = useContext(AppContext);
-  const { userDailyToday, userDailyYest } = rankings;
-  console.log("rankings in user daily", rankings);
 
   return (
     <div className="userDailyLeaderBoard">
       <div className="leaderBoardTitle">
         <img src={leaderBordTitle} className="title" />
       </div>
-      <div className="dailyTabBtns" onClick={toggleTabs}>
+      <div
+        className="dailyTabBtns"
+        // onClick={toggleTabs}
+      >
         {/* {dailyTabs.today && (
           <SliderButton className="daily">
             <img src={today} />
@@ -93,17 +95,23 @@ export const Daily = () => {
               />
             ))}
           </div>
-          <div className="restWinners">
-            {userDailyToday.map((item, index) => (
-              <FieldLeaderBoardItem
-                user={item}
-                key={index}
-                index={index + 1}
-                estRewards={calculateEstRewards(index + 1)}
-                showEst={index <= 4 ? true : false}
-                isToday={true}
-              />
-            ))}
+          <div
+            className="restWinners"
+            style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
+          >
+            {userDailyToday.slice(3).map((item, index) => {
+              let newIndex = index + 3;
+              return (
+                <FieldLeaderBoardItem
+                  user={item}
+                  key={index}
+                  index={newIndex + 1}
+                  estRewards={calculateEstRewards(index + 1)}
+                  showEst={newIndex <= 4 ? true : false}
+                  isToday={true}
+                />
+              );
+            })}
           </div>
         </div>
       )}
@@ -122,24 +130,33 @@ export const Daily = () => {
               />
             ))}
           </div>
-          <div className="restWinners">
-            {userDailyYest.map((item, index) => (
-              <FieldLeaderBoardItem
-                user={item}
-                key={index}
-                index={index + 1}
-                estRewards={calculateEstRewards(index + 1, true)}
-                showEst={index <= 4 ? true : false}
-                isToday={false}
-              />
-            ))}
+          <div
+            className="restWinners"
+            style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
+          >
+            {userDailyYest.slice(3).map((item, index) => {
+              let newIndex = index + 3;
+
+              return (
+                <FieldLeaderBoardItem
+                  user={item}
+                  key={index}
+                  index={newIndex + 1}
+                  estRewards={calculateEstRewards(index + 1, true)}
+                  showEst={newIndex <= 4 ? true : false}
+                  isToday={false}
+                />
+              );
+            })}
           </div>
         </div>
       )}
 
       <button
         className={isSeeMore ? "seeMore" : "seeLess"}
-        onClick={() => setIsSeeMore((prev) => !prev)}
+        onClick={() => {
+          setIsSeeMore((prev) => !prev);
+        }}
       ></button>
     </div>
   );

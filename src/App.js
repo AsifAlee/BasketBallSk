@@ -387,7 +387,7 @@ function App() {
           </div>
 
           <button
-            className={`throw-btn ${isPlaying ? "blackNwhite" : ""}`}
+            className={isPlaying ? 'thrown':'throw-btn'}
             disabled={isPlaying ? true : false}
             onClick={playGame}
           ></button>

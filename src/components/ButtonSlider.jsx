@@ -5,6 +5,7 @@ export const ButtonSlider = (props) => {
   const [isOn, setIsOn] = useState(false);
 
   function handleToggle() {
+    console.log('handle click called')
     setIsOn(!isOn);
     if (onToggle) {
       onToggle();
@@ -21,8 +22,8 @@ export const ButtonSlider = (props) => {
       <button
         className={`slider-button ${isOn ? "on" : "off"}`}
         style={{
-          width: isLeaderBoard && "58%",
-          fontSize: isLeaderBoard && "3.2vw",
+          width: isLeaderBoard && "50%",
+          fontSize: isLeaderBoard && "2.9vw",
         }}
       >
         {isOn ? texts[1] : texts[0]}

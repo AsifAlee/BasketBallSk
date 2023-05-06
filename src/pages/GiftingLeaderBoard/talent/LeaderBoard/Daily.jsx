@@ -30,7 +30,7 @@ export const Daily = () => {
     "fdfdf",
   ];
   const toppersData = ["NickName", "Nickname2", "nickName3"];
-  const [isSeeMore, setIsSeeMore] = useState(0);
+  const [isSeeMore, setIsSeeMore] = useState(1);
   const toggleTabs = () => {
     setDailyTabs({ today: !dailyTabs.today, yesterday: !dailyTabs.yesterday });
   };
@@ -40,7 +40,11 @@ export const Daily = () => {
       <div className="leaderBoardTitle">
         <img src={leaderBordTitle} className="title" />
       </div>
-      <div className="dailyTabBtns" onClick={toggleTabs}>
+      <div
+        className="dailyTabBtns"
+
+        // onClick={toggleTabs}
+      >
         {/* {dailyTabs.today && (
           <SliderButton className="daily">
             <img src={today} />
@@ -58,64 +62,86 @@ export const Daily = () => {
         <ButtonSlider
           texts={["Today", "Yesterday"]}
           bg={bg}
-          isPot={1}
+          isPot={0}
           onToggle={toggleTabs}
           isLeaderBoard={1}
         />
       </div>
 
-      {dailyTabs.today && (
-        <div className="dailyTodayLeaderBrd">
-          <div className="topRank">
-            {talentDailyToday.slice(0, 3).map((user, index) => (
-              <Topper
-                user={user}
-                index={index + 1}
-                key={index}
-                showEst={false}
-                isTalent={true}
-              />
-            ))}
+      {dailyTabs.today ? (
+        talentDailyToday.length > 0 ? (
+          <div className="dailyTodayLeaderBrd">
+            <div className="topRank">
+              {talentDailyToday.slice(0, 3).map((user, index) => (
+                <Topper
+                  user={user}
+                  index={index + 1}
+                  key={index}
+                  showEst={false}
+                  isTalent={true}
+                />
+              ))}
+            </div>
+            <div
+              className="restWinners"
+              style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
+            >
+              {talentDailyToday.slice(3).map((item, index) => {
+                let newIndex = index + 3;
+                <FieldLeaderBoardItem
+                  showEst={false}
+                  user={item}
+                  key={index}
+                  index={newIndex + 1}
+                  isTalent={true}
+                  isToday={true}
+                />;
+              })}
+            </div>
           </div>
-          <div className="restWinners">
-            {talentDailyToday.map((item, index) => (
-              <FieldLeaderBoardItem
-                showEst={false}
-                user={item}
-                key={index}
-                index={index + 1}
-                isTalent={true}
-              />
-            ))}
-          </div>
-        </div>
+        ) : (
+          <div className="noData">No Data Found</div>
+        )
+      ) : (
+        ""
       )}
 
-      {dailyTabs.yesterday && (
-        <div className="dailyTodayLeaderBrd">
-          <div className="topRank">
-            {talentDailyYest.slice(0, 3).map((user, index) => (
-              <Topper
-                user={user}
-                index={index + 1}
-                key={index}
-                showEst={false}
-                isTalent={true}
-              />
-            ))}
+      {dailyTabs.yesterday ? (
+        talentDailyYest.length > 0 ? (
+          <div className="dailyTodayLeaderBrd">
+            <div className="topRank">
+              {talentDailyYest.slice(0, 3).map((user, index) => (
+                <Topper
+                  user={user}
+                  index={index + 1}
+                  key={index}
+                  showEst={false}
+                  isTalent={true}
+                />
+              ))}
+            </div>
+            <div
+              className="restWinners"
+              style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
+            >
+              {talentDailyYest.slice(3).map((item, index) => {
+                let newIndex = index + 3;
+                <FieldLeaderBoardItem
+                  showEst={false}
+                  user={item}
+                  key={index}
+                  index={newIndex + 1}
+                  isTalent={true}
+                  isToday={true}
+                />;
+              })}
+            </div>
           </div>
-          <div className="restWinners">
-            {talentDailyYest.map((item, index) => (
-              <FieldLeaderBoardItem
-                showEst={false}
-                user={item}
-                key={index}
-                index={index + 1}
-                isTalent={true}
-              />
-            ))}
-          </div>
-        </div>
+        ) : (
+          <div className="noData">No Data Found</div>
+        )
+      ) : (
+        ""
       )}
 
       <button

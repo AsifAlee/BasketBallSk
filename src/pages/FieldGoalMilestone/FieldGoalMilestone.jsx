@@ -45,11 +45,9 @@ export const FieldGoalMilestone = () => {
       <BeansPot />
       <Leaderboard />
       <div className="footer"></div>
-      {progressPopUp && <PopUp>My popup</PopUp>}
-      {showSuccessAttemptPopUp && <SuccessAttemptPopUp />}
-      {
-        milestonePopUp && <MilestonePopUp />
-      }
+      {progressPopUp ? <PopUp>My popup</PopUp> : ""}
+      {showSuccessAttemptPopUp ? <SuccessAttemptPopUp /> : ""}
+      {milestonePopUp ? <MilestonePopUp /> : ""}
     </div>
   );
 };

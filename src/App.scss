@@ -101,6 +101,20 @@
     .throw-btn {
       width: calcView(130);
       height: calcView(130);
+      background-image: url("./assets//images//throw-button.gif");
+      border-radius: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      bottom: calcView(30);
+      left: calcView(310);
+      border: none;
+      background-color: transparent;
+      position: absolute;
+    }
+    .thrown{
+      filter: grayscale(100%);
+      width: calcView(130);
+      height: calcView(130);
       background-image: url("./assets//images//throw-button.png");
       border-radius: 100%;
       background-repeat: no-repeat;
@@ -111,8 +125,9 @@
       background-color: transparent;
       position: absolute;
     }
+
     .blackNwhite{
-      filter: grayscale(100%);
+     filter: grayscale(100%);
     }
 
     .hand {
@@ -213,6 +228,12 @@
       border: none;
     }
   }
+}
+
+.noData{
+  text-align: center;
+  margin-top: 32vw;
+  font-family: 'HiJack';
 }
 
 * {

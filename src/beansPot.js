@@ -72,21 +72,6 @@ export const userDailyPot = [
     },
 
 ];
-
-export const fieldGoalPot = [
-    {
-        rank: 1,
-        percent: 40,
-    },
-    {
-        rank: 2,
-        percent: 30,
-    },
-    {
-        rank: 3,
-        percent: 15,
-    },
-
-];
+;
 
 

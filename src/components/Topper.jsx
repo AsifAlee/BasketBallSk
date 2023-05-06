@@ -19,8 +19,10 @@ const Topper = (props) => {
         />
         <img src={user.avatar ? user.avatar : unknown} className="user" />
       </div>
-
-      <div className="name">{user.nickname}</div>
+      <div className="name">
+      <p >{user.nickname}</p>
+      </div>
+   
       {showEst ? (
         <div className="est-rewards">
           <span>

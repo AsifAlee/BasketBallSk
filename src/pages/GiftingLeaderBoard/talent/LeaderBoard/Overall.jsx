@@ -29,7 +29,7 @@ export const Overall = () => {
     return result;
   };
   const toppersData = ["NickName", "Nickname2", "nickName3"];
-  const [isSeeMore, setIsSeeMore] = useState(0);
+  const [isSeeMore, setIsSeeMore] = useState(1);
   return (
     <div className="talentOverallLeaderBoard">
       <div className="leaderBoardTitle">
@@ -50,18 +50,24 @@ export const Overall = () => {
             />
           ))}
         </div>
-        <div className="restWinners">
-          {rankings.talentOverall.map((item, index) => (
-            <FieldLeaderBoardItem
-              showEst={index <= 4 ? true : false}
-              user={item}
-              key={index}
-              index={index + 1}
-              estRewards={calculateEstRewards(index + 1)}
-              isTalent={true}
-              isToday={true}
-            />
-          ))}
+        <div
+          className="restWinners"
+          style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
+        >
+          {rankings.talentOverall.slice(3).map((item, index) => {
+            let newIndex = index + 3;
+            return (
+              <FieldLeaderBoardItem
+                showEst={newIndex <= 4 ? true : false}
+                user={item}
+                key={index}
+                index={newIndex + 1}
+                estRewards={calculateEstRewards(index + 1)}
+                isTalent={true}
+                isToday={true}
+              />
+            );
+          })}
         </div>
       </div>
 
