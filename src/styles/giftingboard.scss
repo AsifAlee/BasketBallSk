@@ -415,6 +415,16 @@
         font-family: 'Helvetica';
         margin-left: 4vw;
     
+        .level-icon {
+          display: flex;
+          justify-content: center;
+    
+          img {
+            width: 15vw;
+            height: 5vw;
+            object-fit: contain;
+          }
+        }
         .topper {
           width: calcView(200);
           // border: 1px solid red;
@@ -551,15 +561,17 @@
             align-items: center;
             justify-content: space-between;
             background-position: center;
+            font-size: 3vw;
             .leftDiv{
               display: flex;
               align-items: center;
               gap: calcView(15);
               margin-left: calcView(10);
-              font-size: calcView(14);
+              font-size: 3vw;
               flex: 0 1 50%;
               .rankIndex{
                 font-weight: 500;
+                width: 2vw;
               }
               span.name{
                 width: 10vw;
@@ -574,11 +586,11 @@
                 border-radius: 100%;
               }
               .levelIcon{
-                width: calcView(35);
+                width: 8.6666vw;
               }
             }
             .middle-div{
-                font-size: calcView(12);
+                font-size: 2vw;
                 display: flex;
                 align-items: center;
               flex: 0 1 30%;
@@ -595,7 +607,7 @@
               align-items: center;
               // gap: calcView(10);
               margin-right: calcView(20);
-              font-size: calcView(14);
+              // font-size: calcView(14);
               flex: 0 1 20%;
               
               .basket{
@@ -603,7 +615,7 @@
               }
               span{
                 font-weight: 400;
-                font-size: 2vw;
+                // font-size: 2vw;
               }
       
             }

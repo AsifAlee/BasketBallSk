@@ -7,28 +7,33 @@ import bean from "../assets/images/bean.png";
 import unknown from "../assets/images/unknown-user.png";
 import ball from "../assets/images/score-icon.png";
 import enerygyIcon from "../assets/images/energy-icon.png";
+import { formatNumbers, getLevelImage } from "../functions";
 const Topper = (props) => {
   const { user, estRewards, showEst, isTalent, isToday } = props;
+  // let levelUrl = isTalent
+  //   ? `${talentLevelUrl}/${user.userLevel}.png`
+  //   : `${userLevelUrl}/${user.userLevel}.png`;
   return (
     <div className="topper">
       <div className="topper-images">
         <img
           src={props.index === 1 ? rank1 : props.index === 2 ? rank2 : rank3}
-          // src={rank2}
           className="rank"
         />
         <img src={user.avatar ? user.avatar : unknown} className="user" />
       </div>
       <div className="name">
-      <p >{user.nickname}</p>
+        <p>{user.nickname}</p>
       </div>
-   
+      <div className="level-icon">
+        <img src={getLevelImage(user.userLevel, isTalent)} />
+      </div>
       {showEst ? (
         <div className="est-rewards">
           <span>
             {isToday
-              ? `Est.rewards:${estRewards}`
-              : `Rewards Sent${estRewards}`}
+              ? `Est.rewards:${formatNumbers(estRewards)}`
+              : `Rewards Sent${formatNumbers(estRewards)}`}
           </span>
           <img src={bean} className="bean" />
         </div>
@@ -38,7 +43,7 @@ const Topper = (props) => {
 
       <div className="score">
         <img src={isTalent ? enerygyIcon : ball} />
-        <span>{user.count}</span>
+        <span>{formatNumbers(user.count)}</span>
       </div>
     </div>
   );

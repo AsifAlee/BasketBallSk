@@ -42,6 +42,7 @@ const Leaderboard = () => {
                 estRewards={calculateEstRewards(index + 1)}
                 showEst={true}
                 isToday={true}
+                isTalent={false}
               />
             ))}
 
@@ -80,6 +81,7 @@ const Leaderboard = () => {
                 estRewards={calculateEstRewards(index + 1)}
                 showEst={false}
                 isToday={true}
+                isTalent={false}
               />
             ))}
           </div>
