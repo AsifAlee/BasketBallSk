@@ -3,7 +3,7 @@ import unknown from "../assets/images/unknown-user.png";
 import levelIcon from "../assets/images/score-icon.png";
 import bean from "../assets/images/bean.png";
 import energyIcon from "../assets/images/energy-icon.png";
-import { formatNumbers, getLevelImage } from "../functions";
+import { formatNumbers, getLevelImage, gotoProfile } from "../functions";
 export const FieldLeaderBoardItem = (props) => {
   const { user, index, estRewards, isTalent, isToday } = props;
 
@@ -11,7 +11,11 @@ export const FieldLeaderBoardItem = (props) => {
     <div className="fieldGoalLederBoarItem">
       <div className="leftDiv">
         <span className="rankIndex">{index}</span>
-        <img src={user.avatar ? user.avatar : unknown} className="restUser" />
+        <img
+          src={user.avatar ? user.avatar : unknown}
+          className="restUser"
+          onClick={() => gotoProfile(user.userId)}
+        />
         <span className="name">{user.nickname}</span>
         <img
           src={getLevelImage(user.userLevel, isTalent)}

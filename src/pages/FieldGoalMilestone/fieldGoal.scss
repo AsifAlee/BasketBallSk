@@ -2,447 +2,449 @@
 * {
   color: white;
 }
-.successfull-attempts {
-  width: 100%;
-  height: 54vw;
-  background-image: url("../../assets/images/my-succesful-attempts.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  // bottom: 2vw;
-
-  .blackNWhite {
-    filter: grayscale(100);
-  }
-  P {
-    font-family: "HiJack";
-    color: yellow;
-    top: 13vw;
-    left: 21vw;
-    position: absolute;
-    font-size: 3.5vw;
-  }
-
-  .iaBtn {
-    width: calcView(60);
-    position: absolute;
-    left: calcView(25);
-    top: calcView(150);
-  }
-  .ibBtn {
-    width: calcView(60);
-    position: absolute;
-    right: calcView(70);
-    top: calcView(80);
-  }
-
-  .progressBarSection {
-    width: 97.5%;
-    height: 40vw;
-    // background-image: url('../../assets/images/progress-bar-bg.png');
-    // background-size: 100% 100%;
+.fieldGoalSection{
+  .successfull-attempts {
+    width: 96%;
+    height: 54vw;
+    background-image: url("../../assets/images/my-succesful-attempts.png");
+    background-size: contain;
+    background-repeat: no-repeat;
     position: relative;
-    // top: 18vw;
-    // left: 1vw;
-    // background-repeat: no-repeat;
-    // opacity: 0.3;
-    // z-index: 1;
-
-    .progressBar {
-      width: 80%;
-      height: calcView(150);
-
+    // bottom: 2vw;
+    left: 4vw;
+  
+    .blackNWhite {
+      filter: grayscale(100);
+    }
+    P {
+      font-family: "HiJack";
+      color: yellow;
+      top: 13vw;
+      left: 21vw;
       position: absolute;
-      top: calcView(180);
-      left: 0;
-      right: 0;
-      margin: auto;
-
-      .innerProgress {
-        border: 1px solid red;
-        margin-top: 4vw;
-        .line {
-          width: 100%;
-          height: 16vw;
-          background-image: url("../../assets/images/progress-bar.png");
-          background-repeat: no-repeat;
-          background-size: contain;
-          position: relative;
-          border: 1px solid;
-          background-position-y: center;
-          .currPosition {
-            width: calcView(50);
-            position: absolute;
-            top: -2vw;
-          }
-
-          .completed {
-            width: 11vw;
-            position: absolute;
-            top: 2.5vw;
-            left: -1.2vw;
-          }
-          .completed100 {
-            width: 11vw;
-            position: absolute;
-            top: 2.5vw;
-            left: 13.5vw;
-          }
-          .completed200 {
-            width: 11vw;
-            position: absolute;
-            top: 2.5vw;
-            left: 27vw;
-          }
-          .completed500 {
-            width: 11vw;
-            position: absolute;
-            top: 2.5vw;
-            left: 40.5vw;
-          }
-
-          .completed1k {
-            width: 11vw;
-            position: absolute;
-            top: 2.5vw;
-            left: 55vw;
-          }
-          .completed2k {
-            width: 11vw;
-            position: absolute;
-            top: 2.5vw;
-            left: 68.5vw;
-          }
-          .animate{
-            // transform: translateX(13vw);
-            transition: transform 1.5s ease-in-out;
+      font-size: 3.5vw;
+    }
+  
+    .iaBtn {
+      width: calcView(60);
+      position: absolute;
+      left: calcView(25);
+      top: calcView(150);
+    }
+    .ibBtn {
+      width: calcView(60);
+      position: absolute;
+      right: calcView(70);
+      top: calcView(80);
+    }
+  
+    .progressBarSection {
+      width: 97.5%;
+      height: 40vw;
+      // background-image: url('../../assets/images/progress-bar-bg.png');
+      // background-size: 100% 100%;
+      position: relative;
+      // top: 18vw;
+      // left: 1vw;
+      // background-repeat: no-repeat;
+      // opacity: 0.3;
+      // z-index: 1;
+  
+      .progressBar {
+        width: 80%;
+        height: calcView(150);
+  
+        position: absolute;
+        top: calcView(180);
+        left: 0;
+        right: 0;
+        margin: auto;
+  
+        .innerProgress {
+          margin-top: 4vw;
+          .line {
+            width: 100%;
+            height: 16vw;
+            background-image: url("../../assets/images/progress-bar.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            background-position-y: center;
+            .currPosition {
+              width: calcView(50);
+              position: absolute;
+              top: -2vw;
+            }
+  
+            .completed {
+              width: 11vw;
+              position: absolute;
+              top: 2.5vw;
+              left: -1.2vw;
+            }
+            .completed100 {
+              width: 11vw;
+              position: absolute;
+              top: 2.5vw;
+              left: 12.5vw;
+            }
+            .completed200 {
+              width: 11vw;
+              position: absolute;
+              top: 2.5vw;
+              left: 26vw;
+            }
+            .completed500 {
+              width: 11vw;
+              position: absolute;
+              top: 2.5vw;
+              left: 39.5vw;
+            }
+  
+            .completed1k {
+              width: 11vw;
+              position: absolute;
+              top: 2.5vw;
+              left: 53vw;
+            }
+            .completed2k {
+              width: 11vw;
+              position: absolute;
+              top: 2.5vw;
+              left: 66vw;
+            }
+            .animate{
+              transition: transform 1.5s ease-in-out;
+            }
           }
         }
       }
+  
+      .progressLabel {
+        width: 85%;
+        height: 12vw;
+        background-image: url("../../assets/images/numbers.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+        top: -3vw;
+        left: 8vw;
+        right: 5.33333vw;
+        margin: auto;
+      }
     }
-
-    .progressLabel {
-      width: 85%;
-      height: 12vw;
-      background-image: url("../../assets/images/numbers.png");
+  
+    .progressBarSection::before {
+      content: "";
+      background-image: url("../../assets/images/progress-bar-bg.png");
+      background-size: 100% 100%;
+      position: absolute;
+      top: 17vw;
+      left: 2vw;
+      width: 96.7%;
+      height: 94%;
+      opacity: 0.3;
       background-repeat: no-repeat;
-      background-size: contain;
-      position: relative;
-      top: -3vw;
-      left: 8vw;
-      right: 5.33333vw;
-      margin: auto;
     }
   }
-
-  .progressBarSection::before {
-    content: "";
-    background-image: url("../../assets/images/progress-bar-bg.png");
-    background-size: 100% 100%;
-    position: absolute;
-    top: 17vw;
-    left: 1vw;
-    width: 94%;
-    height: 94%;
-    opacity: 0.3;
-    // border: 4px solid red;
+  
+  .beans-pot {
+    width: 95%;
+    height: calcView(500);
+    background-image: url("../../assets/images/beans-pot-bg.png");
     background-repeat: no-repeat;
-  }
-}
-
-.beans-pot {
-  width: 95%;
-  height: calcView(500);
-  background-image: url("../../assets/images/beans-pot-bg.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: calcView(60) auto 0;
-  position: relative;
-
-  .title {
-    position: absolute;
-    width: 50%;
-    left: calcView(180);
-    top: calcView(-45);
-    z-index: 2;
-  }
-
-  .potInfo {
-    position: absolute;
-    height: 7.66667vw;
-    width: 100%;
-    z-index: 1;
-    background-image: url(../../assets/images/beans-pot-info.png);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    text-align: center;
-    font-size: calcView(15);
-    padding-top: calcView(15);
-
-    p {
-      margin-top: calcView(3);
-      font-family: Helvetica;
-      font-weight: bold;
-      font-size: 1.9vw;
-    }
-  }
-  .beans-number {
-    display: flex;
-    position: absolute;
-    left: calcView(270);
-    top: calcView(80);
-    align-items: center;
-    font-size: calcView(18);
-    .bean {
-      width: calcView(50);
-    }
-    span {
-      color: black;
-      font-family: "HiJack";
-      font-size: 4vw;
-    }
-  }
-}
-
-.fieldGoalLeaderBoard {
-  width: 100%;
-  height: calcView(1100);
-  background-image: url("../../assets/images/leaderboard-bg-2.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  margin: calcView(10) auto 0;
-  position: relative;
-
-  .leaderBoardTitle {
-    display: flex;
-    justify-content: center;
-    .title {
-      width: 50%;
-    }
-  }
-
-  .topRank {
-    display: flex;
-    left: 5vw;
+    background-size: contain;
+    margin: calcView(60) auto 0;
     position: relative;
-    gap: calcView(10);
-    margin-top: calcView(180);
-    font-family: "Helvetica";
-    .level-icon {
+  
+    .title {
+      position: absolute;
+      width: 50%;
+      left: calcView(180);
+      top: calcView(-45);
+      z-index: 2;
+    }
+  
+    .potInfo {
+      position: absolute;
+      height: 7.66667vw;
+      width: 100%;
+      z-index: 1;
+      background-image: url(../../assets/images/beans-pot-info.png);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      text-align: center;
+      font-size: calcView(15);
+      padding-top: calcView(15);
+  
+      p {
+        margin-top: calcView(3);
+        font-family: Helvetica;
+        font-weight: bold;
+        font-size: 1.9vw;
+      }
+    }
+    .beans-number {
+      display: flex;
+      position: absolute;
+      left: calcView(270);
+      top: calcView(80);
+      align-items: center;
+      font-size: calcView(18);
+      .bean {
+        width: calcView(50);
+      }
+      span {
+        color: black;
+        font-family: "HiJack";
+        font-size: 4vw;
+      }
+    }
+  }
+  
+  .fieldGoalLeaderBoard {
+    width: 100%;
+    // height: calcView(1100);
+    background-image: url("../../assets/images/leaderboard-bg-2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: calcView(10) auto 0;
+    position: relative;
+  
+    .leaderBoardTitle {
       display: flex;
       justify-content: center;
-
-      img {
-        width: 15vw;
-        height: 5vw;
-        object-fit: contain;
+      .title {
+        width: 50%;
       }
     }
-    .topper {
-      width: calcView(200);
-
-      .topper-images {
-        position: relative;
-        height: calcView(140);
-        left: calcView(12);
-        .rank {
-          top: calcView(-70);
-          left: calcView(-6);
-          width: 100%;
-          position: absolute;
-          z-index: 1;
-        }
-        .user {
-          top: 0;
-          left: 0;
-          width: 69%;
-          position: absolute;
-          border-radius: 100%;
-        }
-      }
-      .name {
-        width: 80%;
-        height: 5vw;
-        background-color: #0c2974;
-        border-radius: 2vw;
-        font-size: 2.66667vw;
-        justify-content: center;
-        margin: 0.66667vw auto 0.66667vw;
-
-        text-align: center;
-
-        p {
-          width: 75%;
-          height: 100%;
-          line-height: 5vw;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-          margin: 0 auto;
-        }
-      }
-      .est-rewards {
-        font-size: calcView(14);
-        display: flex;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .bean {
-          width: calcView(25);
-        }
-        span {
-          color: #b8ccdd;
-        }
-      }
-      .score {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-          width: calcView(40);
-        }
-        span {
-          font-size: 2.4vw;
-          margin-top: 1vw;
-          margin-left: 1vw;
-        }
-      }
-    }
-    .topper:nth-child(1) {
-      margin-top: calcView(-100);
-      position: relative;
-      left: calcView(23);
-      width: calcView(220);
-    }
-    .topper:nth-child(1) .name {
-      margin-top: calcView(30);
-    }
-    .topper:nth-child(3) .name {
-      margin-top: calcView(15);
-      // margin-right: 4vw;
-    }
-    .topper:nth-child(2) {
-      order: -1;
-      position: relative;
-      top: calcView(-40);
-    }
-    .topper:nth-child(2) .topper-images .rank {
-      left: calcView(-55);
-    }
-    .topper:nth-child(2) .topper-images {
-      left: 3.66667vw;
-    }
-
-    .topper:nth-child(3) .topper-images {
-      left: 3.66667vw;
-    }
-    .topper:nth-child(2) .topper-images .user {
-      width: 65%;
-    }
-    .topper:nth-child(1) .topper-images {
-      left: calcView(20);
-    }
-    .topper:nth-child(3) {
-      position: relative;
-      left: calcView(33);
-      top: calcView(-40);
-      margin-right: 4vw;
-    }
-  }
-
-  .restWinners {
-    height: 80.6666vw;
-    overflow-y: auto;
-    font-family: "Helvetica";
-    .fieldGoalLederBoarItem {
-      background-image: url("../../assets/images/leaderboard-list-bg.png");
-      width: 90%;
-      height: calcView(70);
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
-      margin: calcView(15) auto 0;
+  
+    .topRank {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-position: center;
-      .leftDiv {
+      left: 5vw;
+      width: 91%;
+      position: relative;
+      gap: calcView(10);
+      margin-top: calcView(180);
+      font-family: "Helvetica";
+      .level-icon {
         display: flex;
-        align-items: center;
-        gap: 0.8vw;
-        margin-left: calcView(10);
-        flex: 0 1 50%;
-        font-size: 3.5vw;
-        .rankIndex {
-          font-weight: 500;
-        }
-        span.name {
-          width: 18vw;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-        }
-        .restUser {
-          width: calcView(60);
-          border-radius: 100%;
-        }
-        .levelIcon {
-          width: 8.6vw;
+        justify-content: center;
+  
+        img {
+          width: 15vw;
+          height: 5vw;
+          object-fit: contain;
         }
       }
-      .rightDiv {
+      .topper {
+        width: calcView(200);
+  
+        .topper-images {
+          position: relative;
+          height: calcView(140);
+          left: calcView(12);
+          .rank {
+            top: calcView(-70);
+            left: calcView(-6);
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+          }
+          .user {
+            top: 0;
+            left: 0;
+            width: 69%;
+            position: absolute;
+            border-radius: 100%;
+          }
+        }
+        .name {
+          width: 80%;
+          height: 5vw;
+          background-color: #0c2974;
+          border-radius: 2vw;
+          font-size: 2.66667vw;
+          justify-content: center;
+          margin: 0.66667vw auto 0.66667vw;
+  
+          text-align: center;
+  
+          p {
+            width: 75%;
+            height: 100%;
+            line-height: 5vw;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+          }
+        }
+        .est-rewards {
+          font-size: calcView(14);
+          display: flex;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .bean {
+            width: calcView(25);
+          }
+          span {
+            color: #b8ccdd;
+          }
+        }
+        .score {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: calcView(40);
+          }
+          span {
+            font-size: 2.4vw;
+            margin-top: 1vw;
+            margin-left: 1vw;
+          }
+        }
+      }
+      .topper:nth-child(1) {
+        margin-top: calcView(-100);
+        position: relative;
+        left: calcView(23);
+        width: calcView(220);
+      }
+      .topper:nth-child(1) .name {
+        margin-top: calcView(30);
+      }
+      .topper:nth-child(3) .name {
+        margin-top: calcView(15);
+        // margin-right: 4vw;
+      }
+      .topper:nth-child(2) {
+        order: -1;
+        position: relative;
+        top: calcView(-40);
+      }
+      .topper:nth-child(2) .topper-images .rank {
+        left: calcView(-55);
+      }
+      .topper:nth-child(2) .topper-images {
+        left: 3.66667vw;
+      }
+  
+      .topper:nth-child(3) .topper-images {
+        left: 3.66667vw;
+      }
+      .topper:nth-child(2) .topper-images .user {
+        width: 65%;
+      }
+      .topper:nth-child(1) .topper-images {
+        left: calcView(20);
+      }
+      .topper:nth-child(3) {
+        position: relative;
+        left: calcView(33);
+        top: calcView(-40);
+        margin-right: 4vw;
+      }
+    }
+  
+    .restWinners {
+      height: 80.6666vw;
+      overflow-y: auto;
+      font-family: "Helvetica";
+      .fieldGoalLederBoarItem {
+        background-image: url("../../assets/images/leaderboard-list-bg.png");
+        width: 90%;
+        height: calcView(70);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin: calcView(15) auto 0;
         display: flex;
         align-items: center;
-        // gap: calcView(10);
-        margin-right: calcView(20);
-        flex: 0 1 16%;
-        font-size: 3.5vw;
-
-        .basket {
-          width: calcView(35);
+        justify-content: space-between;
+        background-position: center;
+        .leftDiv {
+          display: flex;
+          align-items: center;
+          gap: 0.8vw;
+          margin-left: calcView(10);
+          flex: 0 1 50%;
+          font-size: 3.5vw;
+          .rankIndex {
+            font-weight: 500;
+          }
+          span.name {
+            width: 18vw;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          .restUser {
+            width: calcView(60);
+            border-radius: 100%;
+          }
+          .levelIcon {
+            width: 8.6vw;
+          }
         }
-        span {
-          font-weight: 400;
+        .rightDiv {
+          display: flex;
+          align-items: center;
+          // gap: calcView(10);
+          margin-right: calcView(20);
+          flex: 0 1 16%;
+          font-size: 3.5vw;
+  
+          .basket {
+            width: calcView(35);
+          }
+          span {
+            font-weight: 400;
+          }
         }
       }
     }
   }
+  
+  .footer {
+    background-image: url("../../assets/images/floating-footer.png");
+    width: 100%;
+    background-size: 100% 100%;
+    height: calcView(175);
+    margin-top: calcView(-180);
+  }
+  
+  .seeMore {
+    width: 17vw;
+    height: 7vw;
+    background-image: url("../../assets/images/see-more.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  
+    position: absolute;
+    bottom: 7vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+  }
+  .seeLess {
+    width: 17vw;
+    height: 7vw;
+    background-image: url("../../assets/images/see-less.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 7vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+  }
 }
 
-.footer {
-  background-image: url("../../assets/images/floating-footer.png");
-  width: 100%;
-  background-size: 100% 100%;
-  height: calcView(175);
-  margin-top: calcView(-180);
-}
 
-.seeMore {
-  width: 17vw;
-  height: 7vw;
-  background-image: url("../../assets/images/see-more.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-
-  position: absolute;
-  bottom: 7vw;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-color: transparent;
-  border: none;
-}
-.seeLess {
-  width: 17vw;
-  height: 7vw;
-  background-image: url("../../assets/images/see-less.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  position: absolute;
-  bottom: 7vw;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-color: transparent;
-  border: none;
-}

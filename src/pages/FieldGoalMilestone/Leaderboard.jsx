@@ -45,34 +45,12 @@ const Leaderboard = () => {
                 isTalent={false}
               />
             ))}
-
-            {/* {toppersData.map((user, index) => (
-          <Topper
-            user={user}
-            index={index + 1}
-            key={index}
-            estRewards={calculateEstRewards(index + 1)}
-            showEst={true}
-            isToday={true}
-          />
-        ))} */}
           </div>
 
           <div
             className="restWinners"
             style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
           >
-            {/* {leaderBoardList.map((item, index) => (
-          <FieldLeaderBoardItem
-            user={item}
-            key={index}
-            index={index + 1}
-            estRewards={calculateEstRewards(index + 1)}
-            showEst={false}
-            isToday={true}
-          />
-        ))} */}
-
             {rankings.milestoneRanking.map((item, index) => (
               <FieldLeaderBoardItem
                 user={item}

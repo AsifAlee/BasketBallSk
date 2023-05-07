@@ -2,6 +2,7 @@ import React from "react";
 
 import token from "../assets/images/token.png";
 import circle from "../assets/images/no-tick-mark.png";
+import tickmark from "../assets/images/tick-mark.png";
 
 export const TaskComponent = (props) => {
   const { taskItem } = props;
@@ -17,7 +18,7 @@ export const TaskComponent = (props) => {
         <img src={token} />
       </div>
       <div className="isCompleted">
-        <img src={circle} className="circle" />
+        <img src={taskItem.isComplete ? tickmark : circle} className="circle" />
       </div>
     </div>
   );

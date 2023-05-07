@@ -43,80 +43,79 @@ export const FieldGoalMilestone = () => {
     }
   });
   return (
-    <div className="successfull-attempts">
-      <p>MY SUCCESSFULL ATTEMPTS:{mySuccessfullAttempt}</p>
-      <img src={ibBtn} className="ibBtn" onClick={toggleSuccessAttemptPopUp} />
-      <div className="progressBarSection">
-        <img src={iaBtn} className="iaBtn" onClick={toggleMilestonePopUp} />
+    <div className="fieldGoalSection">
+      <div className="successfull-attempts">
+        <p>MY SUCCESSFULL ATTEMPTS:{mySuccessfullAttempt}</p>
+        <img
+          src={ibBtn}
+          className="ibBtn"
+          onClick={toggleSuccessAttemptPopUp}
+        />
+        <div className="progressBarSection">
+          <img src={iaBtn} className="iaBtn" onClick={toggleMilestonePopUp} />
 
-        <div className="progressBar">
-          <div className="innerProgress">
-            {/* <img src={progressImg} className="line" /> */}
-            <div className="line">
-              {/* <img
-                src={currentPos}
-                className="currPosition animate"
-                style={{ transform: `translateX(${currentAttempts})` }}
-              /> */}
-              <img
-                src={currentPos}
-                className="currPosition animate"
-                style={{ transform: `translateX(${currentAttempts})` }}
-              />
-              <img
-                src={completed}
-                className="completed"
-                style={{
-                  filter: mySuccessfullAttempt < 50 ? "grayScale(100)" : "",
-                }}
-              />
-              <img
-                src={completed}
-                className="completed100"
-                style={{
-                  filter: mySuccessfullAttempt < 100 ? "grayScale(100)" : "",
-                }}
-              />
-              <img
-                src={completed}
-                className="completed200"
-                style={{
-                  filter: mySuccessfullAttempt < 200 ? "grayScale(100)" : "",
-                }}
-              />
-              <img
-                src={completed}
-                className="completed500"
-                style={{
-                  filter: mySuccessfullAttempt < 500 ? "grayScale(100)" : "",
-                }}
-              />
-              <img
-                src={completed}
-                className="completed1k"
-                style={{
-                  filter: mySuccessfullAttempt < 1000 ? "grayScale(100)" : "",
-                }}
-              />
-              <img
-                src={completed}
-                className="completed2k"
-                style={{
-                  filter: mySuccessfullAttempt < 2000 ? "grayScale(100)" : "",
-                }}
-              />
+          <div className="progressBar">
+            <div className="innerProgress">
+              <div className="line">
+                <img
+                  src={currentPos}
+                  className="currPosition animate"
+                  style={{ transform: `translateX(${currentAttempts})` }}
+                />
+                <img
+                  src={completed}
+                  className="completed"
+                  style={{
+                    filter: mySuccessfullAttempt < 50 ? "grayScale(100)" : "",
+                  }}
+                />
+                <img
+                  src={completed}
+                  className="completed100"
+                  style={{
+                    filter: mySuccessfullAttempt < 100 ? "grayScale(100)" : "",
+                  }}
+                />
+                <img
+                  src={completed}
+                  className="completed200"
+                  style={{
+                    filter: mySuccessfullAttempt < 200 ? "grayScale(100)" : "",
+                  }}
+                />
+                <img
+                  src={completed}
+                  className="completed500"
+                  style={{
+                    filter: mySuccessfullAttempt < 500 ? "grayScale(100)" : "",
+                  }}
+                />
+                <img
+                  src={completed}
+                  className="completed1k"
+                  style={{
+                    filter: mySuccessfullAttempt < 1000 ? "grayScale(100)" : "",
+                  }}
+                />
+                <img
+                  src={completed}
+                  className="completed2k"
+                  style={{
+                    filter: mySuccessfullAttempt < 2000 ? "grayScale(100)" : "",
+                  }}
+                />
+              </div>
             </div>
+            <div className="progressLabel"></div>
           </div>
-          <div className="progressLabel"></div>
         </div>
       </div>
-
-      {/* <BeansPot />
+      <BeansPot />
       <Leaderboard />
       <div className="footer"></div>
       {progressPopUp ? <PopUp>My popup</PopUp> : ""}
       {showSuccessAttemptPopUp ? <SuccessAttemptPopUp /> : ""}
-      {milestonePopUp ? <MilestonePopUp /> : ""} */}
+      {milestonePopUp ? <MilestonePopUp /> : ""}
     </div>
   );
 };

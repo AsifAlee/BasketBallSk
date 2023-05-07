@@ -7,7 +7,7 @@ import bean from "../assets/images/bean.png";
 import unknown from "../assets/images/unknown-user.png";
 import ball from "../assets/images/score-icon.png";
 import enerygyIcon from "../assets/images/energy-icon.png";
-import { formatNumbers, getLevelImage } from "../functions";
+import { formatNumbers, getLevelImage, gotoProfile } from "../functions";
 const Topper = (props) => {
   const { user, estRewards, showEst, isTalent, isToday } = props;
   // let levelUrl = isTalent
@@ -15,7 +15,7 @@ const Topper = (props) => {
   //   : `${userLevelUrl}/${user.userLevel}.png`;
   return (
     <div className="topper">
-      <div className="topper-images">
+      <div className="topper-images" onClick={() => gotoProfile(user.userId)}>
         <img
           src={props.index === 1 ? rank1 : props.index === 2 ? rank2 : rank3}
           className="rank"
