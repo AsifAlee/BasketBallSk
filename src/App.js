@@ -229,6 +229,8 @@ function App() {
           throwsLeft: res.data.chance,
 
           mySuccessfullAttempt: res.data.attempts,
+          // mySuccessfullAttempt: 2000,
+
           milestoneBeansPot: res.data.milestoneRewardBeansPot,
           talentOverallBeansPot: res.data.talentOverallBeansPot,
           userOverallBeansPot: res.data.totalUserBeanPotInfo,

@@ -23,10 +23,9 @@
     top: calcView(25);
     left: calcView(45);
     font-size: calcView(22);
-    font-family: 'Helvetica';
+    font-family: "Helvetica";
   }
   .acc-btn {
-    
     width: calcView(250);
     height: calcView(80);
     background-image: url("../assets//images/accelerate-talent-button.png");
@@ -49,7 +48,7 @@
     z-index: 1;
   }
 
-  .task-container{
+  .task-container {
     top: calcView(230);
     position: absolute;
     left: 0;
@@ -64,58 +63,57 @@
       background-repeat: no-repeat;
       background-size: 100%;
       margin-bottom: calcView(20);
-   
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: 'Helvetica';
-  
+      font-family: "Helvetica";
+
       .token-display {
-          width: calcView(180);
-          height: calcView(80);
-          background-image: url("../assets/images/token-display.png");
-          background-size: 100% 100%;
-          background-repeat: no-repeat;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: calcView(5);
-          font-size: 2vw;
-          flex: 0 1 25%;
+        width: calcView(180);
+        height: calcView(80);
+        background-image: url("../assets/images/token-display.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: calcView(5);
+        font-size: 2vw;
+        flex: 0 1 25%;
 
-      
-          span {
-            font-size: calcView(20);
-            font-weight: 700;
-          }
-          img {
-            width: calcView(50);
-          }
+        span {
+          font-size: calcView(20);
+          font-weight: 700;
         }
-
-        .taskText{
-          font-size: 2.5vw;
-          flex: 0 1 50%;
-        }
-      
-        .isCompleted {
+        img {
           width: calcView(50);
-          flex: 0 1 25%;
-          text-align: center;
-
-          .circle{
-            width: 11vw;
-          }
-          .tick{
-            width: 8vw;
-          }
         }
+      }
+
+      .taskText {
+        font-size: 2.5vw;
+        flex: 0 1 50%;
+      }
+
+      .isCompleted {
+        width: calcView(50);
+        flex: 0 1 25%;
+        text-align: center;
+
+        .circle {
+          width: 11vw;
+        }
+        .tick {
+          width: 8vw;
+        }
+      }
     }
   }
-  .task-info{
+  .task-info {
     width: 89%;
     height: calcView(100);
-    background-image: url('../assets/images/info-bg.png');
+    background-image: url("../assets/images/info-bg.png");
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
@@ -125,85 +123,74 @@
     display: flex;
     align-items: center;
     justify-content: center;
-     p{
+    p {
       width: 80%;
       text-align: center;
       position: relative;
       left: calcView(35);
-      font-family: 'Helvetica';
+      font-family: "Helvetica";
       line-height: 3vw;
       top: 2vw;
       font-size: 2.3vw;
+    }
+  }
 
-     }
-      }
-
-
-      .titleImg{
-        width: 80%;
-        height: calcView(50);
-      }
-
+  .titleImg {
+    width: 80%;
+    height: calcView(50);
+  }
 }
 
-
-
-
-.acc-bottom-title{
+.acc-bottom-title {
   width: 100%;
   height: calcView(200);
-  background-image: url('../assets/images/Your-growth-bg.png');
+  background-image: url("../assets/images/Your-growth-bg.png");
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: 1;
   position: relative;
   // top: calcView(-90);
-margin-top: -12vw; 
-
+  margin-top: -12vw;
 }
 
-
-.accProgressBarWrap{
+.accProgressBarWrap {
   width: 95%;
   height: calcView(250);
-  position: relative; 
+  position: relative;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   // top: calcView(-160);
   margin-top: -10vw;
-  .accProgressBar{
+  .accProgressBar {
     width: 80%;
     height: calcView(90);
-    background-image: url('../assets/images/prgres-bar-2.png');
+    background-image: url("../assets/images/prgres-bar-2.png");
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
     margin: 0 auto;
 
-    .info-btn{
+    .info-btn {
       width: 13vw;
       position: absolute;
       left: -1vw;
       top: 0vw;
     }
-
   }
-  .indicator{
+  .indicator {
     width: calcView(80);
     height: calcView(80);
     transform: rotate(275deg);
-    background-image: url('../assets/images/current-position.gif');
+    background-image: url("../assets/images/current-position.gif");
     background-size: contain;
     background-repeat: no-repeat;
-
   }
-
 }
-.accProgressBarWrap::before{
+.accProgressBarWrap::before {
   content: "";
-  background-image: url('../assets/images/progress-bar-bg.png');
+  background-image: url("../assets/images/progress-bar-bg.png");
   background-size: 100% 100%;
   position: absolute;
   top: 0px;
@@ -214,69 +201,57 @@ margin-top: -12vw;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-
 }
 
-.total{
+.total {
   width: 95%;
   height: calcView(200);
-  background-image: url('../assets/images/token-assceleration-info-bg.gif');
+  background-image: url("../assets/images/token-assceleration-info-bg.gif");
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
   margin-top: -4vw;
   z-index: 1;
- margin: 0 auto;
- font-size: 2.5vw;
- font-family: 'Helvetica';
-  .total-tokens{
+  margin: 0 auto;
+  font-size: 2.5vw;
+  font-family: "Helvetica";
+  .total-tokens {
     position: absolute;
     width: 40%;
     height: calcView(70);
-     left: calcView(50);
+    left: calcView(50);
     bottom: 3.67vw;
-
-
   }
-  .total-acc{
+  .total-acc {
     position: absolute;
     width: 40%;
     height: calcView(70);
 
     right: calcView(50);
     bottom: 3.67vw;
-   
+
     transform: scaleX(-1);
-
-
-
   }
-  
-  .total-acc-text{
-position: absolute;
-top: 17vw;
-right: 10vw;
+
+  .total-acc-text {
+    position: absolute;
+    top: 17vw;
+    right: 10vw;
+  }
 }
-  }
-  .total-token-text{
-position: absolute;
-top: 17vw;
-left: 9vw;
-  }
+.total-token-text {
+  position: absolute;
+  top: 17vw;
+  left: 9vw;
+}
 
-
-
-
-.floating-footer{
+.floating-footer {
   width: 100%;
   height: calcView(150);
-  background-image: url('../assets/images/floating-footer.png');
+  background-image: url("../assets/images/floating-footer.png");
   background-repeat: no-repeat;
   background-size: 100%;
   position: relative;
   margin-top: -15vw;
   z-index: 0;
 }
-
-
-
