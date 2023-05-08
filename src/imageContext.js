@@ -1,9 +1,10 @@
-import {baseUrl2 } from "./api";
+import { baseUrl2 } from "./api";
 // import xp from "../assests/rewards/xp-point.png";
-import xp from './assets/images/beanbag.png'
+import xp from "./assets/images/beanbag.png";
 
 export function rewGet(rewDesc) {
   var rewImg;
+
   //console.log("my rweww"+rewDesc)
   if (rewDesc?.includes("Fragment") || rewDesc?.includes("fragment")) {
     if (rewDesc?.includes("infinity") || rewDesc?.includes("Infinity")) {
@@ -19,6 +20,16 @@ export function rewGet(rewDesc) {
     } else if (rewDesc?.includes("pegasus") || rewDesc?.includes("Pegasus")) {
       rewImg = "./rewards/Pegasus.png";
     }
+  } else if (rewDesc?.includes("Raging")) {
+    rewImg = baseUrl2 + "streamkar/rewards/valentineFrameUser.png";
+  } else if (rewDesc?.includes("spaceship")) {
+    rewImg = baseUrl2 + "streamkar/rewards/spaceship.png";
+  } else if (rewDesc?.includes("Brave")) {
+    rewImg = baseUrl2 + "streamkar/rewards/braveHeart.png";
+  } else if (rewDesc?.includes("audio")) {
+    rewImg = baseUrl2 + "streamkar/rewards/braveHeart.png";
+  } else if (rewDesc?.includes("hero")) {
+    rewImg = baseUrl2 + "streamkar/rewards/heroEntrance.png";
   } else if (rewDesc?.includes("xp") || rewDesc?.includes("XP")) {
     rewImg = xp;
   } else if (rewDesc?.includes("Maestro") || rewDesc?.includes("maestro ")) {

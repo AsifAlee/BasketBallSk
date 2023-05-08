@@ -14,6 +14,7 @@ export const SendAccelerationCard = () => {
   const [foundUsers, setFoundUsers] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [cardRecvStatus, setCardRecvStatus] = useState("");
+  const { currentUser } = useContext(AppContext);
 
   const [radioSelected, setIsRadioSelected] = useState(null);
   const handleRadioCheck = (index) => {
@@ -28,22 +29,20 @@ export const SendAccelerationCard = () => {
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log("user to find is:", res);
         setFoundUsers(res.roomList);
-        if(!res.roomList.length){
-          setCardRecvStatus("No User Found!")
+        if (!res.roomList.length) {
+          setCardRecvStatus("No User Found!");
         }
-       
       });
   };
   const sendCard = () => {
-    console.log('send called')
-    
+    console.log("send called");
+
     fetch(`${baseUrl}/basketball/sendAccelerationCard`, {
       method: "POST",
       headers: {
-        token: testToken,
-        userId: testUserId,
+        token: currentUser.userToken,
+        userId: currentUser.userId,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -54,21 +53,17 @@ export const SendAccelerationCard = () => {
       .then((res) => res.json())
       .then((res) => {
         console.log("send card response:", res);
-        if(res.status === 200){
+        if (res.status === 200) {
           if (res.data === false) {
             setCardRecvStatus("NOT ELIGIBLE FOR THIS CARD");
-          }
-          else if(res.errorCode === 10330007){
+          } else if (res.errorCode === 10330007) {
             setCardRecvStatus("CANT SEND CARD TO YOURSELF!");
-  
-          }
-          else {
+          } else {
             setCardRecvStatus("CARD SENT SUCCESS!");
           }
         }
-       
-        setCardRecvStatus("CARD SENDING FAILED DUE TO ERROR:",res.status);
-      
+
+        setCardRecvStatus("CARD SENDING FAILED DUE TO ERROR:", res.status);
       })
       .catch((error) => {
         console.error("api error:", error);
@@ -97,7 +92,6 @@ export const SendAccelerationCard = () => {
         </div>
         {foundUsers.length ? (
           <>
-       
             <div className="radio-container">
               {foundUsers.map((user, index) => (
                 <RadioSelect
@@ -105,10 +99,7 @@ export const SendAccelerationCard = () => {
                   index={index}
                   isSelected={radioSelected}
                 >
-                <AccelerationCard user={user}  />
-
-              
-
+                  <AccelerationCard user={user} />
                 </RadioSelect>
               ))}
             </div>

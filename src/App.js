@@ -6,7 +6,7 @@ import GiftingLeaderBoards from "./pages/GiftingLeaderBoard";
 import Guide from "./popups/Guide";
 import LanguageDropdown from "./pages/LangaugeSelector";
 import { RewardHistory } from "./popups/RewardHistory";
-import { baseUrl, testToken, testUserId } from "./api";
+import { baseUrl, baseUrl2, testToken, testUserId } from "./api";
 import jumpingCharcter from "./assets/images/jumping-character.png";
 import noReward from "./assets/images/no-reward.gif";
 import reward1 from "./assets/images/basket01.gif";
@@ -17,6 +17,8 @@ import reward4 from "./assets/images/basket04.gif";
 import reward5 from "./assets/images/basket05.gif";
 import reward6 from "./assets/images/basket06.gif";
 import GamePopUp from "./popups/GamePopUp";
+import foreverHeader from "../src/assets/images/forever-header.gif";
+import Marquee from "react-easy-marquee";
 
 export const AppContext = createContext();
 function App() {
@@ -42,6 +44,18 @@ function App() {
   const [showAccInfoPopUp, setShowAccInfoPopUp] = useState(false);
   const [showSuccessAttemptPopUp, setShowSucessAttemptPopUp] = useState(false);
   const [milestonePopUp, setMilestonePopUp] = useState(false);
+  const [marqueeData, setMarqueeData] = useState({
+    game: [],
+    milestone: [],
+    accelaration: [],
+  });
+
+  console.log("user info", window.phone);
+
+  const [currentUser, setCurrentUser] = useState({
+    userId: 0,
+    userToken: "",
+  });
 
   const [isPlaying, setIsPlaying] = useState(0);
   const [userInfo, setUserInfo] = useState({
@@ -121,11 +135,10 @@ function App() {
   };
   function getRewardHistory() {
     fetch(
-      `${baseUrl}/basketball/getRewardRecord?userId=${testUserId}&pageNum=1&pageSize=20`
+      `${baseUrl}/basketball/getRewardRecord?userId=${currentUser.userId}&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log("reward history:", res);
         setRewardHistory(res.data.list);
       })
       .catch((error) => {
@@ -212,14 +225,30 @@ function App() {
       });
   }
 
+  function getMarqueeData() {
+    fetch(
+      `${baseUrl}/eventShow/getModulePushRankV3?eventDesc=20230523_basketball&pageIndex=1&pageCount=20&rankIndex=1&rankType=2`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        setMarqueeData((prevState) => ({ ...prevState, game: res }));
+      })
+      .catch((error) => {
+        console.error("error is :", error);
+      });
+  }
+
   const getInfo = (userId) => {
-    fetch(`${baseUrl}/basketball/getUserEventInfo?userId=${testUserId}`, {
-      headers: {
-        method: "GET",
-        checkTag: "",
-        redirect: "follow",
-      },
-    })
+    fetch(
+      `${baseUrl}/basketball/getUserEventInfo?userId=${currentUser.userId}`,
+      {
+        headers: {
+          method: "GET",
+          checkTag: "",
+          redirect: "follow",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         console.log("response is:", res);
@@ -255,13 +284,13 @@ function App() {
     fetch(`${baseUrl}/basketball/playShootGame/`, {
       method: "POST",
       body: JSON.stringify({
-        userId: testUserId,
+        userId: currentUser.userId,
         playCount: parseInt(inputValue),
       }),
       headers: {
         checkTag: "",
-        userId: testUserId,
-        token: testToken,
+        userId: currentUser.userId,
+        token: currentUser.userToken,
         "Content-Type": "application/json",
       },
     })
@@ -287,19 +316,6 @@ function App() {
     }, 4000);
   };
 
-  // const handleChange = (event) => {
-  //   console.log("handle change:", event.target.value);
-
-  //   setInputValue(event.target.value);
-  // };
-
-  // const handleKeyDown = (event) => {
-  //   if (event.key == ".") {
-  //     setInputValue((prevState) => prevState.slice(0, -1));
-  //   }
-
-  // };
-
   function handleChange(event) {
     const inputValue = event.target.value;
     const inputRegex = /^[0-9]{0,2}$/;
@@ -308,10 +324,28 @@ function App() {
       setInputValue(inputValue);
     }
   }
+  // get user info
+  useEffect(() => {
+    try {
+      window.phone.getUserInfo(function (userInfo) {
+        setCurrentUser({
+          userId: userInfo.userId > 0 ? userInfo.userId : 0,
+          userToken: userInfo.token != "" ? userInfo.token : null,
+        });
+      });
+    } catch (_error) {
+      setCurrentUser({
+        userId: 0,
+        userToken: "",
+      });
+      console.error("Can't get userInfo by window.phone.getUserInfo");
+    }
+  }, []);
 
   useEffect(() => {
-    getInfo();
     getRewardHistory();
+
+    getInfo();
   }, []);
   useEffect(() => {
     if (userInfo.dayIndex) {
@@ -322,6 +356,7 @@ function App() {
       getTalentDailyToday();
       getTalentDailyYest();
       getMilestoneData();
+      getMarqueeData();
     }
   }, [userInfo.dayIndex]);
 
@@ -346,6 +381,7 @@ function App() {
         showSuccessAttemptPopUp: showSuccessAttemptPopUp,
         milestonePopUp: milestonePopUp,
         toggleMilestonePopUp: toggleMilestonePopUp,
+        currentUser: currentUser,
       }}
     >
       <div className="App">
@@ -364,6 +400,16 @@ function App() {
               onClick={() => setShowRewardHistory(1)}
             ></button>
           </div>
+          {/* <div className="gameMarquee">
+            <Marquee duration={60000} background="" height="250px">
+              {marqueeData.game.map((user) => (
+                <div className="user-item">
+                  <img src={user.portrait} className="marquee-user" />
+                  <p>{`User ${user.nickName} won ${user.userScore}  `}</p>
+                </div>
+              ))}
+            </Marquee>
+          </div> */}
           <div className="gameBtns">
             <button className="throws-left">
               Throw Left:{userInfo.throwsLeft}
@@ -400,18 +446,15 @@ function App() {
           <button className="hand"></button>
           <button className="throw"></button>
 
-          {/* {isPlaying ? (
-            <img src={basket1} className="playing-character" />
-          ) : (
-            <img src={jumpingCharcter} className="jumping-character" />
+          {/* {!isPlaying && (
+            <img src={foreverHeader} className="jumping-character" />
           )} */}
-          {/* <img src={basket1} className="playing-character" /> */}
-          {!isPlaying && (
-            <img src={jumpingCharcter} className="jumping-character" />
-          )}
 
           {isPlaying && (
             <img src={allRewards[rewardWon]} className="playing-character" />
+          )}
+          {!isPlaying && (
+            <img src={foreverHeader} className="playing-character" />
           )}
         </div>
 
@@ -462,20 +505,6 @@ function App() {
         ) : (
           ""
         )}
-        {/* {showGamePopUp && throwsLeft <= 0 ? (
-          <GamePopUp
-            textTitle={"OOPS"}
-            content={
-              rewardWon
-                ? "That was a perfect throw and you have won"
-                : "Uh-Oh!The throw was unsuccessfull.Please try again."
-            }
-            beans={beansWon}
-            throwsLeft={userInfo.throwsLeft > 0 ? true : false}
-          />
-        ) : (
-          ""
-        )} */}
       </div>
     </AppContext.Provider>
   );

@@ -16,6 +16,21 @@
     background-repeat: no-repeat;
     position: relative;
 
+    .gameMarquee{
+     border: 1px solid red;
+
+     .user-item{
+     display: flex;
+     align-items: center;
+     border: 1px solid ;
+     border-radius: 5vw;
+      .marquee-user{
+        width: 12vw;
+        border-radius: 100%;
+      }
+     }
+    }
+
     .infoAndRewards {
       display: flex;
       justify-content: space-between;
@@ -23,6 +38,7 @@
       width: 100%;
       position: absolute;
       top: 103vw;
+      z-index: 1;
 
       .rewardBtn {
         width: 12vw;
@@ -110,6 +126,7 @@
       border: none;
       background-color: transparent;
       position: absolute;
+      z-index: 1;
     }
     .thrown{
       filter: grayscale(100%);
@@ -141,6 +158,7 @@
       position: absolute;
       bottom: 4vw;
       left: 52vw;
+      z-index: 1;
     }
     .throw {
       width: 23vw;
@@ -156,10 +174,10 @@
     }
 
     .jumping-character{
-      width: 20vw;
+      width: 100%;
       position: absolute;
-      bottom: 31vw;
-      left: 39vw;
+      // bottom: 31vw;
+      // left: 39vw;
     }
     .playing-character{
       position: absolute;

@@ -5,6 +5,7 @@ import img1 from "../../assets/images/info-display.png";
 import { SendAccelerationCard } from "../../popups/SendAccelerationCard";
 import { AppContext } from "../../App";
 import AccInfoPopUp from "../../popups/AccInfoPopUp";
+import completed from "../../assets/images/completed.png";
 import iBtn from "../../assets/images/i-buttons-b.png";
 
 export const GrowAcceleration = () => {
@@ -15,6 +16,8 @@ export const GrowAcceleration = () => {
     toggleAccInfoPopUp,
     showAccInfoPopUp,
   } = useContext(AppContext);
+  const { tokens } = userInfo;
+  // const tokens = 800;
   return (
     <div>
       <div className="growthacc-container">
@@ -39,6 +42,21 @@ export const GrowAcceleration = () => {
         <div className="indicator"></div>
         <div className="accProgressBar">
           <img src={iBtn} className="info-btn" onClick={toggleAccInfoPopUp} />
+          <img
+            src={completed}
+            className="token200"
+            style={{ filter: tokens < 200 ? "grayscale(100)" : "" }}
+          />
+          <img
+            src={completed}
+            className="token400"
+            style={{ filter: tokens < 400 ? "grayscale(100)" : "" }}
+          />
+          <img
+            src={completed}
+            className="token800"
+            style={{ filter: tokens < 800 ? "grayscale(100)" : "" }}
+          />
         </div>
       </div>
 

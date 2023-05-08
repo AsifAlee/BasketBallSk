@@ -179,6 +179,25 @@
       left: -1vw;
       top: 0vw;
     }
+
+    .token200{
+      width: 16vw;
+      position: absolute;
+      left: 15vw;
+      top: -2vw;
+    }
+    .token400{
+      width: 16vw;
+      position: absolute;
+      left: 38vw;
+      top: -2vw;
+    }
+    .token800{   
+      width: 16vw;
+      position: absolute;
+      left: 62vw;
+      top: -2vw
+    }
   }
   .indicator {
     width: calcView(80);
