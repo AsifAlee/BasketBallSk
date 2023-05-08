@@ -9,8 +9,8 @@ export const formatNumbers = (numberToConvert) => {
 };
 
 export const getLevelImage = (level, isTalent) => {
-  const talentLevelUrl = "http://test.streamkar.tv/streamkar/common/img/ulv";
-  const userLevelUrl = "http://test.streamkar.tv/streamkar/common/img/tlv";
+  const talentLevelUrl = "http://test.streamkar.tv/streamkar/common/img/tlv";
+  const userLevelUrl = "http://test.streamkar.tv/streamkar/common/img/ulv";
   if (isTalent) {
     return `${talentLevelUrl}/${level}.png`;
   } else {

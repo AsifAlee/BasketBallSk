@@ -21,7 +21,9 @@ export const GrowAcceleration = () => {
   return (
     <div>
       <div className="growthacc-container">
-        <div className="title">My Acceleration Card:000</div>
+        <div className="title">
+          My Acceleration Card:{userInfo.accCardCount}
+        </div>
         <button className="acc-btn" onClick={toogleAccPopUp}></button>
         <div className="jumping-character"></div>
         <div className="task-info">

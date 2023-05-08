@@ -70,6 +70,7 @@ function App() {
     tokens: null,
     myAccRate: null,
     dayIndex: null,
+    accCardCount: 0,
   });
   const [rankings, setRankings] = useState({
     userOverall: [],
@@ -252,6 +253,7 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         console.log("response is:", res);
+
         setUserInfo({
           ...userInfo,
           dailyTaskList: res.data.dailyTaskInfoList,
@@ -273,6 +275,7 @@ function App() {
           tokens: res.data.userTaskInfo.tokens,
           myAccRate: res.data.growth,
           dayIndex: res.data.day,
+          accCardCount: res.data.userTaskInfo.accelerationCardCount,
         });
       })
       .catch((error) => {});
@@ -443,7 +446,7 @@ function App() {
             disabled={isPlaying ? true : false}
             onClick={playGame}
           ></button>
-          <button className="hand"></button>
+          <button className="hand" style={{ pointerEvents: "none" }}></button>
           <button className="throw"></button>
 
           {/* {!isPlaying && (

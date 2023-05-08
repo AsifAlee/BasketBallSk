@@ -2,6 +2,7 @@ import React from "react";
 import unknown from "../assets/images/unknown-user.png";
 import levelIcon from "../assets/images/score-icon.png";
 import bean from "../assets/images/bean.png";
+import basketball from "../assets/images/score-icon.png";
 import energyIcon from "../assets/images/energy-icon.png";
 import { formatNumbers, getLevelImage, gotoProfile } from "../functions";
 export const FieldLeaderBoardItem = (props) => {
@@ -28,12 +29,12 @@ export const FieldLeaderBoardItem = (props) => {
             {isToday ? "Est. Rewards" : "Rewards Sent"}:
           </span>
           <img src={bean} />
-          <span>{formatNumbers(estRewards)}</span>
+          <span>{estRewards}</span>
         </div>
       )}
 
       <div className="rightDiv">
-        <img src={isTalent ? energyIcon : bean} className="basket" />
+        <img src={isTalent ? energyIcon : basketball} className="basket" />
         <span>{formatNumbers(user.count)}</span>
       </div>
     </div>

@@ -26,7 +26,7 @@ export const Overall = () => {
     const result = userInfo.talentOverallBeansPot
       ? (percent / 100) * userInfo.talentOverallBeansPot
       : 0;
-    return result;
+    return result.toFixed(0);
   };
   const toppersData = ["NickName", "Nickname2", "nickName3"];
   const [isSeeMore, setIsSeeMore] = useState(1);

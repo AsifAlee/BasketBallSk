@@ -21,27 +21,26 @@
 
   
       .gift1 {
-        width: 15vw;
+        width: 27vw;
         position: absolute;
-        top: 27vw;
-        left: 14vw;
+        top: 14vw;
+        left: 3vw;
       }
     
 
     .gift2 {
-      
-        width: 15vw;
-        position: absolute;
-        top: 24vw;
-        left: 40vw;
+      width: 36vw;
+      position: absolute;
+      top: 5vw;
+      left: 28vw;
     
     }
 
     .gift3 {
-     width: 15vw;
-     position: absolute;
-    top: 27vw;
-    left: 65vw;
+      width: 27vw;
+      position: absolute;
+      top: 17vw;
+      left: 62vw;
   }
   .gift1Detail{
     position: absolute;
@@ -602,7 +601,11 @@
           border-radius: 100%;
         }
         .levelIcon {
-          width: 8.6666vw;
+
+          width: 14.6666vw;
+    height: 4vw;
+    object-fit: contain;
+
         }
       }
       .middle-div {
@@ -631,6 +634,7 @@
         }
         span {
           font-weight: 400;
+          margin-top: 1vw;
           // font-size: 2vw;
         }
       }

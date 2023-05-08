@@ -314,6 +314,13 @@
         }
       }
     }
+
+    .noData{
+      text-align: center;
+    margin-top: 19vw;
+    font-family: 'HiJack';
+    color: yellow;
+    }
   }
   .game {
     position: relative;
@@ -336,6 +343,7 @@
 
       p {
         text-align: center;
+        margin-right: 3vw;
       }
       .gameBeansBag {
         width: 22vw;

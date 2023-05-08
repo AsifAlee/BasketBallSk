@@ -40,25 +40,7 @@ export const Daily = () => {
       <div className="leaderBoardTitle">
         <img src={leaderBordTitle} className="title" />
       </div>
-      <div
-        className="dailyTabBtns"
-
-        // onClick={toggleTabs}
-      >
-        {/* {dailyTabs.today && (
-          <SliderButton className="daily">
-            <img src={today} />
-          </SliderButton>
-        )}
-
-        {dailyTabs.yesterday && (
-          <div style={{ position: "relative", left: "20vw" }}>
-            <SliderButton className="daily">
-              <img src={yesterday} />
-            </SliderButton>
-          </div>
-        )} */}
-
+      <div className="dailyTabBtns">
         <ButtonSlider
           texts={["Today", "Yesterday"]}
           bg={bg}

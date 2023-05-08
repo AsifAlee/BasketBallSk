@@ -23,11 +23,15 @@ export const RewardHistory = () => {
           <span className="type">Reward Type</span>
           <span className="rewards">Rewards</span>
         </div>
-        <div className="rewardWrapper">
-          {rewardHistory.map((rewardItem, index) => (
-            <RewardHistoryItem key={index} rewardItem={rewardItem} />
-          ))}
-        </div>
+        {rewardHistory.length ? (
+          <div className="rewardWrapper">
+            {rewardHistory.map((rewardItem, index) => (
+              <RewardHistoryItem key={index} rewardItem={rewardItem} />
+            ))}
+          </div>
+        ) : (
+          <div className="noData">No Data Found!</div>
+        )}
       </div>
     </PopUp>
   );

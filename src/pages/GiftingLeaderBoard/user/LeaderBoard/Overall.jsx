@@ -13,7 +13,7 @@ export const Overall = () => {
     const totalBeansPot = userInfo.userOverallBeansPot;
     const percent = userOverallPot.find((item) => item.rank === index)?.percent;
     const result = totalBeansPot ? (percent / 100) * totalBeansPot : 0;
-    return result.toFixed(2);
+    return result.toFixed(0);
   };
 
   const leaderBoardList = [

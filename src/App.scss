@@ -16,19 +16,19 @@
     background-repeat: no-repeat;
     position: relative;
 
-    .gameMarquee{
-     border: 1px solid red;
+    .gameMarquee {
+      border: 1px solid red;
 
-     .user-item{
-     display: flex;
-     align-items: center;
-     border: 1px solid ;
-     border-radius: 5vw;
-      .marquee-user{
-        width: 12vw;
-        border-radius: 100%;
+      .user-item {
+        display: flex;
+        align-items: center;
+        border: 1px solid;
+        border-radius: 5vw;
+        .marquee-user {
+          width: 12vw;
+          border-radius: 100%;
+        }
       }
-     }
     }
 
     .infoAndRewards {
@@ -68,6 +68,7 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      z-index: 1;
 
       .throws-left {
         width: 41vw;
@@ -128,7 +129,7 @@
       position: absolute;
       z-index: 1;
     }
-    .thrown{
+    .thrown {
       filter: grayscale(100%);
       width: calcView(130);
       height: calcView(130);
@@ -143,8 +144,8 @@
       position: absolute;
     }
 
-    .blackNwhite{
-     filter: grayscale(100%);
+    .blackNwhite {
+      filter: grayscale(100%);
     }
 
     .hand {
@@ -173,15 +174,16 @@
       left: 43vw;
     }
 
-    .jumping-character{
+    .jumping-character {
       width: 100%;
       position: absolute;
       // bottom: 31vw;
       // left: 39vw;
     }
-    .playing-character{
+    .playing-character {
       position: absolute;
-      width: 100%;
+      width: 97%;
+      top: 2vw;
     }
   }
 
@@ -248,10 +250,10 @@
   }
 }
 
-.noData{
+.noData {
   text-align: center;
   margin-top: 32vw;
-  font-family: 'HiJack';
+  font-family: "HiJack";
 }
 
 * {

@@ -26,14 +26,19 @@ const Topper = (props) => {
         <p>{user.nickname}</p>
       </div>
       <div className="level-icon">
-        <img src={getLevelImage(user.userLevel, isTalent)} />
+        <img
+          src={getLevelImage(
+            isTalent ? user.actorLevel : user.userLevel,
+            isTalent
+          )}
+        />
       </div>
       {showEst ? (
         <div className="est-rewards">
           <span>
             {isToday
-              ? `Est.rewards:${formatNumbers(estRewards)}`
-              : `Rewards Sent${formatNumbers(estRewards)}`}
+              ? `Est.rewards:${estRewards}`
+              : `Rewards Sent:${estRewards}`}
           </span>
           <img src={bean} className="bean" />
         </div>

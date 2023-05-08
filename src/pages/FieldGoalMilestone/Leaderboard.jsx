@@ -22,9 +22,9 @@ const Leaderboard = () => {
     "fdfd",
     "fdfdf",
   ];
-  const calculateEstRewards = (index) => {
+  const calculateEstRewards = () => {
     const result = milestoneBeansPot ? (0.1 / 100) * milestoneBeansPot : 0;
-    return result.toFixed(2);
+    return result.toFixed(0);
   };
   return (
     <>

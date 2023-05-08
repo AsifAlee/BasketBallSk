@@ -36,6 +36,7 @@
       position: absolute;
       right: calcView(70);
       top: calcView(80);
+      z-index: 1;
     }
   
     .progressBarSection {
