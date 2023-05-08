@@ -387,7 +387,10 @@
             border-radius: 100%;
           }
           .levelIcon {
-            width: 8.6vw;
+            // width: 8.6vw;
+            width: 11.6666vw;
+    height: 4vw;
+    object-fit: contain;
           }
         }
         .rightDiv {

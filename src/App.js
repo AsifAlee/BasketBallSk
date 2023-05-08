@@ -50,8 +50,6 @@ function App() {
     accelaration: [],
   });
 
-  console.log("user info", window.phone);
-
   const [currentUser, setCurrentUser] = useState({
     userId: 0,
     userToken: "",
@@ -239,7 +237,7 @@ function App() {
       });
   }
 
-  const getInfo = (userId) => {
+  const getInfo = () => {
     fetch(
       `${baseUrl}/basketball/getUserEventInfo?userId=${currentUser.userId}`,
       {
@@ -258,6 +256,7 @@ function App() {
           ...userInfo,
           dailyTaskList: res.data.dailyTaskInfoList,
           throwsLeft: res.data.chance,
+          // throwsLeft: 12,
 
           mySuccessfullAttempt: res.data.attempts,
           // mySuccessfullAttempt: 2000,
@@ -336,7 +335,7 @@ function App() {
           userToken: userInfo.token != "" ? userInfo.token : null,
         });
       });
-    } catch (_error) {
+    } catch (error) {
       setCurrentUser({
         userId: 0,
         userToken: "",
@@ -349,7 +348,7 @@ function App() {
     getRewardHistory();
 
     getInfo();
-  }, []);
+  }, [currentUser]);
   useEffect(() => {
     if (userInfo.dayIndex) {
       getUserOverall();

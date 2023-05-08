@@ -19,7 +19,10 @@ export const FieldLeaderBoardItem = (props) => {
         />
         <span className="name">{user.nickname}</span>
         <img
-          src={getLevelImage(user.userLevel, isTalent)}
+          src={getLevelImage(
+            isTalent ? user.actorLevel : user.userLevel,
+            isTalent
+          )}
           className="levelIcon"
         />
       </div>
