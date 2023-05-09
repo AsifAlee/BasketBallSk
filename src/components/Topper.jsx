@@ -48,7 +48,7 @@ const Topper = (props) => {
 
       <div className="score">
         <img src={isTalent ? enerygyIcon : ball} />
-        <span>{formatNumbers(user.count)}</span>
+        <span>{user.count}</span>
       </div>
     </div>
   );

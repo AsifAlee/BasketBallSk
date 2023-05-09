@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import leaderBoardTitle from "../../assets/images/leaderboard.png";
 import Topper from "../../components/Topper";
 import { FieldLeaderBoardItem } from "../../components/FieldLeaderBoardItem";
@@ -8,8 +8,20 @@ import { fieldGoalPot, userOverallPot } from "../../beansPot";
 const Leaderboard = () => {
   const toppersData = ["NickName", "Nickname2", "nickName3"];
   const [isSeeMore, setIsSeeMore] = useState(1);
-
   const { userInfo, rankings } = useContext(AppContext);
+  const [restWinners, setRestWinners] = useState([]);
+
+  useEffect(() => {
+    if (isSeeMore) {
+      setRestWinners(rankings.milestoneRanking.slice(3, 10));
+    } else {
+      setRestWinners(rankings.milestoneRanking.slice(3));
+    }
+  }, [isSeeMore]);
+  useEffect(() => {
+    setRestWinners(rankings.milestoneRanking.slice(3, 10));
+  }, [rankings.milestoneRanking]);
+
   const { milestoneBeansPot } = userInfo;
   const leaderBoardList = [
     "asif ali khan asif ali",
@@ -34,7 +46,7 @@ const Leaderboard = () => {
             <img src={leaderBoardTitle} className="title" />
           </div>
           <div className="topRank">
-            {rankings.milestoneRanking.map((user, index) => (
+            {rankings.milestoneRanking.slice(0, 3).map((user, index) => (
               <Topper
                 user={user}
                 index={index + 1}
@@ -51,22 +63,29 @@ const Leaderboard = () => {
             className="restWinners"
             style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
           >
-            {rankings.milestoneRanking.map((item, index) => (
-              <FieldLeaderBoardItem
-                user={item}
-                key={index}
-                index={index + 1}
-                estRewards={calculateEstRewards(index + 1)}
-                showEst={false}
-                isToday={true}
-                isTalent={false}
-              />
-            ))}
+            {restWinners.map((item, index) => {
+              let newIndex = index + 3;
+              return (
+                <FieldLeaderBoardItem
+                  user={item}
+                  key={index}
+                  index={newIndex + 1}
+                  estRewards={calculateEstRewards(index + 1)}
+                  showEst={false}
+                  isToday={true}
+                  isTalent={false}
+                />
+              );
+            })}
           </div>
 
           <button
             className={isSeeMore ? "seeMore" : "seeLess"}
             onClick={() => setIsSeeMore((prev) => !prev)}
+            style={{
+              visibility:
+                rankings.milestoneRanking.length > 10 ? "visible" : "hidden",
+            }}
           ></button>
         </div>
       ) : (

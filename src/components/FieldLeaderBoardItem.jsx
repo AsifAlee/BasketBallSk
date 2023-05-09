@@ -38,7 +38,7 @@ export const FieldLeaderBoardItem = (props) => {
 
       <div className="rightDiv">
         <img src={isTalent ? energyIcon : basketball} className="basket" />
-        <span>{formatNumbers(user.count)}</span>
+        <span>{user.count}</span>
       </div>
     </div>
   );

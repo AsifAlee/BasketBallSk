@@ -8,14 +8,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 2;
-  cursor: pointer;
+  cursor: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 5vw;
+  
 
   .content {
     width: 80%;
@@ -96,7 +97,9 @@
             border: 1px solid;
             border-collapse: collapse;
             padding: 1vw;
+
           }
+
 
           .table {
             width: 90%;
@@ -105,6 +108,7 @@
           td {
             text-align: center;
           }
+     
         }
       }
 
@@ -342,11 +346,16 @@
       left: 18vw;
 
       p {
+        // text-align: center;
+        // margin-right: 3vw;
+
         text-align: center;
         margin-right: 3vw;
+        line-height: 1.6;
+        font-size: 2.5vw;
       }
       .gameBeansBag {
-        width: 22vw;
+        width: 19vw;
       }
       .beansWon {
         color: yellow;
@@ -365,6 +374,8 @@
     flex-direction: column;
     position: relative;
 
+
+
     .succesfull-attempt-content {
       position: absolute;
       top: 13vw;
@@ -374,6 +385,11 @@
 
       .yellow-text {
         color: yellow;
+      }
+      p{
+        text-align: center;
+    line-height: 1.6;
+    font-size: 2.8vw;
       }
     }
   }
@@ -386,6 +402,8 @@
 
     .milestone-content{
       font-size: 3vw;
+      height: 73vw;
+      overflow: auto;
       .milestone-title{
         width: 80%;
         height: 9vw;
@@ -393,13 +411,20 @@
         background-color: #0c307a;
         margin: 0 auto;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         margin-top: 3vw;
         span{
           color: #546693;
 
         }
+        .span1{
+          margin-left: 3vw;
+        }
+        .span2{
+          margin-right: 7vw;
+        }
+        
      
       }
      table{
@@ -414,7 +439,10 @@
       }
       td {
         border-bottom: 1px solid;
-        padding: 3vw;
+        padding: 0.5vw;
+      }
+      td img{
+        width: 12vw;
       }
     
      }

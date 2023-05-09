@@ -28,7 +28,7 @@ export const GrowAcceleration = () => {
         <div className="jumping-character"></div>
         <div className="task-info">
           <p>
-            Collect the rare Acceleratin Cards from BasketBall Game and send it
+            Collect the rare Acceleration Cards from BasketBall Game and send it
             to your favourite talent to accelerate their growth
           </p>
         </div>

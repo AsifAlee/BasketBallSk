@@ -38,7 +38,7 @@ export const RewardHistoryItem = (props) => {
         <img src={currentRewdImg} />
         <p className="text">
           {rewardItem.rewardType == "Basketball Game"
-            ? `${formatNumbers(rewardItem.gameRewardInfo.beans)} beans`
+            ? `${rewardItem.gameRewardInfo.beans} beans`
             : `${rewardItem.gameRewardInfo.rewardDTOList[0].rewardCount} ${rewardItem.gameRewardInfo.rewardDTOList[0].rewardDesc}`}
         </p>
       </div>

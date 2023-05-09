@@ -19,6 +19,7 @@ import reward6 from "./assets/images/basket06.gif";
 import GamePopUp from "./popups/GamePopUp";
 import foreverHeader from "../src/assets/images/forever-header.gif";
 import Marquee from "react-easy-marquee";
+import beans from "./assets/images/bean.png";
 
 export const AppContext = createContext();
 function App() {
@@ -250,8 +251,6 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log("response is:", res);
-
         setUserInfo({
           ...userInfo,
           dailyTaskList: res.data.dailyTaskInfoList,
@@ -282,17 +281,23 @@ function App() {
 
   const playGame = () => {
     setRewardWon(null);
+    setBeansWon(0);
     setIsPlaying(1);
     fetch(`${baseUrl}/basketball/playShootGame/`, {
       method: "POST",
       body: JSON.stringify({
         userId: currentUser.userId,
+        // userId: 502184259,
+
         playCount: parseInt(inputValue),
       }),
       headers: {
         checkTag: "",
         userId: currentUser.userId,
         token: currentUser.userToken,
+        // userId: 502184259,
+        // token: testToken,
+
         "Content-Type": "application/json",
       },
     })
@@ -306,6 +311,8 @@ function App() {
 
             setShowGamePopUp(true);
             getInfo();
+            getRewardHistory();
+            getMilestoneData();
           }, 1800);
         } else {
           setIsPlaying(0);
@@ -320,7 +327,8 @@ function App() {
 
   function handleChange(event) {
     const inputValue = event.target.value;
-    const inputRegex = /^[0-9]{0,2}$/;
+    // const inputRegex = /^[0-9]{0,2}$/;
+    const inputRegex = /^[1-9][0-9]?$|^99$/;
 
     if (inputRegex.test(inputValue)) {
       setInputValue(inputValue);
@@ -330,6 +338,8 @@ function App() {
   useEffect(() => {
     try {
       window.phone.getUserInfo(function (userInfo) {
+        alert("userId:" + userInfo.userId + "token id:" + userInfo.token);
+
         setCurrentUser({
           userId: userInfo.userId > 0 ? userInfo.userId : 0,
           userToken: userInfo.token != "" ? userInfo.token : null,
@@ -346,7 +356,6 @@ function App() {
 
   useEffect(() => {
     getRewardHistory();
-
     getInfo();
   }, [currentUser]);
   useEffect(() => {
@@ -402,16 +411,27 @@ function App() {
               onClick={() => setShowRewardHistory(1)}
             ></button>
           </div>
-          {/* <div className="gameMarquee">
-            <Marquee duration={60000} background="" height="250px">
+          <div className="gameMarquee">
+            <Marquee duration={60000} background="">
               {marqueeData.game.map((user) => (
                 <div className="user-item">
                   <img src={user.portrait} className="marquee-user" />
-                  <p>{`User ${user.nickName} won ${user.userScore}  `}</p>
+                  <div className="details">
+                    {/* <span style={{ marginTop: "1vw", marginLeft: "1vw" }}>
+                      User &nbsp;
+                    </span> */}
+                    <span className="name">{`${user.nickName} `} </span>
+                    <span>&nbsp;has won &nbsp;</span>
+                    <div className="beans">
+                      <span>{user.userScore}</span>
+                      <img src={beans} />
+                      <span>.Congratulations!</span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </Marquee>
-          </div> */}
+          </div>
           <div className="gameBtns">
             <button className="throws-left">
               Throw Left:{userInfo.throwsLeft}
@@ -452,11 +472,15 @@ function App() {
             <img src={foreverHeader} className="jumping-character" />
           )} */}
 
-          {isPlaying && (
+          {isPlaying ? (
             <img src={allRewards[rewardWon]} className="playing-character" />
+          ) : (
+            ""
           )}
-          {!isPlaying && (
+          {!isPlaying ? (
             <img src={foreverHeader} className="playing-character" />
+          ) : (
+            ""
           )}
         </div>
 

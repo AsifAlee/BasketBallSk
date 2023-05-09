@@ -1,8 +1,16 @@
 import React, { useEffect } from "react";
 import "../styles/popup.scss";
 const PopUp = (props) => {
-  const { children, bg, title, popUpHandler, isAccPopUp, isRewards, isGame } =
-    props;
+  const {
+    children,
+    bg,
+    title,
+    popUpHandler,
+    isAccPopUp,
+    isRewards,
+    isGame,
+    isMilestone,
+  } = props;
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -18,9 +26,19 @@ const PopUp = (props) => {
         style={{
           backgroundImage: `url(${bg})`,
           minHeight: `${
-            isAccPopUp ? "70vw" : isRewards ? "58vw" : isGame ? "65vw" : ""
+            isAccPopUp
+              ? "70vw"
+              : isRewards
+              ? "58vw"
+              : isGame
+              ? "60vw"
+              : isMilestone
+              ? "83vw"
+              : ""
           }`,
-          width: `${isAccPopUp ? "85%" : isRewards ? "80%" : ""}`,
+          width: `${
+            isAccPopUp ? "85%" : isRewards ? "80%" : isMilestone ? "98%" : ""
+          }`,
         }}
       >
         <div

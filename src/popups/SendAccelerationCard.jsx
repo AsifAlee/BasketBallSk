@@ -61,9 +61,9 @@ export const SendAccelerationCard = () => {
           } else {
             setCardRecvStatus("CARD SENT SUCCESS!");
           }
+        } else {
+          setCardRecvStatus("CARD SENDING FAILED DUE TO ERROR:", res.msg);
         }
-
-        setCardRecvStatus("CARD SENDING FAILED DUE TO ERROR:", res.status);
       })
       .catch((error) => {
         console.error("api error:", error);

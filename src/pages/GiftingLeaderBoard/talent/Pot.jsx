@@ -10,7 +10,7 @@ export const Pot = () => {
         <img src={bean} />
         <span>{userInfo.talentOverallBeansPot}</span>
       </div>
-      <div className="potInfo">BEANS WILL BE REWARDED TO TOP 5 USERS</div>
+      <div className="potInfo">BEANS WILL BE REWARDED TO TOP 5 TALENTS</div>
     </div>
   );
 };

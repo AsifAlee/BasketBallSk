@@ -152,7 +152,7 @@
   .beans-pot {
     width: 95%;
     height: calcView(500);
-    background-image: url("../../assets/images/beans-pot-bg.png");
+    background-image: url("../../assets/images/gifting-beans-pot.gif");
     background-repeat: no-repeat;
     background-size: contain;
     margin: calcView(60) auto 0;
@@ -182,7 +182,7 @@
         margin-top: calcView(3);
         font-family: Helvetica;
         font-weight: bold;
-        font-size: 1.9vw;
+        font-size: 1.8vw;
       }
     }
     .beans-number {
@@ -205,7 +205,8 @@
   
   .fieldGoalLeaderBoard {
     width: 100%;
-    // height: calcView(1100);
+    height: 172vw;
+  
     background-image: url("../../assets/images/leaderboard-bg-2.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -352,8 +353,9 @@
     }
   
     .restWinners {
-      height: 80.6666vw;
-      overflow-y: auto;
+      // border: 1px solid;
+      height: 73vw;
+      // overflow-y: auto;
       font-family: "Helvetica";
       .fieldGoalLederBoarItem {
         background-image: url("../../assets/images/leaderboard-list-bg.png");

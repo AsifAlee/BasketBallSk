@@ -17,16 +17,42 @@
     position: relative;
 
     .gameMarquee {
-      border: 1px solid red;
-
+      position: relative;
+      top: 31vw;
+      width: 95%;
       .user-item {
         display: flex;
         align-items: center;
-        border: 1px solid;
+        border: calcView(1) solid;
         border-radius: 5vw;
+        background-color: #9a3a2a;
+        font-size: 1.8vw;
+        width: 45vw;
+        padding: 0.5vw;
+        margin-right: 3vw;
         .marquee-user {
-          width: 12vw;
+          width: 5vw;
           border-radius: 100%;
+        }
+
+        .details{
+          display: flex;
+          align-items: center;
+          
+        }
+        .name{
+          width: 5vw;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          margin-left: 0.7vw;
+        }
+        .beans{
+          display: flex;
+          align-items: center;
+          img{
+            width: 5vw;
+          }
         }
       }
     }
