@@ -6,7 +6,7 @@
   .successfull-attempts {
     width: 96%;
     height: 54vw;
-    background-image: url("../../assets/images/my-succesful-attempts.png");
+    background-image: url("../../assets/images/my-succesful-attempts3.png");
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
@@ -205,7 +205,7 @@
   
   .fieldGoalLeaderBoard {
     width: 100%;
-    height: 172vw;
+    height: 183vw;
   
     background-image: url("../../assets/images/leaderboard-bg-2.png");
     background-repeat: no-repeat;
@@ -219,6 +219,13 @@
       .title {
         width: 50%;
       }
+    }
+
+    .lock{
+    width: 6vw;
+    position: absolute;
+    left: -3vw;
+    top: -2vw;
     }
   
     .topRank {
@@ -283,12 +290,18 @@
           }
         }
         .est-rewards {
-          font-size: calcView(14);
+          font-size: 1.86667vw;
           display: flex;
-          width: 100%;
+          width: 90%;
           display: flex;
           justify-content: center;
           align-items: center;
+          border-radius: 3vw;
+          height: 4vw;
+          // background-color: #858894;
+          position: relative;
+          left: 2vw;
+          margin-top: 1vw;
           .bean {
             width: calcView(25);
           }
@@ -354,7 +367,7 @@
   
     .restWinners {
       // border: 1px solid;
-      height: 73vw;
+      height: 83vw;
       // overflow-y: auto;
       font-family: "Helvetica";
       .fieldGoalLederBoarItem {

@@ -45,7 +45,7 @@ const GiftingLeaderBoards = () => {
           />
           <div className="gift2Detail">
             <p>Loot Chest</p>
-            <span>1000 beans</span>
+            <span>1000 </span>
             <img src={beans} className="beans" />
           </div>
           <img

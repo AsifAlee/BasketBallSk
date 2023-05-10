@@ -10,7 +10,7 @@ import { TabButton } from "../components/TabButton";
 import RadioSelect from "../components/RadioSelect";
 
 export const SendAccelerationCard = () => {
-  const { toogleAccPopUp } = useContext(AppContext);
+  const { toogleAccPopUp, getInfo } = useContext(AppContext);
   const [foundUsers, setFoundUsers] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [cardRecvStatus, setCardRecvStatus] = useState("");
@@ -60,6 +60,7 @@ export const SendAccelerationCard = () => {
         } else {
           setCardRecvStatus("SOMETHING WENT WRONG");
         }
+        getInfo();
       })
       .catch((error) => {
         console.error(" card send  error:", error);

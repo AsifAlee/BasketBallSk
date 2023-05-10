@@ -7,12 +7,10 @@ import bean from "../assets/images/bean.png";
 import unknown from "../assets/images/unknown-user.png";
 import ball from "../assets/images/score-icon.png";
 import enerygyIcon from "../assets/images/energy-icon.png";
+import lock from "../assets/images/lock.png";
 import { formatNumbers, getLevelImage, gotoProfile } from "../functions";
 const Topper = (props) => {
   const { user, estRewards, showEst, isTalent, isToday } = props;
-  // let levelUrl = isTalent
-  //   ? `${talentLevelUrl}/${user.userLevel}.png`
-  //   : `${userLevelUrl}/${user.userLevel}.png`;
   return (
     <div className="topper">
       <div className="topper-images" onClick={() => gotoProfile(user.userId)}>
@@ -34,7 +32,15 @@ const Topper = (props) => {
         />
       </div>
       {showEst ? (
-        <div className="est-rewards">
+        <div
+          className="est-rewards"
+          style={{ backgroundColor: user.count < 1000 ? "#858894" : "none" }}
+        >
+          {parseInt(user.count) < 1000 ? (
+            <img src={lock} className="lock" />
+          ) : (
+            ""
+          )}
           <span>
             {isToday
               ? `Est.rewards:${estRewards}`

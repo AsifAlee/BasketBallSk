@@ -106,7 +106,7 @@ export const Daily = () => {
                   user={item}
                   key={index}
                   index={newIndex + 1}
-                  estRewards={calculateEstRewards(index + 1)}
+                  estRewards={calculateEstRewards(newIndex + 1)}
                   showEst={newIndex <= 4 ? true : false}
                   isToday={true}
                 />
@@ -142,7 +142,7 @@ export const Daily = () => {
                   user={item}
                   key={index}
                   index={newIndex + 1}
-                  estRewards={calculateEstRewards(index + 1, true)}
+                  estRewards={calculateEstRewards(newIndex + 1, true)}
                   showEst={newIndex <= 4 ? true : false}
                   isToday={false}
                 />

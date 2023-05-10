@@ -406,6 +406,7 @@ function App() {
         milestonePopUp: milestonePopUp,
         toggleMilestonePopUp: toggleMilestonePopUp,
         currentUser: currentUser,
+        getInfo: getInfo,
       }}
     >
       <div className="App">

@@ -19,5 +19,5 @@ export const getLevelImage = (level, isTalent) => {
 };
 
 export const gotoProfile = (id) => {
-  window.location.href = `http://www.kktv1.com/m/?roomid=/${id}`;
+  window.location.href = `http://www.kktv1.com/m/?roomid=${id}`;
 };

@@ -62,7 +62,7 @@ export const Overall = () => {
                 user={item}
                 key={index}
                 index={newIndex + 1}
-                estRewards={calculateEstRewards(index + 1)}
+                estRewards={calculateEstRewards(newIndex + 1)}
                 isTalent={true}
                 isToday={true}
               />
