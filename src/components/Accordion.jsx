@@ -5,8 +5,8 @@ import rewardsSliderBg from "../assets/images/rewards-slide-bg.png";
 import { ButtonSlider } from "./ButtonSlider";
 
 function Accordion(props) {
-  const { toggleUserTalent, hasTabs } = props;
-  const [isOpen, setIsOpen] = useState(false);
+  const { toggleUserTalent, hasTabs, defaultOpen } = props;
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
   function handleToggle() {
     setIsOpen(!isOpen);

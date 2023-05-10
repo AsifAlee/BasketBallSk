@@ -25,7 +25,7 @@ export const RewardHistory = () => {
         </div>
         {rewardHistory.length ? (
           <div className="rewardWrapper">
-            {rewardHistory.map((rewardItem, index) => (
+            {rewardHistory?.map((rewardItem, index) => (
               <RewardHistoryItem key={index} rewardItem={rewardItem} />
             ))}
           </div>

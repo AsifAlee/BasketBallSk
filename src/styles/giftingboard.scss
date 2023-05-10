@@ -19,6 +19,12 @@
       position: absolute;
     }
 
+    .beans{
+      width: 5vw;
+      position: relative;
+      top: 1vw;
+    }
+
   
       .gift1 {
         width: 27vw;
@@ -46,22 +52,24 @@
     position: absolute;
     top: 45vw;
     z-index: 1;
-    left: 13vw;
+    left: 14vw;
     font-size: 2.5vw;
   }
   .gift2Detail{
+    text-align: center;
     position: absolute;
     top: 45vw;
     z-index: 1;
-    left: 37vw;
+    left: 33vw;
     font-size: 3vw;
+    width: 28vw;
   }
 
   .gift3Detail{
     position: absolute;
     top: 45vw;
     z-index: 1;
-    left: 63vw;
+    left: 64vw;
     font-size: 2.5vw;
   }
   }

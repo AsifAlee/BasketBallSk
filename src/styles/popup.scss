@@ -18,7 +18,9 @@
   padding-top: 5vw;
   
 
+
   .content {
+
     width: 80%;
     min-height: 106vw;
     background-repeat: no-repeat;
@@ -41,6 +43,7 @@
   }
 
   .guidePopUp {
+  
     .tabs {
       display: flex;
       justify-content: space-between;
@@ -116,6 +119,10 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+      }
+
+      .yellow-text{
+        color: yellow;
       }
     }
   }
@@ -439,12 +446,14 @@
       }
       td {
         border-bottom: 1px solid;
-        padding: 0.5vw;
+        padding: 1vw;
       }
       td img{
         width: 12vw;
       }
-    
+      .milestone-ball{
+        width: 6vw;
+      }
      }
      table tr:last-child td{
       border-bottom: none;

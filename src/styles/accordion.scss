@@ -174,6 +174,9 @@
         line-height: 3vw;
         margin-top: 2vw;
       }
+      .rewardImg{
+        width: 11vw;
+      }
       table {
         border: 1px solid;
         width: 100%;
@@ -181,6 +184,12 @@
         text-align: center;
         margin-top:3vw;
         border-collapse: collapse;
+        td:nth-child(3) {
+          border-left: none;
+        }
+        td:nth-child(2) {
+          border-right: none;
+        }
 
         td,th {
           border: 1px solid;

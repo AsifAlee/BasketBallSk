@@ -7,6 +7,7 @@ import giftBasketBall from "../../assets/images/gift-display-basket-ball.gif";
 import { TalentSection } from "./talent";
 import { UserSection } from "./user";
 import { baseUrl2 } from "../../api";
+import beans from "../../assets/images/bean.png";
 const GiftingLeaderBoards = () => {
   const [tabs, setTabs] = useState({
     user: true,
@@ -35,6 +36,7 @@ const GiftingLeaderBoards = () => {
           <div className="gift1Detail">
             <p>Cheerleader</p>
             <span>30,000</span>
+            <img src={beans} className="beans" />
           </div>
 
           <img
@@ -44,6 +46,7 @@ const GiftingLeaderBoards = () => {
           <div className="gift2Detail">
             <p>Loot Chest</p>
             <span>1000 beans</span>
+            <img src={beans} className="beans" />
           </div>
           <img
             src={`${baseUrl2}streamkar/gifts/40001627.png`}
@@ -52,6 +55,7 @@ const GiftingLeaderBoards = () => {
           <div className="gift3Detail">
             <p>SK Billionare</p>
             <span>200,0000</span>
+            <img src={beans} className="beans" />
           </div>
         </div>
 

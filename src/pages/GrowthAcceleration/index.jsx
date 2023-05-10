@@ -24,7 +24,14 @@ export const GrowAcceleration = () => {
         <div className="title">
           My Acceleration Card:{userInfo.accCardCount}
         </div>
-        <button className="acc-btn" onClick={toogleAccPopUp}></button>
+        <button
+          className="acc-btn"
+          onClick={toogleAccPopUp}
+          disabled={userInfo.accCardCount <= 0}
+          style={{
+            filter: userInfo.accCardCount <= 0 ? "grayscale(100%)" : "",
+          }}
+        ></button>
         <div className="jumping-character"></div>
         <div className="task-info">
           <p>

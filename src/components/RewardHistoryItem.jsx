@@ -8,7 +8,10 @@ export const RewardHistoryItem = (props) => {
   const { rewardItem } = props;
   const [currentRewdImg, setCurrentRewrdImg] = useState("");
   useEffect(() => {
-    if (rewardItem.rewardType == "Basketball Game") {
+    if (
+      rewardItem.rewardType == "Basketball Game" ||
+      rewardItem.rewardType == "Daily Leaderboard"
+    ) {
       setCurrentRewrdImg(beanBag);
     } else if (rewardItem.rewardType == "Field Goal Milestone") {
       setCurrentRewrdImg(
@@ -37,9 +40,10 @@ export const RewardHistoryItem = (props) => {
       <div className="rewards">
         <img src={currentRewdImg} />
         <p className="text">
-          {rewardItem.rewardType == "Basketball Game"
+          {rewardItem.rewardType == "Basketball Game" ||
+          rewardItem.rewardType == "Daily Leaderboard"
             ? `${rewardItem.gameRewardInfo.beans} beans`
-            : `${rewardItem.gameRewardInfo.rewardDTOList[0].rewardCount} ${rewardItem.gameRewardInfo.rewardDTOList[0].rewardDesc}`}
+            : `${rewardItem.gameRewardInfo?.rewardDTOList[0]?.rewardCount} ${rewardItem.gameRewardInfo?.rewardDTOList[0]?.rewardDesc}`}
         </p>
       </div>
     </div>

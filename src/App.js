@@ -40,7 +40,7 @@ function App() {
   const [showGuide, setShowGuide] = useState(0);
   const [showGamePopUp, setShowGamePopUp] = useState(0);
   const [showAccPopUp, setShowAccPopUp] = useState(0);
-  const [inputValue, setInputValue] = useState("1");
+  const [inputValue, setInputValue] = useState(1);
   const [progressPopUp, setProgressPopUp] = useState(0);
   const [showAccInfoPopUp, setShowAccInfoPopUp] = useState(false);
   const [showSuccessAttemptPopUp, setShowSucessAttemptPopUp] = useState(false);
@@ -71,6 +71,22 @@ function App() {
     dayIndex: null,
     accCardCount: 0,
   });
+
+  const onUpCheck = (e) => {
+    if (e.key === ".") {
+      setInputValue("");
+    }
+    if (/[+-.]/.test(e.target.value)) {
+      setInputValue("");
+    } else {
+      let max = 99;
+      let number = inputValue > max ? max : inputValue <= 0 ? "" : inputValue;
+      setInputValue(parseInt(number));
+    }
+  };
+  const handleInput = (event) => {
+    setInputValue(parseInt(event.target.value));
+  };
   const [rankings, setRankings] = useState({
     userOverall: [],
     userDailyToday: [],
@@ -287,17 +303,15 @@ function App() {
       method: "POST",
       body: JSON.stringify({
         userId: currentUser.userId,
-        // userId: 502184259,
-
+        // userId: testUserId,
         playCount: parseInt(inputValue),
       }),
       headers: {
         checkTag: "",
         userId: currentUser.userId,
         token: currentUser.userToken,
-        // userId: 502184259,
+        // userId: testUserId,
         // token: testToken,
-
         "Content-Type": "application/json",
       },
     })
@@ -325,20 +339,19 @@ function App() {
     }, 4000);
   };
 
-  function handleChange(event) {
-    const inputValue = event.target.value;
-    // const inputRegex = /^[0-9]{0,2}$/;
-    const inputRegex = /^[1-9][0-9]?$|^99$/;
+  // function handleChange(event) {
+  //   const inputValue = event.target.value;
+  //   const inputRegex = /^[0-9]{0,2}$/;
 
-    if (inputRegex.test(inputValue)) {
-      setInputValue(inputValue);
-    }
-  }
+  //   if (inputRegex.test(inputValue)) {
+  //     setInputValue(inputValue);
+  //   }
+  // }
   // get user info
   useEffect(() => {
     try {
       window.phone.getUserInfo(function (userInfo) {
-        alert("userId:" + userInfo.userId + "token id:" + userInfo.token);
+        // alert("userId:" + userInfo.userId + "token id:" + userInfo.token);
 
         setCurrentUser({
           userId: userInfo.userId > 0 ? userInfo.userId : 0,
@@ -417,9 +430,6 @@ function App() {
                 <div className="user-item">
                   <img src={user.portrait} className="marquee-user" />
                   <div className="details">
-                    {/* <span style={{ marginTop: "1vw", marginLeft: "1vw" }}>
-                      User &nbsp;
-                    </span> */}
                     <span className="name">{`${user.nickName} `} </span>
                     <span>&nbsp;has won &nbsp;</span>
                     <div className="beans">
@@ -438,24 +448,23 @@ function App() {
             </button>
             <div className="chances">
               <span>Chances:</span>
+
               {/* <input
-                placeholder="TYPE HERE"
-                className="inputField"
-                type="number"
-                defaultValue={1}
-                onChange={handleChange}
-                min={1}
-                max={99}
-                value={inputValue}
-                onKeyDown={handleKeyDown}
-                step="1"
-              /> */}
-              <input
                 type="text"
                 value={inputValue}
                 onChange={handleChange}
                 placeholder="Enter a number between 0 and 99"
                 className="inputField"
+              /> */}
+
+              <input
+                type="number"
+                value={inputValue}
+                onChange={handleInput}
+                placeholder="TYPE HERE"
+                className="inputField"
+                onKeyUp={onUpCheck}
+                defaultValue={1}
               />
             </div>
           </div>
@@ -517,7 +526,7 @@ function App() {
         {showRewardHistory ? <RewardHistory /> : ""}
         {showGamePopUp ? (
           <GamePopUp
-            textTitle={beansWon > 0 ? "HURRAH!" : "OOPS"}
+            textTitle={beansWon > 0 ? "HURRAH!" : "TRY AGAIN"}
             content={
               rewardWon
                 ? "That was a perfect throw and you have won"

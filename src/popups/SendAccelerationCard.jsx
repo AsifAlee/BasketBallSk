@@ -36,8 +36,6 @@ export const SendAccelerationCard = () => {
       });
   };
   const sendCard = () => {
-    console.log("send called");
-
     fetch(`${baseUrl}/basketball/sendAccelerationCard`, {
       method: "POST",
       headers: {
@@ -46,27 +44,25 @@ export const SendAccelerationCard = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        sendId: testUserId,
+        // sendId: testUserId,
+        sendId: currentUser.userId,
         receiveId: foundUsers[radioSelected].userId,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("send card response:", res);
-        if (res.status === 200) {
-          if (res.data === false) {
-            setCardRecvStatus("NOT ELIGIBLE FOR THIS CARD");
-          } else if (res.errorCode === 10330007) {
-            setCardRecvStatus("CANT SEND CARD TO YOURSELF!");
-          } else {
-            setCardRecvStatus("CARD SENT SUCCESS!");
-          }
+        if (res.data === false) {
+          setCardRecvStatus("NOT ELIGIBLE FOR THIS CARD");
+        } else if (res.data === true) {
+          setCardRecvStatus("CARD SENT SUCCESS!");
+        } else if (res.errorCode === 10330007) {
+          setCardRecvStatus("CANT SEND CARD TO YOURSELF!");
         } else {
-          setCardRecvStatus("CARD SENDING FAILED DUE TO ERROR:", res.msg);
+          setCardRecvStatus("SOMETHING WENT WRONG");
         }
       })
       .catch((error) => {
-        console.error("api error:", error);
+        console.error(" card send  error:", error);
       });
   };
   return (

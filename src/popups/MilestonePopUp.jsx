@@ -6,6 +6,7 @@ import { AppContext } from "../App";
 import ragingBull from "../assets/images/ragingBull.png";
 import "../styles/popup.scss";
 import { baseUrl2 } from "../api";
+import ball from "../assets/images/basket-ball-icon.png";
 const MilestonePopUp = () => {
   const { toggleMilestonePopUp } = useContext(AppContext);
   return (
@@ -27,14 +28,16 @@ const MilestonePopUp = () => {
               <td>100</td>
               <td>3 days Raging Bull Profile Frame</td>
               <td>
-                <img src={`${baseUrl2}streamkar/rewards/spaceship.png`} />
+                <img
+                  src={`${baseUrl2}streamkar/rewards/valentineFrameUser.png`}
+                />
               </td>
             </tr>
             <tr>
               <td>200</td>
               <td>3 days Spaceship Entrance</td>
               <td>
-                <img src={ragingBull} />
+                <img src={`${baseUrl2}streamkar/rewards/spaceship.png`} />
               </td>
             </tr>
             <tr>
@@ -47,9 +50,9 @@ const MilestonePopUp = () => {
 
             <tr>
               <td className="color-yellow">1000</td>
-              <td className="color-yellow">7 day Lucky ID</td>
+              <td className="color-yellow">7 days Ballpark Audio Theme</td>
               <td>
-                <img src={`${baseUrl2}streamkar/rewards/luckyId.png`} />
+                <img src={`${baseUrl2}streamkar/rewards/ballParkTheme.png`} />
               </td>
             </tr>
 

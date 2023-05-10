@@ -9,6 +9,7 @@ import waterSplash from "../assets/images/WaterSplashFrame.png";
 import ragingBul from "../assets/images/ragingBull.png";
 import royalCar from "../assets/images/royal.png";
 import { AppContext } from "../App";
+import { baseUrl2 } from "../api";
 const Guide = (props) => {
   const { selectedLanguage } = props;
   const { toggleGuide } = useContext(AppContext);
@@ -69,8 +70,9 @@ const Guide = (props) => {
                   <div style={{ paddingLeft: "4vw" }}>
                     <ul>
                       <li>
-                        For every 25,000 beans spent by the user, he/she will
-                        get 1 chance.
+                        For every{" "}
+                        <span className="yellow-text"> 25,000 beans </span>
+                        spent by the user, he/she will get 1 chance.
                       </li>
                       <li>
                         6 basketball nets will be there, all you need to do is
@@ -78,7 +80,9 @@ const Guide = (props) => {
                         the net
                       </li>
                       <li style={{ fontStyle: "bold" }}>
-                        You all can type upto x99 chances. By default, 1 chance
+                        You all can type upto{" "}
+                        <span className="yellow-text">x99</span> chances. By
+                        default, <span className="yellow-text">1 chance</span>{" "}
                         would be there.
                       </li>
                       <li>
@@ -99,16 +103,18 @@ const Guide = (props) => {
                       <li>
                         If there is a situation where scores are equal, then
                         most successful attempts in less time will be taken into
-                        consideration and then your XP level will also be taken
-                        into consideration.
+                        consideration and then your{" "}
+                        <span className="yellow-text">XP</span> level will also
+                        be taken into consideration.
                       </li>
                       <li>
                         Top 3 users with most successful attempts will receive
                         Beans rewards.
                       </li>
                       <li>
-                        Users have to attempt a minimum 1000 successful attempts
-                        or more to win a bean reward.
+                        Users have to attempt a minimum{" "}
+                        <span className="yellow-text">1000</span> successful
+                        attempts or more to win a bean reward.
                       </li>
                       <li>
                         Amongst the TOP 3 eligible users, the beans will be
@@ -132,7 +138,8 @@ const Guide = (props) => {
                         <li>
                           When talent receives this card, the acceleration rate
                           will be increased by 1x than the existing rate. For
-                          example, if talent’s existing rate is 1X, it will be
+                          example, if talent’s existing rate is{" "}
+                          <span className="yellow-text">1X</span> , it will be
                           increased to 2X.
                         </li>
                         <li>
@@ -140,8 +147,10 @@ const Guide = (props) => {
                           CARDS from multiple users, no effect will take place.
                         </li>
                         <li>
-                          To send the ACCELERATION CARD to your favourite
-                          talent, visit the GROWTH ACCELERATION tab.
+                          To send the{" "}
+                          <span className="yellow-text">ACCELERATION CARD</span>{" "}
+                          to your favourite talent, visit the GROWTH
+                          ACCELERATION tab.
                         </li>
                       </ul>
                     </div>
@@ -152,14 +161,18 @@ const Guide = (props) => {
                       <ul>
                         <li>
                           {" "}
-                          For 100 beans received by the talents through event
-                          gifts, talent will receive 1 ENERGY point.
+                          For<span className="yellow-text">100 beans</span>{" "}
+                          received by the talents through event gifts, talent
+                          will receive{" "}
+                          <span className="yellow-text">1 ENERGY</span> point.
                         </li>
                         <li>
                           Tokens will be credited to the talent’s account after
                           completion of tasks. Talents need to collect tokens by
-                          completing the tasks given daily on GROWTH
-                          ACCELERATION TAB
+                          completing the tasks given daily on{" "}
+                          <span className="yellow-text">
+                            GROWTH ACCELERATION TAB
+                          </span>
                         </li>
                         <li>
                           These tokens will be considered for growth
@@ -178,7 +191,7 @@ const Guide = (props) => {
                           </tr>
                           <tr>
                             <td>400</td>
-                            <td>1.4x</td>
+                            <td>1.5x</td>
                           </tr>
                           <tr>
                             <td>800</td>
@@ -194,17 +207,22 @@ const Guide = (props) => {
                   <div style={{ paddingLeft: "4vw" }}>
                     <ul>
                       <li>
-                        25,000 beans event gifts pe spend karne par 1 throwing
-                        chance milega.
+                        <span className="yellow-text">25,000 beans </span> event
+                        gifts pe spend karne par{" "}
+                        <span className="yellow-text"> 1 throwing chance </span>
+                        milega.
                       </li>
                       <li>
-                        6 basketball nets honge jisme ball throw karne ke liye
-                        aapko THROW par click karna hoga.
+                        <span className="yellow-text">6 basketball nets </span>
+                        honge jisme ball throw karne ke liye aapko THROW par
+                        click karna hoga.
                       </li>
                       <li style={{ fontStyle: "bold" }}>
-                        Default setting me 1 chance pre-selected hoga. Aap
-                        multiple chances type karke khel sakte hain (upto x99
-                        chances)
+                        Default setting me{" "}
+                        <span className="yellow-text">1 chance</span>{" "}
+                        pre-selected hoga. Aap multiple chances type karke khel
+                        sakte hain{" "}
+                        <span className="yellow-text">(upto x99 chances)</span>
                       </li>
                       <li>
                         Har successful attempt milestones ki taraf count kia
@@ -214,7 +232,8 @@ const Guide = (props) => {
                         Failed attempt milestone ki taraf nahi gina jayega.
                       </li>
                       <li>
-                        Aap extra rewards jeet sakte hain MILESTONES achieve
+                        Aap extra rewards jeet sakte hain{" "}
+                        <span className="yellow-text">MILESTONES</span> achieve
                         karke.
                       </li>
                       <li>
@@ -224,16 +243,19 @@ const Guide = (props) => {
                         user ka XP level consider kia jaayega.
                       </li>
                       <li>
-                        Top 3 users jinke sabse zyada successful attempts hai
-                        unhe beans rewards diye jayenge.
+                        <span className="yellow-text">Top 3 </span> users jinke
+                        sabse zyada successful attempts hai unhe beans rewards
+                        diye jayenge.
                       </li>
                       <li>
-                        Users ko beans reward tabhi milega jab woh minimum 1000
+                        Users ko beans reward tabhi milega jab woh minimum{" "}
+                        <span className="yellow-tex">1000</span>
                         successful attempts ya usse zyada successful attempts
                         complete karenge .
                       </li>
                       <li>
-                        Top 3 eligible users mein beans rewards distribute kiye
+                        <span className="yellow-text">Top 3 </span>
+                        eligible users mein beans rewards distribute kiye
                         jayenge, unke pure event mai kiye gaye beans spending ke
                         ratio mai.
                       </li>
@@ -255,16 +277,22 @@ const Guide = (props) => {
                           Jab talents yeh card receive karenge toh unka
                           acceleration rate 1x se increase hoga existing rate
                           se. EXAMPLE: Agar talent ka existing acceleration rate
-                          1X hai toh woh badhke 2X hojayega ye card receive
-                          karne pe.
+                          <span className="yellow-text">1X</span> hai toh woh
+                          badhke 2X hojayega ye card receive karne pe.
                         </li>
                         <li>
-                          Agar koi talent multiple ACCELERATION CARDS receive
-                          karega, toh card ka koi effect nahi hoga.
+                          Agar koi talent multiple{" "}
+                          <span className="yellow-text">
+                            ACCELERATION CARDS
+                          </span>{" "}
+                          receive karega, toh card ka koi effect nahi hoga.
                         </li>
                         <li>
-                          Growth acceleration ko send karne apko GROWTH
-                          ACCELERATION TAB visit karna hoga.
+                          Growth acceleration ko send karne apko{" "}
+                          <span className="yellow-text">
+                            GROWTH ACCELERATION TAB
+                          </span>{" "}
+                          visit karna hoga.
                         </li>
                       </ul>
                     </div>
@@ -274,9 +302,11 @@ const Guide = (props) => {
                     <div style={{ paddingLeft: "4vw" }}>
                       <ul>
                         <li>
-                          Har 100 Beans receive karnepe talents ko 1 energy
-                          point milega jo Leaderboard me use hoga. Leaderboard
-                          ENERGY POINTS ke basis par arrange hoga..
+                          Har <span className="yellow-text">100 Beans</span>{" "}
+                          receive karnepe talents ko{" "}
+                          <span className="yellow-text">1 energy point</span>{" "}
+                          milega jo Leaderboard me use hoga. Leaderboard ENERGY
+                          POINTS ke basis par arrange hoga..
                         </li>
                         <li>
                           Talents ko DAILY TASKS roz complete karke Tokens
@@ -299,7 +329,7 @@ const Guide = (props) => {
                           </tr>
                           <tr>
                             <td>400</td>
-                            <td>1.4x</td>
+                            <td>1.5x</td>
                           </tr>
                           <tr>
                             <td>800</td>
@@ -318,6 +348,7 @@ const Guide = (props) => {
                   title="Daily Leaderboard"
                   toggleUserTalent={toggleUserTalent}
                   hasTabs={1}
+                  defaultOpen={true}
                 >
                   {userTalent.user ? (
                     <div className="userContent">
@@ -452,6 +483,31 @@ const Guide = (props) => {
                       <table>
                         <tr>
                           <td className="colored">
+                            1st Rank - 40% of the beans Pot
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="colored">
+                            2nd Rank - 30% of the beans Pot
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3rd Rank - 15% of the beans Pot</td>
+                        </tr>
+                        <tr>
+                          <td>4th Rank - 10% of the beans Pot</td>
+                        </tr>
+                        <tr>
+                          <td className="last">
+                            5th Rank - 5% of the beans Pot
+                          </td>
+                        </tr>
+                      </table>
+
+                      {/* <table>
+                        <tr>
+                          <td className="colored">
                             1st Rank - 3 Days X (Water Splash Profile Frame +
                             Royal Carriage)
                           </td>
@@ -481,7 +537,7 @@ const Guide = (props) => {
                             Royal Carriage)
                           </td>
                         </tr>
-                      </table>
+                      </table> */}
                     </div>
                   )}
                 </Accordion>
@@ -522,19 +578,29 @@ const Guide = (props) => {
                     <table>
                       <thead>
                         <th>Milestone No</th>
-                        <th>Rewards</th>
+                        <th style={{ borderRight: "none" }}>Rewards</th>
                       </thead>
                       <tr>
                         <td>100</td>
                         <td className="colored">
-                          3 days Raging Bull Profile Frame. (ID: )
+                          3 days Raging Bull Profile Frame.
+                        </td>
+                        <td>
+                          <img
+                            src={`${baseUrl2}streamkar/rewards/valentineFrameUser.png`}
+                            className="rewardImg"
+                          />
                         </td>
                       </tr>
 
                       <tr>
                         <td>200</td>
-                        <td className="colored">
-                          3 days Spaceship Entrance (ID: )
+                        <td className="colored">3 days Spaceship Entrance.</td>
+                        <td>
+                          <img
+                            src={`${baseUrl2}streamkar/rewards/spaceship.png`}
+                            className="rewardImg"
+                          />
                         </td>
                       </tr>
 
@@ -542,21 +608,36 @@ const Guide = (props) => {
                         <td>500</td>
                         <td>
                           1,40,44,945(rounded off) 5 days Brave Heart Profile
-                          Frame (ID: )
+                          Frame.
+                        </td>
+                        <td>
+                          <img
+                            src={`${baseUrl2}streamkar/rewards/braveHeart.png`}
+                            className="rewardImg"
+                          />
                         </td>
                       </tr>
 
                       <tr>
                         <td>1000</td>
+                        <td>7 days New Audio Theme.</td>
                         <td>
-                          7 days New Audio Theme (NOTE to designer need it by
-                          ___ add date)
+                          <img
+                            src={`${baseUrl2}streamkar/rewards/ballParkTheme.png`}
+                            className="rewardImg"
+                          />
                         </td>
                       </tr>
 
                       <tr>
                         <td>2000</td>
-                        <td>7 days HERO Entrance (ID: )</td>
+                        <td>7 days HERO Entrance </td>
+                        <td>
+                          <img
+                            src={`${baseUrl2}streamkar/rewards/heroEntrance.png`}
+                            className="rewardImg"
+                          />
+                        </td>
                       </tr>
                     </table>
                   </div>
