@@ -7,6 +7,10 @@ import { talentOverAllPot } from "../../../../beansPot";
 
 export const Overall = () => {
   const { rankings, userInfo } = useContext(AppContext);
+  const { talentOverall } = rankings;
+  const [restWinners, setRestWinners] = useState([]);
+  const toppersData = ["NickName", "Nickname2", "nickName3"];
+  const [isSeeMore, setIsSeeMore] = useState(1);
   const leaderBoardList = [
     "asif ali khan asif ali",
     "atif",
@@ -18,6 +22,16 @@ export const Overall = () => {
     "fdfd",
     "fdfdf",
   ];
+  useEffect(() => {
+    if (isSeeMore) {
+      setRestWinners(talentOverall.slice(3, 10));
+    } else {
+      setRestWinners(talentOverall.slice(3));
+    }
+  }, [isSeeMore]);
+  useEffect(() => {
+    setRestWinners(talentOverall.slice(3, 10));
+  }, [talentOverall]);
 
   const calculateEstRewards = (index) => {
     const percent = talentOverAllPot.find(
@@ -28,8 +42,7 @@ export const Overall = () => {
       : 0;
     return result.toFixed(0);
   };
-  const toppersData = ["NickName", "Nickname2", "nickName3"];
-  const [isSeeMore, setIsSeeMore] = useState(1);
+
   return (
     <div className="talentOverallLeaderBoard">
       <div className="leaderBoardTitle">
@@ -38,7 +51,7 @@ export const Overall = () => {
 
       <div>
         <div className="topRank">
-          {rankings.talentOverall.slice(0, 3).map((user, index) => (
+          {talentOverall.slice(0, 3).map((user, index) => (
             <Topper
               user={user}
               index={index + 1}
@@ -54,7 +67,7 @@ export const Overall = () => {
           className="restWinners"
           style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
         >
-          {rankings.talentOverall.slice(3).map((item, index) => {
+          {restWinners.map((item, index) => {
             let newIndex = index + 3;
             return (
               <FieldLeaderBoardItem
@@ -71,10 +84,14 @@ export const Overall = () => {
         </div>
       </div>
 
-      <button
-        className={isSeeMore ? "seeMore" : "seeLess"}
-        onClick={() => setIsSeeMore((prev) => !prev)}
-      ></button>
+      {talentOverall.length > 10 ? (
+        <button
+          className={isSeeMore ? "seeMore" : "seeLess"}
+          onClick={() => setIsSeeMore((prev) => !prev)}
+        ></button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

@@ -55,6 +55,7 @@ const Leaderboard = () => {
                 showEst={true}
                 isToday={true}
                 isTalent={false}
+                isMilestone={true}
               />
             ))}
           </div>

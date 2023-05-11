@@ -327,7 +327,7 @@ function App() {
             getInfo();
             getRewardHistory();
             getMilestoneData();
-          }, 1800);
+          }, 2500);
         } else {
           setIsPlaying(0);
           setShowGamePopUp(true);

@@ -9,6 +9,7 @@ import { ButtonSlider } from "../../../components/ButtonSlider";
 import { AppContext } from "../../../App";
 export const Pot = () => {
   const { userInfo } = useContext(AppContext);
+
   const [tabs, setTabs] = useState({
     daily: true,
     overall: false,
@@ -19,23 +20,7 @@ export const Pot = () => {
   return (
     <div className="userPot">
       <div className="tabs">
-        <div
-          className="pot-tabs"
-          // onClick={toggleTabs}
-        >
-          {/* {tabs.daily && (
-            <SliderButton className="daily">
-              <img src={daily} />
-            </SliderButton>
-          )}
-
-          {tabs.overall && (
-            <div style={{ position: "relative", left: "20vw" }}>
-              <SliderButton className="daily">
-                <img src={overall} />
-              </SliderButton>
-            </div>
-          )} */}
+        <div className="pot-tabs">
           <ButtonSlider
             texts={["Daily", "Overall"]}
             bg={bg}
@@ -52,7 +37,7 @@ export const Pot = () => {
       ) : (
         <div className="beansCount">
           <img src={bean} />
-          <span>{userInfo.userDailyBeansPotPrev}</span>
+          <span>{userInfo.userOverallBeansPot}</span>
         </div>
       )}
 

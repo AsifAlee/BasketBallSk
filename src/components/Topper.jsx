@@ -10,7 +10,8 @@ import enerygyIcon from "../assets/images/energy-icon.png";
 import lock from "../assets/images/lock.png";
 import { formatNumbers, getLevelImage, gotoProfile } from "../functions";
 const Topper = (props) => {
-  const { user, estRewards, showEst, isTalent, isToday } = props;
+  const { user, estRewards, showEst, isTalent, isToday, isUser, isMilestone } =
+    props;
   return (
     <div className="topper">
       <div className="topper-images" onClick={() => gotoProfile(user.userId)}>
@@ -34,9 +35,12 @@ const Topper = (props) => {
       {showEst ? (
         <div
           className="est-rewards"
-          style={{ backgroundColor: user.count < 1000 ? "#858894" : "none" }}
+          style={{
+            backgroundColor:
+              user.count < 1000 && isMilestone === true ? "#858894" : "none",
+          }}
         >
-          {parseInt(user.count) < 1000 ? (
+          {parseInt(user.count) < 1000 && isMilestone === true ? (
             <img src={lock} className="lock" />
           ) : (
             ""
@@ -53,7 +57,7 @@ const Topper = (props) => {
       )}
 
       <div className="score">
-        <img src={isTalent ? enerygyIcon : ball} />
+        <img src={isTalent ? enerygyIcon : isUser ? bean : ball} />
         <span>{user.count}</span>
       </div>
     </div>

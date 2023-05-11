@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../../../styles/giftingboard.scss";
 import leaderBordTitle from "../../../../assets/images/leaderboard.png";
 import Topper from "../../../../components/Topper";
@@ -8,7 +8,7 @@ import { userOverallPot } from "../../../../beansPot";
 
 export const Overall = () => {
   const { rankings, userInfo } = useContext(AppContext);
-
+  const { userOverall } = rankings;
   const calculateEstRewards = (index) => {
     const totalBeansPot = userInfo.userOverallBeansPot;
     const percent = userOverallPot.find((item) => item.rank === index)?.percent;
@@ -30,12 +30,26 @@ export const Overall = () => {
   const toppersData = ["NickName", "Nickname2", "nickName3"];
   const [isSeeMore, setIsSeeMore] = useState(1);
 
+  const [restWinners, setRestWinners] = useState([]);
+
+  useEffect(() => {
+    if (isSeeMore) {
+      setRestWinners(userOverall.slice(3, 10));
+    } else {
+      setRestWinners(userOverall.slice(3));
+    }
+  }, [isSeeMore]);
+  useEffect(() => {
+    setRestWinners(userOverall.slice(3, 10));
+  }, [userOverall]);
+
   return (
     <div className="userOverallLeaderBoard">
       <div className="leaderBoardTitle">
         <img src={leaderBordTitle} className="title" />
       </div>
 
+      {}
       <div>
         <div className="topRank">
           {rankings.userOverall.slice(0, 3).map((user, index) => (
@@ -46,6 +60,7 @@ export const Overall = () => {
               isToday={true}
               showEst={true}
               estRewards={calculateEstRewards(index + 1)}
+              isUser={true}
             />
           ))}
         </div>
@@ -53,7 +68,7 @@ export const Overall = () => {
           className="restWinners"
           style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
         >
-          {rankings.userOverall.slice(3).map((item, index) => {
+          {restWinners.map((item, index) => {
             let newIndex = index + 3;
             return (
               <FieldLeaderBoardItem
@@ -63,16 +78,21 @@ export const Overall = () => {
                 estRewards={calculateEstRewards(index + 1)}
                 showEst={newIndex <= 4 ? true : false}
                 isToday={true}
+                isUser={true}
               />
             );
           })}
         </div>
       </div>
 
-      <button
-        className={isSeeMore ? "seeMore" : "seeLess"}
-        onClick={() => setIsSeeMore((prev) => !prev)}
-      ></button>
+      {rankings.userOverall.length > 10 ? (
+        <button
+          className={isSeeMore ? "seeMore" : "seeLess"}
+          onClick={() => setIsSeeMore((prev) => !prev)}
+        ></button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

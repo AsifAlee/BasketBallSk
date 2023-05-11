@@ -6,7 +6,7 @@ import basketball from "../assets/images/score-icon.png";
 import energyIcon from "../assets/images/energy-icon.png";
 import { formatNumbers, getLevelImage, gotoProfile } from "../functions";
 export const FieldLeaderBoardItem = (props) => {
-  const { user, index, estRewards, isTalent, isToday } = props;
+  const { user, index, estRewards, isTalent, isToday, isUser } = props;
 
   return (
     <div className="fieldGoalLederBoarItem">
@@ -37,7 +37,10 @@ export const FieldLeaderBoardItem = (props) => {
       )}
 
       <div className="rightDiv">
-        <img src={isTalent ? energyIcon : basketball} className="basket" />
+        <img
+          src={isTalent ? energyIcon : isUser ? bean : basketball}
+          className="basket"
+        />
         <span>{user.count}</span>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../../../styles/giftingboard.scss";
 import Topper from "../../../../components/Topper";
 import { FieldLeaderBoardItem } from "../../../../components/FieldLeaderBoardItem";
@@ -18,19 +18,31 @@ export const Daily = () => {
   });
   const { rankings } = useContext(AppContext);
   const { talentDailyToday, talentDailyYest } = rankings;
-  const leaderBoardList = [
-    "asif ali khan asif ali",
-    "atif",
-    "arif",
-    "akif",
-    "kashif",
-    "adfd",
-    "fdfdfd",
-    "fdfd",
-    "fdfdf",
-  ];
-  const toppersData = ["NickName", "Nickname2", "nickName3"];
-  const [isSeeMore, setIsSeeMore] = useState(1);
+  const [isSeeMoreToday, setIsSeeMoreToday] = useState(1);
+  const [isSeeMoreYest, setIsSeeMoreYest] = useState(1);
+  const [todayRestWinners, setTodayRestWinners] = useState(
+    talentDailyToday.slice(3, 10)
+  );
+
+  const [yestRestWinners, setYestRestWinners] = useState(
+    talentDailyYest.slice(3, 10)
+  );
+
+  useEffect(() => {
+    if (isSeeMoreToday) {
+      setTodayRestWinners(todayRestWinners.slice(3, 10));
+    } else {
+      setTodayRestWinners(todayRestWinners.slice(3));
+    }
+  }, [isSeeMoreToday]);
+
+  useEffect(() => {
+    if (isSeeMoreYest) {
+      setYestRestWinners(yestRestWinners.slice(3, 10));
+    } else {
+      setYestRestWinners(yestRestWinners.slice(3));
+    }
+  }, [isSeeMoreYest]);
   const toggleTabs = () => {
     setDailyTabs({ today: !dailyTabs.today, yesterday: !dailyTabs.yesterday });
   };
@@ -66,7 +78,7 @@ export const Daily = () => {
             </div>
             <div
               className="restWinners"
-              style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
+              style={{ overflowY: isSeeMoreToday ? "hidden" : "auto" }}
             >
               {talentDailyToday.slice(3).map((item, index) => {
                 let newIndex = index + 3;
@@ -80,6 +92,12 @@ export const Daily = () => {
                 />;
               })}
             </div>
+            {talentDailyToday.length > 10 && (
+              <button
+                className={isSeeMoreToday ? "seeMore" : "seeLess"}
+                onClick={() => setIsSeeMoreToday((prev) => !prev)}
+              ></button>
+            )}
           </div>
         ) : (
           <div className="noData">No Data Found</div>
@@ -104,7 +122,7 @@ export const Daily = () => {
             </div>
             <div
               className="restWinners"
-              style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
+              style={{ overflowY: isSeeMoreYest ? "hidden" : "auto" }}
             >
               {talentDailyYest.slice(3).map((item, index) => {
                 let newIndex = index + 3;
@@ -118,6 +136,12 @@ export const Daily = () => {
                 />;
               })}
             </div>
+            {talentDailyYest.length > 10 && (
+              <button
+                className={isSeeMoreYest ? "seeMore" : "seeLess"}
+                onClick={() => setIsSeeMoreYest((prev) => !prev)}
+              ></button>
+            )}
           </div>
         ) : (
           <div className="noData">No Data Found</div>
@@ -125,11 +149,6 @@ export const Daily = () => {
       ) : (
         ""
       )}
-
-      <button
-        className={isSeeMore ? "seeMore" : "seeLess"}
-        onClick={() => setIsSeeMore((prev) => !prev)}
-      ></button>
     </div>
   );
 };
