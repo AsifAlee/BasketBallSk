@@ -3,6 +3,7 @@ import "../../../styles/giftingboard.scss";
 import { SliderButton } from "../../../components/SliderButton";
 import overall from "../../../assets/images/Overall.png";
 import daily from "../../../assets/images/Daily.png";
+import titleBanner from "../../../assets/images/beans-pot-banner.png";
 import bg from "../../../assets/images/slide-button-bg-daily-overall.png";
 import bean from "../../../assets/images/bean.png";
 import { ButtonSlider } from "../../../components/ButtonSlider";
@@ -19,6 +20,7 @@ export const Pot = () => {
   };
   return (
     <div className="userPot">
+      <img src={titleBanner} className="title" />
       <div className="tabs">
         <div className="pot-tabs">
           <ButtonSlider

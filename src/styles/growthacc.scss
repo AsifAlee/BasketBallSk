@@ -41,7 +41,7 @@
     position: absolute;
     width: calcView(130);
     height: calcView(200);
-    background-image: url("../assets/images/jumping-character.png");
+    background-image: url("../assets/images/acceleration-card.png");
     background-size: 100%;
     background-repeat: no-repeat;
     top: calcView(100);
@@ -147,7 +147,7 @@
   height: calcView(200);
   background-image: url("../assets/images/Your-growth-bg.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   z-index: 1;
   position: relative;
   // top: calcView(-90);
@@ -238,7 +238,7 @@
   margin-bottom: 5vw;
 
   .token-score-board{
-    width: 17vw;
+    width: 22vw;
     height: 7vw;
     background-image: url('../assets/images/scoreboard.png');
     background-repeat: no-repeat;
@@ -248,10 +248,14 @@
     left: 16vw;display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vw;
+    font-size: 4vw;
+
+    img{
+      width: 7vw;
+    }
   }
   .acc-score-board{
-    width: 17vw;
+    width: 22vw;
     height: 7vw;
     background-image: url('../assets/images/scoreboard.png');
     background-repeat: no-repeat;
@@ -262,7 +266,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vw;
+    font-size: 4vw;
 
   }
   .total-tokens {
@@ -300,7 +304,7 @@
   height: calcView(150);
   background-image: url("../assets/images/floating-footer.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   position: relative;
   margin-top: -15vw;
   z-index: 0;

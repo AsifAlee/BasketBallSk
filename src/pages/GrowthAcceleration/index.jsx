@@ -7,6 +7,7 @@ import { AppContext } from "../../App";
 import AccInfoPopUp from "../../popups/AccInfoPopUp";
 import completed from "../../assets/images/completed.png";
 import iBtn from "../../assets/images/i-buttons-b.png";
+import tokenImg from "../../assets/images/token.gif";
 
 export const GrowAcceleration = () => {
   const {
@@ -74,7 +75,10 @@ export const GrowAcceleration = () => {
         <img className="total-acc" src={img1} />
         <span className="total-acc-text">My acceleration rate</span>
         <span className="total-token-text">Total tokens collected</span>
-        <div className="token-score-board">{userInfo.tokens}</div>
+        <div className="token-score-board">
+          {userInfo.tokens}
+          <img src={tokenImg} />
+        </div>
         <div className="acc-score-board">{userInfo.myAccRate}</div>
       </div>
       <div className="floating-footer">

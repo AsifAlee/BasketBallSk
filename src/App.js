@@ -352,8 +352,6 @@ function App() {
   useEffect(() => {
     try {
       window.phone.getUserInfo(function (userInfo) {
-        // alert("userId:" + userInfo.userId + "token id:" + userInfo.token);
-
         setCurrentUser({
           userId: userInfo.userId > 0 ? userInfo.userId : 0,
           userToken: userInfo.token != "" ? userInfo.token : null,

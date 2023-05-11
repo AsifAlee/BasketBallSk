@@ -179,8 +179,15 @@
     background-image: url("../assets/images/gifting-beans-pot.gif");
     background-repeat: no-repeat;
     background-size: 100%;
-    margin: 2vw auto 0;
+    margin: 9vw auto 0;
     position: relative;
+
+    .title{
+      position: absolute;
+      width: 50%;
+      left: 24vw;
+      top: -7vw;
+    }
 
     .pot-tabs {
       width: 45vw;
@@ -315,8 +322,15 @@
       background-image: url("../assets/images/gifting-beans-pot.gif");
       background-repeat: no-repeat;
       background-size: 100%;
-      margin: 2vw auto 0;
+      margin: 9vw auto 0;
       position: relative;
+
+      .title{
+        position: absolute;
+        width: 50%;
+        left: 24vw;
+        top: -7vw;
+      }
     }
 
     .beansCount {

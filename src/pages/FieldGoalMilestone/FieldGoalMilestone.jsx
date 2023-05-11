@@ -45,7 +45,10 @@ export const FieldGoalMilestone = () => {
   return (
     <div className="fieldGoalSection">
       <div className="successfull-attempts">
-        <p>MY SUCCESSFULL ATTEMPTS:{mySuccessfullAttempt}</p>
+        <p>MY SUCCESSFULL ATTEMPTS</p>
+        <div className="attempts-display">
+          <span className="total-attempts">{mySuccessfullAttempt}</span>
+        </div>
         <img
           src={ibBtn}
           className="ibBtn"

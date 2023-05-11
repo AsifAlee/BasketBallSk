@@ -387,11 +387,11 @@ const Guide = (props) => {
                     </div>
                   ) : (
                     <div className="talentContent">
-                      <div className="rewardImages">
+                      {/* <div className="rewardImages">
                         <img src={waterSplash} alt="" /> +
                         <img src={royalCar} />
                       </div>
-                      <p>Water Splash + Royal Carriage</p>
+                      <p>Water Splash + Royal Carriage</p> */}
                       <table>
                         <tr>
                           <td className="colored">
@@ -548,10 +548,10 @@ const Guide = (props) => {
                   hasTabs={0}
                 >
                   <div className="fieldGoalContent">
-                    <div className="beanBag">
+                    {/* <div className="beanBag">
                       <img src={ragingBul} />
-                    </div>
-                    <p>Raging Bull Profile Frame</p>
+                    </div> */}
+                    {/* <p>Raging Bull Profile Frame</p> */}
                     <ul className="bullets">
                       <li>
                         Each successful attempt will be counted towards these
@@ -606,10 +606,7 @@ const Guide = (props) => {
 
                       <tr>
                         <td>500</td>
-                        <td>
-                          1,40,44,945(rounded off) 5 days Brave Heart Profile
-                          Frame.
-                        </td>
+                        <td> 5 days Brave Heart Profile Frame.</td>
                         <td>
                           <img
                             src={`${baseUrl2}streamkar/rewards/braveHeart.png`}
