@@ -41,7 +41,7 @@ export const GrowAcceleration = () => {
         </div>
         <div className="task-container">
           {userInfo.dailyTaskList.map((taskItem, index) => (
-            <TaskComponent taskItem={taskItem} key={index} />
+            <TaskComponent taskItem={taskItem} key={index} index={index} />
           ))}
         </div>
       </div>
@@ -72,14 +72,14 @@ export const GrowAcceleration = () => {
       <div className="total">
         <img className="total-tokens" src={img1} />
         <img className="total-acc" src={img1} />
-        <span className="total-acc-text">
-          My acceleration rate:{userInfo.myAccRate}
-        </span>
-        <span className="total-token-text">
-          Total tokens collected:{userInfo.tokens}
-        </span>
+        <span className="total-acc-text">My acceleration rate</span>
+        <span className="total-token-text">Total tokens collected</span>
+        <div className="token-score-board">{userInfo.tokens}</div>
+        <div className="acc-score-board">{userInfo.myAccRate}</div>
       </div>
-      <div className="floating-footer"></div>
+      <div className="floating-footer">
+        <p>All rights reserved by StreamKar</p>
+      </div>
       {showAccPopUp ? <SendAccelerationCard /> : ""}
       {showAccInfoPopUp ? <AccInfoPopUp /> : ""}
     </div>

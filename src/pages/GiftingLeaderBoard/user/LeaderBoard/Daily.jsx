@@ -44,19 +44,26 @@ export const Daily = () => {
 
   useEffect(() => {
     if (isSeeMoreToday) {
-      setTodayRestWinners(todayRestWinners.slice(3, 10));
+      setTodayRestWinners(userDailyToday.slice(3, 10));
     } else {
-      setTodayRestWinners(todayRestWinners.slice(3));
+      setTodayRestWinners(userDailyToday.slice(3));
     }
   }, [isSeeMoreToday]);
 
   useEffect(() => {
     if (isSeeMoreYest) {
-      setYestRestWinners(yestRestWinners.slice(3, 10));
+      setYestRestWinners(userDailyYest.slice(3, 10));
     } else {
-      setYestRestWinners(yestRestWinners.slice(3));
+      setYestRestWinners(userDailyYest.slice(3));
     }
   }, [isSeeMoreYest]);
+
+  useEffect(() => {
+    setTodayRestWinners(userDailyToday.slice(3, 10));
+  }, [userDailyToday]);
+  useEffect(() => {
+    setYestRestWinners(userDailyYest.slice(3, 10));
+  }, [userDailyYest]);
 
   const toggleTabs = () => {
     setDailyTabs({ today: !dailyTabs.today, yesterday: !dailyTabs.yesterday });
@@ -110,6 +117,7 @@ export const Daily = () => {
             >
               {todayRestWinners.map((item, index) => {
                 let newIndex = index + 3;
+                console.log("today restwinner item:", item);
                 return (
                   <FieldLeaderBoardItem
                     user={item}

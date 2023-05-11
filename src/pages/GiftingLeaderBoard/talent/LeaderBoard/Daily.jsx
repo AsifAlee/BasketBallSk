@@ -18,31 +18,38 @@ export const Daily = () => {
   });
   const { rankings } = useContext(AppContext);
   const { talentDailyToday, talentDailyYest } = rankings;
-  const [isSeeMoreToday, setIsSeeMoreToday] = useState(1);
-  const [isSeeMoreYest, setIsSeeMoreYest] = useState(1);
-  const [todayRestWinners, setTodayRestWinners] = useState(
-    talentDailyToday.slice(3, 10)
-  );
+  const [isSeeMoreToday, setIsSeeMoreToday] = useState(true);
+  const [isSeeMoreYest, setIsSeeMoreYest] = useState(true);
+  const [todayRestWinners, setTodayRestWinners] = useState([]);
 
-  const [yestRestWinners, setYestRestWinners] = useState(
-    talentDailyYest.slice(3, 10)
-  );
+  const [yestRestWinners, setYestRestWinners] = useState([]);
+
+  // console.log("talentDailyToday:", talentDailyToday);
 
   useEffect(() => {
+    console.log("today rest winners:", todayRestWinners);
+
     if (isSeeMoreToday) {
-      setTodayRestWinners(todayRestWinners.slice(3, 10));
+      setTodayRestWinners(talentDailyToday.slice(3, 10));
     } else {
-      setTodayRestWinners(todayRestWinners.slice(3));
+      setTodayRestWinners(talentDailyToday.slice(3));
     }
   }, [isSeeMoreToday]);
 
   useEffect(() => {
     if (isSeeMoreYest) {
-      setYestRestWinners(yestRestWinners.slice(3, 10));
+      setYestRestWinners(talentDailyYest.slice(3, 10));
     } else {
-      setYestRestWinners(yestRestWinners.slice(3));
+      setYestRestWinners(talentDailyYest.slice(3));
     }
   }, [isSeeMoreYest]);
+
+  useEffect(() => {
+    setTodayRestWinners(talentDailyToday.slice(3, 10));
+  }, [talentDailyToday]);
+  useEffect(() => {
+    setYestRestWinners(talentDailyYest.slice(3, 10));
+  }, [talentDailyYest]);
   const toggleTabs = () => {
     setDailyTabs({ today: !dailyTabs.today, yesterday: !dailyTabs.yesterday });
   };
@@ -59,11 +66,12 @@ export const Daily = () => {
           isPot={0}
           onToggle={toggleTabs}
           isLeaderBoard={1}
+          talentDaily={true}
         />
       </div>
 
       {dailyTabs.today ? (
-        talentDailyToday.length > 0 ? (
+        talentDailyToday.length > 10 ? (
           <div className="dailyTodayLeaderBrd">
             <div className="topRank">
               {talentDailyToday.slice(0, 3).map((user, index) => (
@@ -80,16 +88,19 @@ export const Daily = () => {
               className="restWinners"
               style={{ overflowY: isSeeMoreToday ? "hidden" : "auto" }}
             >
-              {talentDailyToday.slice(3).map((item, index) => {
+              {todayRestWinners.map((item, index) => {
+                console.log("rest item :", item);
                 let newIndex = index + 3;
-                <FieldLeaderBoardItem
-                  showEst={false}
-                  user={item}
-                  key={index}
-                  index={newIndex + 1}
-                  isTalent={true}
-                  isToday={true}
-                />;
+                return (
+                  <FieldLeaderBoardItem
+                    showEst={false}
+                    user={item}
+                    key={index}
+                    index={newIndex + 1}
+                    isTalent={true}
+                    isToday={true}
+                  />
+                );
               })}
             </div>
             {talentDailyToday.length > 10 && (
@@ -124,16 +135,18 @@ export const Daily = () => {
               className="restWinners"
               style={{ overflowY: isSeeMoreYest ? "hidden" : "auto" }}
             >
-              {talentDailyYest.slice(3).map((item, index) => {
+              {yestRestWinners.map((item, index) => {
                 let newIndex = index + 3;
-                <FieldLeaderBoardItem
-                  showEst={false}
-                  user={item}
-                  key={index}
-                  index={newIndex + 1}
-                  isTalent={true}
-                  isToday={true}
-                />;
+                return (
+                  <FieldLeaderBoardItem
+                    showEst={false}
+                    user={item}
+                    key={index}
+                    index={newIndex + 1}
+                    isTalent={true}
+                    isToday={true}
+                  />
+                );
               })}
             </div>
             {talentDailyYest.length > 10 && (

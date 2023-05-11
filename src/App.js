@@ -7,7 +7,6 @@ import Guide from "./popups/Guide";
 import LanguageDropdown from "./pages/LangaugeSelector";
 import { RewardHistory } from "./popups/RewardHistory";
 import { baseUrl, baseUrl2, testToken, testUserId } from "./api";
-import jumpingCharcter from "./assets/images/jumping-character.png";
 import noReward from "./assets/images/no-reward.gif";
 import reward1 from "./assets/images/basket01.gif";
 import reward2 from "./assets/images/basket02.gif";
@@ -45,6 +44,7 @@ function App() {
   const [showAccInfoPopUp, setShowAccInfoPopUp] = useState(false);
   const [showSuccessAttemptPopUp, setShowSucessAttemptPopUp] = useState(false);
   const [milestonePopUp, setMilestonePopUp] = useState(false);
+  const [thorwBtnOn, setThrowBtnOn] = useState(true);
   const [marqueeData, setMarqueeData] = useState({
     game: [],
     milestone: [],
@@ -297,8 +297,8 @@ function App() {
 
   const playGame = () => {
     setRewardWon(null);
+    setThrowBtnOn(false);
     setBeansWon(0);
-    setIsPlaying(1);
     fetch(`${baseUrl}/basketball/playShootGame/`, {
       method: "POST",
       body: JSON.stringify({
@@ -318,25 +318,26 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         if (res.errorCode === 0) {
+          setIsPlaying(1);
           setRewardWon(res.data.firstLevel);
           setBeansWon(res.data.totalBeans);
           setTimeout(() => {
             setIsPlaying(0);
-
             setShowGamePopUp(true);
             getInfo();
             getRewardHistory();
             getMilestoneData();
-          }, 2500);
+            setThrowBtnOn(true);
+          }, 1900);
         } else {
           setIsPlaying(0);
+          setThrowBtnOn(true);
           setShowGamePopUp(true);
         }
+      })
+      .catch((error) => {
+        console.error("error playing game");
       });
-
-    setTimeout(() => {
-      setIsPlaying(0);
-    }, 4000);
   };
 
   // function handleChange(event) {
@@ -471,7 +472,7 @@ function App() {
           </div>
 
           <button
-            className={isPlaying ? "thrown" : "throw-btn"}
+            className={thorwBtnOn === false ? "thrown" : "throw-btn"}
             disabled={isPlaying ? true : false}
             onClick={playGame}
           ></button>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../styles/button-slider.scss";
 export const ButtonSlider = (props) => {
-  const { bg, texts, onToggle, isPot, isLeaderBoard } = props;
+  const { bg, texts, onToggle, isPot, isLeaderBoard, talentDaily } = props;
   const [isOn, setIsOn] = useState(false);
 
   function handleToggle() {
-    console.log('handle click called')
+    console.log("handle click called");
     setIsOn(!isOn);
     if (onToggle) {
       onToggle();
@@ -17,6 +17,7 @@ export const ButtonSlider = (props) => {
       className={`slider ${isPot ? "mt1" : ""}`}
       style={{
         backgroundImage: `url(${bg})`,
+        marginTop: talentDaily ? "0vw" : "",
       }}
     >
       <button
