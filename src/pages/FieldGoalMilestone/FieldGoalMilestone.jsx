@@ -150,7 +150,7 @@ export const FieldGoalMilestone = () => {
       <BeansPot />
       <Leaderboard />
       <div className="footer">
-        <p className="rights">All rights reserved by StreamKar</p>
+        <span className="rights">All rights reserved by StreamKar</span>
       </div>
       {progressPopUp ? <PopUp>My popup</PopUp> : ""}
       {showSuccessAttemptPopUp ? <SuccessAttemptPopUp /> : ""}

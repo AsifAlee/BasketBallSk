@@ -84,7 +84,7 @@ const GiftingLeaderBoards = () => {
 
       {tabs.talent ? <TalentSection /> : <UserSection />}
       <div className="footer">
-        <p className="rights">All rights reserved by StreamKar</p>
+        <span className="rights">All rights reserved by StreamKar</span>
       </div>
     </div>
   );
