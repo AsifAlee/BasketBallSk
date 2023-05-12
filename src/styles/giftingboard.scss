@@ -156,6 +156,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      opacity: 0.5;
     }
   }
   .sliderBtn {
@@ -263,6 +264,7 @@
       background-image: url("../assets/images/tab-unselected.png");
       background-size: 100%;
       background-repeat: no-repeat;
+      opacity: 0.5;
     }
   }
 

@@ -17,8 +17,8 @@ import reward5 from "./assets/images/basket05.gif";
 import reward6 from "./assets/images/basket06.gif";
 import GamePopUp from "./popups/GamePopUp";
 import foreverHeader from "../src/assets/images/forever-header.gif";
-import Marquee from "react-easy-marquee";
 import beans from "./assets/images/bean.png";
+import Marquee from "react-fast-marquee";
 
 export const AppContext = createContext();
 function App() {
@@ -425,7 +425,7 @@ function App() {
             ></button>
           </div>
           <div className="gameMarquee">
-            <Marquee duration={60000} background="">
+            <Marquee>
               {marqueeData.game.map((user) => (
                 <div className="user-item">
                   <img src={user.portrait} className="marquee-user" />
@@ -527,7 +527,11 @@ function App() {
         {showGamePopUp ? (
           <GamePopUp
             textTitle={
-              beansWon > 0 ? "HURRAH!" : beansWon === 0 ? "TRY AGAIN" : "OOPS"
+              beansWon > 0
+                ? "HURRAH!!"
+                : beansWon === 0
+                ? "TRY AGAIN!!"
+                : "OOPS!!"
             }
             content={
               rewardWon > 0
