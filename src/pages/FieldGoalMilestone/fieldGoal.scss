@@ -2,7 +2,56 @@
 * {
   color: white;
 }
-.fieldGoalSection{
+.fieldGoalSection {
+  .marquee {
+    .field-marq-item {
+      display: flex;
+      width: 110vw;
+      border: 1px solid;
+      padding: 0.5vw;
+      height: 10vw;
+      font-size: 2vw;
+      border-radius: 5vw;
+      margin-right: 4vw;
+      background-color: #9a3a2a;
+
+      .user-img {
+        width: 7vw;
+        border-radius: 100%;
+        flex: 0 1 5%;
+      }
+
+      .user-details {
+        display: flex;
+        align-items: center;
+        flex: 0 1 95%;
+
+        .name {
+          width: 6vw;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          margin-left: 0.7vw;
+        }
+
+        .reward-div {
+          .marq-rewards {
+            display: flex;
+            align-items: center;
+          }
+          img {
+            width: 5vw;
+          }
+        }
+      }
+    }
+  }
+  .rights{
+    position: relative;
+    top: 19vw
+;   left: 26vw;
+    font-size: 2.8vw;
+  }
   .successfull-attempts {
     width: 96%;
     height: 54vw;
@@ -13,8 +62,8 @@
     // bottom: 2vw;
     left: 4vw;
 
-    .attempts-display{
-      background-image: url('../../assets/images/attempts-display.png');
+    .attempts-display {
+      background-image: url("../../assets/images/attempts-display.png");
       background-size: 100% 100%;
       background-repeat: no-repeat;
       width: 22vw;
@@ -26,15 +75,15 @@
       justify-content: center;
       align-items: center;
 
-      .total-attempts{
+      .total-attempts {
         position: relative;
-    top: 1vw;
-    color: yellow;
-    font-family: 'HiJack';
-    font-size: 4vw;
+        top: 1vw;
+        color: yellow;
+        font-family: "HiJack";
+        font-size: 4vw;
       }
     }
-  
+
     .blackNWhite {
       filter: grayscale(100);
     }
@@ -46,7 +95,7 @@
       position: absolute;
       font-size: 3vw;
     }
-  
+
     .iaBtn {
       width: calcView(60);
       position: absolute;
@@ -60,7 +109,7 @@
       top: calcView(80);
       z-index: 1;
     }
-  
+
     .progressBarSection {
       width: 97.5%;
       height: 40vw;
@@ -72,17 +121,17 @@
       // background-repeat: no-repeat;
       // opacity: 0.3;
       // z-index: 1;
-  
+
       .progressBar {
         width: 80%;
         height: calcView(150);
-  
+
         position: absolute;
         top: calcView(180);
         left: 0;
         right: 0;
         margin: auto;
-  
+
         .innerProgress {
           margin-top: 4vw;
           .line {
@@ -98,51 +147,54 @@
               position: absolute;
               top: -2vw;
             }
-  
+
             .completed {
-              width: 11vw;
+              width: 9vw;
               position: absolute;
-              top: 2.5vw;
-              left: -1.2vw;
+
+              top: 3.5vw;
+              left: 0.3vw;
             }
             .completed100 {
-              width: 11vw;
+              width: 9vw;
               position: absolute;
-              top: 2.5vw;
-              left: 12.5vw;
+
+              top: 3.5vw;
+              left: 13.5vw;
             }
             .completed200 {
-              width: 11vw;
+              width: 9vw;
               position: absolute;
-              top: 2.5vw;
-              left: 26vw;
+              top: 3.5vw;
+              left: 27vw;
             }
             .completed500 {
-              width: 11vw;
+              width: 9vw;
               position: absolute;
-              top: 2.5vw;
-              left: 39.5vw;
+              top: 3.5vw;
+              left: 40vw;
             }
-  
+
             .completed1k {
-              width: 11vw;
+              width: 9vw;
               position: absolute;
-              top: 2.5vw;
-              left: 53vw;
+              top: 3.5vw;
+              left: 54vw;
             }
             .completed2k {
-              width: 11vw;
+              width: 9vw;
               position: absolute;
-              top: 2.5vw;
-              left: 66vw;
+
+              top: 3.5vw;
+              left: 67vw;
             }
-            .animate{
+            .animate {
               transition: transform 1.5s ease-in-out;
             }
           }
         }
       }
-  
+
       .progressLabel {
         width: 85%;
         height: 12vw;
@@ -156,7 +208,7 @@
         margin: auto;
       }
     }
-  
+
     .progressBarSection::before {
       content: "";
       background-image: url("../../assets/images/progress-bar-bg.png");
@@ -170,7 +222,7 @@
       background-repeat: no-repeat;
     }
   }
-  
+
   .beans-pot {
     width: 95%;
     height: calcView(500);
@@ -179,7 +231,7 @@
     background-size: contain;
     margin: calcView(60) auto 0;
     position: relative;
-  
+
     .title {
       position: absolute;
       width: 50%;
@@ -187,7 +239,7 @@
       top: calcView(-45);
       z-index: 2;
     }
-  
+
     .potInfo {
       position: absolute;
       height: 7.66667vw;
@@ -199,7 +251,7 @@
       text-align: center;
       font-size: calcView(15);
       padding-top: calcView(15);
-  
+
       p {
         margin-top: calcView(3);
         font-family: Helvetica;
@@ -224,7 +276,7 @@
       }
     }
   }
-  
+
   .fieldGoalLeaderBoard {
     width: 100%;
     height: 183vw;
@@ -233,7 +285,7 @@
     background-size: 100% 100%;
     margin: calcView(10) auto 0;
     position: relative;
-  
+
     .leaderBoardTitle {
       display: flex;
       justify-content: center;
@@ -242,13 +294,13 @@
       }
     }
 
-    .lock{
-    width: 6vw;
-    position: absolute;
-    left: -3vw;
-    top: -2vw;
+    .lock {
+      width: 6vw;
+      position: absolute;
+      left: -3vw;
+      top: -2vw;
     }
-  
+
     .topRank {
       display: flex;
       left: 5vw;
@@ -260,7 +312,7 @@
       .level-icon {
         display: flex;
         justify-content: center;
-  
+
         img {
           width: 15vw;
           height: 5vw;
@@ -269,7 +321,7 @@
       }
       .topper {
         width: calcView(200);
-  
+
         .topper-images {
           position: relative;
           height: calcView(140);
@@ -297,9 +349,9 @@
           font-size: 2.66667vw;
           justify-content: center;
           margin: 0.66667vw auto 0.66667vw;
-  
+
           text-align: center;
-  
+
           p {
             width: 75%;
             height: 100%;
@@ -368,7 +420,7 @@
       .topper:nth-child(2) .topper-images {
         left: 3.66667vw;
       }
-  
+
       .topper:nth-child(3) .topper-images {
         left: 3.66667vw;
       }
@@ -385,7 +437,7 @@
         margin-right: 4vw;
       }
     }
-  
+
     .restWinners {
       // border: 1px solid;
       height: 83vw;
@@ -425,8 +477,8 @@
           .levelIcon {
             // width: 8.6vw;
             width: 11.6666vw;
-    height: 4vw;
-    object-fit: contain;
+            height: 4vw;
+            object-fit: contain;
           }
         }
         .rightDiv {
@@ -436,7 +488,7 @@
           margin-right: calcView(20);
           flex: 0 1 16%;
           font-size: 3.5vw;
-  
+
           .basket {
             width: calcView(35);
           }
@@ -447,7 +499,7 @@
       }
     }
   }
-  
+
   .footer {
     background-image: url("../../assets/images/floating-footer.png");
     width: 100%;
@@ -455,14 +507,14 @@
     height: calcView(175);
     margin-top: calcView(-180);
   }
-  
+
   .seeMore {
     width: 17vw;
     height: 7vw;
     background-image: url("../../assets/images/see-more.png");
     background-repeat: no-repeat;
     background-size: 100%;
-  
+
     position: absolute;
     bottom: 7vw;
     left: 0;
@@ -486,5 +538,3 @@
     border: none;
   }
 }
-
-

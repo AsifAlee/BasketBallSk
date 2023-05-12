@@ -19,6 +19,7 @@ import GamePopUp from "./popups/GamePopUp";
 import foreverHeader from "../src/assets/images/forever-header.gif";
 import beans from "./assets/images/bean.png";
 import Marquee from "react-fast-marquee";
+import unknownUser from "./assets/images/unknown-user.png";
 
 export const AppContext = createContext();
 function App() {
@@ -241,13 +242,19 @@ function App() {
       });
   }
 
-  function getMarqueeData() {
+  //marquee api call
+  function getMarqueeData(rankIndex) {
     fetch(
-      `${baseUrl}/eventShow/getModulePushRankV3?eventDesc=20230523_basketball&pageIndex=1&pageCount=20&rankIndex=1&rankType=2`
+      `${baseUrl}/eventShow/getModulePushRankV3?eventDesc=20230523_basketball&pageIndex=1&pageCount=20&rankIndex=${rankIndex}&rankType=2`
     )
       .then((res) => res.json())
       .then((res) => {
-        setMarqueeData((prevState) => ({ ...prevState, game: res }));
+        if (rankIndex === 1)
+          setMarqueeData((prevState) => ({ ...prevState, game: res }));
+        else if (rankIndex === 2)
+          setMarqueeData((prevState) => ({ ...prevState, milestone: res }));
+        else
+          setMarqueeData((prevState) => ({ ...prevState, accelaration: res }));
       })
       .catch((error) => {
         console.error("error is :", error);
@@ -379,7 +386,9 @@ function App() {
       getTalentDailyToday();
       getTalentDailyYest();
       getMilestoneData();
-      getMarqueeData();
+      getMarqueeData(1);
+      getMarqueeData(2);
+      getMarqueeData(3);
     }
   }, [userInfo.dayIndex]);
 
@@ -406,6 +415,8 @@ function App() {
         toggleMilestonePopUp: toggleMilestonePopUp,
         currentUser: currentUser,
         getInfo: getInfo,
+        milesStoneMarquee: marqueeData.milestone,
+        accMarquee: marqueeData.accelaration,
       }}
     >
       <div className="App">
@@ -428,14 +439,17 @@ function App() {
             <Marquee>
               {marqueeData.game.map((user) => (
                 <div className="user-item">
-                  <img src={user.portrait} className="marquee-user" />
+                  <img
+                    src={user.portrait ? user.portrait : unknownUser}
+                    className="marquee-user"
+                  />
                   <div className="details">
                     <span className="name">{`${user.nickName} `} </span>
-                    <span>&nbsp;has won &nbsp;</span>
+
                     <div className="beans">
-                      <span>{user.userScore}</span>
+                      <span>{`has won ${user.userScore} `}</span>
                       <img src={beans} />
-                      <span>.Congratulations!</span>
+                      <span>{".Congratulations!"}</span>
                     </div>
                   </div>
                 </div>

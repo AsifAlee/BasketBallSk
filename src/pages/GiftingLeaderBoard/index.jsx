@@ -34,27 +34,29 @@ const GiftingLeaderBoards = () => {
           />
 
           <div className="gift1Detail">
-            <p>Cheerleader</p>
-            <span>30,000</span>
+            <p style={{ color: "#64686b" }}>Cheerleader</p>
+            <span style={{ color: "#64686b", marginLeft: "2vw" }}>30,000</span>
             <img src={beans} className="beans" />
           </div>
 
           <img
-            src={`${baseUrl2}streamkar/gifts/40001299.png`}
+            src={`${baseUrl2}streamkar/gifts/40001627.png`}
             className="gift2"
           />
           <div className="gift2Detail">
-            <p>Loot Chest</p>
-            <span>1000 </span>
+            <p style={{ color: "#64686b" }}>SK Billionare</p>
+            <span style={{ color: "#64686b", marginLeft: "2vw" }}>
+              200,0000
+            </span>
             <img src={beans} className="beans" />
           </div>
           <img
-            src={`${baseUrl2}streamkar/gifts/40001627.png`}
+            src={`${baseUrl2}streamkar/gifts/40001299.png`}
             className="gift3"
           />
           <div className="gift3Detail">
-            <p>SK Billionare</p>
-            <span>200,0000</span>
+            <p style={{ color: "#64686b" }}>Loot Chest</p>
+            <span style={{ color: "#64686b", marginLeft: "2vw" }}>1000 </span>
             <img src={beans} className="beans" />
           </div>
         </div>
@@ -81,6 +83,9 @@ const GiftingLeaderBoards = () => {
       </div>
 
       {tabs.talent ? <TalentSection /> : <UserSection />}
+      <div className="footer">
+        <p className="rights">All rights reserved by StreamKar</p>
+      </div>
     </div>
   );
 };

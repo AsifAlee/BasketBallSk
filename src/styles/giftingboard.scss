@@ -2,6 +2,8 @@
 
 .gifting-leaderboard {
   margin-top: 8vw;
+
+
   .event-gifts {
     width: 95%;
     background-image: url("../assets/images/event-gift-bg.png");
@@ -19,6 +21,7 @@
       position: absolute;
     }
 
+   
     .beans{
       width: 5vw;
       position: relative;
@@ -37,7 +40,7 @@
     .gift2 {
       width: 36vw;
       position: absolute;
-      top: 5vw;
+      top: 7vw;
       left: 28vw;
     
     }
@@ -54,6 +57,8 @@
     z-index: 1;
     left: 14vw;
     font-size: 2.5vw;
+    color: #64686b;
+
   }
   .gift2Detail{
     text-align: center;
@@ -63,6 +68,8 @@
     left: 33vw;
     font-size: 3vw;
     width: 28vw;
+    color: #64686b;
+
   }
 
   .gift3Detail{
@@ -71,6 +78,8 @@
     z-index: 1;
     left: 64vw;
     font-size: 2.5vw;
+    color: #64686b;
+
   }
   }
   .gifts {
@@ -698,5 +707,20 @@
     text-align: center;
     margin-top: 32vw;
     font-family: "HiJack";
+  }
+
+  .footer{
+    background-image: url('../assets/images/floating-footer.png');
+    width: 100%;
+    background-size: 100% 100%;
+    height: 23.33333vw;
+    margin-top: -24vw;
+
+    .rights{
+      position: relative;
+      top: 19vw;
+      left: 26vw;
+      font-size: 2.8vw;
+    }
   }
 }

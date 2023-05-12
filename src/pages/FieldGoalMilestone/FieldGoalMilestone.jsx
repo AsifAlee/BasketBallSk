@@ -7,13 +7,16 @@ import iaBtn from "../../assets/images/i-button-a.png";
 import progressImg from "../../assets/images/progress-bar.png";
 import currentPos from "../../assets/images/current-position.gif";
 import completed from "../../assets/images/completed.png";
-
+import unknowUser from "../../assets/images/unknown-user.png";
 import "./fieldGoal.scss";
 import { AppContext } from "../../App";
 import PopUp from "../../components/PopUp";
 import SuccessAttemptPopUp from "../../popups/SuccessAttemptPopUp";
 import MilestonePopUp from "../../popups/MilestonePopUp";
+import Marquee from "react-fast-marquee";
+import { baseUrl2 } from "../../api";
 export const FieldGoalMilestone = () => {
+  const { milesStoneMarquee } = useContext(AppContext);
   const {
     userInfo,
     toggleProgressPopUp,
@@ -44,6 +47,37 @@ export const FieldGoalMilestone = () => {
   });
   return (
     <div className="fieldGoalSection">
+      <div className="marquee">
+        <Marquee>
+          {milesStoneMarquee?.map((item) => (
+            <div className="field-marq-item">
+              <img
+                className="user-img"
+                src={item.portrait ? item.portrait : unknowUser}
+              />
+
+              <div className="user-details">
+                <p className="name">{`${item.nickName}`} </p>
+                <p>has won</p>
+                <p> &nbsp; Water Splash Profile Frame + Royal Carriage</p>
+                <div className="reward-div">
+                  <div className="marq-rewards">
+                    <img
+                      src={`${baseUrl2}streamkar/rewards/WaterSplashFrame.png`}
+                    />
+                    <p>+</p>
+                    <img
+                      src={`${baseUrl2}streamkar/rewards/voyagerProfileFrame.png`}
+                    />
+                  </div>
+                </div>
+                <p>{`for 3 days.Congratulations!`}</p>
+              </div>
+            </div>
+          ))}
+        </Marquee>
+      </div>
+
       <div className="successfull-attempts">
         <p>MY SUCCESSFULL ATTEMPTS</p>
         <div className="attempts-display">
@@ -115,7 +149,9 @@ export const FieldGoalMilestone = () => {
       </div>
       <BeansPot />
       <Leaderboard />
-      <div className="footer"></div>
+      <div className="footer">
+        <p className="rights">All rights reserved by StreamKar</p>
+      </div>
       {progressPopUp ? <PopUp>My popup</PopUp> : ""}
       {showSuccessAttemptPopUp ? <SuccessAttemptPopUp /> : ""}
       {milestonePopUp ? <MilestonePopUp /> : ""}
