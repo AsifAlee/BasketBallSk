@@ -271,7 +271,7 @@ function App() {
           ...userInfo,
           dailyTaskList: res.data.dailyTaskInfoList,
           throwsLeft: res.data.chance,
-          // throwsLeft: 12,
+          // throwsLeft: 0,
 
           mySuccessfullAttempt: res.data.attempts,
           // mySuccessfullAttempt: 2000,
@@ -526,13 +526,17 @@ function App() {
         {showRewardHistory ? <RewardHistory /> : ""}
         {showGamePopUp ? (
           <GamePopUp
-            textTitle={beansWon > 0 ? "HURRAH!" : "TRY AGAIN"}
+            textTitle={
+              beansWon > 0 ? "HURRAH!" : beansWon === 0 ? "TRY AGAIN" : "OOPS"
+            }
             content={
-              rewardWon
+              rewardWon > 0
                 ? "That was a perfect throw and you have won"
                 : userInfo.throwsLeft <= 0
                 ? "To earn a throwing chance spend 25k beans worth event gifts and start playing. We're waiting to see you play. Come soon!"
-                : "Uh-Oh!The throw was unsuccessfull.Please try again."
+                : rewardWon === 0
+                ? "Uh-Oh!The throw was unsuccessfull.Please try again."
+                : ""
             }
             beans={beansWon}
             throwsLeft={userInfo.throwsLeft > 0 ? true : false}
