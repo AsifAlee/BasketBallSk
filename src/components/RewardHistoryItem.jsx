@@ -12,7 +12,7 @@ export const RewardHistoryItem = (props) => {
       rewardItem.rewardType == "Basketball Game" ||
       rewardItem.rewardType == "Daily Leaderboard"
     ) {
-      setCurrentRewrdImg(beanBag);
+      setCurrentRewrdImg(rewGet("beansbag"));
     } else if (rewardItem.rewardType == "Field Goal Milestone") {
       setCurrentRewrdImg(
         rewGet(rewardItem.gameRewardInfo.rewardDTOList[0].rewardDesc)

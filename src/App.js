@@ -10,11 +10,11 @@ import { baseUrl, baseUrl2, testToken, testUserId } from "./api";
 import noReward from "./assets/images/no-reward.gif";
 import reward1 from "./assets/images/basket01.gif";
 import reward2 from "./assets/images/basket02.gif";
-
 import reward3 from "./assets/images/basket03.gif";
 import reward4 from "./assets/images/basket04.gif";
 import reward5 from "./assets/images/basket05.gif";
 import reward6 from "./assets/images/basket06.gif";
+import zero from "./assets/images/reward-history-button.gif";
 import GamePopUp from "./popups/GamePopUp";
 import foreverHeader from "../src/assets/images/forever-header.gif";
 import beans from "./assets/images/bean.png";
@@ -320,7 +320,7 @@ function App() {
             getRewardHistory();
             getMilestoneData();
             setThrowBtnOn(true);
-          }, 1900);
+          }, 1950);
         } else {
           setIsPlaying(0);
           setThrowBtnOn(true);
@@ -454,27 +454,7 @@ function App() {
             </button>
             <div className="chances">
               <span>Chances:</span>
-              {/* 
-              <input
-                type="number"
-                value={inputValue}
-                onChange={handleChange}
-                placeholder="Type here"
-                className="inputField"
-                onKeyUp={handleKeyDown}
-                pattern="[0-9]*"
-                inputMode="numeric"
-              /> */}
 
-              {/* <input
-                type="number"
-                value={inputValue}
-                onChange={handleInput}
-                placeholder="TYPE HERE"
-                className="inputField"
-                onKeyUp={onUpCheck}
-                defaultValue={1}
-              /> */}
               <input
                 className="inputField"
                 name="NumInput"
@@ -501,11 +481,14 @@ function App() {
             <img src={foreverHeader} className="jumping-character" />
           )} */}
 
-          {isPlaying ? (
-            <img src={allRewards[rewardWon]} className="playing-character" />
-          ) : (
-            ""
-          )}
+          {isPlaying
+            ? rewardWon >= 0 && (
+                <img
+                  src={allRewards[rewardWon]}
+                  className="playing-character"
+                />
+              )
+            : ""}
           {!isPlaying ? (
             <img src={foreverHeader} className="playing-character" />
           ) : (
@@ -556,10 +539,10 @@ function App() {
             content={
               rewardWon > 0
                 ? "That was a perfect throw and you have won"
-                : userInfo.throwsLeft <= 0
-                ? "To earn a throwing chance spend 25k beans worth event gifts and start playing. We're waiting to see you play. Come soon!"
                 : rewardWon === 0
                 ? "Uh-Oh!The throw was unsuccessfull.Please try again."
+                : userInfo.throwsLeft <= 0
+                ? "To earn a throwing chance spend 25k beans worth event gifts and start playing. We're waiting to see you play. Come soon!"
                 : ""
             }
             beans={beansWon}

@@ -429,6 +429,8 @@ export function rewGet(rewDesc) {
       rewImg = baseUrl2 + "/streamkar/rewards/tajframe.png";
     } else if (rewDesc?.includes("Doyen") || rewDesc?.includes("doyen")) {
       rewImg = baseUrl2 + "/streamkar/rewards/doyenFrame.png";
+    } else if (rewDesc?.includes("beanbag")) {
+      rewImg = baseUrl2 + "/streamkar/rewards/beansbag.png";
     }
   } else {
     rewImg = baseUrl2 + "/streamkar/rewards/noRew.png";
