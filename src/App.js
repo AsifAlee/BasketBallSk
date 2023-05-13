@@ -73,21 +73,6 @@ function App() {
     accCardCount: 0,
   });
 
-  const onUpCheck = (e) => {
-    if (e.key === ".") {
-      setInputValue("");
-    }
-    if (/[+-.]/.test(e.target.value)) {
-      setInputValue("");
-    } else {
-      let max = 99;
-      let number = inputValue > max ? max : inputValue <= 0 ? "" : inputValue;
-      setInputValue(parseInt(number));
-    }
-  };
-  const handleInput = (event) => {
-    setInputValue(parseInt(event.target.value));
-  };
   const [rankings, setRankings] = useState({
     userOverall: [],
     userDailyToday: [],
@@ -278,7 +263,7 @@ function App() {
           ...userInfo,
           dailyTaskList: res.data.dailyTaskInfoList,
           throwsLeft: res.data.chance,
-          // throwsLeft: 0,
+          // throwsLeft: 22,
 
           mySuccessfullAttempt: res.data.attempts,
           // mySuccessfullAttempt: 2000,
@@ -347,14 +332,21 @@ function App() {
       });
   };
 
-  // function handleChange(event) {
-  //   const inputValue = event.target.value;
-  //   const inputRegex = /^[0-9]{0,2}$/;
+  const onChangeHandle = (event) => {
+    setInputValue(parseInt(event.target.value));
+  };
+  const onUpCheck = (e) => {
+    if (/[+-.]/.test(e.target.value) || e.keyCode == 229) {
+      setInputValue("");
+    } else if (e.target.value.charAt(0) === "0") {
+      setInputValue(e.target.value.slice(1));
+    } else {
+      let max = userInfo.throwsLeft < 99 ? userInfo.throwsLeft : 99;
+      let number = inputValue > max ? max : inputValue <= 0 ? "" : inputValue;
+      setInputValue(parseInt(number));
+    }
+  };
 
-  //   if (inputRegex.test(inputValue)) {
-  //     setInputValue(inputValue);
-  //   }
-  // }
   // get user info
   useEffect(() => {
     try {
@@ -462,16 +454,19 @@ function App() {
             </button>
             <div className="chances">
               <span>Chances:</span>
-
-              {/* <input
-                type="text"
+              {/* 
+              <input
+                type="number"
                 value={inputValue}
                 onChange={handleChange}
-                placeholder="Enter a number between 0 and 99"
+                placeholder="Type here"
                 className="inputField"
+                onKeyUp={handleKeyDown}
+                pattern="[0-9]*"
+                inputMode="numeric"
               /> */}
 
-              <input
+              {/* <input
                 type="number"
                 value={inputValue}
                 onChange={handleInput}
@@ -479,6 +474,17 @@ function App() {
                 className="inputField"
                 onKeyUp={onUpCheck}
                 defaultValue={1}
+              /> */}
+              <input
+                className="inputField"
+                name="NumInput"
+                type="number"
+                value={inputValue}
+                min={0}
+                max={99}
+                onInput={onChangeHandle}
+                onKeyUp={onUpCheck}
+                pattern="[0-9]*"
               />
             </div>
           </div>
