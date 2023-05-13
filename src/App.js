@@ -530,9 +530,9 @@ function App() {
         {showGamePopUp ? (
           <GamePopUp
             textTitle={
-              beansWon > 0
+              rewardWon > 0
                 ? "HURRAH!!"
-                : beansWon === 0
+                : rewardWon === 0
                 ? "TRY AGAIN!!"
                 : "OOPS!!"
             }

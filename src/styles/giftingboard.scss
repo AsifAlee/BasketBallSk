@@ -568,7 +568,7 @@
     .topper:nth-child(2) {
       order: -1;
       position: relative;
-      top: calcView(-40);
+      top: -2.33333vw;
     }
     .topper:nth-child(2) .topper-images .rank {
       left: calcView(-55);
@@ -589,7 +589,7 @@
     .topper:nth-child(3) {
       position: relative;
       left: calcView(33);
-      top: calcView(-40);
+      top: -2.33333vw;
       margin-right: 4vw;
     }
   }

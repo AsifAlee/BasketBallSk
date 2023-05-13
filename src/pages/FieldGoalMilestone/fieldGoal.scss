@@ -401,6 +401,7 @@
         position: relative;
         left: calcView(23);
         width: calcView(220);
+        top: 3vw;
       }
       .topper:nth-child(1) .name {
         margin-top: calcView(30);
@@ -412,7 +413,7 @@
       .topper:nth-child(2) {
         order: -1;
         position: relative;
-        top: calcView(-40);
+        top: 0.66667vw;
       }
       .topper:nth-child(2) .topper-images .rank {
         left: calcView(-55);
@@ -433,7 +434,7 @@
       .topper:nth-child(3) {
         position: relative;
         left: calcView(33);
-        top: calcView(-40);
+        top: -0.33333vw;
         margin-right: 4vw;
       }
     }
