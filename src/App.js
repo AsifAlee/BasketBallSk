@@ -142,7 +142,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setRewardHistory(res.data.list);
+        setRewardHistory(res?.data?.list);
       })
       .catch((error) => {
         console.log("api error:", error);
@@ -157,7 +157,7 @@ function App() {
       .then((res) => {
         setRankings((prevState) => ({
           ...prevState,
-          userOverall: res.data.list,
+          userOverall: res?.data?.list,
         }));
       });
   }
@@ -167,7 +167,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setRankings((prev) => ({ ...prev, userDailyToday: res.data.list }));
+        setRankings((prev) => ({ ...prev, userDailyToday: res?.data?.list }));
       });
   }
 
@@ -179,7 +179,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setRankings((prev) => ({ ...prev, userDailyYest: res.data.list }));
+        setRankings((prev) => ({ ...prev, userDailyYest: res?.data?.list }));
       });
   }
 
@@ -191,7 +191,7 @@ function App() {
       .then((res) => {
         setRankings((prevState) => ({
           ...prevState,
-          talentOverall: res.data.list,
+          talentOverall: res?.data?.list,
         }));
       });
   }
@@ -202,7 +202,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setRankings((prev) => ({ ...prev, talentDailyToday: res.data.list }));
+        setRankings((prev) => ({ ...prev, talentDailyToday: res?.data?.list }));
       });
   }
 
@@ -214,7 +214,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setRankings((prev) => ({ ...prev, talentDailyYest: res.data.list }));
+        setRankings((prev) => ({ ...prev, talentDailyYest: res?.data?.list }));
       });
   }
 
@@ -224,7 +224,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setRankings((prev) => ({ ...prev, milestoneRanking: res.data.list }));
+        setRankings((prev) => ({ ...prev, milestoneRanking: res?.data?.list }));
       });
   }
 
@@ -262,27 +262,27 @@ function App() {
       .then((res) => {
         setUserInfo({
           ...userInfo,
-          dailyTaskList: res.data.dailyTaskInfoList,
+          dailyTaskList: res?.data?.dailyTaskInfoList,
           throwsLeft: res.data.chance,
           // throwsLeft: 22,
 
-          mySuccessfullAttempt: res.data.attempts,
+          mySuccessfullAttempt: res?.data?.attempts,
           // mySuccessfullAttempt: 2000,
 
-          milestoneBeansPot: res.data.milestoneRewardBeansPot,
-          talentOverallBeansPot: res.data.talentOverallBeansPot,
-          userOverallBeansPot: res.data.totalUserBeanPotInfo,
-          userDailyBeansPot: res.data.dayBeanPotInfoList.find(
-            (item) => item.day === res.data.day
-          ).dayBeanPot,
-          userDailyBeansPotPrev: res.data.dayBeanPotInfoList.find(
+          milestoneBeansPot: res?.data?.milestoneRewardBeansPot,
+          talentOverallBeansPot: res?.data?.talentOverallBeansPot,
+          userOverallBeansPot: res?.data?.totalUserBeanPotInfo,
+          userDailyBeansPot: res?.data?.dayBeanPotInfoList.find(
+            (item) => item.day === res?.data?.day
+          )?.dayBeanPot,
+          userDailyBeansPotPrev: res?.data?.dayBeanPotInfoList?.find(
             (item) => item.day === res.data.day - 1
-          ).dayBeanPot,
+          )?.dayBeanPot,
 
-          tokens: res.data.userTaskInfo.tokens,
-          myAccRate: res.data.growth,
-          dayIndex: res.data.day,
-          accCardCount: res.data.userTaskInfo.accelerationCardCount,
+          tokens: res?.data?.userTaskInfo?.tokens,
+          myAccRate: res?.data?.growth,
+          dayIndex: res?.data?.day,
+          accCardCount: res?.data?.userTaskInfo?.accelerationCardCount,
         });
       })
       .catch((error) => {});
