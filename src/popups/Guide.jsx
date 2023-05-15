@@ -617,7 +617,7 @@ const Guide = (props) => {
 
                       <tr>
                         <td>1000</td>
-                        <td>7 days New Audio Theme.</td>
+                        <td>Ballpark Audio Theme.</td>
                         <td>
                           <img
                             src={`${baseUrl2}streamkar/rewards/ballParkTheme.png`}

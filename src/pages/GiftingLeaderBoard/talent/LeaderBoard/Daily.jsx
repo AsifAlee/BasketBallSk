@@ -71,7 +71,7 @@ export const Daily = () => {
       </div>
 
       {dailyTabs.today ? (
-        talentDailyToday.length > 10 ? (
+        talentDailyToday.length > 0 ? (
           <div className="dailyTodayLeaderBrd">
             <div className="topRank">
               {talentDailyToday.slice(0, 3).map((user, index) => (

@@ -51,6 +51,7 @@ function App() {
     milestone: [],
     accelaration: [],
   });
+  const [isInputZero, setIsInputZero] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({
     userId: 0,
@@ -288,6 +289,10 @@ function App() {
   };
 
   const playGame = () => {
+    if (!inputValue) {
+      setIsInputZero(true);
+      return;
+    }
     setRewardWon(null);
     setThrowBtnOn(false);
     setBeansWon(0);
@@ -320,6 +325,7 @@ function App() {
             getRewardHistory();
             getMilestoneData();
             setThrowBtnOn(true);
+            setInputValue(1);
           }, 1950);
         } else {
           setIsPlaying(0);
@@ -332,11 +338,8 @@ function App() {
       });
   };
 
-  const onChangeHandle = (event) => {
-    setInputValue(parseInt(event.target.value));
-  };
   const onUpCheck = (e) => {
-    if (/[+-.]/.test(e.target.value) || e.keyCode == 229) {
+    if (/[+-.]/.test(e.target.value) || e.key == ".") {
       setInputValue("");
     } else if (e.target.value.charAt(0) === "0") {
       setInputValue(e.target.value.slice(1));
@@ -346,7 +349,14 @@ function App() {
       setInputValue(parseInt(number));
     }
   };
-
+  const onChangeHandle = (event) => {
+    if (!event.target.value) {
+      setIsInputZero(true);
+    } else {
+      setIsInputZero(false);
+    }
+    setInputValue(parseInt(event.target.value));
+  };
   // get user info
   useEffect(() => {
     try {
@@ -452,22 +462,32 @@ function App() {
             <button className="throws-left">
               Throw Left:{userInfo.throwsLeft}
             </button>
-            <div className="chances">
-              <span>Chances:</span>
-
-              <input
-                className="inputField"
-                name="NumInput"
-                type="number"
-                value={inputValue}
-                min={0}
-                max={99}
-                onInput={onChangeHandle}
-                onKeyUp={onUpCheck}
-                pattern="[0-9]*"
-              />
+            <div style={{ position: "relative" }}>
+              <div className="chances">
+                <span>Chances:</span>
+                <div>
+                  <input
+                    className="inputField"
+                    // name="NumInput"
+                    type="number"
+                    value={inputValue}
+                    min={1}
+                    max={99}
+                    onInput={onChangeHandle}
+                    onKeyUp={onUpCheck}
+                    pattern="[0-9]*"
+                    style={{ border: isInputZero ? "1px solid red" : "" }}
+                  />
+                </div>
+              </div>
+              {isInputZero === true ? (
+                <span className="inputZero">Enter some Value</span>
+              ) : (
+                ""
+              )}
             </div>
           </div>
+          {/* <span className="warnText">Enter some value</span> */}
 
           <button
             className={thorwBtnOn === false ? "thrown" : "throw-btn"}
@@ -540,7 +560,7 @@ function App() {
               rewardWon > 0
                 ? "That was a perfect throw and you have won"
                 : rewardWon === 0
-                ? "Uh-Oh!The throw was unsuccessfull.Please try again."
+                ? "Uh-Oh! The throw was unsuccessful. Please try again."
                 : userInfo.throwsLeft <= 0
                 ? "To earn a throwing chance spend 25k beans worth event gifts and start playing. We're waiting to see you play. Come soon!"
                 : ""

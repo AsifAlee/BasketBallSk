@@ -58,7 +58,7 @@ const MilestonePopUp = () => {
 
             <tr>
               <td className="color-yellow">2000</td>
-              <td className="color-yellow">7 day hero entrance</td>
+              <td className="color-yellow">7 days hero entrance</td>
               <td>
                 <img src={`${baseUrl2}streamkar/rewards/heroEntrance.png`} />
               </td>

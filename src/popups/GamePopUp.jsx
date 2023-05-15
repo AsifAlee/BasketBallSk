@@ -26,7 +26,7 @@ function GamePopUp(props) {
           ) : (
             <div className="no-rewards">
               <p>DO YOU KNOW?</p>
-              <p>Successfull throws win you beans.</p>
+              <p>Successful throws win you beans.</p>
             </div>
           )}
         </div>

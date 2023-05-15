@@ -43,7 +43,7 @@ export const RewardHistoryItem = (props) => {
           {rewardItem.rewardType == "Basketball Game" ||
           rewardItem.rewardType == "Daily Leaderboard"
             ? `${rewardItem.gameRewardInfo.beans} beans`
-            : `${rewardItem.gameRewardInfo?.rewardDTOList[0]?.rewardCount} ${rewardItem.gameRewardInfo?.rewardDTOList[0]?.rewardDesc}`}
+            : `${rewardItem.gameRewardInfo?.rewardDTOList[0]?.rewardCount} days  ${rewardItem.gameRewardInfo?.rewardDTOList[0]?.rewardDesc}`}
         </p>
       </div>
     </div>

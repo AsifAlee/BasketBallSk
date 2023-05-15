@@ -6,6 +6,7 @@ import { AppContext } from "../App";
 import { AccelerationCard } from "../components/AccelerationCard";
 import { baseUrl, baseUrl2, recvrId, testToken, testUserId } from "../api";
 import sendBtn from "../assets/images/Send.png";
+import accBtn from "../assets/images/Accelerate.png";
 import { TabButton } from "../components/TabButton";
 import RadioSelect from "../components/RadioSelect";
 
@@ -15,6 +16,7 @@ export const SendAccelerationCard = () => {
   const [inputValue, setInputValue] = useState("");
   const [cardRecvStatus, setCardRecvStatus] = useState("");
   const { currentUser } = useContext(AppContext);
+  const [isAccBtnDisabled, setIsAccBtnDisabled] = useState(false);
 
   const [radioSelected, setIsRadioSelected] = useState(null);
   const handleRadioCheck = (index) => {
@@ -41,6 +43,8 @@ export const SendAccelerationCard = () => {
       headers: {
         token: currentUser.userToken,
         userId: currentUser.userId,
+        // userId: testUserId,
+        // token: testToken,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -51,18 +55,19 @@ export const SendAccelerationCard = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.data === false) {
+        setIsAccBtnDisabled(true);
+        if (res.data === true) {
+          setCardRecvStatus(res.msg);
+        } else if (res.errorCode === 11000000) {
           setCardRecvStatus("NOT ELIGIBLE FOR THIS CARD");
-        } else if (res.data === true) {
-          setCardRecvStatus("CARD SENT SUCCESS!");
-        } else if (res.errorCode === 10330007) {
-          setCardRecvStatus("CANT SEND CARD TO YOURSELF!");
         } else {
-          setCardRecvStatus("SOMETHING WENT WRONG");
+          setCardRecvStatus(res.msg);
         }
+        setIsAccBtnDisabled(false);
         getInfo();
       })
       .catch((error) => {
+        setIsAccBtnDisabled(false);
         console.error(" card send  error:", error);
       });
   };
@@ -105,8 +110,10 @@ export const SendAccelerationCard = () => {
               text="text"
               isActive={foundUsers.length > 0 && radioSelected !== null}
               isBlackNWhite={foundUsers.length > 0 || radioSelected !== null}
+              isSendAcc={true}
+              isDisabled={isAccBtnDisabled}
             >
-              <img src={sendBtn} />
+              <img src={accBtn} />
             </TabButton>
           </>
         ) : (

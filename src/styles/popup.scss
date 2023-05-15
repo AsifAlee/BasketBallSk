@@ -135,7 +135,7 @@
       position: relative;
       display: flex;
       justify-content: center;
-      margin-top: 2vw;
+      margin-top: 7vw;
       input {
         height: 9vw;
         border-radius: 5vw;
@@ -147,15 +147,17 @@
         padding: 3vw 0 3vw 2vw;
       }
       .icon {
-        width: 10vw;
-        height: 10vw;
+        width: 12vw;
+        height: 12vw;
         background-image: url("../assets/images/search-button.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         background-color: transparent;
         border: none;
         position: absolute;
-        right: 8vw;
+        right: 12vw;
+        bottom: -2vw;
+    
       }
     }
 
@@ -188,8 +190,12 @@
       color: yellow;
       text-align: center;
       margin-top: 2vw;
-
       font-size: 3vw;
+      width: 66%;
+      margin: 0 auto ;
+      position: relative;
+    bottom: 1vw;
+
     }
     .blackNWhite {
       filter: grayscale(100%);
@@ -208,7 +214,7 @@
       // border: 1px solid red;J
       overflow-y: auto;
       // align-items: center;
-      justify-content: center;
+      // justify-content: center;
       width: 73vw;
       margin: 0 auto;
 
@@ -385,7 +391,7 @@
 
     .succesfull-attempt-content {
       position: absolute;
-      top: 13vw;
+      top: 20vw;
       width: 80%;
       left: 9vw;
       font-size: 4vw;
