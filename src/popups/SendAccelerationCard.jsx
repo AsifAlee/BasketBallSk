@@ -50,7 +50,7 @@ export const SendAccelerationCard = () => {
       body: JSON.stringify({
         // sendId: testUserId,
         sendId: currentUser.userId,
-        receiveId: foundUsers[radioSelected].userId,
+        receiveId: foundUsers[radioSelected]?.userId,
       }),
     })
       .then((res) => res.json())

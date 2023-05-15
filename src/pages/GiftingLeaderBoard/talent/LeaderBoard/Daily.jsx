@@ -30,25 +30,25 @@ export const Daily = () => {
     console.log("today rest winners:", todayRestWinners);
 
     if (isSeeMoreToday) {
-      setTodayRestWinners(talentDailyToday.slice(3, 10));
+      setTodayRestWinners(talentDailyToday?.slice(3, 10));
     } else {
-      setTodayRestWinners(talentDailyToday.slice(3));
+      setTodayRestWinners(talentDailyToday?.slice(3));
     }
   }, [isSeeMoreToday]);
 
   useEffect(() => {
     if (isSeeMoreYest) {
-      setYestRestWinners(talentDailyYest.slice(3, 10));
+      setYestRestWinners(talentDailyYest?.slice(3, 10));
     } else {
-      setYestRestWinners(talentDailyYest.slice(3));
+      setYestRestWinners(talentDailyYest?.slice(3));
     }
   }, [isSeeMoreYest]);
 
   useEffect(() => {
-    setTodayRestWinners(talentDailyToday.slice(3, 10));
+    setTodayRestWinners(talentDailyToday?.slice(3, 10));
   }, [talentDailyToday]);
   useEffect(() => {
-    setYestRestWinners(talentDailyYest.slice(3, 10));
+    setYestRestWinners(talentDailyYest?.slice(3, 10));
   }, [talentDailyYest]);
   const toggleTabs = () => {
     setDailyTabs({ today: !dailyTabs.today, yesterday: !dailyTabs.yesterday });
@@ -71,10 +71,10 @@ export const Daily = () => {
       </div>
 
       {dailyTabs.today ? (
-        talentDailyToday.length > 0 ? (
+        talentDailyToday?.length > 0 ? (
           <div className="dailyTodayLeaderBrd">
             <div className="topRank">
-              {talentDailyToday.slice(0, 3).map((user, index) => (
+              {talentDailyToday?.slice(0, 3).map((user, index) => (
                 <Topper
                   user={user}
                   index={index + 1}
@@ -88,8 +88,7 @@ export const Daily = () => {
               className="restWinners"
               style={{ overflowY: isSeeMoreToday ? "hidden" : "auto" }}
             >
-              {todayRestWinners.map((item, index) => {
-                console.log("rest item :", item);
+              {todayRestWinners?.map((item, index) => {
                 let newIndex = index + 3;
                 return (
                   <FieldLeaderBoardItem
@@ -103,7 +102,7 @@ export const Daily = () => {
                 );
               })}
             </div>
-            {talentDailyToday.length > 10 && (
+            {talentDailyToday?.length > 10 && (
               <button
                 className={isSeeMoreToday ? "seeMore" : "seeLess"}
                 onClick={() => setIsSeeMoreToday((prev) => !prev)}
@@ -118,10 +117,10 @@ export const Daily = () => {
       )}
 
       {dailyTabs.yesterday ? (
-        talentDailyYest.length > 0 ? (
+        talentDailyYest?.length > 0 ? (
           <div className="dailyTodayLeaderBrd">
             <div className="topRank">
-              {talentDailyYest.slice(0, 3).map((user, index) => (
+              {talentDailyYest?.slice(0, 3).map((user, index) => (
                 <Topper
                   user={user}
                   index={index + 1}
@@ -135,7 +134,7 @@ export const Daily = () => {
               className="restWinners"
               style={{ overflowY: isSeeMoreYest ? "hidden" : "auto" }}
             >
-              {yestRestWinners.map((item, index) => {
+              {yestRestWinners?.map((item, index) => {
                 let newIndex = index + 3;
                 return (
                   <FieldLeaderBoardItem
@@ -149,7 +148,7 @@ export const Daily = () => {
                 );
               })}
             </div>
-            {talentDailyYest.length > 10 && (
+            {talentDailyYest?.length > 10 && (
               <button
                 className={isSeeMoreYest ? "seeMore" : "seeLess"}
                 onClick={() => setIsSeeMoreYest((prev) => !prev)}

@@ -23,11 +23,11 @@ export const Daily = () => {
   const { rankings } = useContext(AppContext);
   const { userDailyToday, userDailyYest } = rankings;
   const [todayRestWinners, setTodayRestWinners] = useState(
-    userDailyToday.slice(3, 10)
+    userDailyToday?.slice(3, 10)
   );
 
   const [yestRestWinners, setYestRestWinners] = useState(
-    userDailyYest.slice(3, 10)
+    userDailyYest?.slice(3, 10)
   );
 
   const leaderBoardList = [
@@ -44,25 +44,25 @@ export const Daily = () => {
 
   useEffect(() => {
     if (isSeeMoreToday) {
-      setTodayRestWinners(userDailyToday.slice(3, 10));
+      setTodayRestWinners(userDailyToday?.slice(3, 10));
     } else {
-      setTodayRestWinners(userDailyToday.slice(3));
+      setTodayRestWinners(userDailyToday?.slice(3));
     }
   }, [isSeeMoreToday]);
 
   useEffect(() => {
     if (isSeeMoreYest) {
-      setYestRestWinners(userDailyYest.slice(3, 10));
+      setYestRestWinners(userDailyYest?.slice(3, 10));
     } else {
-      setYestRestWinners(userDailyYest.slice(3));
+      setYestRestWinners(userDailyYest?.slice(3));
     }
   }, [isSeeMoreYest]);
 
   useEffect(() => {
-    setTodayRestWinners(userDailyToday.slice(3, 10));
+    setTodayRestWinners(userDailyToday?.slice(3, 10));
   }, [userDailyToday]);
   useEffect(() => {
-    setYestRestWinners(userDailyYest.slice(3, 10));
+    setYestRestWinners(userDailyYest?.slice(3, 10));
   }, [userDailyYest]);
 
   const toggleTabs = () => {
@@ -96,10 +96,10 @@ export const Daily = () => {
       </div>
 
       {dailyTabs.today &&
-        (userDailyToday.length ? (
+        (userDailyToday?.length ? (
           <div className="dailyTodayLeaderBrd">
             <div className="topRank">
-              {userDailyToday.slice(0, 3).map((user, index) => (
+              {userDailyToday?.slice(0, 3).map((user, index) => (
                 <Topper
                   user={user}
                   index={index + 1}
@@ -115,9 +115,8 @@ export const Daily = () => {
               className="restWinners"
               style={{ overflowY: isSeeMoreToday ? "hidden" : "auto" }}
             >
-              {todayRestWinners.map((item, index) => {
+              {todayRestWinners?.map((item, index) => {
                 let newIndex = index + 3;
-                console.log("today restwinner item:", item);
                 return (
                   <FieldLeaderBoardItem
                     user={item}
@@ -132,7 +131,7 @@ export const Daily = () => {
               })}
             </div>
 
-            {userDailyToday.length > 10 ? (
+            {userDailyToday?.length > 10 ? (
               <button
                 className={isSeeMoreToday ? "seeMore" : "seeLess"}
                 onClick={() => {
@@ -147,10 +146,10 @@ export const Daily = () => {
           <div className="noData">No Data Found</div>
         ))}
       {dailyTabs.yesterday &&
-        (userDailyYest.length ? (
+        (userDailyYest?.length ? (
           <div className="dailyTodayLeaderBrd">
             <div className="topRank">
-              {userDailyYest.slice(0, 3).map((user, index) => (
+              {userDailyYest?.slice(0, 3).map((user, index) => (
                 <Topper
                   user={user}
                   index={index + 1}
@@ -166,7 +165,7 @@ export const Daily = () => {
               className="restWinners"
               style={{ overflowY: isSeeMoreYest ? "hidden" : "auto" }}
             >
-              {yestRestWinners.map((item, index) => {
+              {yestRestWinners?.map((item, index) => {
                 let newIndex = index + 3;
 
                 return (
@@ -182,7 +181,7 @@ export const Daily = () => {
                 );
               })}
             </div>
-            {userDailyYest.length > 10 ? (
+            {userDailyYest?.length > 10 ? (
               <button
                 className={isSeeMoreYest ? "seeMore" : "seeLess"}
                 onClick={() => {
