@@ -31,13 +31,14 @@ export const SendAccelerationCard = () => {
     )
       .then((res) => res.json())
       .then((res) => {
-        setFoundUsers(res.roomList);
+        setFoundUsers(res?.roomList);
         if (!res.roomList.length) {
           setCardRecvStatus("No User Found!");
         }
       });
   };
   const sendCard = () => {
+    setIsAccBtnDisabled(true);
     fetch(`${baseUrl}/basketball/sendAccelerationCard`, {
       method: "POST",
       headers: {
@@ -55,7 +56,6 @@ export const SendAccelerationCard = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        setIsAccBtnDisabled(true);
         if (res.data === true) {
           setCardRecvStatus(res.msg);
         } else if (res.errorCode === 11000000) {
@@ -64,10 +64,19 @@ export const SendAccelerationCard = () => {
           setCardRecvStatus(res.msg);
         }
         setIsAccBtnDisabled(false);
+        // setTimeout(() => {
+        //   setIsAccBtnDisabled(false);
+        // }, 5000);
+        setInputValue("");
+        setFoundUsers([]);
+
         getInfo();
       })
       .catch((error) => {
-        setIsAccBtnDisabled(false);
+        // setTimeout(() => {
+        //   setIsAccBtnDisabled(false);
+        // }, 5000);
+        // setIsAccBtnDisabled(false);
         console.error(" card send  error:", error);
       });
   };
@@ -105,7 +114,7 @@ export const SendAccelerationCard = () => {
                 </RadioSelect>
               ))}
             </div>
-            <TabButton
+            {/* <TabButton
               handleClick={sendCard}
               text="text"
               isActive={foundUsers.length > 0 && radioSelected !== null}
@@ -114,7 +123,20 @@ export const SendAccelerationCard = () => {
               isDisabled={isAccBtnDisabled}
             >
               <img src={accBtn} />
-            </TabButton>
+            </TabButton> */}
+            <button
+              className="sendAccBtn"
+              onClick={sendCard}
+              disabled={isAccBtnDisabled}
+              style={{
+                filter:
+                  isAccBtnDisabled || radioSelected === null
+                    ? "grayscale(100%)"
+                    : "",
+              }}
+            >
+              Accelerate
+            </button>
           </>
         ) : (
           ""

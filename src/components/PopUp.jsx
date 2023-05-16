@@ -27,7 +27,7 @@ const PopUp = (props) => {
           backgroundImage: `url(${bg})`,
           minHeight: `${
             isAccPopUp
-              ? "70vw"
+              ? "74vw"
               : isRewards
               ? "58vw"
               : isGame

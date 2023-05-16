@@ -1,18 +1,13 @@
 import { baseUrl2 } from "./api";
-// import xp from "../assests/rewards/xp-point.png";
-import xp from "./assets/images/beanbag.png";
 
 export function rewGet(rewDesc) {
   var rewImg;
 
-  //console.log("my rweww"+rewDesc)
-  if (rewDesc?.includes("Raging")) {
+  if (rewDesc?.includes("Raging Bull Profile Frame")) {
     rewImg = baseUrl2 + "streamkar/rewards/valentineFrameUser.png";
-  } else if (rewDesc?.includes("spaceship")) {
+  } else if (rewDesc?.includes("Spaceship Entrance")) {
     rewImg = baseUrl2 + "streamkar/rewards/spaceship.png";
-  } else if (rewDesc?.includes("Brave")) {
-    rewImg = baseUrl2 + "streamkar/rewards/braveHeart.png";
-  } else if (rewDesc?.includes("audio")) {
+  } else if (rewDesc?.includes("Brave Heart Profile Frame")) {
     rewImg = baseUrl2 + "streamkar/rewards/braveHeart.png";
   } else if (rewDesc?.includes("HERO")) {
     rewImg = baseUrl2 + "streamkar/rewards/heroEntrance.png";

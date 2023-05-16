@@ -28,7 +28,7 @@ export const GrowAcceleration = () => {
         <button
           className="acc-btn"
           onClick={toogleAccPopUp}
-          disabled={userInfo.accCardCount <= 0}
+          // disabled={userInfo.accCardCount <= 0}
           style={{
             filter: userInfo.accCardCount <= 0 ? "grayscale(100%)" : "",
           }}

@@ -161,28 +161,42 @@
       }
     }
 
-    .tabButton {
-      background-color: transparent;
-      border: none;
-      margin: auto;
-      img {
-        width: 15vw;
-      }
-    }
+    // .tabButton {
+    //   background-color: transparent;
+    //   border: none;
+    //   margin: auto;
+    //   img {
+    //     width: 15vw;
+    //   }
+    // }
 
-    .tabButtonOn {
+    // .tabButtonOn {
+    //   width: 25vw;
+    //   height: 11vw;
+    //   background-image: url("../assets/images/tab-selected.gif");
+    //   background-size: 100%;
+    //   background-repeat: no-repeat;
+    // }
+    // .tabButtonOff {
+    //   width: 25vw;
+    //   height: 11vw;
+    //   background-image: url("../assets/images/tab-unselected.png");
+    //   background-size: 100%;
+    //   background-repeat: no-repeat;
+    // }
+
+    .sendAccBtn{
       width: 25vw;
       height: 11vw;
       background-image: url("../assets/images/tab-selected.gif");
-      background-size: 100%;
-      background-repeat: no-repeat;
-    }
-    .tabButtonOff {
-      width: 25vw;
-      height: 11vw;
-      background-image: url("../assets/images/tab-unselected.png");
-      background-size: 100%;
-      background-repeat: no-repeat;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        border: none;
+        margin: 0 auto;
+        font-family: 'HiJack';
+        background-position: center;
+        font-size: 3.5vw;
     }
 
     .eligibility-text {
@@ -192,7 +206,7 @@
       margin-top: 2vw;
       font-size: 3vw;
       width: 66%;
-      margin: 0 auto ;
+      margin: 2vw auto 0;
       position: relative;
     bottom: 1vw;
 
