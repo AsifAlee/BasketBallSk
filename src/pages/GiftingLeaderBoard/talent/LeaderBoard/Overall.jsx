@@ -40,7 +40,7 @@ export const Overall = () => {
     const result = userInfo?.talentOverallBeansPot
       ? (percent / 100) * userInfo?.talentOverallBeansPot
       : 0;
-    return result.toFixed(0);
+    return Math.floor(result);
   };
 
   return (

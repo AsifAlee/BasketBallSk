@@ -8,6 +8,8 @@ import AccInfoPopUp from "../../popups/AccInfoPopUp";
 import completed from "../../assets/images/completed.png";
 import iBtn from "../../assets/images/i-buttons-b.png";
 import tokenImg from "../../assets/images/token.gif";
+import Marquee from "react-fast-marquee";
+import AccMarqueeItem from "../../components/AccMarqueeItem";
 
 export const GrowAcceleration = () => {
   const {
@@ -16,11 +18,19 @@ export const GrowAcceleration = () => {
     toogleAccPopUp,
     toggleAccInfoPopUp,
     showAccInfoPopUp,
+    accMarquee,
   } = useContext(AppContext);
   const { tokens } = userInfo;
   // const tokens = 800;
   return (
     <div>
+      <div className="accMarquee">
+        <Marquee loop={1}>
+          {accMarquee?.map((item, index) => (
+            <AccMarqueeItem item={item} />
+          ))}
+        </Marquee>
+      </div>
       <div className="growthacc-container">
         <div className="title">
           My Acceleration Card:{userInfo.accCardCount}
@@ -28,7 +38,7 @@ export const GrowAcceleration = () => {
         <button
           className="acc-btn"
           onClick={toogleAccPopUp}
-          // disabled={userInfo.accCardCount <= 0}
+          disabled={userInfo.accCardCount <= 0}
           style={{
             filter: userInfo.accCardCount <= 0 ? "grayscale(100%)" : "",
           }}

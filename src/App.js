@@ -339,7 +339,9 @@ function App() {
   };
 
   const onUpCheck = (e) => {
-    if (/[+-.]/.test(e.target.value) || e.key == ".") {
+    if (/[+-.]/.test(e.target.value)) {
+      setInputValue("");
+    } else if (e.target.value.includes(".")) {
       setInputValue("");
     } else if (e.target.value.charAt(0) === "0") {
       setInputValue(e.target.value.slice(1));
@@ -355,6 +357,7 @@ function App() {
     } else {
       setIsInputZero(false);
     }
+
     setInputValue(parseInt(event.target.value));
   };
   // get user info

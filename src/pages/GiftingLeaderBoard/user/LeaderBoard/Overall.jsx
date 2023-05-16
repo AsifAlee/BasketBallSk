@@ -13,7 +13,7 @@ export const Overall = () => {
     const totalBeansPot = userInfo.userOverallBeansPot;
     const percent = userOverallPot.find((item) => item.rank === index)?.percent;
     const result = totalBeansPot ? (percent / 100) * totalBeansPot : 0;
-    return result.toFixed(0);
+    return Math.floor(result);
   };
 
   const leaderBoardList = [
@@ -75,7 +75,7 @@ export const Overall = () => {
                   user={item}
                   key={index}
                   index={newIndex + 1}
-                  estRewards={calculateEstRewards(index + 1)}
+                  estRewards={calculateEstRewards(newIndex + 1)}
                   showEst={newIndex <= 4 ? true : false}
                   isToday={true}
                   isUser={true}

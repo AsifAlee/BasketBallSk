@@ -10,8 +10,16 @@ import enerygyIcon from "../assets/images/energy-icon.png";
 import lock from "../assets/images/lock.png";
 import { formatNumbers, getLevelImage, gotoProfile } from "../functions";
 const Topper = (props) => {
-  const { user, estRewards, showEst, isTalent, isToday, isUser, isMilestone } =
-    props;
+  const {
+    user,
+    estRewards,
+    showEst,
+    isTalent,
+    isToday,
+    isUser,
+    isMilestone,
+    isLock,
+  } = props;
   return (
     <div className="topper">
       <div className="topper-images" onClick={() => gotoProfile(user.userId)}>
@@ -40,17 +48,27 @@ const Topper = (props) => {
               user.count < 1000 && isMilestone === true ? "#858894" : "none",
           }}
         >
-          {parseInt(user.count) < 1000 && isMilestone === true ? (
+          {isLock === true && isMilestone === true ? (
             <img src={lock} className="lock" />
           ) : (
             ""
           )}
-          <span>
-            {isToday
-              ? `Est.rewards:${estRewards}`
-              : `Rewards Sent:${estRewards}`}
-          </span>
-          <img src={bean} className="bean" />
+          <div
+            style={{
+              display: "flex",
+              // justifyContent: "center",
+              // alignItems: "center",
+              position: "relative",
+              left: "1vw",
+            }}
+          >
+            <span style={{ marginTop: "1vw" }}>
+              {isToday
+                ? `Est.rewards:${estRewards}`
+                : `Rewards Sent:${estRewards}`}
+            </span>
+            <img src={bean} className="bean" />
+          </div>
         </div>
       ) : (
         ""

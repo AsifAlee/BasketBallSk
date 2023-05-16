@@ -318,3 +318,25 @@
 
 
 }
+
+.accMarquee{
+  .marquee-item{
+    width: 70vw;
+    border: calcView(3) solid;
+    border-radius: calcView(50);
+    display: flex;
+    align-items: center;
+    font-size: 2vw;
+    padding: 0.5vw;
+    margin-left: 4vw;
+    background-color: #9a3a2a;
+
+    img{
+      width: 9vw;
+      border-radius: 100%;
+    }
+    .rightDiv{
+      margin-left: 1vw;
+    }
+  }
+}

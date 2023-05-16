@@ -34,10 +34,7 @@ const Leaderboard = () => {
     "fdfd",
     "fdfdf",
   ];
-  const calculateEstRewards = () => {
-    const result = milestoneBeansPot ? (0.1 / 100) * milestoneBeansPot : 0;
-    return result.toFixed(0);
-  };
+
   return (
     <div className="fieldGoalLeaderBoard">
       <div className="leaderBoardTitle">
@@ -52,11 +49,12 @@ const Leaderboard = () => {
                   user={user}
                   index={index + 1}
                   key={index}
-                  estRewards={calculateEstRewards(index + 1)}
+                  estRewards={user?.estimateBeans}
                   showEst={true}
                   isToday={true}
                   isTalent={false}
                   isMilestone={true}
+                  isLock={user?.isLock}
                 />
               ))}
             </div>
@@ -72,7 +70,7 @@ const Leaderboard = () => {
                     user={item}
                     key={index}
                     index={newIndex + 1}
-                    estRewards={calculateEstRewards(index + 1)}
+                    // estRewards={calculateEstRewards(index + 1)}
                     showEst={false}
                     isToday={true}
                     isTalent={false}

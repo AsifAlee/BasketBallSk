@@ -77,7 +77,7 @@ export const Daily = () => {
     const percent = userDailyPot.find((item) => item.rank === index)?.percent;
     const result = totalBeansPot ? (percent / 100) * totalBeansPot : 0;
 
-    return result.toFixed(0);
+    return Math.floor(result);
   };
 
   return (

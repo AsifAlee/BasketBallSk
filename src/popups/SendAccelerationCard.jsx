@@ -63,12 +63,12 @@ export const SendAccelerationCard = () => {
         } else {
           setCardRecvStatus(res.msg);
         }
-        setIsAccBtnDisabled(false);
-        // setTimeout(() => {
-        //   setIsAccBtnDisabled(false);
-        // }, 5000);
-        setInputValue("");
-        setFoundUsers([]);
+        // setIsAccBtnDisabled(false);
+        setTimeout(() => {
+          setIsAccBtnDisabled(false);
+        }, 5000);
+        // setInputValue("");
+        // setFoundUsers([]);
 
         getInfo();
       })
