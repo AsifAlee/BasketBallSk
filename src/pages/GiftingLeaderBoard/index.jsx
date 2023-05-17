@@ -6,7 +6,7 @@ import talentBtn from "../../assets/images/talentBtn.png";
 import giftBasketBall from "../../assets/images/gift-display-basket-ball.gif";
 import { TalentSection } from "./talent";
 import { UserSection } from "./user";
-import { baseUrl2 } from "../../api";
+import { baseUrl } from "../../api";
 import beans from "../../assets/images/bean.png";
 const GiftingLeaderBoards = () => {
   const [tabs, setTabs] = useState({
@@ -29,7 +29,7 @@ const GiftingLeaderBoards = () => {
           <img src={bannerTitle} className="title" />
 
           <img
-            src={`${baseUrl2}streamkar/gifts/40001618.png`}
+            src={`${baseUrl}/streamkar/gifts/40001618.png`}
             className="gift1"
           />
 
@@ -40,7 +40,7 @@ const GiftingLeaderBoards = () => {
           </div>
 
           <img
-            src={`${baseUrl2}streamkar/gifts/40001627.png`}
+            src={`${baseUrl}/streamkar/gifts/40001627.png`}
             className="gift2"
           />
           <div className="gift2Detail">
@@ -51,7 +51,7 @@ const GiftingLeaderBoards = () => {
             <img src={beans} className="beans" />
           </div>
           <img
-            src={`${baseUrl2}streamkar/gifts/40001299.png`}
+            src={`${baseUrl}/streamkar/gifts/40001299.png`}
             className="gift3"
           />
           <div className="gift3Detail">

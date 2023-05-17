@@ -29,7 +29,7 @@ function Accordion(props) {
               <ButtonSlider
                 onToggle={handleSliderToggle}
                 bg={rewardsSliderBg}
-                texts={["User", "Talent"]}
+                texts={["Users", "Talents"]}
               />
             </div>
           ) : null}

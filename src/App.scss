@@ -57,8 +57,9 @@
           align-items: center;
         }
         .name {
-          width: 6vw;
+          width: 8vw;
           margin-left: 0.7vw;
+          // height: 2vw;
           display: inline-block;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -301,6 +302,19 @@
       background-color: transparent;
       border: none;
     }
+  }
+
+  #extraContent {
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    z-index: -2147483648;
+    content: url("./assets/images/no-reward.gif")
+      url("./assets/images/basket01.gif") url("./assets/images/basket02.gif")
+      url("./assets/images/basket03.gif") url("./assets/images/basket04.gif")
+      url("./assets/images/basket05.gif") url("./assets/images/basket06.gif");
+    visibility: hidden;
+    top: 0px;
   }
 }
 

@@ -15,10 +15,11 @@
       border-radius: 5vw;
       margin-right: 4vw;
       background-color: #9a3a2a;
+      font-size: 1.8vw;
 
       .user-img {
-        width: 7vw;
-        height: 7vw;
+        width: 5vw;
+        height: 5vw;
         border-radius: 100%;
         // flex: 0 1 5%;
       }
@@ -402,6 +403,7 @@
       .topper:nth-child(1) .name {
         margin-top: calcView(30);
       }
+
       .topper:nth-child(3) .name {
         margin-top: calcView(15);
         // margin-right: 4vw;

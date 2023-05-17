@@ -9,7 +9,7 @@ import waterSplash from "../assets/images/WaterSplashFrame.png";
 import ragingBul from "../assets/images/ragingBull.png";
 import royalCar from "../assets/images/royal.png";
 import { AppContext } from "../App";
-import { baseUrl2 } from "../api";
+import { baseUrl } from "../api";
 const Guide = (props) => {
   const { selectedLanguage } = props;
   const { toggleGuide } = useContext(AppContext);
@@ -86,8 +86,8 @@ const Guide = (props) => {
                         would be there.
                       </li>
                       <li>
-                        If more than 1 chance is used, animations would be
-                        played once, but the system will calculate the number of
+                        If more than 1 chance is used, animation would be played
+                        once, but the system will calculate the number of
                         rewards you would receive according to the number of
                         chances used to play the game.
                       </li>
@@ -137,10 +137,12 @@ const Guide = (props) => {
                         </li>
                         <li>
                           When talent receives this card, the acceleration rate
-                          will be increased by 1x than the existing rate. For
-                          example, if talent’s existing rate is{" "}
-                          <span className="yellow-text">1X</span> , it will be
-                          increased to 2X.
+                          will be increased by{" "}
+                          <span className="yellow-text">1X</span> than the
+                          existing rate. For example, if talent’s existing rate
+                          is <span className="yellow-text">1X</span> , it will
+                          be increased to{" "}
+                          <span className="yellow-text">2X</span>.
                         </li>
                         <li>
                           If any Talent ID will receive multiple ACCELERATION
@@ -161,7 +163,10 @@ const Guide = (props) => {
                       <ul>
                         <li>
                           {" "}
-                          For<span className="yellow-text">100 beans</span>{" "}
+                          For<span className="yellow-text">
+                            {" "}
+                            100 beans
+                          </span>{" "}
                           received by the talents through event gifts, talent
                           will receive{" "}
                           <span className="yellow-text">1 ENERGY</span> point.
@@ -171,7 +176,7 @@ const Guide = (props) => {
                           completion of tasks. Talents need to collect tokens by
                           completing the tasks given daily on{" "}
                           <span className="yellow-text">
-                            GROWTH ACCELERATION TAB
+                            GROWTH ACCELERATION TAB.
                           </span>
                         </li>
                         <li>
@@ -275,10 +280,13 @@ const Guide = (props) => {
                         </li>
                         <li>
                           Jab talents yeh card receive karenge toh unka
-                          acceleration rate 1x se increase hoga existing rate
-                          se. EXAMPLE: Agar talent ka existing acceleration rate
+                          acceleration rate{" "}
+                          <span className="yellow-text">1X</span> se increase
+                          hoga existing rate se. EXAMPLE: Agar talent ka
+                          existing acceleration rate
                           <span className="yellow-text">1X</span> hai toh woh
-                          badhke 2X hojayega ye card receive karne pe.
+                          badhke <span className="yellow-text">2X</span>.
+                          hojayega ye card receive karne pe.
                         </li>
                         <li>
                           Agar koi talent multiple{" "}
@@ -310,11 +318,11 @@ const Guide = (props) => {
                         </li>
                         <li>
                           Talents ko DAILY TASKS roz complete karke Tokens
-                          collect karne hain
+                          collect karne hain.
                         </li>
                         <li>
                           Yeh tokens growth acceleration ke liye consider kiye
-                          jayenge
+                          jayenge.
                         </li>
                       </ul>
                       <div className="accTable">
@@ -584,7 +592,7 @@ const Guide = (props) => {
                         </td>
                         <td>
                           <img
-                            src={`${baseUrl2}streamkar/rewards/valentineFrameUser.png`}
+                            src={`${baseUrl}/streamkar/rewards/valentineFrameUser.png`}
                             className="rewardImg"
                           />
                         </td>
@@ -595,7 +603,7 @@ const Guide = (props) => {
                         <td className="colored">3 days Spaceship Entrance.</td>
                         <td>
                           <img
-                            src={`${baseUrl2}streamkar/rewards/spaceship.png`}
+                            src={`${baseUrl}/streamkar/rewards/spaceship.png`}
                             className="rewardImg"
                           />
                         </td>
@@ -606,7 +614,7 @@ const Guide = (props) => {
                         <td> 5 days Brave Heart Profile Frame.</td>
                         <td>
                           <img
-                            src={`${baseUrl2}streamkar/rewards/braveHeart.png`}
+                            src={`${baseUrl}/streamkar/rewards/braveHeart.png`}
                             className="rewardImg"
                           />
                         </td>
@@ -617,7 +625,7 @@ const Guide = (props) => {
                         <td>Ballpark Audio Theme.</td>
                         <td>
                           <img
-                            src={`${baseUrl2}streamkar/rewards/ballParkTheme.png`}
+                            src={`${baseUrl}/streamkar/rewards/ballParkTheme.png`}
                             className="rewardImg"
                           />
                         </td>
@@ -628,7 +636,7 @@ const Guide = (props) => {
                         <td>7 days HERO Entrance </td>
                         <td>
                           <img
-                            src={`${baseUrl2}streamkar/rewards/heroEntrance.png`}
+                            src={`${baseUrl}/streamkar/rewards/heroEntrance.png`}
                             className="rewardImg"
                           />
                         </td>

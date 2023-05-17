@@ -6,7 +6,7 @@ import GiftingLeaderBoards from "./pages/GiftingLeaderBoard";
 import Guide from "./popups/Guide";
 import LanguageDropdown from "./pages/LangaugeSelector";
 import { RewardHistory } from "./popups/RewardHistory";
-import { baseUrl, baseUrl2, testToken, testUserId } from "./api";
+import { baseUrl, testToken, testUserId } from "./api";
 import noReward from "./assets/images/no-reward.gif";
 import reward1 from "./assets/images/basket01.gif";
 import reward2 from "./assets/images/basket02.gif";
@@ -46,6 +46,9 @@ function App() {
   const [showSuccessAttemptPopUp, setShowSucessAttemptPopUp] = useState(false);
   const [milestonePopUp, setMilestonePopUp] = useState(false);
   const [thorwBtnOn, setThrowBtnOn] = useState(true);
+  const [gameError, setGameError] = useState(false);
+  const [gameMsg, setGameMsg] = useState("");
+
   const [marqueeData, setMarqueeData] = useState({
     game: [],
     milestone: [],
@@ -138,7 +141,7 @@ function App() {
   };
   function getRewardHistory() {
     fetch(
-      `${baseUrl}/basketball/getRewardRecord?userId=${currentUser.userId}&pageNum=1&pageSize=20`
+      `${baseUrl}/api/activity/basketball/getRewardRecord?userId=${currentUser.userId}&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -151,7 +154,7 @@ function App() {
   //Ranking functions
   function getUserOverall() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex}&type=2&sort=2&pageNum=1&pageSize=20`
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex}&type=2&sort=2&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -163,7 +166,7 @@ function App() {
   }
   function getUserDailyToday() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex}&type=2&sort=1&pageNum=1&pageSize=20`
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex}&type=2&sort=1&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -173,7 +176,7 @@ function App() {
 
   function getUserDailyYest() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=1&dayIndex=${
         userInfo.dayIndex - 1
       }&type=2&sort=1&pageNum=1&pageSize=20`
     )
@@ -185,7 +188,7 @@ function App() {
 
   function getTalentOverall() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=2&dayIndex=${userInfo.dayIndex}&type=2&sort=2&pageNum=1&pageSize=20`
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=2&dayIndex=${userInfo.dayIndex}&type=2&sort=2&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -198,7 +201,7 @@ function App() {
 
   function getTalentDailyToday() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=2&dayIndex=${userInfo.dayIndex}&type=2&sort=1&pageNum=1&pageSize=20`
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=2&dayIndex=${userInfo.dayIndex}&type=2&sort=1&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -208,7 +211,7 @@ function App() {
 
   function getTalentDailyYest() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=2&dayIndex=${
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=2&dayIndex=${
         userInfo.dayIndex - 1
       }&type=2&sort=1&pageNum=1&pageSize=20`
     )
@@ -220,7 +223,7 @@ function App() {
 
   function getMilestoneData() {
     fetch(
-      `${baseUrl}/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex}&type=1&sort=1&pageNum=1&pageSize=20`
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex}&type=1&sort=1&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -231,7 +234,7 @@ function App() {
   //marquee api call
   function getMarqueeData(rankIndex) {
     fetch(
-      `${baseUrl}/eventShow/getModulePushRankV3?eventDesc=20230523_basketball&pageIndex=1&pageCount=20&rankIndex=${rankIndex}&rankType=2`
+      `${baseUrl}/api/activity/eventShow/getModulePushRankV3?eventDesc=20230523_basketball&pageIndex=1&pageCount=20&rankIndex=${rankIndex}&rankType=2`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -249,7 +252,7 @@ function App() {
 
   const getInfo = () => {
     fetch(
-      `${baseUrl}/basketball/getUserEventInfo?userId=${currentUser.userId}`,
+      `${baseUrl}/api/activity/basketball/getUserEventInfo?userId=${currentUser.userId}`,
       {
         headers: {
           method: "GET",
@@ -260,30 +263,34 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setUserInfo({
-          ...userInfo,
-          dailyTaskList: res?.data?.dailyTaskInfoList,
-          throwsLeft: res.data.chance,
-          // throwsLeft: 22,
+        if (res.errorCode === 0) {
+          setUserInfo({
+            ...userInfo,
+            dailyTaskList: res?.data?.dailyTaskInfoList,
+            throwsLeft: res.data.chance,
+            // throwsLeft: 22,
 
-          mySuccessfullAttempt: res?.data?.attempts,
-          // mySuccessfullAttempt: 2000,
+            mySuccessfullAttempt: res?.data?.attempts,
+            // mySuccessfullAttempt: 2000,
 
-          milestoneBeansPot: res?.data?.milestoneRewardBeansPot,
-          talentOverallBeansPot: res?.data?.talentOverallBeansPot,
-          userOverallBeansPot: res?.data?.totalUserBeanPotInfo,
-          userDailyBeansPot: res?.data?.dayBeanPotInfoList.find(
-            (item) => item.day === res?.data?.day
-          )?.dayBeanPot,
-          userDailyBeansPotPrev: res?.data?.dayBeanPotInfoList?.find(
-            (item) => item.day === res.data.day - 1
-          )?.dayBeanPot,
+            milestoneBeansPot: res?.data?.milestoneRewardBeansPot,
+            talentOverallBeansPot: res?.data?.talentOverallBeansPot,
+            userOverallBeansPot: res?.data?.totalUserBeanPotInfo,
+            userDailyBeansPot: res?.data?.dayBeanPotInfoList.find(
+              (item) => item.day === res?.data?.day
+            )?.dayBeanPot,
+            userDailyBeansPotPrev: res?.data?.dayBeanPotInfoList?.find(
+              (item) => item.day === res.data.day - 1
+            )?.dayBeanPot,
 
-          tokens: res?.data?.userTaskInfo?.tokens,
-          myAccRate: res?.data?.growth,
-          dayIndex: res?.data?.day,
-          accCardCount: res?.data?.userTaskInfo?.accelerationCardCount,
-        });
+            tokens: res?.data?.userTaskInfo?.tokens,
+            myAccRate: res?.data?.growth,
+            dayIndex: res?.data?.day,
+            accCardCount: res?.data?.userTaskInfo?.accelerationCardCount,
+          });
+        } else {
+          alert(res.msg);
+        }
       })
       .catch((error) => {});
   };
@@ -296,7 +303,7 @@ function App() {
     setRewardWon(null);
     setThrowBtnOn(false);
     setBeansWon(0);
-    fetch(`${baseUrl}/basketball/playShootGame/`, {
+    fetch(`${baseUrl}/api/activity/basketball/playShootGame/`, {
       method: "POST",
       body: JSON.stringify({
         userId: currentUser.userId,
@@ -315,6 +322,7 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         if (res.errorCode === 0) {
+          setGameError(false);
           setIsPlaying(1);
           setRewardWon(res.data.firstLevel);
           setBeansWon(res.data.totalBeans);
@@ -326,8 +334,18 @@ function App() {
             getMilestoneData();
             setThrowBtnOn(true);
             setInputValue(1);
-          }, 1950);
+          }, 1800);
+        } else if (res.errorCode === 11000003) {
+          setGameError(true);
+          setGameMsg(
+            "To earn a throwing chance spend 25k beans worth event gifts and start playing. We're waiting to see you play. Come soon!"
+          );
+          setIsPlaying(0);
+          setThrowBtnOn(true);
+          setShowGamePopUp(true);
         } else {
+          setGameError(true);
+          setGameMsg(res.msg);
           setIsPlaying(0);
           setThrowBtnOn(true);
           setShowGamePopUp(true);
@@ -339,14 +357,18 @@ function App() {
   };
 
   const onUpCheck = (e) => {
-    if (/[+-.]/.test(e.target.value)) {
+    let max;
+    if (/[+-.]/.test(e.key)) {
       setInputValue("");
-    } else if (e.target.value.includes(".")) {
-      setInputValue("");
-    } else if (e.target.value.charAt(0) === "0") {
-      setInputValue(e.target.value.slice(1));
     } else {
-      let max = userInfo.throwsLeft < 99 ? userInfo.throwsLeft : 99;
+      // let max = userInfo.throwsLeft < 99 ?  userInfo.throwsLeft : 99;
+      if (userInfo.throwsLeft <= 99) {
+        max = userInfo.throwsLeft;
+      } else if (userInfo.throwsLeft > 99) {
+        max = 99;
+      } else if (userInfo.throwsLeft === 0) {
+        max = 1;
+      }
       let number = inputValue > max ? max : inputValue <= 0 ? "" : inputValue;
       setInputValue(parseInt(number));
     }
@@ -357,9 +379,31 @@ function App() {
     } else {
       setIsInputZero(false);
     }
-
     setInputValue(parseInt(event.target.value));
   };
+
+  // const onUpCheck = (e) => {
+  //   if (/[+-.]/.test(e.target.value)) {
+  //     setInputValue("");
+  //   } else if (e.target.value.includes(".")) {
+  //     setInputValue("");
+  //   } else if (e.target.value.charAt(0) === "0") {
+  //     setInputValue(e.target.value.slice(1));
+  //   } else {
+  //     let max = userInfo.throwsLeft < 99 ? userInfo.throwsLeft : 99;
+  //     let number = inputValue > max ? max : inputValue <= 0 ? "" : inputValue;
+  //     setInputValue(parseInt(number));
+  //   }
+  // };
+  // const onChangeHandle = (event) => {
+  //   if (!event.target.value) {
+  //     setIsInputZero(true);
+  //   } else {
+  //     setIsInputZero(false);
+  //   }
+
+  //   setInputValue(parseInt(event.target.value));
+  // };
   // get user info
   useEffect(() => {
     try {
@@ -379,9 +423,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getRewardHistory();
+    if (currentUser.userId) {
+      getRewardHistory();
+    }
+  }, [currentUser.userId]);
+
+  useEffect(() => {
     getInfo();
-  }, [currentUser]);
+  }, [currentUser.userId]);
   useEffect(() => {
     if (userInfo.dayIndex) {
       getUserOverall();
@@ -391,11 +440,14 @@ function App() {
       getTalentDailyToday();
       getTalentDailyYest();
       getMilestoneData();
-      getMarqueeData(1);
-      getMarqueeData(2);
-      getMarqueeData(3);
     }
   }, [userInfo.dayIndex]);
+
+  useEffect(() => {
+    getMarqueeData(1);
+    getMarqueeData(2);
+    getMarqueeData(3);
+  }, []);
 
   return (
     <AppContext.Provider
@@ -441,18 +493,18 @@ function App() {
             ></button>
           </div>
           <div className="gameMarquee">
-            <Marquee speed={150}>
-              {marqueeData.game.map((user) => (
-                <div className="user-item">
+            <Marquee speed={100} pauseOnHover={true}>
+              {marqueeData.game.map((user, index) => (
+                <div className="user-item" key={index}>
                   <img
                     src={user.portrait ? user.portrait : unknownUser}
                     className="marquee-user"
                   />
                   <div className="details">
                     <span className="name">{user.nickName}</span>
-
+                    <span>&nbsp;</span>
                     <span
-                      style={{ marginLeft: "1vw" }}
+                    // style={{ marginLeft: "0.5vw" }}
                     >{`has won ${user.userScore}`}</span>
 
                     <span>
@@ -466,7 +518,7 @@ function App() {
           </div>
           <div className="gameBtns">
             <button className="throws-left">
-              Throw Left:{userInfo.throwsLeft}
+              Throw Left:{` ${userInfo.throwsLeft}`}
             </button>
             <div style={{ position: "relative" }}>
               <div className="chances">
@@ -479,7 +531,7 @@ function App() {
                     value={inputValue}
                     min={1}
                     max={99}
-                    onInput={onChangeHandle}
+                    onChange={onChangeHandle}
                     onKeyUp={onUpCheck}
                     pattern="[0-9]*"
                     style={{ border: isInputZero ? "1px solid red" : "" }}
@@ -520,6 +572,7 @@ function App() {
           ) : (
             ""
           )}
+          <div id="extraContent"></div>
         </div>
 
         <div className="main-tabs">
@@ -563,7 +616,9 @@ function App() {
                 : "OOPS!!"
             }
             content={
-              rewardWon > 0
+              gameError === true
+                ? gameMsg
+                : rewardWon > 0
                 ? "That was a perfect throw and you have won"
                 : rewardWon === 0
                 ? "Uh-Oh! The throw was unsuccessful. Please try again."

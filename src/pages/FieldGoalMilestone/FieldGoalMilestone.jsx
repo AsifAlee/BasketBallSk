@@ -14,7 +14,7 @@ import PopUp from "../../components/PopUp";
 import SuccessAttemptPopUp from "../../popups/SuccessAttemptPopUp";
 import MilestonePopUp from "../../popups/MilestonePopUp";
 import Marquee from "react-fast-marquee";
-import { baseUrl2 } from "../../api";
+import { baseUrl } from "../../api";
 export const FieldGoalMilestone = () => {
   const { milesStoneMarquee } = useContext(AppContext);
   const {
@@ -48,9 +48,9 @@ export const FieldGoalMilestone = () => {
   return (
     <div className="fieldGoalSection">
       <div className="marquee">
-        <Marquee speed={150}>
-          {milesStoneMarquee?.map((item) => (
-            <div className="field-marq-item">
+        <Marquee speed={100} pauseOnHover={true}>
+          {milesStoneMarquee?.map((item, index) => (
+            <div className="field-marq-item" key={index}>
               <img
                 className="user-img"
                 src={item.portrait ? item.portrait : unknowUser}
@@ -58,18 +58,19 @@ export const FieldGoalMilestone = () => {
 
               <div className="user-details">
                 <span className="name">{`${item.nickName}`} </span>
-                <span>has won</span>
+                <span>has won &nbsp;</span>
+
                 <span> Water Splash Profile Frame </span>
                 <img
-                  src={`${baseUrl2}streamkar/rewards/WaterSplashFrame.png`}
+                  src={`${baseUrl}/streamkar/rewards/WaterSplashFrame.png`}
                   className="rew-img"
                 />
                 <span>and Royal Carriage </span>
                 <img
-                  src={`${baseUrl2}streamkar/rewards/voyagerProfileFrame.png`}
+                  src={`${baseUrl}/streamkar/rewards/voyagerProfileFrame.png`}
                   className="rew-img"
                 />
-                <span>{`for 3 days.Congratulations!`}</span>
+                <span>{`for ${item?.userScore} days.Congratulations!`}</span>
               </div>
             </div>
           ))}

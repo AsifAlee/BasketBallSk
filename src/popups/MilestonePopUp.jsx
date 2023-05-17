@@ -5,7 +5,7 @@ import titleBanner from "../assets/images/Milestone-info.png";
 import { AppContext } from "../App";
 import ragingBull from "../assets/images/ragingBull.png";
 import "../styles/popup.scss";
-import { baseUrl2 } from "../api";
+import { baseUrl } from "../api";
 import ball from "../assets/images/basket-ball-icon.png";
 const MilestonePopUp = () => {
   const { toggleMilestonePopUp } = useContext(AppContext);
@@ -29,7 +29,7 @@ const MilestonePopUp = () => {
               <td>3 days Raging Bull Profile Frame</td>
               <td>
                 <img
-                  src={`${baseUrl2}streamkar/rewards/valentineFrameUser.png`}
+                  src={`${baseUrl}/streamkar/rewards/valentineFrameUser.png`}
                 />
               </td>
             </tr>
@@ -37,14 +37,14 @@ const MilestonePopUp = () => {
               <td>200</td>
               <td>3 days Spaceship Entrance</td>
               <td>
-                <img src={`${baseUrl2}streamkar/rewards/spaceship.png`} />
+                <img src={`${baseUrl}/streamkar/rewards/spaceship.png`} />
               </td>
             </tr>
             <tr>
               <td className="color-yellow">500</td>
               <td className="color-yellow">3 days Brave Heart Profile Frame</td>
               <td>
-                <img src={`${baseUrl2}streamkar/rewards/braveHeart.png`} />
+                <img src={`${baseUrl}/streamkar/rewards/braveHeart.png`} />
               </td>
             </tr>
 
@@ -52,7 +52,7 @@ const MilestonePopUp = () => {
               <td className="color-yellow">1000</td>
               <td className="color-yellow">7 days Ballpark Audio Theme</td>
               <td>
-                <img src={`${baseUrl2}streamkar/rewards/ballParkTheme.png`} />
+                <img src={`${baseUrl}/streamkar/rewards/ballParkTheme.png`} />
               </td>
             </tr>
 
@@ -60,7 +60,7 @@ const MilestonePopUp = () => {
               <td className="color-yellow">2000</td>
               <td className="color-yellow">7 days hero entrance</td>
               <td>
-                <img src={`${baseUrl2}streamkar/rewards/heroEntrance.png`} />
+                <img src={`${baseUrl}/streamkar/rewards/heroEntrance.png`} />
               </td>
             </tr>
           </table>

@@ -21,11 +21,11 @@ export const GrowAcceleration = () => {
     accMarquee,
   } = useContext(AppContext);
   const { tokens } = userInfo;
-  // const tokens = 800;
+  // const tokens = 450;
   return (
     <div>
       <div className="accMarquee">
-        <Marquee speed={150}>
+        <Marquee speed={100} pauseOnHover={true}>
           {accMarquee?.map((item, index) => (
             <AccMarqueeItem item={item} />
           ))}

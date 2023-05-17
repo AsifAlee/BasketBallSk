@@ -4,7 +4,7 @@ import titleBanner from "../assets/images/Send-Acceleration-card.png";
 import bg from "../assets/images/task-game-bg2.png";
 import { AppContext } from "../App";
 import { AccelerationCard } from "../components/AccelerationCard";
-import { baseUrl, baseUrl2, recvrId, testToken, testUserId } from "../api";
+import { baseUrl, recvrId, testToken, testUserId } from "../api";
 import sendBtn from "../assets/images/Send.png";
 import accBtn from "../assets/images/Accelerate.png";
 import { TabButton } from "../components/TabButton";
@@ -27,7 +27,7 @@ export const SendAccelerationCard = () => {
     setIsRadioSelected(null);
     setCardRecvStatus("");
     fetch(
-      `${baseUrl2}meShow/entrance?parameter=%7B%22FuncTag%22:10002008,%22fuzzyString%22:%22${inputValue}%22,pageCount:10,%22pageNum%22:%221%22%7D`
+      `${baseUrl}/meShow/entrance?parameter=%7B%22FuncTag%22:10002008,%22fuzzyString%22:%22${inputValue}%22,pageCount:10,%22pageNum%22:%221%22%7D`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -39,7 +39,7 @@ export const SendAccelerationCard = () => {
   };
   const sendCard = () => {
     setIsAccBtnDisabled(true);
-    fetch(`${baseUrl}/basketball/sendAccelerationCard`, {
+    fetch(`${baseUrl}/api/activity/basketball/sendAccelerationCard`, {
       method: "POST",
       headers: {
         token: currentUser.userToken,
@@ -114,16 +114,7 @@ export const SendAccelerationCard = () => {
                 </RadioSelect>
               ))}
             </div>
-            {/* <TabButton
-              handleClick={sendCard}
-              text="text"
-              isActive={foundUsers.length > 0 && radioSelected !== null}
-              isBlackNWhite={foundUsers.length > 0 || radioSelected !== null}
-              isSendAcc={true}
-              isDisabled={isAccBtnDisabled}
-            >
-              <img src={accBtn} />
-            </TabButton> */}
+
             <button
               className="sendAccBtn"
               onClick={sendCard}
