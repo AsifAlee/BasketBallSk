@@ -548,10 +548,6 @@ const Guide = (props) => {
                   hasTabs={0}
                 >
                   <div className="fieldGoalContent">
-                    {/* <div className="beanBag">
-                      <img src={ragingBul} />
-                    </div> */}
-                    {/* <p>Raging Bull Profile Frame</p> */}
                     <ul className="bullets">
                       <li>
                         Each successful attempt will be counted towards these
@@ -576,10 +572,11 @@ const Guide = (props) => {
                     </ul>
 
                     <table>
-                      <thead>
+                      <tr>
                         <th>Milestone No</th>
                         <th style={{ borderRight: "none" }}>Rewards</th>
-                      </thead>
+                        <th style={{ borderLeft: "none" }}></th>
+                      </tr>
                       <tr>
                         <td>100</td>
                         <td className="colored">

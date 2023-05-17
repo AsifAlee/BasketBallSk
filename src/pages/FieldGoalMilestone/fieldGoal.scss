@@ -3,13 +3,14 @@
   color: white;
 }
 .fieldGoalSection {
+  width: 100%;
   .marquee {
     .field-marq-item {
       display: flex;
-      width: 110vw;
+      // width: 110vw;
       border: 1px solid;
       padding: 0.5vw;
-      height: 10vw;
+      // height: 10vw;
       font-size: 2vw;
       border-radius: 5vw;
       margin-right: 4vw;
@@ -17,14 +18,15 @@
 
       .user-img {
         width: 7vw;
+        height: 7vw;
         border-radius: 100%;
-        flex: 0 1 5%;
+        // flex: 0 1 5%;
       }
 
       .user-details {
         display: flex;
         align-items: center;
-        flex: 0 1 95%;
+     
 
         .name {
           width: 6vw;
@@ -33,16 +35,10 @@
           overflow: hidden;
           margin-left: 0.7vw;
         }
-
-        .reward-div {
-          .marq-rewards {
-            display: flex;
-            align-items: center;
-          }
-          img {
-            width: 5vw;
-          }
-        }
+.rew-img{
+  width: 5vw;
+}
+   
       }
     }
   }
@@ -539,3 +535,4 @@
     border: none;
   }
 }
+

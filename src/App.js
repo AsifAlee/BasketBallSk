@@ -441,7 +441,7 @@ function App() {
             ></button>
           </div>
           <div className="gameMarquee">
-            <Marquee>
+            <Marquee speed={150}>
               {marqueeData.game.map((user) => (
                 <div className="user-item">
                   <img
@@ -449,13 +449,16 @@ function App() {
                     className="marquee-user"
                   />
                   <div className="details">
-                    <span className="name">{`${user.nickName} `} </span>
+                    <span className="name">{user.nickName}</span>
 
-                    <div className="beans">
-                      <span>{`has won ${user.userScore} `}</span>
+                    <span
+                      style={{ marginLeft: "1vw" }}
+                    >{`has won ${user.userScore}`}</span>
+
+                    <span>
                       <img src={beans} />
-                      <span>{".Congratulations!"}</span>
-                    </div>
+                    </span>
+                    <span>Congratulations!</span>
                   </div>
                 </div>
               ))}

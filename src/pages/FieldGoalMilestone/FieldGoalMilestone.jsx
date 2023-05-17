@@ -48,7 +48,7 @@ export const FieldGoalMilestone = () => {
   return (
     <div className="fieldGoalSection">
       <div className="marquee">
-        <Marquee>
+        <Marquee speed={150}>
           {milesStoneMarquee?.map((item) => (
             <div className="field-marq-item">
               <img
@@ -57,21 +57,19 @@ export const FieldGoalMilestone = () => {
               />
 
               <div className="user-details">
-                <p className="name">{`${item.nickName}`} </p>
-                <p>has won</p>
-                <p> &nbsp; Water Splash Profile Frame + Royal Carriage</p>
-                <div className="reward-div">
-                  <div className="marq-rewards">
-                    <img
-                      src={`${baseUrl2}streamkar/rewards/WaterSplashFrame.png`}
-                    />
-                    <p>+</p>
-                    <img
-                      src={`${baseUrl2}streamkar/rewards/voyagerProfileFrame.png`}
-                    />
-                  </div>
-                </div>
-                <p>{`for 3 days.Congratulations!`}</p>
+                <span className="name">{`${item.nickName}`} </span>
+                <span>has won</span>
+                <span> Water Splash Profile Frame </span>
+                <img
+                  src={`${baseUrl2}streamkar/rewards/WaterSplashFrame.png`}
+                  className="rew-img"
+                />
+                <span>and Royal Carriage </span>
+                <img
+                  src={`${baseUrl2}streamkar/rewards/voyagerProfileFrame.png`}
+                  className="rew-img"
+                />
+                <span>{`for 3 days.Congratulations!`}</span>
               </div>
             </div>
           ))}

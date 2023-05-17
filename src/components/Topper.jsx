@@ -65,7 +65,7 @@ const Topper = (props) => {
             <span style={{ marginTop: "1vw" }}>
               {isToday
                 ? `Est.rewards:${estRewards}`
-                : `Rewards Sent:${estRewards}`}
+                : `Rewards Won:${estRewards}`}
             </span>
             <img src={bean} className="bean" />
           </div>

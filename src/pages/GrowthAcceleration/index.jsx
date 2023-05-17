@@ -25,7 +25,7 @@ export const GrowAcceleration = () => {
   return (
     <div>
       <div className="accMarquee">
-        <Marquee loop={1}>
+        <Marquee speed={150}>
           {accMarquee?.map((item, index) => (
             <AccMarqueeItem item={item} />
           ))}
