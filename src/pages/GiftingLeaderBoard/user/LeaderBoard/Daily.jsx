@@ -12,7 +12,6 @@ import { AppContext } from "../../../../App";
 import { userDailyPot } from "../../../../beansPot";
 export const Daily = () => {
   const { userInfo } = useContext(AppContext);
-  const toppersData = ["NickName", "Nickname2", "nickName3"];
   const [isSeeMoreToday, setIsSeeMoreToday] = useState(1);
   const [isSeeMoreYest, setIsSeeMoreYest] = useState(1);
 
@@ -29,18 +28,6 @@ export const Daily = () => {
   const [yestRestWinners, setYestRestWinners] = useState(
     userDailyYest?.slice(3, 10)
   );
-
-  const leaderBoardList = [
-    "asif ali khan asif ali",
-    "atif",
-    "arif",
-    "akif",
-    "kashif",
-    "adfd",
-    "fdfdfd",
-    "fdfd",
-    "fdfdf",
-  ];
 
   useEffect(() => {
     if (isSeeMoreToday) {
@@ -94,8 +81,8 @@ export const Daily = () => {
           isLeaderBoard={1}
         />
       </div>
-
-      {dailyTabs.today &&
+      {/* old code */}
+      {/* {dailyTabs.today &&
         (userDailyToday?.length ? (
           <div className="dailyTodayLeaderBrd">
             <div className="topRank">
@@ -144,8 +131,90 @@ export const Daily = () => {
           </div>
         ) : (
           <div className="noData">No Data Found</div>
+        ))} */}
+
+      {dailyTabs.today &&
+        (userDailyToday?.length ? (
+          <div className="dailyTodayLeaderBrd">
+            <div className="userDailTopRank">
+              <div className="top1">
+                {userDailyToday[0] && (
+                  <Topper
+                    user={userDailyToday[0]}
+                    index={0 + 1}
+                    key={0}
+                    estRewards={calculateEstRewards(0 + 1)}
+                    showEst={true}
+                    isToday={true}
+                    isUser={true}
+                  />
+                )}
+              </div>
+
+              <div className="top2">
+                {userDailyToday[1] && (
+                  <Topper
+                    user={userDailyToday[1]}
+                    index={1 + 1}
+                    key={1}
+                    estRewards={calculateEstRewards(1 + 1)}
+                    showEst={true}
+                    isToday={true}
+                    isUser={true}
+                  />
+                )}
+              </div>
+
+              <div className="top3">
+                {userDailyToday[2] && (
+                  <Topper
+                    user={userDailyToday[2]}
+                    index={2 + 1}
+                    key={2}
+                    estRewards={calculateEstRewards(2 + 1)}
+                    showEst={true}
+                    isToday={true}
+                    isUser={true}
+                  />
+                )}
+              </div>
+            </div>
+            <div
+              className="restWinners"
+              style={{ overflowY: isSeeMoreToday ? "hidden" : "auto" }}
+            >
+              {todayRestWinners?.map((item, index) => {
+                let newIndex = index + 3;
+                return (
+                  <FieldLeaderBoardItem
+                    user={item}
+                    key={index}
+                    index={newIndex + 1}
+                    estRewards={calculateEstRewards(newIndex + 1)}
+                    showEst={newIndex <= 4 ? true : false}
+                    isToday={true}
+                    isUser={true}
+                  />
+                );
+              })}
+            </div>
+
+            {userDailyToday?.length > 10 ? (
+              <button
+                className={isSeeMoreToday ? "seeMore" : "seeLess"}
+                onClick={() => {
+                  setIsSeeMoreToday((prev) => !prev);
+                }}
+              ></button>
+            ) : (
+              ""
+            )}
+          </div>
+        ) : (
+          <div className="noData">No Data Found</div>
         ))}
-      {dailyTabs.yesterday &&
+      {/* old code */}
+      {/* {dailyTabs.yesterday &&
         (userDailyYest?.length ? (
           <div className="dailyTodayLeaderBrd">
             <div className="topRank">
@@ -160,6 +229,87 @@ export const Daily = () => {
                   isUser={true}
                 />
               ))}
+            </div>
+            <div
+              className="restWinners"
+              style={{ overflowY: isSeeMoreYest ? "hidden" : "auto" }}
+            >
+              {yestRestWinners?.map((item, index) => {
+                let newIndex = index + 3;
+
+                return (
+                  <FieldLeaderBoardItem
+                    user={item}
+                    key={index}
+                    index={newIndex + 1}
+                    estRewards={calculateEstRewards(newIndex + 1, true)}
+                    showEst={newIndex <= 4 ? true : false}
+                    isToday={false}
+                    isUser={true}
+                  />
+                );
+              })}
+            </div>
+            {userDailyYest?.length > 10 ? (
+              <button
+                className={isSeeMoreYest ? "seeMore" : "seeLess"}
+                onClick={() => {
+                  setIsSeeMoreYest((prev) => !prev);
+                }}
+              ></button>
+            ) : (
+              ""
+            )}
+          </div>
+        ) : (
+          <div className="noData">No Data Found</div>
+        ))} */}
+
+      {dailyTabs.yesterday &&
+        (userDailyYest?.length ? (
+          <div className="dailyTodayLeaderBrd">
+            <div className="userDailTopRank">
+              <div className="top1">
+                {userDailyYest[0] && (
+                  <Topper
+                    user={userDailyYest[0]}
+                    index={0 + 1}
+                    key={0}
+                    estRewards={calculateEstRewards(0 + 1, true)}
+                    showEst={true}
+                    isToday={false}
+                    isUser={true}
+                  />
+                )}
+              </div>
+
+              <div className="top2">
+                {userDailyYest[1] && (
+                  <Topper
+                    user={userDailyYest[1]}
+                    index={1 + 1}
+                    key={1}
+                    estRewards={calculateEstRewards(1 + 1, true)}
+                    showEst={true}
+                    isToday={false}
+                    isUser={true}
+                  />
+                )}
+              </div>
+
+              <div className="top3">
+                {userDailyYest[2] && (
+                  <Topper
+                    user={userDailyYest[2]}
+                    index={2 + 1}
+                    key={2}
+                    estRewards={calculateEstRewards(2 + 1, true)}
+                    showEst={true}
+                    isToday={false}
+                    isUser={true}
+                  />
+                )}
+              </div>
             </div>
             <div
               className="restWinners"

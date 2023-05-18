@@ -27,10 +27,10 @@ const Topper = (props) => {
           src={props.index === 1 ? rank1 : props.index === 2 ? rank2 : rank3}
           className="rank"
         />
-        <img src={user.avatar ? user.avatar : unknown} className="user" />
+        <img src={user.avatar ? user?.avatar : unknown} className="user" />
       </div>
       <div className="name">
-        <p>{user.nickname}</p>
+        <p>{user?.nickname}</p>
       </div>
       <div className="level-icon">
         <img
@@ -45,7 +45,7 @@ const Topper = (props) => {
           className="est-rewards"
           style={{
             backgroundColor:
-              user.count < 1000 && isMilestone === true ? "#858894" : "none",
+              user?.count < 1000 && isMilestone === true ? "#858894" : "none",
           }}
         >
           {isLock === true && isMilestone === true ? (

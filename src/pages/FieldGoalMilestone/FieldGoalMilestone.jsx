@@ -48,7 +48,7 @@ export const FieldGoalMilestone = () => {
   return (
     <div className="fieldGoalSection">
       <div className="marquee">
-        <Marquee speed={100} pauseOnHover={true}>
+        <Marquee speed={100}>
           {milesStoneMarquee?.map((item, index) => (
             <div className="field-marq-item" key={index}>
               <img
@@ -57,7 +57,9 @@ export const FieldGoalMilestone = () => {
               />
 
               <div className="user-details">
-                <span className="name">{`${item.nickName}`} </span>
+                <span className="name">
+                  {`${item.nickName.slice(0, 6)}`} &nbsp;{" "}
+                </span>
                 <span>has won &nbsp;</span>
 
                 <span> Water Splash Profile Frame </span>

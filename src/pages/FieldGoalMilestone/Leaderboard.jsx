@@ -6,69 +6,24 @@ import { AppContext } from "../../App";
 import { fieldGoalPot, userOverallPot } from "../../beansPot";
 
 const Leaderboard = () => {
-  const toppersData = ["NickName", "Nickname2", "nickName3"];
-  const topperTestData = [
-    {
-      userId: 502184256,
-      count: 2700,
-      day: 0,
-      ranking: 1,
-      nickname: "eee",
-      avatar: "http://kkimg.kktv9.com/image/502184256_0_1551926470304.jpg!128",
-      userLevel: 75,
-      actorLevel: 55,
-      estimateBeans: 193862,
-    },
-    {
-      userId: 550002950,
-      count: 2108,
-      day: 0,
-      ranking: 2,
-      nickname: "amain amir2950asdtyu",
-      avatar: "http://kkimg.kktv9.com/image/550002950_0_1522315889638.jpg!128",
-      userLevel: 61,
-      actorLevel: 61,
-      estimateBeans: 79951,
-    },
-    {
-      userId: 550003471,
-      count: 1668,
-      day: 0,
-      ranking: 3,
-      nickname: "test3471",
-      avatar: "http://kkimg.kktv9.com/image/550003471_0_1522805432983.jpg!128",
-      userLevel: 24,
-      actorLevel: 61,
-      estimateBeans: 128686,
-    },
-  ];
   const [isSeeMore, setIsSeeMore] = useState(1);
   const { userInfo, rankings } = useContext(AppContext);
+  const { milestoneRanking } = rankings;
+
   const [restWinners, setRestWinners] = useState([]);
 
   useEffect(() => {
     if (isSeeMore) {
-      setRestWinners(rankings?.milestoneRanking?.slice(3, 10));
+      setRestWinners(milestoneRanking?.slice(3, 10));
     } else {
-      setRestWinners(rankings?.milestoneRanking?.slice(3));
+      setRestWinners(milestoneRanking?.slice(3));
     }
   }, [isSeeMore]);
   useEffect(() => {
-    setRestWinners(rankings?.milestoneRanking?.slice(3, 10));
-  }, [rankings?.milestoneRanking]);
+    setRestWinners(milestoneRanking?.slice(3, 10));
+  }, [milestoneRanking]);
 
   const { milestoneBeansPot } = userInfo;
-  const leaderBoardList = [
-    "asif ali khan asif ali",
-    "atif",
-    "arif",
-    "akif",
-    "kashif",
-    "adfd",
-    "fdfdfd",
-    "fdfd",
-    "fdfdf",
-  ];
 
   return (
     <div className="fieldGoalLeaderBoard">
@@ -76,10 +31,10 @@ const Leaderboard = () => {
         <img src={leaderBoardTitle} className="title" />
       </div>
       <div>
-        {/* {rankings?.milestoneRanking?.length ? (
+        {rankings?.milestoneRanking?.length ? (
           <>
             <div className="topRank">
-              {rankings?.milestoneRanking?.slice(0, 3).map((user, index) => (
+              {/* {rankings?.milestoneRanking?.slice(0, 3).map((user, index) => (
                 <Topper
                   user={user}
                   index={index + 1}
@@ -91,7 +46,54 @@ const Leaderboard = () => {
                   isMilestone={true}
                   isLock={user?.isLock}
                 />
-              ))}
+              ))} */}
+              <div className="top1">
+                {milestoneRanking[0] && (
+                  <Topper
+                    user={milestoneRanking[0]}
+                    index={0 + 1}
+                    key={0}
+                    estRewards={milestoneRanking[0]?.estimateBeans}
+                    showEst={true}
+                    isToday={true}
+                    isTalent={false}
+                    isMilestone={true}
+                    isLock={milestoneRanking[0]?.isLock}
+                  />
+                )}
+              </div>
+
+              <div className="top2">
+                {milestoneRanking[1] && (
+                  <Topper
+                    user={milestoneRanking[1]}
+                    index={1 + 1}
+                    key={1}
+                    estRewards={milestoneRanking[1]?.estimateBeans}
+                    showEst={true}
+                    isToday={true}
+                    isTalent={false}
+                    isMilestone={true}
+                    isLock={milestoneRanking[1]?.isLock}
+                  />
+                )}
+              </div>
+
+              <div className="top3">
+                {milestoneRanking[2] && (
+                  <Topper
+                    user={milestoneRanking[2]}
+                    index={2 + 1}
+                    key={2}
+                    estRewards={milestoneRanking[2]?.estimateBeans}
+                    showEst={true}
+                    isToday={true}
+                    isTalent={false}
+                    isMilestone={true}
+                    isLock={milestoneRanking[2]?.isLock}
+                  />
+                )}
+              </div>
             </div>
 
             <div
@@ -125,7 +127,7 @@ const Leaderboard = () => {
           </>
         ) : (
           <div className="noData">No Data Found</div>
-        )} */}
+        )}
         {/* {rankings?.milestoneRanking?.length ? (
           <>
             <div className="topRank">

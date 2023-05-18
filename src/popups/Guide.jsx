@@ -242,7 +242,7 @@ const Guide = (props) => {
                         karke.
                       </li>
                       <li>
-                        Agar aisa koi situation aata hai jahaan scores equal hai
+                        Agar Aesi koi situation aati hai jahaan scores equal hai
                         toh Pehle, jisne kam time mein zyada successful attempts
                         complete kiye hai unhe consider kia jayega, aur baadme
                         user ka XP level consider kia jaayega.

@@ -493,7 +493,7 @@ function App() {
             ></button>
           </div>
           <div className="gameMarquee">
-            <Marquee speed={100} pauseOnHover={true}>
+            <Marquee speed={100}>
               {marqueeData.game.map((user, index) => (
                 <div className="user-item" key={index}>
                   <img
@@ -501,7 +501,7 @@ function App() {
                     className="marquee-user"
                   />
                   <div className="details">
-                    <span className="name">{user.nickName}</span>
+                    <span className="name">{user.nickName.slice(0, 6)}</span>
                     <span>&nbsp;</span>
                     <span
                     // style={{ marginLeft: "0.5vw" }}
