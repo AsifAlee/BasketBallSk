@@ -67,7 +67,7 @@ export const FieldGoalMilestone = () => {
                 />
                 <span>and Royal Carriage </span>
                 <img
-                  src={`${baseUrl}/streamkar/rewards/voyagerProfileFrame.png`}
+                  src={`${baseUrl}/streamkar/rewards/royal.png`}
                   className="rew-img"
                 />
                 <span>{`for ${item?.userScore} days.Congratulations!`}</span>

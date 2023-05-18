@@ -19,28 +19,28 @@ const Leaderboard = () => {
       actorLevel: 55,
       estimateBeans: 193862,
     },
-    // {
-    //   userId: 550002950,
-    //   count: 2108,
-    //   day: 0,
-    //   ranking: 2,
-    //   nickname: "amain amir2950asdtyu",
-    //   avatar: "http://kkimg.kktv9.com/image/550002950_0_1522315889638.jpg!128",
-    //   userLevel: 61,
-    //   actorLevel: 61,
-    //   estimateBeans: 79951,
-    // },
-    // {
-    //   userId: 550003471,
-    //   count: 1668,
-    //   day: 0,
-    //   ranking: 3,
-    //   nickname: "test3471",
-    //   avatar: "http://kkimg.kktv9.com/image/550003471_0_1522805432983.jpg!128",
-    //   userLevel: 24,
-    //   actorLevel: 61,
-    //   estimateBeans: 128686,
-    // },
+    {
+      userId: 550002950,
+      count: 2108,
+      day: 0,
+      ranking: 2,
+      nickname: "amain amir2950asdtyu",
+      avatar: "http://kkimg.kktv9.com/image/550002950_0_1522315889638.jpg!128",
+      userLevel: 61,
+      actorLevel: 61,
+      estimateBeans: 79951,
+    },
+    {
+      userId: 550003471,
+      count: 1668,
+      day: 0,
+      ranking: 3,
+      nickname: "test3471",
+      avatar: "http://kkimg.kktv9.com/image/550003471_0_1522805432983.jpg!128",
+      userLevel: 24,
+      actorLevel: 61,
+      estimateBeans: 128686,
+    },
   ];
   const [isSeeMore, setIsSeeMore] = useState(1);
   const { userInfo, rankings } = useContext(AppContext);
@@ -76,7 +76,7 @@ const Leaderboard = () => {
         <img src={leaderBoardTitle} className="title" />
       </div>
       <div>
-        {rankings?.milestoneRanking?.length ? (
+        {/* {rankings?.milestoneRanking?.length ? (
           <>
             <div className="topRank">
               {rankings?.milestoneRanking?.slice(0, 3).map((user, index) => (
@@ -125,7 +125,7 @@ const Leaderboard = () => {
           </>
         ) : (
           <div className="noData">No Data Found</div>
-        )}
+        )} */}
         {/* {rankings?.milestoneRanking?.length ? (
           <>
             <div className="topRank">

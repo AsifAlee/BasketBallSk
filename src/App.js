@@ -612,8 +612,8 @@ function App() {
               rewardWon > 0
                 ? "HURRAH!!"
                 : rewardWon === 0
-                ? "TRY AGAIN!!"
-                : "OOPS!!"
+                ? "Oops!!"
+                : "Try Again!!"
             }
             content={
               gameError === true
