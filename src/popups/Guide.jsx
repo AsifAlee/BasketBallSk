@@ -4,10 +4,6 @@ import PopUp from "../components/PopUp";
 import guidBg from "../assets/images/guide-bg.png";
 import titleBanner from "../assets/images/Guide-banner.png";
 import Accordion from "../components/Accordion";
-import beanBag from "../assets/images/beanbag.png";
-import waterSplash from "../assets/images/WaterSplashFrame.png";
-import ragingBul from "../assets/images/ragingBull.png";
-import royalCar from "../assets/images/royal.png";
 import { AppContext } from "../App";
 import { baseUrl } from "../api";
 const Guide = (props) => {
@@ -361,7 +357,7 @@ const Guide = (props) => {
                   {userTalent.user ? (
                     <div className="userContent">
                       <div className="beanBag">
-                        <img src={beanBag} />
+                        <img src={baseUrl + "/streamkar/rewards/beanbag.png"} />
                       </div>
                       <p>
                         Beans Pot:The rankings will be based on beans spent on
@@ -445,7 +441,7 @@ const Guide = (props) => {
                   {userTalent.user ? (
                     <div className="userContent">
                       <div className="beanBag">
-                        <img src={beanBag} />
+                        <img src={baseUrl + "/streamkar/rewards/beanbag.png"} />
                       </div>
                       <p>
                         0.30% of the beans will be collected in the beans pot.
@@ -479,7 +475,7 @@ const Guide = (props) => {
                   ) : (
                     <div className="talentContent">
                       <div className="beanBag">
-                        <img src={beanBag} />
+                        <img src={baseUrl + "/streamkar/rewards/beanbag.png"} />
                       </div>
                       <p>
                         Leaderboard will be based on the energy points

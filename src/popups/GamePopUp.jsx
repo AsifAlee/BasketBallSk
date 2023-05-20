@@ -1,9 +1,9 @@
 import PopUp from "../components/PopUp";
 import bg from "../assets/images/game-popup.gif";
 import "../styles/popup.scss";
-import beanBag from "../assets/images/beanbag.png";
 import { useContext } from "react";
 import { AppContext } from "../App";
+import { baseUrl } from "../api";
 function GamePopUp(props) {
   const { toggleGamePopUp } = useContext(AppContext);
   const { textTitle, content, beans, throwsLeft } = props;
@@ -20,7 +20,10 @@ function GamePopUp(props) {
         <p className="textTitle">{textTitle}</p>
         <div className="game-content">
           <p className="gameContent">{content}</p>
-          <img className="gameBeansBag" src={beanBag} />
+          <img
+            className="gameBeansBag"
+            src={baseUrl + "/streamkar/rewards/beanbag.png"}
+          />
           {beans > 0 ? (
             <p className="beansWon">{`${beans} Beans`}</p>
           ) : (

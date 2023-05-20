@@ -3,7 +3,6 @@ import PopUp from "../components/PopUp";
 import bg from "../assets/images/task-game-bg2.png";
 import titleBanner from "../assets/images/Milestone-info.png";
 import { AppContext } from "../App";
-import ragingBull from "../assets/images/ragingBull.png";
 import "../styles/popup.scss";
 import { baseUrl } from "../api";
 import ball from "../assets/images/basket-ball-icon.png";

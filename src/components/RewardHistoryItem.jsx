@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ball from "../assets/images/completed.png";
 import fieldGoal from "../assets/images/feild-goal-icon.png";
-import beanBag from "../assets/images/beanbag.png";
 import { rewGet } from "../imageContext.js";
 import { formatNumbers } from "../functions";
 export const RewardHistoryItem = (props) => {
