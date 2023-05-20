@@ -5,7 +5,6 @@ export const ButtonSlider = (props) => {
   const [isOn, setIsOn] = useState(false);
 
   function handleToggle() {
-    console.log("handle click called");
     setIsOn(!isOn);
     if (onToggle) {
       onToggle();

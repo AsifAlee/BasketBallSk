@@ -25,7 +25,10 @@ const AccMarqueeItem = (props) => {
     <div className="marquee-item">
       <img src={item.portrait ? item.portrait : unknownUser} />
       <div className="rightDiv">
-        <span>{`${item?.nickName} has successfully accelerated her growth.Her current current speed of growth is now at ${currentRate} `}</span>
+        <span>{`${item?.nickName.slice(
+          0,
+          6
+        )} has successfully accelerated her growth. Her current speed of growth is now at ${currentRate} `}</span>
       </div>
     </div>
   );

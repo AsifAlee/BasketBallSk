@@ -42,7 +42,7 @@ export const FieldGoalMilestone = () => {
     } else if (mySuccessfullAttempt >= 1000 && mySuccessfullAttempt < 2000) {
       setCurrentAttempts("58vw"); //1000
     } else if (mySuccessfullAttempt >= 2000) {
-      setCurrentAttempts("71vw"); //2000
+      setCurrentAttempts("68vw"); //2000
     }
   });
   return (
@@ -62,17 +62,33 @@ export const FieldGoalMilestone = () => {
                 </span>
                 <span>has won &nbsp;</span>
 
-                <span> Water Splash Profile Frame </span>
+                <span>
+                  {" "}
+                  {item.userScore === 1
+                    ? "3 days Raging Bull Profile Frame"
+                    : item.userScore === 2
+                    ? "3 days Spaceship Entrance"
+                    : item.userScore === 3
+                    ? "5 days Brave Heart Profile Frame"
+                    : item.userScore === 4
+                    ? "7 days Ballpark Audio"
+                    : "7 days HERO Entrance"}{" "}
+                </span>
                 <img
-                  src={`${baseUrl}/streamkar/rewards/WaterSplashFrame.png`}
+                  src={`${baseUrl}/streamkar/rewards/${
+                    item.userScore === 1
+                      ? "valentineFrameUser.png"
+                      : item.userScore === 2
+                      ? "spaceship.png"
+                      : item.userScore === 3
+                      ? "braveHeart.png"
+                      : item.userScore === 4
+                      ? "ballParkTheme.png"
+                      : "heroEntrance.png"
+                  }`}
                   className="rew-img"
                 />
-                <span>and Royal Carriage </span>
-                <img
-                  src={`${baseUrl}/streamkar/rewards/royal.png`}
-                  className="rew-img"
-                />
-                <span>{`for ${item?.userScore} days.Congratulations!`}</span>
+                <span>{`Congratulations!`}</span>
               </div>
             </div>
           ))}

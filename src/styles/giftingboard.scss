@@ -639,13 +639,19 @@
       }
     }
     .userOveralltopRank {
-      margin-top: 26vw;
-      display: flex;
-      gap: calcView(10);
-      margin-top: calcView(180);
-      font-family: "Helvetica";
-      margin-left: 4vw;
-      position: relative;
+      // margin-top: 26vw;
+      // display: flex;
+      // gap: calcView(10);
+      // margin-top: calcView(180);
+      // font-family: "Helvetica";
+      // margin-left: 4vw;
+      // position: relative;
+
+      margin-top: 24vw;
+    font-family: "Helvetica";
+    margin-left: 4vw;
+    position: relative;
+    height: 43vw;
 
       .top1 {
         position: absolute;
@@ -1809,7 +1815,7 @@
     height: 80.66667vw;
     // overflow:hidden;
     font-family: "Helvetica";
-    margin-top: 38vw;
+    // margin-top: 38vw;
 
     .fieldGoalLederBoarItem {
       background-image: url("../assets/images/leaderboard-list-bg.png");

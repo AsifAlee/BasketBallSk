@@ -362,7 +362,7 @@ function App() {
       setInputValue("");
     } else {
       // let max = userInfo.throwsLeft < 99 ?  userInfo.throwsLeft : 99;
-      if (userInfo.throwsLeft <= 99) {
+      if (userInfo.throwsLeft <= 99 && userInfo.throwsLeft > 0) {
         max = userInfo.throwsLeft;
       } else if (userInfo.throwsLeft > 99) {
         max = 99;

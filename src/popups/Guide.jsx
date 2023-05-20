@@ -622,7 +622,7 @@ const Guide = (props) => {
 
                       <tr>
                         <td>1000</td>
-                        <td>Ballpark Audio Theme.</td>
+                        <td> 7 days Ballpark Audio Theme.</td>
                         <td>
                           <img
                             src={`${baseUrl}/streamkar/rewards/ballParkTheme.png`}

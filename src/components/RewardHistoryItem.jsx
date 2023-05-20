@@ -9,13 +9,13 @@ export const RewardHistoryItem = (props) => {
   const [currentRewdImg, setCurrentRewrdImg] = useState("");
   useEffect(() => {
     if (
-      rewardItem.rewardType == "Basketball Game" ||
-      rewardItem.rewardType == "Daily Leaderboard"
+      rewardItem?.rewardType == "Basketball Game" ||
+      rewardItem?.rewardType == "Daily Leaderboard"
     ) {
       setCurrentRewrdImg(rewGet("beansbag"));
-    } else if (rewardItem.rewardType == "Field Goal Milestone") {
+    } else if (rewardItem?.rewardType == "Field Goal Milestone") {
       setCurrentRewrdImg(
-        rewGet(rewardItem.gameRewardInfo.rewardDTOList[0].rewardDesc)
+        rewGet(rewardItem?.gameRewardInfo?.rewardDTOList[0]?.rewardDesc)
       );
     }
   }, [rewardItem]);
@@ -23,27 +23,29 @@ export const RewardHistoryItem = (props) => {
   return (
     <div className="historyItem">
       <div className="time">
-        <p className="date">{rewardItem.time.split("T")[0]}</p>
-        <p className="hours">{rewardItem.time.split("T")[1].split(".")[0]}</p>
+        <p className="date">{rewardItem?.time?.split("T")[0]}</p>
+        <p className="hours">
+          {rewardItem?.time?.split("T")[1]?.split(".")[0]}
+        </p>
       </div>
       <div className="rewardType">
         <img
           src={
-            rewardItem.rewardType == "Basketball Game"
+            rewardItem?.rewardType == "Basketball Game"
               ? ball
-              : rewardItem.rewardType == "Field Goal Milestone"
+              : rewardItem?.rewardType == "Field Goal Milestone"
               ? fieldGoal
-              : ""
+              : ball
           }
         />
       </div>
       <div className="rewards">
         <img src={currentRewdImg} />
         <p className="text">
-          {rewardItem.rewardType == "Basketball Game" ||
-          rewardItem.rewardType == "Daily Leaderboard"
-            ? `${rewardItem.gameRewardInfo.beans} beans`
-            : `${rewardItem.gameRewardInfo?.rewardDTOList[0]?.rewardCount} days  ${rewardItem.gameRewardInfo?.rewardDTOList[0]?.rewardDesc}`}
+          {rewardItem?.rewardType == "Basketball Game" ||
+          rewardItem?.rewardType == "Daily Leaderboard"
+            ? `${rewardItem?.gameRewardInfo?.beans} beans`
+            : `${rewardItem?.gameRewardInfo?.rewardDTOList[0]?.rewardCount} days  ${rewardItem?.gameRewardInfo?.rewardDTOList[0]?.rewardDesc}`}
         </p>
       </div>
     </div>
