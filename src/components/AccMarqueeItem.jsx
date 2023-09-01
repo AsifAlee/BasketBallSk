@@ -7,17 +7,17 @@ const AccMarqueeItem = (props) => {
 
   useEffect(() => {
     if (item.userScore === 1) {
-      setCurrentRate("1.20");
+      setCurrentRate("1.2X");
     } else if (item.userScore === 2) {
-      setCurrentRate("1.50");
+      setCurrentRate("1.5X");
     } else if (item.userScore === 3) {
-      setCurrentRate("2.00");
+      setCurrentRate("2X");
     } else if (item.userScore === 4) {
-      setCurrentRate("2.20");
+      setCurrentRate("2.2X");
     } else if (item.userScore === 5) {
-      setCurrentRate("2.50");
+      setCurrentRate("2.5X");
     } else if (item.userScore === 6) {
-      setCurrentRate("3.00");
+      setCurrentRate("3X");
     }
   }, [item.userScore]);
 

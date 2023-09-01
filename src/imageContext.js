@@ -15,6 +15,10 @@ export function rewGet(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/beanbag.png";
   } else if (rewDesc?.includes("Ballpark Audio Theme")) {
     rewImg = baseUrl + "/streamkar/rewards/ballParkTheme.png";
+  } else if (rewDesc?.includes("Water Splash Profile Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/WaterSplashFrame.png";
+  } else if (rewDesc?.includes("Royal Carriage")) {
+    rewImg = baseUrl + "/streamkar/rewards/royal.png";
   } else {
     rewImg = baseUrl + "/streamkar/rewards/noRew.png";
   }

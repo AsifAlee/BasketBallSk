@@ -25,6 +25,7 @@ export const FieldGoalMilestone = () => {
     showSuccessAttemptPopUp,
     milestonePopUp,
     toggleMilestonePopUp,
+    isDisabled,
   } = useContext(AppContext);
   const { mySuccessfullAttempt } = userInfo;
   const [currentAttempts, setCurrentAttempts] = useState("0vw");
@@ -34,13 +35,13 @@ export const FieldGoalMilestone = () => {
     if (mySuccessfullAttempt < 100) {
       setCurrentAttempts("1vw"); //50
     } else if (mySuccessfullAttempt < 200 && mySuccessfullAttempt >= 100) {
-      setCurrentAttempts("16vw"); //100
+      setCurrentAttempts("15vw"); //100
     } else if (mySuccessfullAttempt < 500 && mySuccessfullAttempt >= 200) {
-      setCurrentAttempts("29vw"); //200
+      setCurrentAttempts("28vw"); //200
     } else if (mySuccessfullAttempt < 1000 && mySuccessfullAttempt >= 500) {
-      setCurrentAttempts("43vw"); //500
+      setCurrentAttempts("41vw"); //500
     } else if (mySuccessfullAttempt >= 1000 && mySuccessfullAttempt < 2000) {
-      setCurrentAttempts("58vw"); //1000
+      setCurrentAttempts("55vw"); //1000
     } else if (mySuccessfullAttempt >= 2000) {
       setCurrentAttempts("68vw"); //2000
     }
@@ -48,7 +49,7 @@ export const FieldGoalMilestone = () => {
   return (
     <div className="fieldGoalSection">
       <div className="marquee">
-        <Marquee speed={100}>
+        <Marquee speed={70}>
           {milesStoneMarquee?.map((item, index) => (
             <div className="field-marq-item" key={index}>
               <img
@@ -103,10 +104,26 @@ export const FieldGoalMilestone = () => {
         <img
           src={ibBtn}
           className="ibBtn"
-          onClick={toggleSuccessAttemptPopUp}
+          onClick={() => {
+            if (isDisabled) {
+              return;
+            } else {
+              toggleSuccessAttemptPopUp();
+            }
+          }}
         />
         <div className="progressBarSection">
-          <img src={iaBtn} className="iaBtn" onClick={toggleMilestonePopUp} />
+          <img
+            src={iaBtn}
+            className="iaBtn"
+            onClick={() => {
+              if (isDisabled) {
+                return;
+              } else {
+                toggleMilestonePopUp();
+              }
+            }}
+          />
 
           <div className="progressBar">
             <div className="innerProgress">

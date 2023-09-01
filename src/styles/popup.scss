@@ -16,11 +16,8 @@
   justify-content: center;
   align-items: center;
   padding-top: 5vw;
-  
-
 
   .content {
-
     width: 80%;
     min-height: 106vw;
     background-repeat: no-repeat;
@@ -43,7 +40,6 @@
   }
 
   .guidePopUp {
-  
     .tabs {
       display: flex;
       justify-content: space-between;
@@ -82,10 +78,11 @@
       margin: 2vw auto 0;
       overflow-y: auto;
       font-family: "Helvetica";
-      font-size: calcView(18);
+      font-size: 2.8vw;
       background-image: url("../assets/images/guide-reward-info-diplay-bg.png");
       background-size: 100% 100%;
       background-repeat: no-repeat;
+      line-height: 4vw;
       padding: 2vw;
       .tab1-content {
         li {
@@ -100,9 +97,7 @@
             border: 1px solid;
             border-collapse: collapse;
             padding: 1vw;
-
           }
-
 
           .table {
             width: 90%;
@@ -111,7 +106,6 @@
           td {
             text-align: center;
           }
-     
         }
       }
 
@@ -121,11 +115,40 @@
         justify-content: center;
       }
 
-      .yellow-text{
-        color: yellow;
+      .yellow-text {
+        // color: yellow;
+        background-color: yellow;
+        color: black;
+        padding: 0.2vw;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
       }
     }
+
+    
+  .guideContent::-webkit-scrollbar {
+    width: 1vw;
+    background-color: gray;
   }
+
+  /* Track */
+  .guideContent::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 1vw;
+  }
+
+  /* Handle */
+  .guideContent::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 2vw;
+  }
+
+  /* Handle on hover */
+  .guideContent::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+  }
+  }
+
 
   .accPopUp {
     display: flex;
@@ -157,46 +180,22 @@
         position: absolute;
         right: 12vw;
         bottom: -2vw;
-    
       }
     }
 
-    // .tabButton {
-    //   background-color: transparent;
-    //   border: none;
-    //   margin: auto;
-    //   img {
-    //     width: 15vw;
-    //   }
-    // }
 
-    // .tabButtonOn {
-    //   width: 25vw;
-    //   height: 11vw;
-    //   background-image: url("../assets/images/tab-selected.gif");
-    //   background-size: 100%;
-    //   background-repeat: no-repeat;
-    // }
-    // .tabButtonOff {
-    //   width: 25vw;
-    //   height: 11vw;
-    //   background-image: url("../assets/images/tab-unselected.png");
-    //   background-size: 100%;
-    //   background-repeat: no-repeat;
-    // }
-
-    .sendAccBtn{
+    .sendAccBtn {
       width: 25vw;
       height: 11vw;
       background-image: url("../assets/images/tab-selected.gif");
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-color: transparent;
-        border: none;
-        margin: 0 auto;
-        font-family: 'HiJack';
-        background-position: center;
-        font-size: 3.5vw;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      border: none;
+      margin: 0 auto;
+      font-family: "HiJack";
+      background-position: center;
+      font-size: 3.5vw;
     }
 
     .eligibility-text {
@@ -208,8 +207,7 @@
       width: 66%;
       margin: 2vw auto 0;
       position: relative;
-    bottom: 1vw;
-
+      bottom: 1vw;
     }
     .blackNWhite {
       filter: grayscale(100%);
@@ -229,14 +227,15 @@
       overflow-y: auto;
       // align-items: center;
       // justify-content: center;
-      width: 73vw;
+      width: 71vw;
       margin: 0 auto;
 
       .single-radio {
         display: flex;
         align-items: center;
-        width: 95%;
+        width: 67vw;
         margin: 0 auto;
+        justify-content: space-around;
       }
       .circle {
         width: 20px;
@@ -253,6 +252,28 @@
       .bgBlack {
         background-color: black;
       }
+    }
+
+    .radio-container::-webkit-scrollbar {
+      width: 1vw;
+      background-color: gray;
+    }
+
+    /* Track */
+    .radio-container::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 1vw;
+    }
+
+    /* Handle */
+    .radio-container::-webkit-scrollbar-thumb {
+      background: white;
+      border-radius: 2vw;
+    }
+
+    /* Handle on hover */
+    .radio-container::-webkit-scrollbar-thumb:hover {
+      background: #b30000;
     }
   }
 
@@ -296,7 +317,7 @@
       width: 82%;
       margin: 0 auto;
       .historyItem {
-        width: 90%;
+        width: 100%;
         height: 13vw;
         margin: 1vw auto 0;
         background-color: #0a2a77;
@@ -310,10 +331,11 @@
 
         .time {
           // border: 1px solid;
-          flex: 0 1 30%;
+          flex: 0 1 25%;
           text-align: center;
           .date {
-            font-size: 2.5vw;
+            font-size: 2.1vw;
+            width: 14vw;
           }
           .hours {
             font-size: 2vw;
@@ -327,30 +349,59 @@
           }
         }
         .rewards {
-          flex: 0 1 50%;
+          flex: 0 1 60%;
           display: flex;
           // justify-content: center;
           align-items: center;
-
-          img {
-            width: 10vw;
-            height: 10vw;
-            border: 1px solid #1052ba;
-            border-radius: 1vw;
+          .rewards-item-images {
+            display: flex;
+            gap: 1vw;
+            justify-content: center;
+            flex: 0 1 50%;
+            width: 28vw;
+            img {
+              width: 8vw;
+              border: 1px solid #1052ba;
+              border-radius: 1vw;
+            }
           }
+
           .text {
             font-size: 2vw;
             margin-left: 1vw;
+            flex: 0 1 50%;
+            width: 8vw;
           }
         }
       }
     }
+    .rewardWrapper::-webkit-scrollbar {
+      width: 1vw;
+      background-color: gray;
+    }
 
-    .noData{
+    /* Track */
+    .rewardWrapper::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 1vw;
+    }
+
+    /* Handle */
+    .rewardWrapper::-webkit-scrollbar-thumb {
+      background: white;
+      border-radius: 2vw;
+    }
+
+    /* Handle on hover */
+    .rewardWrapper::-webkit-scrollbar-thumb:hover {
+      background: #b30000;
+    }
+
+    .noData {
       text-align: center;
-    margin-top: 19vw;
-    font-family: 'HiJack';
-    color: yellow;
+      margin-top: 19vw;
+      font-family: "HiJack";
+      color: yellow;
     }
   }
   .game {
@@ -369,7 +420,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      top: 15vw;
+      top: 21vw;
       left: 18vw;
 
       p {
@@ -383,12 +434,19 @@
       }
       .gameBeansBag {
         width: 19vw;
+        
+    margin-left: -6vw;
+
       }
       .beansWon {
         color: yellow;
-        margin-top: 2vw;
+        // margin-top: 2vw;
+        // margin-left: 3vw;
+        margin-right: 7vw;
+
       }
       .no-rewards {
+        font-size: 2.5vw;
         p {
           color: yellow;
         }
@@ -401,8 +459,6 @@
     flex-direction: column;
     position: relative;
 
-
-
     .succesfull-attempt-content {
       position: absolute;
       top: 20vw;
@@ -413,25 +469,27 @@
       .yellow-text {
         color: yellow;
       }
-      p{
+      p {
         text-align: center;
-    line-height: 1.6;
-    font-size: 2.8vw;
+        line-height: 1.6;
+        font-size: 2.8vw;
       }
     }
   }
-  .milestone{
+  .milestone {
     position: relative;
     display: flex;
     flex-direction: column;
     border-collapse: collapse;
-    
 
-    .milestone-content{
+    .milestone-content {
       font-size: 3vw;
-      height: 73vw;
+      height: 96vw;
       overflow: auto;
-      .milestone-title{
+      width: 89%;
+      margin: 0 auto;
+      margin-top: 5vw;
+      .milestone-title {
         width: 80%;
         height: 9vw;
         border-radius: 20vw;
@@ -441,44 +499,80 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 3vw;
-        span{
-          color: #546693;
-
-        }
-        .span1{
+    
+        .span1 {
           margin-left: 3vw;
         }
-        .span2{
+        .span2 {
           margin-right: 7vw;
         }
-        
-     
       }
-     table{
-      border: 1px solid ;
-      width: 80%;
-      border-radius: 6vw;
-      margin: 3vw auto 0;
-      border-spacing: 0;
-    border-collapse: separate;
-      .color-yellow{
-        color: yellow;
+      .milestone-table {
+        border: 1px solid;
+        width: 80%;
+        border-radius: 6vw;
+        margin: 3vw auto 0;
+        border-spacing: 0;
+        border-collapse: separate;
+        .color-yellow {
+          color: yellow;
+        }
+        td {
+          border-bottom: 1px solid;
+          padding: 1vw;
+          border-right: 1px solid;
+        }
+        td img {
+          width: 12vw;
+        }
+        .milestone-ball {
+          width: 6vw;
+        }
+
+         tr:last-child {
+          border-bottom: none; /* Remove the border from the last row */
+        }
       }
-      td {
-        border-bottom: 1px solid;
-        padding: 1vw;
+   
+      .milestone-table td:last-child {
+        border-right: none; /* Remove the border from the last row */
       }
-      td img{
-        width: 12vw;
-      }
-      .milestone-ball{
-        width: 6vw;
-      }
-     }
-     table tr:last-child td{
-      border-bottom: none;
+
     }
-    
+
+    .milestone-content::-webkit-scrollbar {
+      width: 1vw;
+      background-color: gray;
     }
-  } 
+
+    /* Track */
+    .milestone-content::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 1vw;
+    }
+
+    /* Handle */
+    .milestone-content::-webkit-scrollbar-thumb {
+      background: white;
+      border-radius: 2vw;
+    }
+
+    /* Handle on hover */
+    .milestone-content::-webkit-scrollbar-thumb:hover {
+      background: #b30000;
+    }
+  }
+
+  .sendCardResultPopup {
+    margin-top: 19vw;
+    width: 80%;
+    margin-left: 10vw;
+    font-size: 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 5vw;
+  }
 }

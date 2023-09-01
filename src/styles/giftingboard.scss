@@ -365,7 +365,7 @@
             justify-content: center;
             align-items: center;
             img {
-              width: calcView(40);
+              width: 4vw;
             }
             span {
               font-size: calcView(18);
@@ -442,7 +442,7 @@
             justify-content: center;
             align-items: center;
             img {
-              width: calcView(40);
+              width: 4vw;
             }
             span {
               font-size: calcView(18);
@@ -518,7 +518,7 @@
             justify-content: center;
             align-items: center;
             img {
-              width: calcView(40);
+              width: 4vw;
             }
             span {
               font-size: calcView(18);
@@ -593,12 +593,13 @@
           display: flex;
           align-items: center;
           flex: 0 1 30%;
+          flex-direction: column;
   
           .title {
             // font-size: calcView(22);
           }
           img {
-            width: 4vw;
+            width: 3vw;
           }
         }
         .rightDiv {
@@ -719,7 +720,7 @@
             justify-content: center;
             align-items: center;
             img {
-              width: calcView(40);
+              width: 4vw;
             }
             span {
               font-size: calcView(18);
@@ -795,7 +796,7 @@
             justify-content: center;
             align-items: center;
             img {
-              width: calcView(40);
+              width: 4vw;
             }
             span {
               font-size: calcView(18);
@@ -870,7 +871,7 @@
             justify-content: center;
             align-items: center;
             img {
-              width: calcView(40);
+              width: 4vw;
             }
             span {
               font-size: calcView(18);
@@ -1079,7 +1080,7 @@
               justify-content: center;
               align-items: center;
               img {
-                width: calcView(40);
+                width: 4vw;
               }
               span {
                 font-size: calcView(18);
@@ -1156,7 +1157,7 @@
               justify-content: center;
               align-items: center;
               img {
-                width: calcView(40);
+                width: 4vw;
               }
               span {
                 font-size: calcView(18);
@@ -1232,7 +1233,7 @@
               justify-content: center;
               align-items: center;
               img {
-                width: calcView(40);
+                width: 4vw;
               }
               span {
                 font-size: calcView(18);
@@ -1279,7 +1280,8 @@
 
         .top1 {
           position: absolute;
-          left: 35vw;
+       
+          left: 39vw;
           top: -9vw;
           .topper {
             width: calcView(200);
@@ -1343,7 +1345,7 @@
               justify-content: center;
               align-items: center;
               img {
-                width: calcView(40);
+                width: 4vw;
               }
               span {
                 font-size: calcView(18);
@@ -1355,7 +1357,7 @@
         }
         .top2 {
           position: absolute;
-          left: 3vw;
+          left: 6vw;
           .topper {
             width: calcView(200);
             // border: 1px solid red;
@@ -1419,7 +1421,7 @@
               justify-content: center;
               align-items: center;
               img {
-                width: calcView(40);
+                width: 4vw;
               }
               span {
                 font-size: calcView(18);
@@ -1494,7 +1496,7 @@
               justify-content: center;
               align-items: center;
               img {
-                width: calcView(40);
+                width: 4vw;
               }
               span {
                 font-size: calcView(18);
@@ -1568,12 +1570,12 @@
             display: flex;
             align-items: center;
             flex: 0 1 30%;
-    
+            flex-direction: column;
             .title {
               // font-size: calcView(22);
             }
             img {
-              width: 4vw;
+              width: 3vw;
             }
           }
           .rightDiv {
@@ -1671,7 +1673,7 @@
         justify-content: center;
         align-items: center;
         .bean {
-          width: calcView(25);
+          width: 4vw;
         }
         span {
           color: #b8ccdd;
@@ -1783,12 +1785,13 @@
         display: flex;
         align-items: center;
         flex: 0 1 30%;
+        flex-direction: column;
 
         .title {
           // font-size: calcView(22);
         }
         img {
-          width: 4vw;
+          width: 3vw;
         }
       }
       .rightDiv {
@@ -1863,12 +1866,13 @@
         display: flex;
         align-items: center;
         flex: 0 1 30%;
-
+        flex-direction: column;
+       
         .title {
           // font-size: calcView(22);
         }
         img {
-          width: 4vw;
+          width: 3vw;
         }
       }
       .rightDiv {
@@ -1931,7 +1935,7 @@
     width: 100%;
     background-size: 100% 100%;
     height: 23.33333vw;
-    margin-top: -24vw;
+    margin-top: -22vw;
     // position: relative;
 
     .rights {

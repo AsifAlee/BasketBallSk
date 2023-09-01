@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import PopUp from "../components/PopUp";
 import bg from "../assets/images/task-game-bg2.png";
 import titleBanner from "../assets/images/Info-banner-imp.gif";
+
 import { AppContext } from "../App";
 const SuccessAttemptPopUp = () => {
   const { toggleSuccessAttemptPopUp, selectedLanguage } =

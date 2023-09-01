@@ -44,7 +44,7 @@ const GiftingLeaderBoards = () => {
             className="gift2"
           />
           <div className="gift2Detail">
-            <p style={{ color: "#64686b" }}>SK Billionare</p>
+            <p style={{ color: "#64686b" }}>SK Billionaire</p>
             <span style={{ color: "#64686b", marginLeft: "2vw" }}>
               200,0000
             </span>

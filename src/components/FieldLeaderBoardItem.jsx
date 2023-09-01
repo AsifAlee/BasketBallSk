@@ -29,10 +29,12 @@ export const FieldLeaderBoardItem = (props) => {
       {props.showEst && (
         <div className="middle-div">
           <span className="title">
-            {isToday ? "Est. Rewards" : "Rewards Won"}:
+            {isToday ? "Est. Rewards" : "Rewards Won"}
           </span>
-          <img src={bean} />
-          <span>{estRewards}</span>
+          <div className="d-flex jc-center al-center">
+            <img src={bean} />
+            <span>{estRewards}</span>
+          </div>
         </div>
       )}
 

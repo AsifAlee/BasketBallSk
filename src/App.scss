@@ -18,7 +18,7 @@
   width: 100%;
   background-image: url(./assets//images/bg.jpg);
   background-size: 100% 100%;
-  min-height: 100vw;
+  // min-height: 100vw;
   background-repeat: no-repeat;
   // z-index: -1;
 
@@ -50,7 +50,7 @@
         }
 
         img {
-          width: 5vw;
+          width: 3vw;
         }
         .details {
           display: flex;
@@ -166,6 +166,7 @@
           margin-top: 1vw;
           padding-left: 1vw;
           user-select: text;
+          text-align: center;
           -webkit-user-select: text !important;
         }
       }

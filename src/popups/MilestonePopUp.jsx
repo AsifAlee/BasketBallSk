@@ -22,7 +22,7 @@ const MilestonePopUp = () => {
             <span className="span1">Milestone</span>
             <span className="span2">Rewards</span>
           </div>
-          <table>
+          <table className="milestone-table">
             <tr>
               <td>100</td>
               <td>3 days Raging Bull Profile Frame</td>
@@ -41,7 +41,7 @@ const MilestonePopUp = () => {
             </tr>
             <tr>
               <td className="color-yellow">500</td>
-              <td className="color-yellow">3 days Brave Heart Profile Frame</td>
+              <td className="color-yellow">5 days Brave Heart Profile Frame</td>
               <td>
                 <img src={`${baseUrl}/streamkar/rewards/braveHeart.png`} />
               </td>
@@ -56,9 +56,13 @@ const MilestonePopUp = () => {
             </tr>
 
             <tr>
-              <td className="color-yellow">2000</td>
-              <td className="color-yellow">7 days hero entrance</td>
-              <td>
+              <td className="color-yellow" style={{ borderBottom: "none" }}>
+                2000
+              </td>
+              <td className="color-yellow" style={{ borderBottom: "none" }}>
+                7 days Hero Entrance
+              </td>
+              <td style={{ borderBottom: "none" }}>
                 <img src={`${baseUrl}/streamkar/rewards/heroEntrance.png`} />
               </td>
             </tr>

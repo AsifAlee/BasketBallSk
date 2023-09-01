@@ -34,19 +34,6 @@ const Leaderboard = () => {
         {rankings?.milestoneRanking?.length ? (
           <>
             <div className="topRank">
-              {/* {rankings?.milestoneRanking?.slice(0, 3).map((user, index) => (
-                <Topper
-                  user={user}
-                  index={index + 1}
-                  key={index}
-                  estRewards={user?.estimateBeans}
-                  showEst={true}
-                  isToday={true}
-                  isTalent={false}
-                  isMilestone={true}
-                  isLock={user?.isLock}
-                />
-              ))} */}
               <div className="top1">
                 {milestoneRanking[0] && (
                   <Topper
@@ -128,57 +115,6 @@ const Leaderboard = () => {
         ) : (
           <div className="noData">No Data Found</div>
         )}
-        {/* {rankings?.milestoneRanking?.length ? (
-          <>
-            <div className="topRank">
-              {topperTestData.map((user, index) => (
-                <Topper
-                  user={user}
-                  index={index + 1}
-                  key={index}
-                  estRewards={user?.estimateBeans}
-                  showEst={true}
-                  isToday={true}
-                  isTalent={false}
-                  isMilestone={true}
-                  isLock={user?.isLock}
-                  isGreaterThan1={topperTestData.length > 1}
-                />
-              ))}
-            </div>
-
-            <div
-              className="restWinners"
-              style={{ overflowY: isSeeMore ? "hidden" : "auto" }}
-            >
-              {restWinners?.map((item, index) => {
-                let newIndex = index + 3;
-                return (
-                  <FieldLeaderBoardItem
-                    user={item}
-                    key={index}
-                    index={newIndex + 1}
-                    // estRewards={calculateEstRewards(index + 1)}
-                    showEst={false}
-                    isToday={true}
-                    isTalent={false}
-                  />
-                );
-              })}
-            </div>
-
-            <button
-              className={isSeeMore ? "seeMore" : "seeLess"}
-              onClick={() => setIsSeeMore((prev) => !prev)}
-              style={{
-                visibility:
-                  rankings.milestoneRanking.length > 10 ? "visible" : "hidden",
-              }}
-            ></button>
-          </>
-        ) : (
-          <div className="noData">No Data Found</div>
-        )} */}
       </div>
     </div>
   );

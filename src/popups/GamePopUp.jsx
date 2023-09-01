@@ -20,14 +20,16 @@ function GamePopUp(props) {
         <p className="textTitle">{textTitle}</p>
         <div className="game-content">
           <p className="gameContent">{content}</p>
+
           <img
-            className="gameBeansBag"
+            className={`gameBeansBag  ${!beans && "hide"}`}
             src={baseUrl + "/streamkar/rewards/beanbag.png"}
           />
+
           {beans > 0 ? (
             <p className="beansWon">{`${beans} Beans`}</p>
           ) : (
-            <div className="no-rewards">
+            <div className={`no-rewards ${!beans && "mtMinu11"}`}>
               <p>DO YOU KNOW?</p>
               <p>Successful throws win you beans.</p>
             </div>

@@ -5,13 +5,17 @@ import bg from "../assets/images/task-game-bg2.png";
 import { AppContext } from "../App";
 import { AccelerationCard } from "../components/AccelerationCard";
 import { baseUrl, recvrId, testToken, testUserId } from "../api";
-import sendBtn from "../assets/images/Send.png";
-import accBtn from "../assets/images/Accelerate.png";
-import { TabButton } from "../components/TabButton";
+
 import RadioSelect from "../components/RadioSelect";
 
 export const SendAccelerationCard = () => {
-  const { toogleAccPopUp, getInfo } = useContext(AppContext);
+  const {
+    toogleAccPopUp,
+    getInfo,
+    toggleSuccessPopup,
+    changeCardReciever,
+    userInfo,
+  } = useContext(AppContext);
   const [foundUsers, setFoundUsers] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [cardRecvStatus, setCardRecvStatus] = useState("");
@@ -39,6 +43,7 @@ export const SendAccelerationCard = () => {
   };
   const sendCard = () => {
     setIsAccBtnDisabled(true);
+
     fetch(`${baseUrl}/api/activity/basketball/sendAccelerationCard`, {
       method: "POST",
       headers: {
@@ -58,25 +63,24 @@ export const SendAccelerationCard = () => {
       .then((res) => {
         if (res.data === true) {
           setCardRecvStatus(res.msg);
+          toggleSuccessPopup();
+          toogleAccPopUp();
+          changeCardReciever(
+            foundUsers[radioSelected]?.userId,
+            foundUsers[radioSelected]?.nickname
+          );
         } else if (res.errorCode === 11000000) {
           setCardRecvStatus("NOT ELIGIBLE FOR THIS CARD");
         } else {
           setCardRecvStatus(res.msg);
         }
-        // setIsAccBtnDisabled(false);
         setTimeout(() => {
           setIsAccBtnDisabled(false);
         }, 5000);
-        // setInputValue("");
-        // setFoundUsers([]);
 
         getInfo();
       })
       .catch((error) => {
-        // setTimeout(() => {
-        //   setIsAccBtnDisabled(false);
-        // }, 5000);
-        // setIsAccBtnDisabled(false);
         console.error(" card send  error:", error);
       });
   };

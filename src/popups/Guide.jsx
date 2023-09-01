@@ -63,284 +63,424 @@ const Guide = (props) => {
             {tabs.howToPlay ? (
               selectedLanguage === 0 ? (
                 <div className="tab1-content">
+                  <h4>Basketball Swish</h4>
                   <div style={{ paddingLeft: "4vw" }}>
                     <ul>
                       <li>
                         For every{" "}
                         <span className="yellow-text"> 25,000 beans </span>
-                        spent by the user, he/she will get 1 chance.
+                        spent on event gifts, you will get{" "}
+                        <span className="yellow-text">one</span> chance.
                       </li>
                       <li>
-                        6 basketball nets will be there, all you need to do is
-                        click on the throw button, to throw the basketball in
-                        the net
-                      </li>
-                      <li style={{ fontStyle: "bold" }}>
-                        You all can type upto{" "}
-                        <span className="yellow-text">x99</span> chances. By
-                        default, <span className="yellow-text">1 chance</span>{" "}
-                        would be there.
+                        To start playing, you need to tap on the{" "}
+                        <span className="yellow-text">THROW</span> button.
                       </li>
                       <li>
-                        If more than 1 chance is used, animation would be played
-                        once, but the system will calculate the number of
-                        rewards you would receive according to the number of
-                        chances used to play the game.
+                        You can use multiple chances at once (
+                        <span className="yellow-text">99</span> chances) to
+                        collect the rewards.
+                      </li>
+                    </ul>
+                  </div>
+                  <h4>Field Goal Milestones:</h4>
+                  <div style={{ paddingLeft: "4vw" }}>
+                    <ul>
+                      <li>
+                        Each
+                        <span className="yellow-text"> successful</span> attempt
+                        will be counted towards these milestones.
                       </li>
                       <li>
-                        Each successful attempt will be counted towards the
-                        milestones, also extra reward would be given for
-                        reaching the milestone.
+                        Your <span className="yellow-text">failed</span> attempt
+                        will not be counted towards these milestones.
                       </li>
                       <li>
-                        Your failed attempts will not be counted towards the
-                        milestones
+                        You will get
+                        <span className="yellow-text">extra rewards </span>
+                        for reaching these milestones.
                       </li>
                       <li>
-                        If there is a situation where scores are equal, then
-                        most successful attempts in less time will be taken into
-                        consideration and then your{" "}
-                        <span className="yellow-text">XP</span> level will also
-                        be taken into consideration.
+                        <span className="yellow-text">
+                          If a situation arises where the scores are still
+                          equal, then the most successful attempts in less time
+                          will be taken into consideration, and your XP level
+                          will also be taken into consideration.
+                        </span>
                       </li>
                       <li>
-                        Top 3 users with most successful attempts will receive
-                        Beans rewards.
-                      </li>
-                      <li>
-                        Users have to attempt a minimum{" "}
-                        <span className="yellow-text">1000</span> successful
-                        attempts or more to win a bean reward.
-                      </li>
-                      <li>
-                        Amongst the TOP 3 eligible users, the beans will be
-                        distributed in the ratio of the beans spent by them in
-                        the whole event.
+                        The
+                        <span className="yellow-text"> top 3 </span>
+                        users with the most successful attempts will receive
+                        beans.
                       </li>
                     </ul>
                   </div>
                   <div className="growthAcceleration">
-                    <h4>GROWTH ACCELERATION</h4>
+                    <h4>What is Growth Acceleration?</h4>
                     <div style={{ paddingLeft: "4vw" }}>
-                      <ul>
-                        <li style={{ marginTop: "1vw" }}>
-                          You can collect the acceleration card by playing the
-                          game.
-                        </li>
-                        <li>
-                          When you receive an acceleration card, you need to
-                          send it to the talent.
-                        </li>
-                        <li>
-                          When talent receives this card, the acceleration rate
-                          will be increased by{" "}
-                          <span className="yellow-text">1X</span> than the
-                          existing rate. For example, if talent’s existing rate
-                          is <span className="yellow-text">1X</span> , it will
-                          be increased to{" "}
-                          <span className="yellow-text">2X</span>.
-                        </li>
-                        <li>
-                          If any Talent ID will receive multiple ACCELERATION
-                          CARDS from multiple users, no effect will take place.
-                        </li>
-                        <li>
-                          To send the{" "}
-                          <span className="yellow-text">ACCELERATION CARD</span>{" "}
-                          to your favourite talent, visit the GROWTH
-                          ACCELERATION tab.
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="forTalents">
-                    <h4>FOR TALENTS</h4>
-                    <div style={{ paddingLeft: "4vw" }}>
-                      <ul>
-                        <li>
-                          {" "}
-                          For<span className="yellow-text">
-                            {" "}
-                            100 beans
-                          </span>{" "}
-                          received by the talents through event gifts, talent
-                          will receive{" "}
-                          <span className="yellow-text">1 ENERGY</span> point.
-                        </li>
-                        <li>
-                          Tokens will be credited to the talent’s account after
-                          completion of tasks. Talents need to collect tokens by
-                          completing the tasks given daily on{" "}
-                          <span className="yellow-text">
-                            GROWTH ACCELERATION TAB.
-                          </span>
-                        </li>
-                        <li>
-                          These tokens will be considered for growth
-                          acceleration
-                        </li>
-                      </ul>
+                      When talents acquire the required tokens by doing the
+                      tasks, their Energy Points on the webpage will be
+                      multiplied as and when they receive gifts through event
+                      gifts post-acceleration.
                       <div className="accTable">
                         <table>
                           <thead>
-                            <th>TOKENS REQUIRED</th>
-                            <th>ACCELERATION RATE</th>
+                            <th>Sr</th>
+                            <th>Task</th>
+                            <th>Tokens</th>
+                          </thead>
+                          <tr>
+                            <td>1</td>
+                            <td className="t-left">Win 2X PK daily</td>
+                            <td>50</td>
+                          </tr>
+
+                          <tr>
+                            <td>2</td>
+                            <td className="t-left">
+                              Receive at least 10k beans through event gift
+                            </td>
+                            <td>50</td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div className="accTable mt">
+                        <table>
+                          <thead>
+                            <th>Tokens required</th>
+                            <th>Minimum days required to collect</th>
+                            <th>Acceleration Rate</th>
                           </thead>
                           <tr>
                             <td>200</td>
+                            <td>2nd Day</td>
                             <td>1.2x</td>
                           </tr>
                           <tr>
                             <td>400</td>
+                            <td>4th Day</td>
                             <td>1.5x</td>
                           </tr>
                           <tr>
                             <td>800</td>
+                            <td>8th Day</td>
                             <td>2x</td>
                           </tr>
                         </table>
                       </div>
+                    </div>
+                    <h4 className="mt">Growth Acceleration Card:</h4>
+                    <div style={{ paddingLeft: "4vw" }}>
+                      <ul>
+                        <li>
+                          You will get a free Acceleration Card which can be
+                          sent to only 1 talent ID at a time during the event
+                          tenure.
+                        </li>
+                        <li>
+                          If any user ID receives multiple acceleration cards,
+                          then you need to send it to a different talent ID.
+                        </li>
+                        <li>
+                          If any talent ID receives multiple Acceleration Cards
+                          from multiple users, no effect will take place.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <h4>What is the effect of an Acceleration card?</h4>
+                    <div style={{ paddingLeft: "4vw" }}>
+                      <ul>
+                        <li>
+                          When you receive an acceleration card, he needs to
+                          send it to the talent.
+                        </li>
+                        <li>
+                          When talent receives this card, the acceleration rate
+                          will be increased by 1x than the existing rate. That
+                          means,{" "}
+                          <span className="yellow-text">
+                            if talent's existing rate is 1x, it will be
+                            increased to 2x, if it's at 1.2x, it will be
+                            increased to 2.2x, if it's at 1.5x, it will be
+                            increased to 2.5x & if it's already at 2x, it will
+                            be set at 3x.
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <h4>
+                      How to send the Growth Acceleration Card to the talent?
+                    </h4>
+                    <div style={{ paddingLeft: "4vw" }}>
+                      <ul>
+                        <li>
+                          On the webpage, there will be a search button, where
+                          the talent needs to enter the Talent ID and search.
+                        </li>
+                        <li>
+                          Once the talent ID appears, there will be an
+                          <span className="yellow-texg">"Accelerate"</span>
+                          button. When a user clicks on this button, the
+                          talent’s account will be credited with the new
+                          acceleration rate.
+                        </li>
+                        <li>
+                          If the talent ID has already received one card in the
+                          past, the search result will say
+                          <span className="yellow-text">
+                            "NOT ELIGIBLE FOR THIS CARD".
+                          </span>
+                        </li>
+                        <li>
+                          If you receive a card by playing the game, it is
+                          mandatory to send it to another ID. You cannot send
+                          the card to yourself.
+                        </li>
+                        <li>
+                          Therefore, this will not affect the existing
+                          acceleration rate of that user ID, as for the
+                          acceleration rate to be affected, it must be received
+                          from a different ID.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="forTalents">
+                    <h4>Talent Leaderboard</h4>
+                    <div style={{ paddingLeft: "4vw" }}>
+                      <ul>
+                        <li>
+                          For every 100 beans received by talents through event
+                          gifts, they will receive 1 Energy Point.
+                        </li>
+                        <li>
+                          Talent needs to do the tasks daily to accelerate the
+                          Energy Point on the Leaderboard.
+                        </li>
+                        <li>
+                          By doing the tasks, talents will receive the
+                          respective tokens.
+                        </li>
+                        <li>
+                          These tokens will be considered for Growth
+                          Acceleration.
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
               ) : (
                 <div className="tab1-content">
+                  <h4>Basketball Swish</h4>
                   <div style={{ paddingLeft: "4vw" }}>
                     <ul>
                       <li>
-                        <span className="yellow-text">25,000 beans </span> event
-                        gifts pe spend karne par{" "}
-                        <span className="yellow-text"> 1 throwing chance </span>
-                        milega.
+                        <span className="yellow-text">25,000 beans</span> beans
+                        event gifts par spend karne par aapko khelne ka
+                        <span className="yellow-text">ek</span>
+                        mauka milega.
                       </li>
                       <li>
-                        <span className="yellow-text">6 basketball nets </span>
-                        honge jisme ball throw karne ke liye aapko THROW par
-                        click karna hoga.
-                      </li>
-                      <li style={{ fontStyle: "bold" }}>
-                        Default setting me{" "}
-                        <span className="yellow-text">1 chance</span>{" "}
-                        pre-selected hoga. Aap multiple chances type karke khel
-                        sakte hain{" "}
-                        <span className="yellow-text">(upto x99 chances)</span>
+                        Khel karne ke liye, aapko
+                        <span className="yellow-text">THROW</span>
+                        button pe tap karna hoga.
                       </li>
                       <li>
-                        Har successful attempt milestones ki taraf count kia
-                        jayega.
+                        Aap multiple chances use kar sakte ho (
+                        <span className="yellow-text">99</span> chances) rewards
+                        collect karne ke liye.
+                      </li>
+                    </ul>
+                  </div>
+                  <h4>Field Goal Milestones:</h4>
+                  <div style={{ paddingLeft: "4vw" }}>
+                    <ul>
+                      <li>
+                        Apke
+                        <span className="yellow-text"> Successful</span>
+                        attempts ko milestones mein gina jayega.
                       </li>
                       <li>
-                        Failed attempt milestone ki taraf nahi gina jayega.
+                        Aapke
+                        <span className="yellow-text"> failed</span>
+                        attempt ko mein nahi gina jayega.
                       </li>
                       <li>
-                        Aap extra rewards jeet sakte hain{" "}
-                        <span className="yellow-text">MILESTONES</span> achieve
-                        karke.
+                        Aapko
+                        <span className="yellow-text"> extra rewards</span>
+                        milenge alag alag milestones par pahuchne par
                       </li>
                       <li>
-                        Agar Aesi koi situation aati hai jahaan scores equal hai
-                        toh Pehle, jisne kam time mein zyada successful attempts
-                        complete kiye hai unhe consider kia jayega, aur baadme
-                        user ka XP level consider kia jaayega.
+                        <span className="yellow-text">
+                          Agar koi aisa situation aata hai, jahaan scores
+                          barabar ke hai, jisne kam time mein zyada successful
+                          attempts complete kiye hai unhe consider kiya jayega,
+                          aur baadme user ka XP level ko consider kiya jayega.
+                        </span>
                       </li>
                       <li>
-                        <span className="yellow-text">Top 3 </span> users jinke
-                        sabse zyada successful attempts hai unhe beans rewards
-                        diye jayenge.
-                      </li>
-                      <li>
-                        Users ko beans reward tabhi milega jab woh minimum{" "}
-                        <span className="yellow-tex">1000</span>
-                        successful attempts ya usse zyada successful attempts
-                        complete karenge .
-                      </li>
-                      <li>
-                        <span className="yellow-text">Top 3 </span>
-                        eligible users mein beans rewards distribute kiye
-                        jayenge, unke pure event mai kiye gaye beans spending ke
-                        ratio mai.
+                        <span className="yellow-text">Top 3</span>
+                        users jinke sabse zyada successful attempts hai woh
+                        beans receive karege.
                       </li>
                     </ul>
                   </div>
                   <div className="growthAcceleration">
-                    <h4>GROWTH ACCELERATION</h4>
+                    <h4>Growth Acceleration kya hai?</h4>
                     <div style={{ paddingLeft: "4vw" }}>
-                      <ul>
-                        <li style={{ marginTop: "1vw" }}>
-                          Aapko acceleration cards game khel ke collect kana
-                          hai.
-                        </li>
-                        <li>
-                          Jabhi aap acceleration card collect karoge, aapko yeh
-                          acceleration card talent ko send karna padega.
-                        </li>
-                        <li>
-                          Jab talents yeh card receive karenge toh unka
-                          acceleration rate{" "}
-                          <span className="yellow-text">1X</span> se increase
-                          hoga existing rate se. EXAMPLE: Agar talent ka
-                          existing acceleration rate
-                          <span className="yellow-text">1X</span> hai toh woh
-                          badhke <span className="yellow-text">2X</span>.
-                          hojayega ye card receive karne pe.
-                        </li>
-                        <li>
-                          Agar koi talent multiple{" "}
-                          <span className="yellow-text">
-                            ACCELERATION CARDS
-                          </span>{" "}
-                          receive karega, toh card ka koi effect nahi hoga.
-                        </li>
-                        <li>
-                          Growth acceleration ko send karne apko{" "}
-                          <span className="yellow-text">
-                            GROWTH ACCELERATION TAB
-                          </span>{" "}
-                          visit karna hoga.
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="forTalents">
-                    <h4>FOR TALENTS</h4>
-                    <div style={{ paddingLeft: "4vw" }}>
-                      <ul>
-                        <li>
-                          Har <span className="yellow-text">100 Beans</span>{" "}
-                          receive karnepe talents ko{" "}
-                          <span className="yellow-text">1 energy point</span>{" "}
-                          milega jo Leaderboard me use hoga. Leaderboard ENERGY
-                          POINTS ke basis par arrange hoga..
-                        </li>
-                        <li>
-                          Talents ko DAILY TASKS roz complete karke Tokens
-                          collect karne hain.
-                        </li>
-                        <li>
-                          Yeh tokens growth acceleration ke liye consider kiye
-                          jayenge.
-                        </li>
-                      </ul>
+                      Jab talents required tokens acquire karte hai tasks karke,
+                      unke Energy Points webpage pe multiply honge jab woh gifts
+                      receive karege event gifts ke through post-acceleration ke
+                      baad.
                       <div className="accTable">
                         <table>
                           <thead>
-                            <th>TOKENS REQUIRED</th>
-                            <th>ACCELERATION RATE</th>
+                            <th>Sr</th>
+                            <th>Task</th>
+                            <th>Tokens</th>
+                          </thead>
+                          <tr>
+                            <td>1</td>
+                            <td className="t-left">Win 2X PK daily</td>
+                            <td>50</td>
+                          </tr>
+
+                          <tr>
+                            <td>2</td>
+                            <td className="t-left">
+                              Receive at least 10k beans through event gift
+                            </td>
+                            <td>50</td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div className="accTable mt">
+                        <table>
+                          <thead>
+                            <th>Tokens required</th>
+                            <th>Minimum days required to collect</th>
+                            <th>Acceleration Rate</th>
                           </thead>
                           <tr>
                             <td>200</td>
+                            <td>2nd Day</td>
                             <td>1.2x</td>
                           </tr>
                           <tr>
                             <td>400</td>
+                            <td>4th Day</td>
                             <td>1.5x</td>
                           </tr>
                           <tr>
                             <td>800</td>
+                            <td>8th Day</td>
                             <td>2x</td>
                           </tr>
                         </table>
                       </div>
+                    </div>
+                    <h4 className="mt">Growth Acceleration Card:</h4>
+                    <div style={{ paddingLeft: "4vw" }}>
+                      <ul>
+                        <li>
+                          Aapko free Acceleration Card milega jo aap kisi bhi
+                          talent ID ko bhej sakte ho.
+                        </li>
+                        <li>
+                          Agar koi user ID multiple Acceleration Cards receive
+                          karte hai, toh Cards ko alag alag talent ID ko bhejna
+                          hoga.
+                        </li>
+                        <li>
+                          Agar talent ID multiple Acceleration Cards receive
+                          karte hai multiple users se, uska koi effect nahi
+                          hoga. Ek Talent ID sirf ek Card receive kar sakta hai
+                        </li>
+                      </ul>
+                    </div>
+
+                    <h4>Growth Acceleration ka effect kya hai?</h4>
+                    <div style={{ paddingLeft: "4vw" }}>
+                      <ul>
+                        <li>
+                          Jab aap acceleration card receive karoge, toh aapko
+                          yeh talent ko bhejna hoga.
+                        </li>
+                        <li>
+                          Jab talent yeh card receive karenge, unka acceleration
+                          rate 1x se badhega existing rate se. Iska matlab,
+                          <span className="yellow-text">
+                            agar talent ka existing rate 1x hai toh woh increase
+                            hokar 2x hoga. Agar woh 1.2x pe hai toh woh increase
+                            hokar 2.2x hoga. Agar woh 1.5x hai toh woh increase
+                            hokar 2.5x hoga. Aur agar pehle se hi woh 2x hai,
+                            toh woh 3x pe set hojayega.
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <h4>Growth Acceleration card talent ko kaise bheje?</h4>
+                    <div style={{ paddingLeft: "4vw" }}>
+                      <ul>
+                        <li>
+                          Webpage pe search button hoga, jahaan par talents ka,
+                          talent ID enter karna hoga aur search karna hoga.
+                        </li>
+                        <li>
+                          Jab talent ID appear hoga, wahan par
+                          <span className="yellow-text">“Accelerate”</span>
+                          button hoga. Jab aap yeh button par click karenge, tab
+                          talent’s account ko credit kiya jayega naye
+                          acceleration rate se.
+                        </li>
+                        <li>
+                          Agar talent ID ne pehle se ek card receive kiya hai
+                          past mein, tab search result show karega
+                          <span className="yellow-text">
+                            "NOT ELIGIBLE FOR THIS CARD".
+                          </span>
+                        </li>
+                        <li>
+                          Aapne jo card receive kiya hai game khel ke, mandatory
+                          hai dusre ID ko bhejna. Aap khudko card nahi bhej
+                          sakta.
+                        </li>
+                        <li>
+                          Therefore, yeh existing acceleration rate woh user ID
+                          ko affect nahi karega, acceleration rate ko affect
+                          karne ke liye, acceleration card dusre ID se receive
+                          hona chahiye.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="forTalents">
+                    <h4>Talent Leaderboard</h4>
+                    <div style={{ paddingLeft: "4vw" }}>
+                      <ul>
+                        <li>
+                          Harr 100 beans jo talents ne receive kiye hai event
+                          gifts se, unko 1 Energy Point milenge.
+                        </li>
+                        <li>
+                          Talents ko daily tasks karne honge Energy Point ko
+                          leaderboard pe accelerate karne ke liye.
+                        </li>
+                        <li>
+                          Upar mention kiye hue tasks karke, talents respective
+                          tokens receive karege.
+                        </li>
+                        <li>
+                          Inn tokens ko Acceleration rate increase karne ke liye
+                          consider kiya jayega.
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -434,7 +574,7 @@ const Guide = (props) => {
                 </Accordion>
                 {/* Overall Accordion */}
                 <Accordion
-                  title="OverAll Leaderboard"
+                  title="Overall Leaderboard"
                   toggleUserTalent={toggleUserTalent}
                   hasTabs={1}
                 >

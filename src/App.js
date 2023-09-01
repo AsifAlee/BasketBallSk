@@ -14,7 +14,6 @@ import reward3 from "./assets/images/basket03.gif";
 import reward4 from "./assets/images/basket04.gif";
 import reward5 from "./assets/images/basket05.gif";
 import reward6 from "./assets/images/basket06.gif";
-import zero from "./assets/images/reward-history-button.gif";
 import GamePopUp from "./popups/GamePopUp";
 import foreverHeader from "../src/assets/images/forever-header.gif";
 import beans from "./assets/images/bean.png";
@@ -48,20 +47,31 @@ function App() {
   const [thorwBtnOn, setThrowBtnOn] = useState(true);
   const [gameError, setGameError] = useState(false);
   const [gameMsg, setGameMsg] = useState("");
-
+  const [showCardSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [cardReciever, setCardReciever] = useState({
+    name: "",
+    id: 0,
+  });
+  const changeCardReciever = (id, name) => {
+    setCardReciever({ id: id, name: name });
+  };
+  const toggleSuccessPopup = () => {
+    setShowSuccessPopup((prevState) => !prevState);
+  };
   const [marqueeData, setMarqueeData] = useState({
     game: [],
     milestone: [],
     accelaration: [],
   });
   const [isInputZero, setIsInputZero] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({
     userId: 0,
     userToken: "",
   });
 
-  const [isPlaying, setIsPlaying] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [userInfo, setUserInfo] = useState({
     dailyTaskList: [],
     throwsLeft: 0,
@@ -73,7 +83,7 @@ function App() {
     userOverallBeansPot: 0,
     tokens: null,
     myAccRate: null,
-    dayIndex: null,
+    dayIndex: 0,
     accCardCount: 0,
   });
 
@@ -124,7 +134,7 @@ function App() {
   };
 
   const toggleTabs = (event) => {
-    switch (event.target.name) {
+    switch (event?.target?.name) {
       case "fieldGoal":
         setTabs({ fieldGoal: true, growthAcc: false, giftLeaderBoard: false });
         break;
@@ -154,7 +164,7 @@ function App() {
   //Ranking functions
   function getUserOverall() {
     fetch(
-      `${baseUrl}/api/activity/basketball/getRankInfo?userType=1&dayIndex=${userInfo.dayIndex}&type=2&sort=2&pageNum=1&pageSize=20`
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=1&type=2&sort=2&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -188,7 +198,7 @@ function App() {
 
   function getTalentOverall() {
     fetch(
-      `${baseUrl}/api/activity/basketball/getRankInfo?userType=2&dayIndex=${userInfo.dayIndex}&type=2&sort=2&pageNum=1&pageSize=20`
+      `${baseUrl}/api/activity/basketball/getRankInfo?userType=2&type=2&sort=2&pageNum=1&pageSize=20`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -234,7 +244,7 @@ function App() {
   //marquee api call
   function getMarqueeData(rankIndex) {
     fetch(
-      `${baseUrl}/api/activity/eventShow/getModulePushRankV3?eventDesc=20230523_basketball&pageIndex=1&pageCount=20&rankIndex=${rankIndex}&rankType=2`
+      `${baseUrl}/api/activity/eventShow/getModulePushRankV3?eventDesc=20230822_basketballmadness&pageIndex=1&pageCount=20&rankIndex=${rankIndex}&rankType=2`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -289,13 +299,17 @@ function App() {
             accCardCount: res?.data?.userTaskInfo?.accelerationCardCount,
           });
         } else {
-          alert(res.msg);
+          // alert(res.msg);
         }
       })
       .catch((error) => {});
   };
 
   const playGame = () => {
+    if (isDisabled) {
+      return;
+    }
+    setIsDisabled(true);
     if (!inputValue) {
       setIsInputZero(true);
       return;
@@ -323,36 +337,40 @@ function App() {
       .then((res) => {
         if (res.errorCode === 0) {
           setGameError(false);
-          setIsPlaying(1);
+          setIsPlaying(true);
           setRewardWon(res.data.firstLevel);
           setBeansWon(res.data.totalBeans);
           setTimeout(() => {
-            setIsPlaying(0);
+            setIsPlaying(false);
             setShowGamePopUp(true);
             getInfo();
             getRewardHistory();
             getMilestoneData();
             setThrowBtnOn(true);
             setInputValue(1);
-          }, 1800);
+            setIsDisabled(false);
+          }, 1600);
         } else if (res.errorCode === 11000003) {
           setGameError(true);
           setGameMsg(
             "To earn a throwing chance spend 25k beans worth event gifts and start playing. We're waiting to see you play. Come soon!"
           );
-          setIsPlaying(0);
+          setIsPlaying(false);
           setThrowBtnOn(true);
           setShowGamePopUp(true);
+          setIsDisabled(false);
         } else {
           setGameError(true);
           setGameMsg(res.msg);
-          setIsPlaying(0);
+          setIsPlaying(false);
           setThrowBtnOn(true);
           setShowGamePopUp(true);
+          setIsDisabled(false);
         }
       })
       .catch((error) => {
         console.error("error playing game");
+        setIsDisabled(false);
       });
   };
 
@@ -382,29 +400,6 @@ function App() {
     setInputValue(parseInt(event.target.value));
   };
 
-  // const onUpCheck = (e) => {
-  //   if (/[+-.]/.test(e.target.value)) {
-  //     setInputValue("");
-  //   } else if (e.target.value.includes(".")) {
-  //     setInputValue("");
-  //   } else if (e.target.value.charAt(0) === "0") {
-  //     setInputValue(e.target.value.slice(1));
-  //   } else {
-  //     let max = userInfo.throwsLeft < 99 ? userInfo.throwsLeft : 99;
-  //     let number = inputValue > max ? max : inputValue <= 0 ? "" : inputValue;
-  //     setInputValue(parseInt(number));
-  //   }
-  // };
-  // const onChangeHandle = (event) => {
-  //   if (!event.target.value) {
-  //     setIsInputZero(true);
-  //   } else {
-  //     setIsInputZero(false);
-  //   }
-
-  //   setInputValue(parseInt(event.target.value));
-  // };
-  // get user info
   useEffect(() => {
     try {
       window.phone.getUserInfo(function (userInfo) {
@@ -432,15 +427,15 @@ function App() {
     getInfo();
   }, [currentUser.userId]);
   useEffect(() => {
-    if (userInfo.dayIndex) {
-      getUserOverall();
+    if (userInfo.dayIndex > 0) {
       getUserDailyToday();
       getUserDailyYest();
-      getTalentOverall();
       getTalentDailyToday();
       getTalentDailyYest();
       getMilestoneData();
     }
+    getUserOverall();
+    getTalentOverall();
   }, [userInfo.dayIndex]);
 
   useEffect(() => {
@@ -474,6 +469,12 @@ function App() {
         getInfo: getInfo,
         milesStoneMarquee: marqueeData.milestone,
         accMarquee: marqueeData.accelaration,
+        showCardSuccessPopup,
+        toggleSuccessPopup,
+        changeCardReciever,
+        cardReciever,
+        isPlaying,
+        isDisabled,
       }}
     >
       <div className="App">
@@ -486,14 +487,16 @@ function App() {
             <button
               className="guideBtn"
               onClick={() => setShowGuide(1)}
+              disabled={isDisabled}
             ></button>
             <button
               className="rewardBtn"
               onClick={() => setShowRewardHistory(1)}
+              disabled={isDisabled}
             ></button>
           </div>
           <div className="gameMarquee">
-            <Marquee speed={100}>
+            <Marquee speed={70}>
               {marqueeData.game.map((user, index) => (
                 <div className="user-item" key={index}>
                   <img
@@ -545,7 +548,6 @@ function App() {
               )}
             </div>
           </div>
-          {/* <span className="warnText">Enter some value</span> */}
 
           <button
             className={thorwBtnOn === false ? "thrown" : "throw-btn"}
@@ -554,10 +556,6 @@ function App() {
           ></button>
           <button className="hand" style={{ pointerEvents: "none" }}></button>
           <button className="throw"></button>
-
-          {/* {!isPlaying && (
-            <img src={foreverHeader} className="jumping-character" />
-          )} */}
 
           {isPlaying
             ? rewardWon >= 0 && (
@@ -581,14 +579,28 @@ function App() {
               tabs.fieldGoal ? "tab-btn-field-goal" : "tab-btn-field-goal-off"
             }
             name="fieldGoal"
-            onClick={toggleTabs}
+            onClick={(event) => {
+              if (isDisabled === true) {
+                return;
+              } else {
+                toggleTabs(event);
+              }
+            }}
+            disabled={isDisabled}
           ></button>
           <button
             className={
               tabs.growthAcc ? "tab-btn-growth-acc" : "tab-btn-growth-acc-off"
             }
             name="growthAcc"
-            onClick={toggleTabs}
+            onClick={(event) => {
+              if (isDisabled === true) {
+                return;
+              } else {
+                toggleTabs(event);
+              }
+            }}
+            disabled={isDisabled}
           ></button>
           <button
             className={
@@ -597,7 +609,14 @@ function App() {
                 : "tab-btn-gift-leaderbrd-off"
             }
             name="leaderBrd"
-            onClick={toggleTabs}
+            onClick={(event) => {
+              if (isDisabled === true) {
+                return;
+              } else {
+                toggleTabs(event);
+              }
+            }}
+            disabled={isDisabled}
           ></button>
         </div>
         {tabs.fieldGoal ? <FieldGoalMilestone /> : ""}

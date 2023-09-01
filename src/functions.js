@@ -1,3 +1,5 @@
+import { baseUrl } from "./api";
+
 export const formatNumbers = (numberToConvert) => {
   if (numberToConvert >= 1000000) {
     return (numberToConvert / 1000000).toFixed(1) + "M";
@@ -9,8 +11,8 @@ export const formatNumbers = (numberToConvert) => {
 };
 
 export const getLevelImage = (level, isTalent) => {
-  const talentLevelUrl = "http://test.streamkar.tv/streamkar/common/img/tlv";
-  const userLevelUrl = "http://test.streamkar.tv/streamkar/common/img/ulv";
+  const talentLevelUrl = `${baseUrl}/streamkar/common/img/tlv`;
+  const userLevelUrl = `${baseUrl}/streamkar/common/img/ulv`;
   if (isTalent) {
     return `${talentLevelUrl}/${level}.png`;
   } else {

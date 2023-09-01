@@ -10,6 +10,7 @@ import iBtn from "../../assets/images/i-buttons-b.png";
 import tokenImg from "../../assets/images/token.gif";
 import Marquee from "react-fast-marquee";
 import AccMarqueeItem from "../../components/AccMarqueeItem";
+import SendCardResultPopup from "../../popups/SendCardResultPopup";
 
 export const GrowAcceleration = () => {
   const {
@@ -19,13 +20,15 @@ export const GrowAcceleration = () => {
     toggleAccInfoPopUp,
     showAccInfoPopUp,
     accMarquee,
+    showCardSuccessPopup,
+    toggleSuccessPopup,
   } = useContext(AppContext);
   const { tokens } = userInfo;
-  // const tokens = 450;
+
   return (
     <div>
       <div className="accMarquee">
-        <Marquee speed={100}>
+        <Marquee speed={70}>
           {accMarquee?.map((item, index) => (
             <AccMarqueeItem item={item} />
           ))}
@@ -96,6 +99,9 @@ export const GrowAcceleration = () => {
       </div>
       {showAccPopUp ? <SendAccelerationCard /> : ""}
       {showAccInfoPopUp ? <AccInfoPopUp /> : ""}
+      {showCardSuccessPopup && (
+        <SendCardResultPopup popUpHandler={toggleSuccessPopup} />
+      )}
     </div>
   );
 };

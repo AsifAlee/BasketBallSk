@@ -21,3 +21,20 @@ code {
   font-family: "Helvetica";
   src: local('Helvetica'),url('./assets/fonts/Helvetica-Bold-Font.ttf') format('truetype')
 }
+
+.hide{
+  visibility: hidden;
+}
+
+.mtMinu11{
+  margin-top: -11vw;
+}
+.t-center{
+  text-align: center;
+}
+.t-left{
+  text-align: left !important;
+}
+.mt{
+  margin-top: 2vw;
+}

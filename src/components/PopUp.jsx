@@ -31,13 +31,13 @@ const PopUp = (props) => {
               : isRewards
               ? "58vw"
               : isGame
-              ? "60vw"
+              ? "63vw"
               : isMilestone
-              ? "83vw"
+              ? "108vw"
               : ""
           }`,
           width: `${
-            isAccPopUp ? "85%" : isRewards ? "80%" : isMilestone ? "98%" : ""
+            isAccPopUp ? "85%" : isRewards ? "91%" : isMilestone ? "98%" : ""
           }`,
         }}
       >

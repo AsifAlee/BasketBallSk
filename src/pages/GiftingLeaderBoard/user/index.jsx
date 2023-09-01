@@ -26,7 +26,7 @@ export const UserSection = () => {
           <p className="note">Note</p>
           <ul>
             <li>
-              initally 100 beans recieved will be considered as 1 ENERGY POINT.
+              Initially 100 beans recieved will be considered as 1 ENERGY POINT.
             </li>
             <li>The conversion will change based on your acceleration rate</li>
           </ul>
